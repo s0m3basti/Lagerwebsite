@@ -1,0 +1,40 @@
+h1{
+    font-size: 150%;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline black;
+}
+h2{
+    font-size: 120%;
+    font-weight: bold;
+}
+#subhead{
+    text-align: center;
+}
+hr{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 5px;
+    color: #007C86;
+    background: #007C86;
+    display: block;
+    clear: both;
+}
+.date{
+    font-size: 80%;
+    color: gray;
+}
+.news img{
+    float: right;
+    border: 2px solid #007C86;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    display: block;
+    
+}
+li{
+    list-style-position: inside;
+}

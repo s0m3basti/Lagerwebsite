@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+    font-size: 150%;
+    text-decoration: underline black;
+    font-weight: bold;
+}
+p{
+    text-align-last: center;
+}
+img.work{
+    height: 440px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+}

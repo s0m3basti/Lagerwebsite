@@ -1,0 +1,31 @@
+
+h1{
+    text-align: center;
+    font-size: 150%;
+    text-decoration: underline black;
+    font-weight: bold;
+}
+#vb{
+    height: 300px;
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 2px solid #007C86;
+}
+#basteln{
+    height: 300px;
+    float: left;
+    margin-right: 15px;
+    border-radius: 20px;
+    border: 2px solid #007C86;
+    display: ;
+}
+#test{
+    border-radius: 20px;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,14 @@
+h1{
+    font-size:150%;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline black;
+}
+
+#title {
+    text-align: center;
+}
+
+table#Kontakt {
+    border: 2px solid black;
+}

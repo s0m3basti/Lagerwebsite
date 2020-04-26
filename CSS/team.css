@@ -1,0 +1,17 @@
+h1{
+    font-size: 150%;
+    font-weight: bold;
+    text-decoration: underline black;
+    text-align: center;
+}
+img.team{
+    width:90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 2px solid #007C86;
+}
+#beschreibung{
+    text-align: center;
+}
