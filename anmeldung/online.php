@@ -7,6 +7,13 @@
         <link rel="stylesheet" href="../CSS/online.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+        <?php
+            require '../files/datenzugriff.php';
+        ?>
+        <script>
+            const basis = <?php echo $preis?>;
+            const shirt = <?php echo $shirtpreis?>;
+        </script>
         <script defer src="files/check.js"></script>
         <script defer src="files/preis.js"></script>
 	</head>
