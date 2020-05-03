@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
         <script type="text/javascript" src="http://lagertest.de/files/active.js"></script>
-        <script type="text/javascript"> 
+        <script defer type="text/javascript"> 
             function countDown(init){
                 if (init || --document.getElementById( "counter" ).firstChild.nodeValue > 0 )
 	            window.setTimeout( "countDown()" , 1000 );
