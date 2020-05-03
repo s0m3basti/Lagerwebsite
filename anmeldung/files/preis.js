@@ -1,6 +1,3 @@
-const basis = 325;
-const shirt = 15;
-
 //die Felder aus dem Formular sind in check.js mit Konstanten Belegt
 const preis = document.getElementById('preis');
 
