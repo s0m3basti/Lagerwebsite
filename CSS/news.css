@@ -38,3 +38,16 @@ hr{
 li{
     list-style-position: inside;
 }
+
+table{
+    padding: 1%;
+    width:100%;
+}
+#left{
+    padding-right: 1%;
+    width: 70%;
+}
+#right{
+    padding-left: 1%;
+    text-align: center;
+}
