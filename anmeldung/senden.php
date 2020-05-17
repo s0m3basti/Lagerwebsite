@@ -8,14 +8,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
         <script type="text/javascript" src="http://lagertest.de/files/active.js"></script>
-        <script defer type="text/javascript"> 
+        <!--<script defer type="text/javascript"> 
             function countDown(init){
                 if (init || --document.getElementById( "counter" ).firstChild.nodeValue > 0 )
 	            window.setTimeout( "countDown()" , 1000 );
             };
  
             window.setTimeout('window.location = "http://www.lagertest.de/anmeldung"',10000);
-        </script>
+        </script>-->
 	</head>
     <body onload="countDown(true)">
         <?php
@@ -64,7 +64,7 @@
 
             //wenn keins enthalten, dann false
             function injection($input){
-                (preg_match("/;/",$eingabe)){ 
+                if(preg_match("/;/",$eingabe)){ 
                     return false;
                 }
                 else{
@@ -87,35 +87,36 @@
                 $test_injection = true;
             }
             else{
-                $test_injection = false
+                $test_injection = false;
             }
 
-            if(length($k_nachname, 100, 2)||length($k_vorname, 100, 2)||length($e_nachname, 100, 2)||length($e_vorname, 100, 2)||length($e_straße, 100, 2)||length($e_plz, 5, 5)||length($e_ort, 50, 2)||length($e_telpriv, 20, 6)||length($e_telhandy, 20, 6)||length($e_teldienstl, 20, 6)||length($e_email, 320, 3)||length($k_nachname, 100, 2)||length($stufe, 20, 0)||length($ernaehrung, 1000, 0)||length($krankheit, 1000, 0)||length($medikamente, 1000, 0)||length($versicherung, 100, 2)||){
-                $test_legth = true;
+            if(length($k_nachname, 100, 2)||length($k_vorname, 100, 2)||length($e_nachname, 100, 2)||length($e_vorname, 100, 2)||length($e_straße, 100, 2)||length($e_plz, 5, 5)||length($e_ort, 50, 2)||length($e_telpriv, 20, 6)||length($e_telhandy, 20, 6)||length($e_teldienstl, 20, 6)||length($e_email, 320, 3)||length($k_nachname, 100, 2)||length($stufe, 20, 0)||length($ernaehrung, 1000, 0)||length($krankheit, 1000, 0)||length($medikamente, 1000, 0)||length($versicherung, 100, 2)){
+                $test_length = true;
             }
             else{
-                $test_legth = false
+                $test_length = false;
             }
 
             //-------------------------
 
             require '../files/datenzugriff.php';
 
-            if($k_geschlecht == "female"){
+            if($k_geschlecht === "female"){
                 $k_geschlecht = "weiblich";
             }
-            else{
+            if($k_geschlecht === "male"){
                 $k_geschlecht = "maennlich";
             }
 
-            if($mitglied == "on"){
+
+            if($mitglied === "on"){
                 $mitglied = "ja";
             }
             else{
                 $mitglied = "nein";
             }
 
-            if($mitarbeiter == "on"){
+            if($mitarbeiter === "on"){
                 $mitarbeiter = "ja";
             }
             else{
@@ -138,7 +139,7 @@
 
             //--------------------------------------------------
 
-            if($test_injection == true || $test_legth == true){
+            if($test_injection == false || $test_length == false){
                 mail("anmeldung@lagertest.de", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <fehler@lagertest.de>");
                 require("files/eintrag_check_fail.html");
             }
@@ -214,27 +215,27 @@
                     finally{
                         $db = null;
                     }
-
-            if($mail_send_us == true && $db_send == true){
-                include('files/eintrag_erstellt.html');
+                
+                if($mail_send_us == true && $db_send == true){
+                    include('files/eintrag_erstellt.html');
+                }
+                if($mail_send_us == true && $db_send == false){
+                    include('files/eintrag_erstellt.html');
+                    mail("anmeldung@lagertest.de","Mail angekommen, aber nicht in Datenbank","Die Anmeldung von $k_vorname $k_nachname, mit der ID $id, ist nur als Mail eingegangen. <br/> Bei der Verarbeitung der Datenbank gab es einen Fehler <br/> Fehlercode: <br/> $fehler","Anmeldungsfehler <fehler@lagertest.de>");
+                }
+                if($mail_send_us == false && $db_send == true){
+                    include('files/eintrag_erstellt.html');
+                    mail("anmeldung@lagertest.de", "Anmeldung in Datenbank, aber nicht als Mail", "Die Anmeldung von $k_vorname $k_nachname, mit der $id, ist nur in der Datenbank vorhanden und nicht als separate Mail.", "Anmeldungsfehler <fehler@lagertest.de>" );
+                }
+                if($mail_send_us == false && $db_send == false){
+                    include('files/eintrag_fehler.html');
+                    mail("anmeldung@lagertest.de", "Fehler bei der Anmeldung", "Die Anmeldung von $k_nachname $k_nachname kam nicht als Mail oder Datenbankeintrag an. <br/> Fehlercode: <br/> $fehler", "Anmeldungsfehler <fehler@lagertest.de>");
+                }
+                if($mail_send_user == false){
+                    echo("Beim senden der E-Mail an sie ist ein Fehler aufgetreten. Diese Meldung ist auch bei uns eingegangen. <br/> Senden sie uns bitte eine Mail an kontakt@lagertest.de mit dem Vor- und Nachname ihres Kindes. </br>");
+                    mail("anmeldung@lagertest.de", "Fehler beim senden der Mail an User", "Die Anmeldung von $k_vorname $k_nachname wurde nicht an die Angegebene Mail weitergeleitet. <br/> Im besten Fall meldet sich der User bei uns, er hat eine Meldung erhalten, wenn nicht müssten wir Kontakt  aufnehmen.", "Anmeldungsfehler <fehler@lagertest.de>");
+                }
             }
-            if($mail_send_us == true && $db_send == false){
-                include('files/eintrag_erstellt.html');
-                mail("anmeldung@lagertest.de","Mail angekommen, aber nicht in Datenbank","Die Anmeldung von $k_vorname $k_nachname, mit der ID $id, ist nur als Mail eingegangen. <br/> Bei der Verarbeitung der Datenbank gab es einen Fehler <br/> Fehlercode: <br/> $fehler","Anmeldungsfehler <fehler@lagertest.de>");
-            }
-            if($mail_send_us == false && $db_send == true){
-                include('files/eintrag_erstellt.html');
-                mail("anmeldung@lagertest.de", "Anmeldung in Datenbank, aber nicht als Mail", "Die Anmeldung von $k_vorname $k_nachname, mit der $id, ist nur in der Datenbank vorhanden und nicht als separate Mail.", "Anmeldungsfehler <fehler@lagertest.de>" );
-            }
-            if($mail_send_us == false && $db_send == false){
-                include('files/eintrag_fehler.html');
-                mail("anmeldung@lagertest.de", "Fehler bei der Anmeldung", "Die Anmeldung von $k_nachname $k_nachname kam nicht als Mail oder Datenbankeintrag an. <br/> Fehlercode: <br/> $fehler", "Anmeldungsfehler <fehler@lagertest.de>");
-            }
-            if($mail_send_user == false){
-                echo("Beim senden der E-Mail an sie ist ein Fehler aufgetreten. Diese Meldung ist auch bei uns eingegangen. <br/> Senden sie uns bitte eine Mail an kontakt@lagertest.de mit dem Vor- und Nachname ihres Kindes. </br>");
-                mail("anmeldung@lagertest.de", "Fehler beim senden der Mail an User", "Die Anmeldung von $k_vorname $k_nachname wurde nicht an die Angegebene Mail weitergeleitet. <br/> Im besten Fall meldet sich der User bei uns, er hat eine Meldung erhalten, wenn nicht müssten wir Kontakt  aufnehmen.", "Anmeldungsfehler <fehler@lagertest.de>");
-            }
-            
         ?>
 
         </div>
