@@ -68,14 +68,14 @@
                     return false;
                 }
                 else{
-                    echo("</br>Die Funktion injection hat bei $input angeschlagen! </br>");
+                    //echo("</br>Die Funktion injection hat bei $input angeschlagen! </br>");
                     return true;
                 }
             }
 
             function length($input, $max_length, $min_length){
                 if(strlen($input)>$max_length ||  strlen($input)<$min_length){
-                    echo("</br>Die Funktion length hat bei $input angeschlagen! </br>");
+                    //echo("</br>Die Funktion length hat bei $input angeschlagen! </br>");
                     return true;   
                 }
                 else{
@@ -99,10 +99,10 @@
                 $test_length = false;
             }
             
-            $test = preg_match("/;/","Halllo;;");
-            echo($test);
-            echo("Das ist die Injection: $test_injection </br>");
-            echo("Das ist die Länge: $test_length </br>");
+            //$test = preg_match("/;/","Halllo;;");
+            //echo($test);
+            //echo("Das ist die Injection: $test_injection </br>");
+            //echo("Das ist die Länge: $test_length </br>");
 
             //-------------------------
 
