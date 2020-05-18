@@ -64,17 +64,19 @@
 
             //wenn keins enthalten, dann false
             function injection($input){
-                if(preg_match("/;/",$eingabe)){ 
+                if(preg_match("/;/",$eingabe) == 0){ 
                     return false;
                 }
                 else{
+                    echo("</br>Die Funktion injection hat bei $input angeschlagen! </br>");
                     return true;
                 }
             }
 
             function length($input, $max_length, $min_length){
                 if(strlen($input)>$max_length ||  strlen($input)<$min_length){
-                    return true;
+                    echo("</br>Die Funktion length hat bei $input angeschlagen! </br>");
+                    return true;   
                 }
                 else{
                     return false;
@@ -90,12 +92,17 @@
                 $test_injection = false;
             }
 
-            if(length($k_nachname, 100, 2)||length($k_vorname, 100, 2)||length($e_nachname, 100, 2)||length($e_vorname, 100, 2)||length($e_straße, 100, 2)||length($e_plz, 5, 5)||length($e_ort, 50, 2)||length($e_telpriv, 20, 6)||length($e_telhandy, 20, 6)||length($e_teldienstl, 20, 6)||length($e_email, 320, 3)||length($k_nachname, 100, 2)||length($stufe, 20, 0)||length($ernaehrung, 1000, 0)||length($krankheit, 1000, 0)||length($medikamente, 1000, 0)||length($versicherung, 100, 2)){
+            if(length($k_nachname, 100, 2)||length($k_vorname, 100, 2)||length($e_nachname, 100, 2)||length($e_vorname, 100, 2)||length($e_straße, 100, 2)||length($e_plz, 5, 5)||length($e_ort, 50, 2)||length($e_telpriv, 20, 0)||length($e_telhandy, 20, 0)||length($e_teldienstl, 20, 0)||length($e_email, 320, 3)||length($stufe, 20, 0)||length($ernaehrung, 1000, 0)||length($krankheit, 1000, 0)||length($medikamente, 1000, 0)||length($versicherung, 100, 2)){
                 $test_length = true;
             }
             else{
                 $test_length = false;
             }
+            
+            $test = preg_match("/;/","Halllo;;");
+            echo($test);
+            echo("Das ist die Injection: $test_injection </br>");
+            echo("Das ist die Länge: $test_length </br>");
 
             //-------------------------
 
@@ -139,7 +146,7 @@
 
             //--------------------------------------------------
 
-            if($test_injection == false || $test_length == false){
+            if($test_injection == true || $test_length == true){
                 mail("anmeldung@lagertest.de", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <fehler@lagertest.de>");
                 require("files/eintrag_check_fail.html");
             }

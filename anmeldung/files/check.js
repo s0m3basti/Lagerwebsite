@@ -46,7 +46,7 @@
     const regExort = new RegExp("[a-zA-ZäöüÄÖÜ\\- ]*$");
     const regExtel = new RegExp("[0-9\\/\\+\\- ]*$");
     const regExemail = new RegExp ("^[a-zA-Z0-9.\\-]{1,64}@[a-zA-Z0-9.\\-]{1,255}.[a-zA-Z]{2,}$");
-    const regExtext = new RegExp("[a-zA-Z0-9äöüÄÖÜ.,\\/\\(\\)\\- ]*$");
+    const regExtext = new RegExp("[a-zA-Z0-9äöüÄÖÜ.,!?:\\/\\(\\)\\- ]*$");
     
 
     kind_name.onblur = function(){
