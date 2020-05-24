@@ -5,5 +5,6 @@
     $jahr = fgets($datei);
     $preis = fgets($datei);
     $shirtpreis = fgets($datei);
+    $status = fgets($datei);
     fclose($datei);
 ?>
