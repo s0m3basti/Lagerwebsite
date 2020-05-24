@@ -79,7 +79,7 @@ p{
     text-decoration: none;
     transition: 0.4s;
     position: absolute;
-    top: 70%;
+    bottom: 20px;
     left: 20px;
 }
 .button:hover{
@@ -94,6 +94,7 @@ input{
     padding: 8px;
     border: 1px solid grey;
     border-radius: 5px;
+    padding-bottom: -5px;
 }
 .button_submit{
     background-color: #303030;
@@ -102,9 +103,23 @@ input{
     border-radius: 5px;
     text-decoration: none;
     transition: 0.4s;
+    display: inline-block;
 }
 .button_submit:hover{
     background-color: white;
     color: #303030;
     border: 2px solid #007C86;
+}
+
+.subhead{
+    font-size: 50%;
+    color: grey;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.link{
+    font-size: 100%;
+    text-decoration: underline;
+    color: blue;
 }
