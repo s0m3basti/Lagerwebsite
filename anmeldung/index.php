@@ -4,7 +4,8 @@
     if($_GET['mail'] == 1){
         require("../Datenbank/writer.php");
 
-        $date = date("YYYY-mm-dd HH:ii");
+        $date = date("Y-m-d H:i");
+        echo $date;
         $mail = $_POST['email'];
 
         try{
