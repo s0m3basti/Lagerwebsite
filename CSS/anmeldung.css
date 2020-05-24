@@ -104,6 +104,7 @@ input{
     text-decoration: none;
     transition: 0.4s;
     display: inline-block;
+    width: auto;
 }
 .button_submit:hover{
     background-color: white;

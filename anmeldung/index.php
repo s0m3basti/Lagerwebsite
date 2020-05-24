@@ -1,15 +1,35 @@
 <?php
     include '../files/datenzugriff.php';
 
-    //echo $status;
+    if($_GET['mail'] == 1){
+        require("../Datenbank/writer.php");
 
-    if($status != "anmeldung"){
-        if($status == "voranmeldung"){
-            //Trigger voranmeldung 
+        $date = date("YYYY-mm-dd HH:ii");
+        $mail = $_POST['email'];
+
+        try{
+            $db = new PDO("$host; $name" ,$user,$pass);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $sql = "INSERT INTO voranmeldung (email, date) 
+                    VALUES(:email, :date)";
+
+            $statement = $db->prepare($sql);
+            $statement->bindValue(':email',$mail);
+            $statement->bindValue(':date',$date);
+            $statement->execute();
+
+            $message = "Ihr E-Mail-Adresse wurde erfasst. Wir melden uns bei ihnen.";
         }
-        else{
-            //Trigger nichtAnmeldung
+        catch(PDOException $e){
+            $fehler = $e->getMessage();
+            $message = "Es ist ein Fehler aufgetreten. </br> $fehler";
         }
+        finally{
+            $db = null;
+        }
+        
+
     }
 ?>
 
