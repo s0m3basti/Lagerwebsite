@@ -2,6 +2,17 @@
      session_start();
     require("Datenbank/writer.php");
 
+    if($_GET['er'] == 1){
+        $errorMessage = "Sie müssen sich zuerst anmelden!";
+    }
+
+    if($_GET['logout'] == 1){
+        session_start();
+        session_destroy();
+ 
+        $errorMessage = "Logout Erfolgreich";
+    }
+
     if(isset($_GET['login'])){
         $bn = $_POST['bn'];
         $pw = $_POST['pw'];

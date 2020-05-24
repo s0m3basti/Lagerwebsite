@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION['userid'])) {
+    header("Location: ../login.php?er=1");
+}
+ 
+//Abfrage der Nutzer ID vom Login
+$userid = $_SESSION['userid'];
+ 
+echo "Hallo User: ".$userid;
+?>
+
 <!DOCTYPE HTML>
 <head>
     <title> Verwaltung | DRK Sommercamp </title>
