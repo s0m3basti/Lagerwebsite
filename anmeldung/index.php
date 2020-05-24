@@ -1,3 +1,16 @@
+<?php
+    include '../files/datenzugriff.php';
+
+    if($status != "anmeldung"){
+        if($status == "voranmeldung"){
+            //Trigger voranmeldung 
+        }
+        else{
+            //Trigger nichtAnmeldung
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="de">
     <head>
@@ -14,7 +27,6 @@
         <!-- Header einfügen-->
         <?php
             include '../files/head.html';
-            include '../files/datenzugriff.php';
         ?>
     <div class="bg">
         <div id="Inhalt">

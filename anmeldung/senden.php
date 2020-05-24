@@ -1,3 +1,11 @@
+<?php
+    include '../files/datenzugriff.php';
+
+    if($status != "anmeldung"){
+        header("Location: index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="de">
     <head>
