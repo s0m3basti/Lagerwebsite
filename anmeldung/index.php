@@ -5,32 +5,74 @@
         require("../Datenbank/writer.php");
 
         $date = date("Y-m-d H:i");
-        echo $date;
         $mail = $_POST['email'];
-
-        try{
-            $db = new PDO("$host; $name" ,$user,$pass);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $sql = "INSERT INTO voranmeldung (email, date) 
-                    VALUES(:email, :date)";
-
-            $statement = $db->prepare($sql);
-            $statement->bindValue(':email',$mail);
-            $statement->bindValue(':date',$date);
-            $statement->execute();
-
-            $message = "Ihr E-Mail-Adresse wurde erfasst. Wir melden uns bei ihnen.";
-        }
-        catch(PDOException $e){
-            $fehler = $e->getMessage();
-            $message = "Es ist ein Fehler aufgetreten. </br> $fehler";
-        }
-        finally{
-            $db = null;
-        }
         
+        function injection($input){
+            if(preg_match("/;/",$eingabe) == 0){ 
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
 
+        function length($input, $max_length, $min_length){
+            if(strlen($input)>$max_length ||  strlen($input)<$min_length){
+                return true;   
+            }
+            else{
+                return false;
+            }
+        }
+
+        if(injection($mail) && length($mail, 299, 4)){
+            $message = "Bei ihrer Eingabe ist ein Fehler aufgetreten, bitte versuchen sie es mit einer anderen E-Mail-Adresse erneut.";
+        }
+        else{
+            try{
+                $db = new PDO("$host; $name" ,$user,$pass);
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $sql = "SELECT * FROM voranmeldung WHERE email='$mail'";
+
+                foreach ($db->query($sql) as $row);
+                $mail_db = $row['email'];
+            }
+            catch(PDOException $e){
+                $fehler = $e->getMessage();
+            }
+            finally{
+                $db = null;
+            }
+
+
+            if($mail == $mail_db){
+                $message = "Ihre E-Mail-Adresse wurde bereits erfasst und sie werden informiert.";
+            }
+            else{
+                try{
+                    $db = new PDO("$host; $name" ,$user,$pass);
+                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    $sql = "INSERT INTO voranmeldung (email, date) 
+                            VALUES(:email, :date)";
+
+                    $statement = $db->prepare($sql);
+                    $statement->bindValue(':email',$mail);
+                    $statement->bindValue(':date',$date);
+                    $statement->execute();
+
+                    $message = "Ihr E-Mail-Adresse wurde erfasst. Wir melden uns bei ihnen.";
+                }
+                catch(PDOException $e){
+                    $fehler = $e->getMessage();
+                    $message = "Es ist ein Fehler aufgetreten. </br> $fehler";
+                }
+                finally{
+                    $db = null;
+                }
+            }
+        }
     }
 ?>
 
