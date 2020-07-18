@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
+        <?php
+            include 'files/linkmaker.php';
+        ?>
 		<title> Impressum | DRK Sommercamp </title>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
@@ -13,7 +16,7 @@
     <body>
         <!-- Header einfügen-->
         <?php
-            include 'files/head.html';
+            include 'files/head.php';
         ?>
         <div class="bg">   
         <div id="Inhalt">
@@ -64,7 +67,7 @@
     </div>
         <!-- Footer einfügen -->
         <?php
-            include 'files/footer.html';
+            include 'files/footer.php';
         ?>
     </body>
 </html>

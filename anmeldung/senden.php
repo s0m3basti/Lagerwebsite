@@ -1,5 +1,6 @@
 <?php
     include '../files/datenzugriff.php';
+    include '..files/linkmaker.php'
 
     if($status != "anmeldung"){
         header("Location: index.php");
@@ -27,7 +28,7 @@
 	</head>
     <body onload="countDown(true)">
         <?php
-            include '../files/head.html';
+            include '../files/head.php';
         ?>
         <div class="bg">
         <div id="Inhalt">
@@ -256,7 +257,7 @@
         </div>
         </div>
         <?php
-         include '../files/footer.html';
+         include '../files/footer.php';
         ?>
     </body>
 </html>

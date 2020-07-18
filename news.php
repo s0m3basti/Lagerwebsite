@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
+        <?php
+            include 'files/linkmaker.php';
+        ?>
 		<title> News | DRK Sommercamp </title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="CSS/styles.css">
         <link rel="stylesheet" href="CSS/news.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <script type="text/javascript" src="http://lagertest.de/files/active.js"></script>
+        <script type="text/javascript" src="<?php echo(linkmaker("/files/active.js"))?>"></script>
 	</head>
     
     <body>
@@ -15,7 +18,7 @@
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v6.0"></script>
         <!-- Header einfügen-->
             <?php
-                include 'files/head.html';
+                include 'files/head.php';
             ?>
         <!--
            <p><img src="img/Header.png" alt="Informationen zum Sommercamp"  height="200px"></p></div>
@@ -76,7 +79,7 @@
         </div>
          <!-- Footer einfügen -->
         <?php
-            include 'files/footer.html';
+            include 'files/footer.php';
         ?>
     </body>
 </html>

@@ -21,13 +21,13 @@
             ?>
         <div class="bg">
             <div id="Inhalt">
-                <a href="<?php echo(linkmaker("/anmeldung/index.php"))?>"> <img src="img/Header.png" alt="Banner für das Sommercamp 2020" title="Zur Anmeldung klicken" id="test"></a>
+                <a href="<?php echo(linkmaker("/anmeldung/index.php"))?>"> <img src="<?php echo(linkmaker("/img/Header.png"))?>" alt="Banner für das Sommercamp 2020" title="Zur Anmeldung klicken" id="test"></a>
                 <h1>Spaß und Action im DRK-Sommercamp <?php echo $jahr ?></h1><br>
-                <img src="img/volleyball.png" alt="Kinder beim Volleyball spielen" id="vb">
+                <img src="<?php echo(linkmaker("/img/volleyball.png"))?>" alt="Kinder beim Volleyball spielen" id="vb">
                 <p>
                     Das Sommercamp des Jugendrotkreuzes Königs Wusterhausen findet vom <?php echo $anfang ?> bis <?php echo $ende ?> statt. Tatkräftige Helfer bauen im bewaldeten und am Huschtesee gelegenen Gelände des KJF Prieros gGmbH unsere kleine Zeltstadt auf, um mit euch 13 erlebnisreiche Tage zu verbringen.
                 </p><br>
-                <img src="img/basteln.png" alt="Kinder beim Basteln" id="basteln">
+                <img src="<?php echo(linkmaker("/img/basteln.png"))?>" alt="Kinder beim Basteln" id="basteln">
                 <p>
                     In jedem Jahr steht das Camp unter einem bestimmten Motto, welches in einem großen Fest sein Höhepunkt erreicht. Bei den Vorbereitungen können die Kinder ihrer Kreativität freien Lauf lassen, indem sie Ihre Kostüme bzw. die Hintergrundkulisse selber basteln, natürlich mit der tatkräftigen Unterstützung der Betreuer. Mit einem kleinen Rollenspiel von den Betreuern wird das große Fest, in der Mitte des Camps, eröffnet. Anschließend können die Kindern bei verschiedenen Spielen ihre Teamfähigkeit, ihre Geschicklichkeit und ihr Zusammenhalt unter Beweis stellen. Mit einem gemütlichem Grillabend mit Lagerfeuer und Disco endet unser großes Fest.
                 </p><br>

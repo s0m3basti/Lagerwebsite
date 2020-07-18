@@ -1,4 +1,5 @@
 <?php
+    include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
 
     if($_GET['mail'] == 1){
@@ -93,7 +94,7 @@
     <body>
         <!-- Header einfügen-->
         <?php
-            include '../files/head.html';
+            include '../files/head.php';
         ?>
     <div class="bg">
             <div id="Inhalt">
@@ -144,7 +145,7 @@
 
         <!-- Footer einfügen -->
         <?php
-            include '../files/footer.html';
+            include '../files/footer.php';
         ?>
     </body>
 </html>

@@ -46,6 +46,9 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
+        <?php
+            include 'files/linkmaker.php';
+        ?>
 		<title> Admin-Login | DRK Sommercamp </title>
 		<meta charset="UTF-8">
         <link rel="stylesheet" href="CSS/styles.css">
@@ -56,7 +59,7 @@
     <body>
          <!-- Header einfügen-->
           <?php
-                include 'files/head.html';
+                include 'files/head.php';
             ?>
         <div class="bg">
             <div id="Inhalt" class="login">
@@ -85,7 +88,7 @@
         
             <!-- Footer einfügen -->
             <?php
-                include 'files/footer.html';
+                include 'files/footer.php';
             ?>
         </div>
     </body>

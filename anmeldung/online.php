@@ -9,15 +9,16 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
+        <?php
+            require '../files/datenzugriff.php';
+            include '../files/linkmaker.php'
+        ?>
 		<title> Online-Anmeldung 2020 | DRK Sommercamp </title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../CSS/styles.css">
         <link rel="stylesheet" href="../CSS/online.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
-        <?php
-            require '../files/datenzugriff.php';
-        ?>
         <script>
             const basis = <?php echo $preis?>;
             const shirt = <?php echo $shirtpreis?>;
@@ -27,8 +28,7 @@
 	</head>
     <body>
         <?php
-            include '../files/head.html';
-            require '../files/datenzugriff.php';
+            include '../files/head.php';
             
             //Berechnung des Maximalen und Minimalen alters
             //für änderungen die Zahlen ändern (8/15)
@@ -262,7 +262,7 @@
         </div>
         </div>
         <?php
-         include '../files/footer.html';
+         include '../files/footer.php';
         ?>
     </body>
 </html>
