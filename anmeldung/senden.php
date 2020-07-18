@@ -115,8 +115,6 @@
 
             //-------------------------
 
-            require '../files/datenzugriff.php';
-
             if($k_geschlecht === "female"){
                 $k_geschlecht = "weiblich";
             }
@@ -169,16 +167,27 @@
                         $db = new PDO("$host; $name" ,$user,$pass);
                         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                        $sql_teilnehmer = "INSERT INTO teilnehmer (TeilnehmerID, Nachname, Vorname, Geschlecht, Geburtstag, LagerAlter, Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, Shirts, Shirts_anzahl, Shirts_groesse, Datum, IP_Adresse) 
-                            VALUES (:id, :nachname, :vorname, :geschlecht, :geburtstag, :lageralter, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :shirts, :shirts_anzahl, :shirts_groesse, :datum, :ip_adresse)";
+                //--------------Stammdaten eintragen -------------------------
+                        $sql_stammdaten = "INSERT INTO tbl_stammdaten (TeilnehmerID, Nachname, Vorname, Geschlecht, Geburtstag, LagerAlter, Jahr) 
+                            VALUES (:id, :nachname, :vorname, :geschlecht, :geburtstag, :lageralter, :jahr)";
                         
-                        $stmt_t = $db->prepare($sql_teilnehmer);
+                        $stmt_t = $db->prepare($sql_stammdaten);
                         $stmt_t->bindValue(':id',$id);
                         $stmt_t->bindValue(':nachname', $k_nachname);
                         $stmt_t->bindValue(':vorname', $k_vorname);
                         $stmt_t->bindValue(':geschlecht', $k_geschlecht);
                         $stmt_t->bindValue(':geburtstag', $k_geburtstag);
                         $stmt_t->bindValue(':lageralter', $lageralter);
+                        $stmt_t->bindValue(':jahr', $jahr);
+
+                        $stmt_t->execute();
+
+                //--------------Anmeldedaten eintragen -------------------------
+                        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, Shirts, Shirts_anzahl, Shirts_groesse, Datum, IP_Adresse) 
+                            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :shirts, :shirts_anzahl, :shirts_groesse, :datum, :ip_adresse)";
+                        
+                        $stmt_t = $db->prepare($sql_anmeldedaten);
+                        $stmt_t->bindValue(':id',$id);
                         $stmt_t->bindValue(':schwimmer', $schwimmer);
                         $stmt_t->bindValue(':schwimmstufe', $stufe);
                         $stmt_t->bindValue(':badeerlaubnis', $baden);
@@ -200,7 +209,8 @@
 
                         $stmt_t->execute();
 
-                        $sql_eltern = "INSERT INTO eltern (TeilnehmerID, Nachname, Vorname, Strasse, PLZ, Ort, Tel_pri, Tel_handy, Tel_dienstl, email, mitglied, mitarbeiter, Datum, IP_Adresse)
+                //--------------Eltern eintragen -------------------------
+                        $sql_eltern = "INSERT INTO tbl_srgb (TeilnehmerID, Nachname, Vorname, Strasse, PLZ, Ort, Tel_pri, Tel_handy, Tel_dienstl, email, mitglied, mitarbeiter, Datum, IP_Adresse)
                             VALUES(:id, :nachname, :vorname, :strasse, :plz, :ort, :tel_p, :tel_h, :tel_d, :email, :mitglied, :mitarbeiter, :datum, :ip_adresse);";
 
                         $stmt_e = $db->prepare($sql_eltern);

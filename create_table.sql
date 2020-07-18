@@ -5,7 +5,7 @@ CREATE TABLE `tbl_stammdaten` (
   `Geschlecht` varchar(10) COLLATE utf8_german2_ci DEFAULT NULL,
   `Geburtstag` date DEFAULT NULL,
   `LagerAlter` int(2) DEFAULT NULL,
-  `Jahr` date DEFAULT NULL,
+  `Jahr` varchar(10) COLLATE utf8_german2_ci DEFAULT NULL,
 );
 
 CREATE TABLE `tbl_anmeldedaten` (
