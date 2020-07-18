@@ -1,10 +1,10 @@
 <?php
     function linkmaker($dest){
-            if(strpos($_SERVER['PHP_SELF'], 'lagerwebsite') !== false){
-                $link = 'https://'.$_SERVER['HTTP_HOST'].$dest;
+            if(strpos($_SERVER['PHP_SELF'], 'Lagerwebsite') == 1){
+                $link = 'https://'.$_SERVER['HTTP_HOST'].'/Lagerwebsite'.$dest;
             }
             else{
-                $link = 'https://'.$_SERVER['HTTP_HOST'].'/Lagerwebsite'.$dest;
+                $link = 'http://'.$_SERVER['HTTP_HOST'].$dest;
             }
         return $link;
     }
