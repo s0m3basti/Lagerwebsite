@@ -1,7 +1,7 @@
 <?php
     function linkmaker($dest){
             if(strpos($_SERVER['PHP_SELF'], 'Lagerwebsite') == 1){
-                $link = 'https://'.$_SERVER['HTTP_HOST'].'/Lagerwebsite'.$dest;
+                $link = 'http://'.$_SERVER['HTTP_HOST'].'/Lagerwebsite'.$dest;
             }
             else{
                 $link = 'http://'.$_SERVER['HTTP_HOST'].$dest;
