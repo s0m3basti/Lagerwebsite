@@ -2,8 +2,8 @@
 <html lang="de">
     <head>
         <?php
-            include 'files/datenzugriff.php';
             include 'files/linkmaker.php';
+            include 'files/datenzugriff.php';
         ?>
 		<title> Startseite | DRK Sommercamp </title>
 		<meta charset="UTF-8">
