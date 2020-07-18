@@ -160,6 +160,7 @@ body{
 	text-align: left;
 }
 
+/*login*/
 div.login{
 	text-align: center;
 }
@@ -179,5 +180,64 @@ div.login{
 	padding: 2px;
 }
 #login_button{
+	text-align: center;
+}
+/*downloads*/
+h1.doku{
+	font-size: 150%;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: underline black;
+}
+h2.doku{
+	font-size: 100%;
+	text-align: center;
+	font-weight: normal;
+	padding: 5px;
+}
+p.doku{
+	text-align: center;
+}
+table.doku{
+	margin-left: auto;
+	margin-right: auto;
+	width: 65%;
+	border: solid 1px black;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	border-collapse: collapse;
+}
+tr.doku{
+ 	border: solid 1px black;
+}
+td.doku{
+	border: solid 1px black;
+}
+td.doku_name{
+	padding: 5px;
+	text-decoration: underline;
+	font-size: 110%;
+}
+td.doku_link{
+	text-align: center;
+}
+td.doku_link a{
+	color: blue;
+	text-decoration: underline;
+}
+td.doku_besch{
+	padding: 5px;
+}
+#dtbl_left{
+	width: 30%;
+}
+#dtbl_middle{
+	width: auto;
+}
+#dtbl_right{
+	width:30%;
+}
+#dtbl_head{
+	font-weight: bold;
 	text-align: center;
 }

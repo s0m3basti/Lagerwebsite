@@ -103,7 +103,7 @@
                     Auch in diesem Jahr ist es wieder möglich sich für das DRK Sommercamp vom <?php echo $anfang ?> bis zum <?php echo $ende ?> online und schriftlich an zu melden.
                 </p><br><br>
                 <div class="button-group">  
-                    <a href="files/Anmeldung_2020.pdf" target="_blank"><button style="width:50%" id="offline">Anmeldung hier herunterladen <br> und per Brief an uns senden</button></a>
+                    <a href="../dokumente/Anmeldung_2020.pdf" target="_blank"><button style="width:50%" id="offline">Anmeldung hier herunterladen <br> und per Brief an uns senden</button></a>
                     <a href="online.php"><button style="width:50%" id="online">Anmeldung hier online ausfüllen</button></a>
                 </div> 
 

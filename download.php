@@ -19,7 +19,38 @@
         ?>
         <div class="bg">       
             <div id="Inhalt">
-                
+            <h1 class="doku">Dokumente</h1>
+            <h2 class="doku">Hier erhalten sie einige der wichtigsten Dokumente, wie der Kofferpackliste, der Anmeldung und weitere zusätzliche Dateien.</h2>
+            <table class="doku" id="dokumente">
+                <tr id="dtbl_head" class="doku">
+                    <td id="dtbl_left" class="doku"> Dokument </td>
+                    <td id="dtbl_middle" class="doku"> Beschreibung </td>
+                    <td id="dtbl_right" class="doku"> Link zur Datei </td>
+                </tr>
+                <!-- 
+                <tr class="doku">
+                    <td class="doku_name">Name</td>
+                    <td class="doku_besch">Beschreibung</td>
+                    <td class="doku_link"><a href="Link" target="_blank">Link</a></td>
+                </tr>    
+                -->
+                <tr class="doku">
+                    <td class="doku_name">Packliste</td>
+                    <td class="doku_besch">Das ist ein Beispieltest</td>
+                    <td class="doku_link"><a href="#" target="_blank">Link</a></td>
+                </tr>
+                <tr class="doku">
+                    <td class="doku_name">Name</td>
+                    <td class="doku_besch">Beschreibung</td>
+                    <td class="doku_link"><a href="Link" target="_blank">Link</a></td>
+                </tr> 
+                <tr class="doku">
+                    <td class="doku_name">Name</td>
+                    <td class="doku_besch">Beschreibung</td>
+                    <td class="doku_link"><a href="Link" target="_blank">Link</a></td>
+                </tr> 
+            </table>
+            <p class="doku">Um ein Dokument zu speichern gehen sie auf den Link zum Dokument. In dieser Ansicht könne sie es dann speichern oder direkt ausdrucken.</p>
             </div>
         </div>
          <!-- Footer einfügen -->
