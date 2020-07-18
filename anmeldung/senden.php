@@ -1,6 +1,6 @@
 <?php
+    include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
-    include '..files/linkmaker.php'
 
     if($status != "anmeldung"){
         header("Location: index.php");
@@ -156,7 +156,7 @@
             //--------------------------------------------------
 
             if($test_injection == true || $test_length == true){
-                mail("anmeldung@lagertest.de", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <fehler@lagertest.de>");
+                mail("$anmeldungmail", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <fehler@lagertest.de>");
                 require("files/eintrag_check_fail.html");
             }
             else{
@@ -237,19 +237,19 @@
                 }
                 if($mail_send_us == true && $db_send == false){
                     include('files/eintrag_erstellt.html');
-                    mail("anmeldung@lagertest.de","Mail angekommen, aber nicht in Datenbank","Die Anmeldung von $k_vorname $k_nachname, mit der ID $id, ist nur als Mail eingegangen. <br/> Bei der Verarbeitung der Datenbank gab es einen Fehler <br/> Fehlercode: <br/> $fehler","Anmeldungsfehler <fehler@lagertest.de>");
+                    mail("$anmeldungmail","Mail angekommen, aber nicht in Datenbank","Die Anmeldung von $k_vorname $k_nachname, mit der ID $id, ist nur als Mail eingegangen. <br/> Bei der Verarbeitung der Datenbank gab es einen Fehler <br/> Fehlercode: <br/> $fehler","Anmeldungsfehler <fehler@lagertest.de>");
                 }
                 if($mail_send_us == false && $db_send == true){
                     include('files/eintrag_erstellt.html');
-                    mail("anmeldung@lagertest.de", "Anmeldung in Datenbank, aber nicht als Mail", "Die Anmeldung von $k_vorname $k_nachname, mit der $id, ist nur in der Datenbank vorhanden und nicht als separate Mail.", "Anmeldungsfehler <fehler@lagertest.de>" );
+                    mail("$anmeldungmail", "Anmeldung in Datenbank, aber nicht als Mail", "Die Anmeldung von $k_vorname $k_nachname, mit der $id, ist nur in der Datenbank vorhanden und nicht als separate Mail.", "Anmeldungsfehler <fehler@lagertest.de>" );
                 }
                 if($mail_send_us == false && $db_send == false){
                     include('files/eintrag_fehler.html');
-                    mail("anmeldung@lagertest.de", "Fehler bei der Anmeldung", "Die Anmeldung von $k_nachname $k_nachname kam nicht als Mail oder Datenbankeintrag an. <br/> Fehlercode: <br/> $fehler", "Anmeldungsfehler <fehler@lagertest.de>");
+                    mail("$anmeldungmail", "Fehler bei der Anmeldung", "Die Anmeldung von $k_nachname $k_nachname kam nicht als Mail oder Datenbankeintrag an. <br/> Fehlercode: <br/> $fehler", "Anmeldungsfehler <fehler@lagertest.de>");
                 }
                 if($mail_send_user == false){
-                    echo("Beim senden der E-Mail an sie ist ein Fehler aufgetreten. Diese Meldung ist auch bei uns eingegangen. <br/> Senden sie uns bitte eine Mail an kontakt@lagertest.de mit dem Vor- und Nachname ihres Kindes. </br>");
-                    mail("anmeldung@lagertest.de", "Fehler beim senden der Mail an User", "Die Anmeldung von $k_vorname $k_nachname wurde nicht an die Angegebene Mail weitergeleitet. <br/> Im besten Fall meldet sich der User bei uns, er hat eine Meldung erhalten, wenn nicht müssten wir Kontakt  aufnehmen.", "Anmeldungsfehler <fehler@lagertest.de>");
+                    echo("Beim senden der E-Mail an sie ist ein Fehler aufgetreten. Diese Meldung ist auch bei uns eingegangen. <br/> Senden sie uns bitte eine Mail an $kontaktmail mit dem Vor- und Nachname ihres Kindes. </br>");
+                    mail("$anmeldungmail", "Fehler beim senden der Mail an User", "Die Anmeldung von $k_vorname $k_nachname wurde nicht an die Angegebene Mail weitergeleitet. <br/> Im besten Fall meldet sich der User bei uns, er hat eine Meldung erhalten, wenn nicht müssten wir Kontakt  aufnehmen.", "Anmeldungsfehler <fehler@lagertest.de>");
                 }
             }
         ?>

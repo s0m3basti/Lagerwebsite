@@ -1,4 +1,5 @@
 <?php
+    include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
 
     if($status != "anmeldung"){
@@ -9,10 +10,6 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <?php
-            require '../files/datenzugriff.php';
-            include '../files/linkmaker.php'
-        ?>
 		<title> Online-Anmeldung 2020 | DRK Sommercamp </title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../CSS/styles.css">
@@ -240,7 +237,7 @@
                                 <li>Mein Kind ist zum Zeitpunkt des Campbeginns frei von ansteckenden Krankheiten, Läusen oder Nissen. Ist das Kind vor dem Sommercamp erkrankt oder besteht der Verdacht auf Lausbefall ist eine ärztliche Bestätigung (Ferienlagertauglichkeit) bei der Anreise vorzulegen.</li>
                                 <li>Ich bin damit einverstanden, dass Foto-, Film- und Audioaufnahmen, die von meinem Kind während des Sommercamps gemacht werden für Soziale Medien, Veröffentlichungen und Marketingzwecke des DRK-OV- Königs Wusterhausen verwendet werden dürfen.</li>
                             </ul>
-                            <br> Der Teilnahmebeitrag beträgt für den Gesamtzeitraum <p id="preis" style="display:inline;">325</p>,- €. Abweichende Preise bei kürzerer Teilnahme oder Anmeldung mehrerer eigener Kinder bitte vorab per Mail erfragen sl@drk-ov-kw.de erfragen.
+                            <br> Der Teilnahmebeitrag beträgt für den Gesamtzeitraum <p id="preis" style="display:inline;">325</p>,- €. Abweichende Preise bei kürzerer Teilnahme oder Anmeldung mehrerer eigener Kinder bitte vorab per Mail erfragen <?php echo($kontaktmail) ?> erfragen.
                         </td>
                     </tr>
                     <tr>

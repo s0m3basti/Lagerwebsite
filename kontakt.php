@@ -2,8 +2,8 @@
 <html lang="de">
     <head>
         <?php
-            include 'files/datenzugriff.php';
             include 'files/linkmaker.php';
+            include 'files/datenzugriff.php';
         ?>
 		<title> Kontakt | DRK Sommercamp </title>
         <meta charset="UTF-8">
@@ -52,7 +52,7 @@
                     <tr>
                         <?php
                             if(isset($_POST['submit'])){
-                                mail("bastian@7sprojekt.de","Kontaktanfrage auf Sommercamp.de","Eine Anfrage von ".$_POST['vorname']." ".$_POST['nachname']." mit dem Inhalt: \n\n ".$_POST['nachricht'].".","From: Server<".$_POST['email'].">");
+                                mail("$kontaktmail","Kontaktanfrage auf Sommercamp.de","Eine Anfrage von ".$_POST['vorname']." ".$_POST['nachname']." mit dem Inhalt: \n\n ".$_POST['nachricht'].".","From: Server<".$_POST['email'].">");
                             echo "E-Mail wurde gesendet";
                             }
                         ?>

@@ -5,4 +5,4 @@
 15
 kontakt@lagertest.de
 anmeldung@lagertest.de
-voranmeldung
+anmeldung
