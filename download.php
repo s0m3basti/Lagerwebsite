@@ -27,7 +27,7 @@
                     <td id="dtbl_middle" class="doku"> Beschreibung </td>
                     <td id="dtbl_right" class="doku"> Link zur Datei </td>
                 </tr>
-                <!-- 
+                <!-- Beispiel für das Einfügen neuer Dokumente
                 <tr class="doku">
                     <td class="doku_name">Name</td>
                     <td class="doku_besch">Beschreibung</td>
@@ -35,13 +35,13 @@
                 </tr>    
                 -->
                 <tr class="doku">
-                    <td class="doku_name">Packliste</td>
-                    <td class="doku_besch">Das ist ein Beispieltest</td>
-                    <td class="doku_link"><a href="#" target="_blank">Link</a></td>
+                    <td class="doku_name">Anmeldung für das DRK Sommercamp</td>
+                    <td class="doku_besch">Mit diesem Dokument können sie ihr Kind für das DRK Sommercamp anmelden. Einfach ausdrucken und per Post an die angegebene Adresse senden. <br> Aber da sie schon mal hier sind probieren sie doch unsere <a class="old-link" href="anmeldung/index.php">Online-Anmeldung</a>.<br> Das geht wesentlich schneller und ist zudem auch noch einfacher.</td>
+                    <td class="doku_link"><a href="dokumente/anmeldung_2020.pdf" target="_blank">Link</a></td>
                 </tr>
                 <tr class="doku">
-                    <td class="doku_name">Name</td>
-                    <td class="doku_besch">Beschreibung</td>
+                    <td class="doku_name">Packliste</td>
+                    <td class="doku_besch">Nicht nur für sie ist es gut zu wissen was ihr Kind alles mit ins Abenteuer nehmen sollte. Auch für uns ist es von Vorteil, wenn wir wissen welche Sachen ihr Kind mitgebracht hat. Einfach ausdrucken und mit in den Koffer legen. Simpel wie genial.</td>
                     <td class="doku_link"><a href="Link" target="_blank">Link</a></td>
                 </tr> 
                 <tr class="doku">
