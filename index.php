@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
+        <?php
+            include 'files/datenzugriff.php';
+            include 'files/linkmaker.php';
+        ?>
 		<title> Startseite | DRK Sommercamp </title>
 		<meta charset="UTF-8">
         <link rel="stylesheet" href="CSS/styles.css">
         <link rel="stylesheet" href="CSS/startseite.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <script type="text/javascript" src="http://lagertest.de/files/active.js"></script>
+        <script type="text/javascript" src="<?php echo(linkmaker("/files/active.js"))?>"></script>
 	</head>
     
     <body>
          <!-- Header einfügen-->
           <?php
                 include 'files/head.html';
-                include 'files/datenzugriff.php';
             ?>
         <div class="bg">
             <div id="Inhalt">
-                <a href="anmeldung/index.php"> <img src="img/Header.png" alt="Banner für das Sommercamp 2020" title="Zur Anmeldung klicken" id="test"></a>
+                <a href="<?php echo(linkmaker("/anmeldung/index.php"))?>"> <img src="img/Header.png" alt="Banner für das Sommercamp 2020" title="Zur Anmeldung klicken" id="test"></a>
                 <h1>Spaß und Action im DRK-Sommercamp <?php echo $jahr ?></h1><br>
                 <img src="img/volleyball.png" alt="Kinder beim Volleyball spielen" id="vb">
                 <p>

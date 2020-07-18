@@ -1,6 +1,13 @@
 <?php
+    echo($_SERVER['PHP_SELF']);
+
     function linkmaker($dest){
-        $link = 'https://'.$_SERVER['HTTP_HOST'].$dest;
+            if(strpos($_SERVER['PHP_SELF'], 'lagerwebsite') !== false){
+                $link = 'https://'.$_SERVER['HTTP_HOST'].'/Lagerwebsite'.$dest;
+            }
+            else{
+                $link = 'https://'.$_SERVER['HTTP_HOST'].$dest;
+            }
         return $link;
     }
 //Enter a link as a string in parameters
