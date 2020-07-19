@@ -10,12 +10,10 @@ if(urechte < 3){
     document.getElementById("supportmail").disabled = true;
 }
 
-console.log(document.getElementById('erfolg'));
 
-if (document.getElementById('erfolg').innerHTML.indexOf("word") != -1) { 
-    console.log("Keinen Text erkannt!");
+if (state == 1) { 
+    document.getElementById('erfolg').style.display = "block";
 }
 else{
-    console.log("Text erkannt");
-    document.getElementById('erfolg').style.display = "block";
+    document.getElementById('erfolg').style.display = "none";
 }

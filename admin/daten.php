@@ -32,7 +32,8 @@ $shirtpreis=intval($shirtpreis);
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" id="favicon">
     <link rel="stylesheet" href="CSS/admin.css">
     <script>
-        const urechte = <?php echo($urechte) ?>;
+        const urechte = <?php echo($urechte); ?>;
+        const state = <?php if(isset($_GET['erfolg'])){echo($_GET['erfolg']);}else{echo(0);}?>;
     </script>
     <script src="files/datendisable.js" defer></script>
 </head>
@@ -46,7 +47,7 @@ $shirtpreis=intval($shirtpreis);
     <div class="erfolg" id="erfolg">
         <?php
             if($_GET['erfolg'] == 1){
-                echo("Die Datei wurde erfolgreich geändert.");
+                echo("Daten erfolgreich geändert!");
             }
         ?>
     </div>
