@@ -13,6 +13,9 @@ if(urechte < 3){
 console.log(document.getElementById('erfolg'));
 
 if (document.getElementById('erfolg').innerHTML.indexOf("word") != -1) { 
-    console.log("Keinen Text erkannt!")
-    document.getElementById('erfolg').display = "inline";
+    console.log("Keinen Text erkannt!");
+}
+else{
+    console.log("Text erkannt");
+    document.getElementById('erfolg').style.display = "block";
 }
