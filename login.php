@@ -39,6 +39,10 @@
 
         if($user != false && password_verify($pw,$row['password'])){
             $_SESSION['userid'] = $row['id'];
+            $_SESSION['vorname'] = $row['firstname'];
+            $_SESSION['nachname'] = $row['surname'];
+            $_SESSION['mail'] = $row['email'];
+            $_SESSION['rechte'] = $row['rights'];
             header("Location: admin/index.php");
             $errorMessage = "angemeldet";
         }

@@ -9,6 +9,7 @@
     $shirtpreis = fgets($datei);
     $kontaktmail = fgets($datei);
     $anmeldungmail = fgets($datei);
+    $supportmail = fgets($datei);
     $status = fgets($datei);
     fclose($datei);
 ?>
