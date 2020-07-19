@@ -16,15 +16,15 @@
     $ende = strtotime($ende);
     $ende= date('d.m.Y', $ende);
 
-    $handle = fopen("$link", "w");
-    fwrite($handle, $anfang);
-    fwrite($handle, $ende);
-    fwrite($handle, $jahr);
-    fwrite($handle, $preis);
-    fwrite($handle, $shirtpreis);
-    fwrite($handle, $kontaktmail);
+    $handle = fopen("../files/daten.txt", "w");
+    fwrite($handle, $anfang."\n");
+    fwrite($handle, $ende."\n");
+    fwrite($handle, $jahr."\n");
+    fwrite($handle, $preis."\n");
+    fwrite($handle, $shirtpreis."\n");
+    fwrite($handle, $kontaktmail."\n");
     fwrite($handle, $anmeldungmail);
-    fwrite($handle, $supportmail);
+    fwrite($handle, $supportmail."\n");
     fwrite($handle, $status);
     fclose($handle);
 
