@@ -43,7 +43,7 @@ $shirtpreis=intval($shirtpreis);
     <div class="userdaten">
         <p>Hallo <?php echo ($uvorname." ".$unachname) ?></p>
     </div>
-    <div class="erfolg">
+    <div class="erfolg" id="erfolg">
         <?php
             if($_GET['erfolg'] == 1){
                 echo("Die Datei wurde erfolgreich geändert.");

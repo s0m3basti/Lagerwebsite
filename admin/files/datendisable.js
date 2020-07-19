@@ -9,3 +9,10 @@ if(urechte < 3){
     document.getElementById("anmeldungmail").disabled = true;
     document.getElementById("supportmail").disabled = true;
 }
+
+console.log(document.getElementById('erfolg'));
+
+if (document.getElementById('erfolg').innerHTML.indexOf("word") != -1) { 
+    console.log("Keinen Text erkannt!")
+    document.getElementById('erfolg').display = "inline";
+}
