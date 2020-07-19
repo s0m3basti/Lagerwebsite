@@ -6,8 +6,6 @@ if(!isset($_SESSION['userid'])) {
  
 //Abfrage der Nutzer ID vom Login
 $userid = $_SESSION['userid'];
- 
-echo "Hallo User: ".$userid;
 ?>
 
 <!DOCTYPE HTML>
@@ -21,8 +19,20 @@ echo "Hallo User: ".$userid;
     <?php
         require("files/nav.html");
     ?>
-    <div>
-       
+    <div class="userdaten">
+        <p>Hallo <?php echo $userid ?></p>
+    </div>
+    <div class="daten">
+       <h1>Daten der Seite bearbeiten</h1>
+       <h2>Hier sieht man eine Auflistung aller dynamsichen Daten der Webseite, wenn sie hier geändert werden, werden sie überall auf der Webseite geändert.</h2>
+
+        <table class="daten">
+            <tr>
+                <td>Name des Datums</td>
+                <td>Input-Feld</td>
+                <td>Formatierung</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
