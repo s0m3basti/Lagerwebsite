@@ -17,10 +17,10 @@
         $bn = $_POST['bn'];
         $pw = $_POST['pw'];
 
-        $_SESSION['userid'] = 0;
-        header("Location: admin/index.php");
+        /*$_SESSION['userid'] = 0;
+        header("Location: admin/index.php");*/
     // Disabled for Testing
-        /*try{
+        try{
             $db = new PDO("$host; $name" ,$user,$pass);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -44,7 +44,7 @@
         }
         else{
             $errorMessage = "Benutzername oder Passwort war falsch. Bitte versuchen sie es erneut";
-        }*/
+        }
     }                               
 ?>
 
