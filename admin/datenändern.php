@@ -28,5 +28,5 @@
     fwrite($handle, $status);
     fclose($handle);
 
-    //header("Location:daten.php?erfolg=1");
+    header("Location:daten.php?erfolg=1");
 ?>
