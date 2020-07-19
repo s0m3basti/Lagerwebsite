@@ -28,9 +28,11 @@ require '../files/datenzugriff.php';
     <?php
         require("files/nav.html");
     ?>
+    <!--
     <div class="userdaten">
         <p>Hallo <?php echo ($uvorname." ".$unachname) ?></p>
     </div>
+    -->
     
 </body>
 </html>

@@ -7,7 +7,6 @@ if(!isset($_SESSION['userid'])) {
 //Abfrage der Nutzer ID vom Login
 $userid = $_SESSION['userid'];
  
-echo "Hallo User: ".$userid;
 ?>
 
 <!DOCTYPE HTML>
@@ -21,9 +20,11 @@ echo "Hallo User: ".$userid;
     <?php
         require("files/nav.html");
     ?>
-    <div>
-        <!-- Name des Angemeldeten goes here -->
+    <!--
+    <div class="userdaten">
+        <p>Hallo <?php echo ($uvorname." ".$unachname) ?></p>
     </div>
+    -->
 
     <div>
         <!-- Statud der Anmeldung goes here -->

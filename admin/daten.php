@@ -41,9 +41,11 @@ $shirtpreis=intval($shirtpreis);
     <?php
         require("files/nav.html");
     ?>
+    <!--
     <div class="userdaten">
         <p>Hallo <?php echo ($uvorname." ".$unachname) ?></p>
     </div>
+    -->
     <div class="erfolg" id="erfolg">
         <?php
             if($_GET['erfolg'] == 1){

@@ -24,10 +24,16 @@ h2{
     font-weight: normal;
 }
 div.userdaten{
-    margin-left: 16%;
-    top: 0;
-    padding: 5px;
-    text-align: right;
+    position: absolute;
+    top: 5px;
+    right: 1%;
+    width: auto;
+    padding: 25px 15px 25px;
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+    border-color: solid 1px black;
+    border-radius: 10px;
 }
 /*Navigation*/
 nav img{
@@ -40,6 +46,8 @@ nav{
     width: 15%;
     display: block;
     float: left;
+    position: fixed;
+    top: 0;
 }
 nav ul{
     list-style: none;
@@ -82,6 +90,18 @@ nav a:focus,
 nav a:hover {    
     background-color: white;
     color: black;
+}
+#logout{
+    position: fixed;
+    bottom: 2px;
+    left: 2.5px;
+    width: 15%;
+    border: solid 2px black;
+    background-color: rgba(255,255,255, 0.6);
+    cursor: pointer;
+    font-size: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 /*Daten bearbeiten */
 div.daten{
