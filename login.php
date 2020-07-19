@@ -1,5 +1,5 @@
 <?php
-     session_start();
+    session_start();
     require("Datenbank/writer.php");
 
     if($_GET['er'] == 1){
@@ -17,7 +17,10 @@
         $bn = $_POST['bn'];
         $pw = $_POST['pw'];
 
-        try{
+        $_SESSION['userid'] = 0;
+        header("Location: admin/index.php");
+    // Disabled for Testing
+        /*try{
             $db = new PDO("$host; $name" ,$user,$pass);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -32,6 +35,8 @@
             $db = null;
         }
 
+        
+
         if($user != false && password_verify($pw,$row['password'])){
             $_SESSION['userid'] = $row['id'];
             header("Location: admin/index.php");
@@ -39,7 +44,7 @@
         }
         else{
             $errorMessage = "Benutzername oder Passwort war falsch. Bitte versuchen sie es erneut";
-        }
+        }*/
     }                               
 ?>
 
