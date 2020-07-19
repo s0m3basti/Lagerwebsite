@@ -29,7 +29,7 @@ $shirtpreis=intval($shirtpreis);
 <head>
     <title> Datenverwaltung | Admin | DRK Sommercamp </title>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" id="favicon">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" id="favicon">
     <link rel="stylesheet" href="CSS/admin.css">
     <script>
         const urechte = <?php echo($urechte); ?>;
