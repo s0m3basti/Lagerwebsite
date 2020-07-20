@@ -1,13 +1,13 @@
 <?php
     require "../Datenbank/writer.php";
-    if(!isset($_SESSION['userid'])) {
-        header("Location: ../login.php?er=1");
-    }
-    if($_SESSION['userid'] != 3){
-        header("Location:benutzerverwaltung.php");
-    }
+    //if(!isset($_SESSION['userid'])) {
+    //    header("Location: ../login.php?er=1");
+    //}
+    //if($_SESSION['userid'] != 3){
+    //    header("Location:benutzerverwaltung.php");
+    //}
 
-    if($_POST['new']=1){
+    if($_POST['new'] == 1){
         $username = $_POST['username'];
         $vorname = $_POST['firstname'];
         $nachname = $_POST['surname'];
@@ -44,8 +44,13 @@
         header("Location:benutzerverwaltung.php?erfolg=1");
     }
     else{
-        if($_POST['new']=2){
-            
+        if($_POST['new'] == 2){
+
+        }
+        else{
+            if($_POST['new'] == 3){
+
+            }
         }
 
     }

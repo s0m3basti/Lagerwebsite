@@ -7,7 +7,6 @@
     }
 
     if($_GET['logout'] == 1){
-        session_start();
         session_destroy();
  
         $errorMessage = "Logout Erfolgreich";
