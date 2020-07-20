@@ -55,7 +55,6 @@ require '../Datenbank/writer.php';
                 include 'files/bnvedit.php';
             }
             else{
-                echo "Hier werden neue Konten erstellt";
                 include 'files/bnvnew.php';
             }
         }
