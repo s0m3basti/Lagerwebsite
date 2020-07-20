@@ -14,6 +14,7 @@ $urechte = $_SESSION['rechte'];
 require '../files/linkmaker.php';
 require '../files/datenzugriff.php';
 
+require '../Datenbank/writer.php';
 
 ?>
 
@@ -33,6 +34,29 @@ require '../files/datenzugriff.php';
         <p>Hallo <?php echo ($uvorname." ".$unachname) ?></p>
     </div>
     -->
-    
+    <?php
+
+        if(!isset($_GET['new'])){
+            switch($urechte){
+                case 1:
+                    include 'files/bnv1.php';
+                    break;
+                case 2:
+                    include 'files/bnv2.php';
+                    break;
+                case 3:
+                    include 'files/bnv3.php';
+                    break;
+            }
+        }
+        else{
+            if(isset($_GET['new']) && isset($_GET['id'])){
+                echo "Hier werden bestehende Konten bearbeitet";
+            }
+            else{
+                echo "Hier werden neue Konten erstellt";
+            }
+        }
+    ?>    
 </body>
 </html>

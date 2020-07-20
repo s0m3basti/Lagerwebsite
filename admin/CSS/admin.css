@@ -179,3 +179,32 @@ button.datenbutton{
 #nsubmit{
     background-color: #f44336;
 }
+/*Benutzerverwaltung*/
+div.bnv{
+    margin-left: 16%;
+}
+div.bnv_new{
+    text-align: center;
+    padding: 10px;
+}
+table.tbl_user{
+    width: 90%;
+    margin: 20px auto 25px;
+    border: solid 1px white;
+    border-collapse: collapse;
+}
+tr.tr_user_head{
+    font-weight: bold;
+    text-align: center;
+}
+tr.tr_user{
+    text-align: center;
+}
+td.td_user{
+    padding: 5px;
+    border: solid 1px white;
+}
+img.img_edit{
+    height:auto;
+    width:30px;
+}

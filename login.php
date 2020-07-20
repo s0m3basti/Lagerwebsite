@@ -17,9 +17,6 @@
         $bn = $_POST['bn'];
         $pw = $_POST['pw'];
 
-        /*$_SESSION['userid'] = 0;
-        header("Location: admin/index.php");*/
-    // Disabled for Testing
         try{
             $db = new PDO("$host; $name" ,$user,$pass);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
