@@ -187,6 +187,9 @@ div.bnv_new{
     text-align: center;
     padding: 10px;
 }
+div.bnv_form{
+    text-align: center;
+}
 table.tbl_user{
     width: 90%;
     margin: 20px auto 25px;
@@ -207,4 +210,35 @@ td.td_user{
 img.img_edit{
     height:auto;
     width:30px;
+}
+table.bnv{
+    width: 50%;
+    margin: 20px auto 20px;    
+}
+input[type=submit].bnv{
+    text-align: center;
+    width: 200px;
+    margin: 15px auto 5px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    font-size: 100%;
+    padding: 8px;
+    background-color: #4CAF50;
+}
+input[type=submit].bnv:hover{
+    background-color: white;
+    color: black;
+}
+input[type=text].bnv,
+input[type=email].bnv{
+    font-family: Arial;
+    font-size: 90%;
+    padding: 3px;
+    width: 100%;
+}
+input[type=number].bnv{
+    font-family: Arial;
+    font-size: 90%;
+    padding: 3px;
+    text-align: center;
 }
