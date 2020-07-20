@@ -52,9 +52,11 @@ require '../Datenbank/writer.php';
         else{
             if(isset($_GET['new']) && isset($_GET['id'])){
                 echo "Hier werden bestehende Konten bearbeitet";
+                include 'files/bnvedit.php';
             }
             else{
                 echo "Hier werden neue Konten erstellt";
+                include 'files/bnvnew.php';
             }
         }
     ?>    
