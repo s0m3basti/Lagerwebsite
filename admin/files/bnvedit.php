@@ -23,7 +23,7 @@
         Hier kannst du alle Daten für den Benutzer bearbeiten und ihn löschen
     </h2>
     <div class="bnv_form">
-        <form method="POST" action="files/bnvsenden.php?new=2">
+        <form method="POST" action="files/bnvsenden.php?new=2&id=<?php echo $id ?>">
             <table class="bnv">
                 <tr><td><label>Benutzername:</label></td><td><input type="text" name="username" class="bnv" value="<?php echo $row['user_name'] ?>" required></td></tr>
                 <tr><td><label>Vorname:</label></td><td><input type="text" name="firstname" class="bnv" value="<?php echo $row['firstname'] ?>" required></td></tr>
