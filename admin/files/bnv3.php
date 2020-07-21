@@ -37,6 +37,6 @@
 </div>
 <div class="bnv_new">
     <p>Wenn du einen neuen Nutzer hinzufügen möchtest klick auf den Button:</p>
-    <a href="benutzerverwaltung.php?new=1"><button id="new_user">Neuen Benutzer erstellen</button></a>
+    <a href="benutzerverwaltung.php?new=1"><button id="new_user" class="bnv">Neuen Benutzer erstellen</button></a>
 </div>
 </div>

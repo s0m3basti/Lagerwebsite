@@ -226,7 +226,8 @@ table.bnv{
     width: 50%;
     margin: 20px auto 20px;    
 }
-input[type=submit].bnv{
+input[type=submit].bnv,
+button.bnv{
     text-align: center;
     width: 200px;
     margin: 15px auto 5px;
@@ -236,7 +237,8 @@ input[type=submit].bnv{
     padding: 8px;
     background-color: #4CAF50;
 }
-input[type=submit].bnv:hover{
+input[type=submit].bnv:hover,
+button.bnv:hover{
     background-color: white;
     color: black;
 }
