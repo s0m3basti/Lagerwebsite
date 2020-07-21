@@ -24,6 +24,10 @@ require '../Datenbank/writer.php';
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" id="favicon">
     <link rel="stylesheet" href="CSS/admin.css">
+    <script>
+        const message = <?php if(isset($_GET['message'])){echo($_GET['message']);}else{echo(0);}?>;
+    </script>
+    <script src="files/bnvmessagebox.js" defer></script>
 </head>
 <body>
     <?php
@@ -51,7 +55,6 @@ require '../Datenbank/writer.php';
         }
         else{
             if(isset($_GET['new']) && isset($_GET['id'])){
-                echo "Hier werden bestehende Konten bearbeitet";
                 include 'files/bnvedit.php';
             }
             else{

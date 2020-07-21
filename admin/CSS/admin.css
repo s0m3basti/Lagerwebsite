@@ -190,6 +190,17 @@ div.bnv_new{
 div.bnv_form{
     text-align: center;
 }
+div.message{
+        text-align:center;
+        padding: 30px;
+        font-size: 110%;
+        font-weight: bold;
+        color: black;
+        background-color: #148520;
+        margin-left: 16%;
+        margin-right: 1%;
+        display: none;
+}
 table.tbl_user{
     width: 90%;
     margin: 20px auto 25px;
@@ -230,7 +241,8 @@ input[type=submit].bnv:hover{
     color: black;
 }
 input[type=text].bnv,
-input[type=email].bnv{
+input[type=email].bnv,
+input[type="password"].bnv{
     font-family: Arial;
     font-size: 90%;
     padding: 3px;
