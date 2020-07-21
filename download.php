@@ -37,7 +37,7 @@
                 <tr class="doku">
                     <td class="doku_name">Anmeldung für das DRK Sommercamp</td>
                     <td class="doku_besch">Mit diesem Dokument können sie ihr Kind für das DRK Sommercamp anmelden. Einfach ausdrucken und per Post an die angegebene Adresse senden. <br> Aber da sie schon mal hier sind probieren sie doch unsere <a class="old-link" href="anmeldung/index.php">Online-Anmeldung</a>.<br> Das geht wesentlich schneller und ist zudem auch noch einfacher.</td>
-                    <td class="doku_link"><a href="dokumente/anmeldung_2020.pdf" target="_blank">Link</a></td>
+                    <td class="doku_link"><a href="dokumente/Anmeldung_2020.pdf" target="_blank">Link</a></td>
                 </tr>
                 <tr class="doku">
                     <td class="doku_name">Packliste</td>
