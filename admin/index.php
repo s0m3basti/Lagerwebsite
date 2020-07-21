@@ -11,6 +11,7 @@ $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+require "../Datenbank/writer.php";
 require "../files/linkmaker.php";
 require "../files/datenzugriff.php";
 
@@ -52,11 +53,153 @@ switch($status){
         <h1>Übersicht</h1>
         <h2>Hier siehst du den Momentanen stand der Anmeldung.</h2>
         <div class="status" id="div_status">
-            Hier steht der Status des Momentanen standes
-        </div>
+            <?php
+                switch($status){
+                    case 1:
+                        echo "Die Anmeldung ist derzeitig aktiviert.</br>";
+                            try{
+                                $db = new PDO("$host; $name" ,$user,$pass);
+                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    
+                                $sql = "SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = $jahr;";
+                                foreach ($db->query($sql) as $row);
 
+                                $anzahl = $row['anzahl'];
+
+                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = "'.$jahr.'" AND Geschlecht = "maennlich";';
+                                foreach ($db->query($sql) as $row);
+
+                                $anzahlm = $row['anzahl'];
+
+                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = "'.$jahr.'" AND Geschlecht = "weiblich";';
+                                foreach ($db->query($sql) as $row);
+
+                                $anzahlw = $row['anzahl'];
+                                
+                            }
+                            catch(PDOException $e){
+                                $fehler = $e->getMessage();
+                                echo $fehler;
+                                echo "Es konnte leider keine Anzahl von Anmeldungen bestimmt werden. </br> Es gibt wohl ein Problem mit der Datenbank.";
+                            }
+                            finally{
+                                $db = null;
+                            }
+                        echo "Wir haben Momentan bereits $anzahl Anmeldungen gesammelt. </br> Davon sind $anzahlm Männlich und $anzahlw Weiblich. ";
+                        break;
+                    case 2:
+                        echo "Die Vornamledung ist derzeitig aktiviert. </br>";
+                            try{
+                                $db = new PDO("$host; $name" ,$user,$pass);
+                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    
+                                $sql = "SELECT COUNT(*) AS anzahl FROM voranmeldung;";
+                                foreach ($db->query($sql) as $row);
+
+                                $anzahl = $row['anzahl'];
+                            }
+                            catch(PDOException $e){
+                                $fehler = $e->getMessage();
+                                echo "Es konnte leider keine Anzahl von Voranmeldungen bestimmt werden. </br> Es gibt wohl ein Problem mit der Datenbank.";
+                            }
+                            finally{
+                                $db = null;
+                            }
+                        echo "Wir haben Momentan bereits $anzahl Voranmeldungen gesammelt.";
+                        break;
+                    case 3:
+                        echo "Die Anmeldung ist zur Zeit deaktiviert. </br> Niemand kann sich anmelden oder voranmelden.</br>";
+                            try{
+                                $db = new PDO("$host; $name" ,$user,$pass);
+                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    
+                                $sql = "SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = $jahr;";
+                                foreach ($db->query($sql) as $row);
+
+                                $anzahl = $row['anzahl'];
+
+                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = "'.$jahr.'" AND Geschlecht = "maennlich";';
+                                foreach ($db->query($sql) as $row);
+
+                                $anzahlm = $row['anzahl'];
+
+                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = "'.$jahr.'" AND Geschlecht = "weiblich";';
+                                foreach ($db->query($sql) as $row);
+
+                                $anzahlw = $row['anzahl'];
+                                
+                            }
+                            catch(PDOException $e){
+                                $fehler = $e->getMessage();
+                                echo $fehler;
+                                echo "Es konnte leider keine Anzahl von Anmeldungen bestimmt werden. </br> Es gibt wohl ein Problem mit der Datenbank.";
+                            }
+                            finally{
+                                $db = null;
+                            }
+                        echo "Wir haben $anzahl Anmeldungen gesammelt. </br> Davon sind $anzahlm Männlich und $anzahlw Weiblich. ";
+                        break;
+                }
+            ?>
+        </div>
         <div>
-            <!-- Tabelle mit den Stammdaten goes here -->
+            <?php
+                switch($status){
+                    case 1:
+                    case 3:
+                        echo "<h2>Übersicht aller Anmeldungen</h2>";
+                            try{
+                                $db = new PDO("$host; $name" ,$user,$pass);
+                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        
+                                $i = 0;
+                                echo "<table class='index'>";
+                                echo "<tr class='index_head'><td></td><td>Vorname</td><td>Nachname</td><td>Geschlecht</td><td>Geburtstag</td><td>Alter im Lager</td></tr>";
+                        
+                                $sql = "SELECT * FROM tbl_stammdaten WHERE Jahr = $jahr ORDER BY geschlecht, nachname, vorname DESC;";
+                                foreach ($db->query($sql) as $row){
+
+                                    $i = $i + 1;
+                                    echo "<tr class='index'><td class='index'>".$i."</td><td class='index'>".$row['Nachname']."</td><td class='index'>".$row['Vorname']."</td><td class='index'>".$row['Geschlecht']."</td><td class='index'>".date('d.m.Y',strtotime($row['Geburtstag']))."</td><td class='index'>".$row['LagerAlter']."</td></tr>";
+                                };
+                                echo "</table>";
+                            }
+                            catch(PDOException $e){
+                                $fehler = $e->getMessage();
+                                echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                            }
+                            finally{
+                                $db = null;
+                            }
+                        break;
+                    case 2:
+                        echo "<h2>Übersicht aller Voranmeldungen</h2>";
+                            try{
+                                $db = new PDO("$host; $name" ,$user,$pass);
+                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        
+                                $i = 0;
+                                echo "<table class='index'>";
+                                echo "<tr class='index_head'><td></td><td>E-Mail</td><td>Datum</td></tr>";
+                        
+                                $sql = "SELECT * FROM voranmeldung ORDER BY date DESC;";
+                                foreach ($db->query($sql) as $row){
+
+                                    $i = $i + 1;
+                                    echo "<tr class='index'><td class='index'>".$i."</td><td class='index'>".$row['email']."</td><td class='index'>".date('d.m.Y',strtotime($row['date']))."</td></tr>";
+                                };
+                                echo "</table>";
+                            }
+                            catch(PDOException $e){
+                                $fehler = $e->getMessage();
+                                echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                            }
+                            finally{
+                                $db = null;
+                            }
+                        break;
+                }
+            ?>
         </div>
     </div>
 </body>
