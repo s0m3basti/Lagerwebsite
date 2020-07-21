@@ -8,7 +8,7 @@
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         echo "<table class='tbl_user'>";
-        echo "<tr class='tr_user_head'><td>ID</td><td>Username</td><td>Vorname</td><td>Nachname</td><td>E-Mail-Adresse</td><td>Rechte</td><td>Passwort</td><td>Bearbeiten</td></tr>";
+        echo "<tr class='tr_user_head'><td>ID</td><td>Username</td><td>Vorname</td><td>Nachname</td><td>E-Mail-Adresse</td><td>Rechte</td><td>Passwort</td><td> </td><td> </td></tr>";
 
         $sql = "SELECT * FROM login ORDER BY rights DESC;";
         foreach ($db->query($sql) as $row){
@@ -19,7 +19,7 @@
             else{
                 echo "<td class='td_user'>is set</td>";
             }
-            echo "<td class='td_user'><a href='benutzerverwaltung.php?new=2&id=".$row['id']."'><img src='img/edit.png' class='img_edit'></a></tr>";
+            echo "<td class='td_user'><a href='benutzerverwaltung.php?new=2&id=".$row['id']."'><img src='img/edit.png' class='img_edit'></a></td><td class='td_user'><a href='files/bnvdelete.php&id=".$row['id']."'><img src='img/delete.png' class='img_edit'></a></td></tr>";
         };
 
         echo "</table>";

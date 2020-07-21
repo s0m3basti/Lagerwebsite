@@ -38,7 +38,6 @@
                 <tr><td><label>Neues Passwort:</label></td><td><input type="text" name="passwort" class="bnv"></td></tr>
             </table>   
             <input type="submit" value="Benutzer bearbeiten" class="bnv" formaction="bnvsenden.php?new=2">
-            <input type="submit" value="Benutzer löschen" class="bnv" formaction="bnvsenden.php?new=3">
         </form>
     </div>
 </div>
