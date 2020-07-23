@@ -57,7 +57,7 @@ $shirtpreis=intval($shirtpreis);
        <h1>Daten der Seite bearbeiten</h1>
        <h2>Hier sieht man eine Auflistung aller dynamsichen Daten der Webseite, wenn sie hier geändert werden, werden sie überall auf der Webseite geändert.</h2>
 
-       <form class="daten" id="form_daten" method="POST" action="datenändern.php">
+       <form class="daten" id="form_daten" method="POST" action="files/datenändern.php">
         <table class="daten">
             <tr class="daten">
                 <td class="daten_head" id="daten_left">Name des Datums</td>

@@ -1,6 +1,6 @@
 <?php
-    require '../files/linkmaker.php';
-    require '../files/datenzugriff.php';
+    require '../../files/linkmaker.php';
+    require '../../files/datenzugriff.php';
 
     $anfang = $_POST['anfang'];
     $ende = $_POST['ende']; 
@@ -16,7 +16,7 @@
     $ende = strtotime($ende);
     $ende= date('d.m.Y', $ende);
 
-    $handle = fopen("../files/daten.txt", "w");
+    $handle = fopen("../../files/daten.txt", "w");
     fwrite($handle, $anfang."\n");
     fwrite($handle, $ende."\n");
     fwrite($handle, $jahr."\n");
@@ -28,5 +28,5 @@
     fwrite($handle, $status);
     fclose($handle);
 
-    header("Location:daten.php?erfolg=1");
+    header("Location:../daten.php?erfolg=1");
 ?>
