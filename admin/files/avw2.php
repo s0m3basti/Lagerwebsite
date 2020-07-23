@@ -32,7 +32,7 @@
 
         $i = 0;
         echo "<table class='avw'>";
-        echo "<tr class='avw_head'><td></td><td>Vorname des Teilnehmers</td><td>Nachname des Teilnehmers</td><td>Geschlecht</td><td>Geburtstag</td><td>Alter im Lager</td><td>Vorname des Erzb</td><td>Nachname des Erzb</td><td>Straße</td><td>Postleitzahl</td><td>Ort</td><td>Telefon (privat)</td><td>Telefon (Handy)</td><td>Telefon (dienstl.)</td><td>E-Mail-Adresse</td><td>Mitglied</td><td>Mitarbeiter</td><td>Schwimmer</td><td>Schwimmstufe</td><td>Badeerlaubnis</td><td>Springen ins Wasser</td><td>Ernaehrung</td><td>Krankheiten</td><td>Medikamente</td><td>Taschengeld</td><td>Art der Versciherung</td><td>Name der Versicherung</td><td>Ptivate KFZ</td><td>Ratenzahlung</td><td>Tshirts</td><td>Datum der Anmeldung</td><td>IP-Adresse der Anmeldung</td></tr>";
+        echo "<tr class='avw_head'><td class='avw_head avw_id'></td><td class='avw_head'>Vorname des Teilnehmers</td><td class='avw_head'>Nachname des Teilnehmers</td><td class='avw_head'>Geschlecht</td><td class='avw_head'>Geburtstag</td><td class='avw_head'>Alter im Lager</td><td class='avw_head'>Vorname des Erzb</td><td class='avw_head'>Nachname des Erzb</td><td class='avw_head'>Straße</td><td class='avw_head'>Postleitzahl</td><td class='avw_head'>Ort</td><td class='avw_head'>Telefon (privat)</td><td class='avw_head'>Telefon (Handy)</td><td class='avw_head'>Telefon (dienstl.)</td><td class='avw_head'>E-Mail-Adresse</td><td class='avw_head'>Mitglied</td><td class='avw_head'>Mitarbeiter</td><td class='avw_head'>Schwimmer</td><td class='avw_head'>Schwimmstufe</td><td class='avw_head'>Badeerlaubnis</td><td class='avw_head'>Springen ins Wasser</td><td class='avw_head'>Ernaehrung</td><td class='avw_head'>Krankheiten</td><td class='avw_head'>Medikamente</td><td class='avw_head'>Taschengeld</td><td class='avw_head'>Art der Versciherung</td><td class='avw_head'>Name der Versicherung</td><td class='avw_head'>Ptivate KFZ</td><td class='avw_head'>Ratenzahlung</td><td class='avw_head'>Tshirts</td><td class='avw_head'>Datum der Anmeldung</td><td class='avw_head'>IP-Adresse der Anmeldung</td></tr>";
 
         $sql = "SELECT * 
                     FROM tbl_stammdaten s,tbl_srgb e, tbl_anmeldedaten a
@@ -67,9 +67,9 @@
                 <td class="avw">'.leer($row['Schwimmstufe']).'</td>
                 <td class="avw">'.$row['Badeerlaubnis'].'</td>
                 <td class="avw">'.$row['Springen'].'</td>
-                <td class="avw">'.leer($row['Ernaehrung']).'</td>
-                <td class="avw">'.leer($row['Krankheit']).'</td>
-                <td class="avw">'.leer($row['Medikamente']).'</td>
+                <td class="avw text">'.leer($row['Ernaehrung']).'</td>
+                <td class="avw text">'.leer($row['Krankheit']).'</td>
+                <td class="avw text">'.leer($row['Medikamente']).'</td>
                 <td class="avw">'.$row['Taschengeld'].'</td>
                 <td class="avw">'.$row['Versicherung_art'].'</td>
                 <td class="avw">'.$row['Versicherung_name'].'</td>
@@ -79,6 +79,7 @@
                 <td class="avw">'.$row['Datum'].'</td>
                 <td class="avw">'.$row['IP_Adresse'].'</td>
             </tr>';
+        };
         };
         echo "</table>";
     }
