@@ -193,7 +193,7 @@
                     </tr>
                     <tr>
                         <td><label><input type="radio" name="shirt" id="shirt_ja" value="ja">Ich bestelle &nbsp</label></td>
-                        <td scope="colgroup" colspan="3" style="text-align:center"><input type="number" name="shirtanzahl" id="shirtanzahl" min="1" max="10" disabled="true">
+                        <td scope="colgroup" colspan="3" style="text-align:center"><input type="number" name="shirtanzahl" id="shirtanzahl" min="1" max="5" disabled="true">
                             &nbsp;T-Shirts in der Größe&nbsp;
                             <select name="shirtgroesse" id="shirtgroesse" disabled="true">
                                 <option value="default"> Größe auswählen </option>
