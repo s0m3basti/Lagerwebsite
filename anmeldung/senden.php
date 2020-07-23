@@ -210,7 +210,7 @@
                         $stmt_t->execute();
 
                 //--------------Eltern eintragen -------------------------
-                        $sql_eltern = "INSERT INTO tbl_srgb (TeilnehmerID, Nachname, Vorname, Strasse, PLZ, Ort, Tel_pri, Tel_handy, Tel_dienstl, email, mitglied, mitarbeiter, Datum, IP_Adresse)
+                        $sql_eltern = "INSERT INTO tbl_srgb (TeilnehmerID, e_Nachname, e_Vorname, Strasse, PLZ, Ort, Tel_pri, Tel_handy, Tel_dienstl, email, mitglied, mitarbeiter, Datum, IP_Adresse)
                             VALUES(:id, :nachname, :vorname, :strasse, :plz, :ort, :tel_p, :tel_h, :tel_d, :email, :mitglied, :mitarbeiter, :datum, :ip_adresse);";
 
                         $stmt_e = $db->prepare($sql_eltern);
