@@ -1,7 +1,5 @@
 <?php
-    require '../files/datenzugriff.php';
-
-    $to = "anmeldung@lagertest.de";
+     $to = "anmeldung@lagertest.de";
     $betreff = "Neue Anmeldung für $k_nachname $k_vorname";
     $from = "From: DRK Sommercamp <no-reply@lagertest.de>\n";
     $from .= "Reply-To: anmeldung@lagertest.de\n";

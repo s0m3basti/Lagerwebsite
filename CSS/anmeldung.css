@@ -42,7 +42,18 @@ p{
     background-size: cover;
     color: black;
 }
-
+/*messagebox*/
+div.message{
+    border: solid 2px black;
+    border-radius: 15px;
+    width: 60%;
+    margin: 20px auto 20px;
+    padding: 10px;
+}
+h2{
+    text-align: center;
+    padding-bottom: 5px;
+}
 /*-------PopUp---------------*/
 
 .popup{

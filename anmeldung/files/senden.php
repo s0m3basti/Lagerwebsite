@@ -1,39 +1,10 @@
 <?php
-    include '../files/linkmaker.php';
-    include '../files/datenzugriff.php';
+    include '../../files/linkmaker.php';
+    include '../../files/datenzugriff.php';
 
     if($status != "anmeldung"){
         header("Location: index.php");
     }
-?>
-
-<!DOCTYPE html>
-<html lang="de">
-    <head>
-		<title> Online-Anmeldung 2020 | DRK Sommercamp </title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../CSS/styles.css">
-        <link rel="stylesheet" href="../CSS/online.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
-        <script type="text/javascript" src="<?php echo(linkmaker("/files/active.js")) ?>"></script>
-        <!--<script defer type="text/javascript"> 
-            function countDown(init){
-                if (init || --document.getElementById( "counter" ).firstChild.nodeValue > 0 )
-	            window.setTimeout( "countDown()" , 1000 );
-            };
- 
-            window.setTimeout('window.location = "http://www.lagertest.de/anmeldung"',10000);
-        </script>-->
-	</head>
-    <body onload="countDown(true)">
-        <?php
-            include '../files/head.php';
-        ?>
-        <div class="bg">
-        <div id="Inhalt">
-
-        <?php
             $id = $_POST['id'];
             $k_nachname = $_POST['kind_nachname'];
             $k_vorname = $_POST['kind_name'];
@@ -107,11 +78,6 @@
             else{
                 $test_length = false;
             }
-            
-            //$test = preg_match("/;/","Halllo;;");
-            //echo($test);
-            //echo("Das ist die Injection: $test_injection </br>");
-            //echo("Das ist die Länge: $test_length </br>");
 
             //-------------------------
 
@@ -154,15 +120,15 @@
             //--------------------------------------------------
 
             if($test_injection == true || $test_length == true){
-                mail("$anmeldungmail", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <fehler@lagertest.de>");
-                require("files/eintrag_check_fail.html");
+                mail("$supportmail", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <fehler@lagertest.de>");
+                header("Location:../index.php?message=5");
             }
             else{
 
-                require 'files/email_touser.php';
-                require 'files/email_tous.php';
+                require '../files/email_touser.php';
+                require '../files/email_tous.php';
 
-                require("../Datenbank/writer.php");
+                require("../../Datenbank/writer.php");
                     try{
                         $db = new PDO("$host; $name" ,$user,$pass);
                         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -242,32 +208,31 @@
                         $db = null;
                     }
                 
+
+                // beides angekommen = 1
+                // eins von beidem angekomme = 2
+                // gar nichts angekommen = 3
+                // e-mail zum user nicht raus gegangen = 4
+                // beim injection check einen Fehler gefunden = 5
+
                 if($mail_send_us == true && $db_send == true){
-                    include('files/eintrag_erstellt.html');
+                    header("Location:../index.php?message=1");
                 }
                 if($mail_send_us == true && $db_send == false){
-                    include('files/eintrag_erstellt.html');
-                    mail("$anmeldungmail","Mail angekommen, aber nicht in Datenbank","Die Anmeldung von $k_vorname $k_nachname, mit der ID $id, ist nur als Mail eingegangen. <br/> Bei der Verarbeitung der Datenbank gab es einen Fehler <br/> Fehlercode: <br/> $fehler","Anmeldungsfehler <fehler@lagertest.de>");
+                    header("Location:../index.php?message=2");
+                    mail("$supportmail","Mail angekommen, aber nicht in Datenbank","Die Anmeldung von $k_vorname $k_nachname, mit der ID $id, ist nur als Mail eingegangen. <br/> Bei der Verarbeitung der Datenbank gab es einen Fehler <br/> Fehlercode: <br/> $fehler","Anmeldungsfehler <fehler@lagertest.de>");
                 }
                 if($mail_send_us == false && $db_send == true){
-                    include('files/eintrag_erstellt.html');
-                    mail("$anmeldungmail", "Anmeldung in Datenbank, aber nicht als Mail", "Die Anmeldung von $k_vorname $k_nachname, mit der $id, ist nur in der Datenbank vorhanden und nicht als separate Mail.", "Anmeldungsfehler <fehler@lagertest.de>" );
+                    header("Location:../index.php?message=2");
+                    mail("$supportmail", "Anmeldung in Datenbank, aber nicht als Mail", "Die Anmeldung von $k_vorname $k_nachname, mit der $id, ist nur in der Datenbank vorhanden und nicht als separate Mail.", "Anmeldungsfehler <fehler@lagertest.de>" );
                 }
                 if($mail_send_us == false && $db_send == false){
-                    include('files/eintrag_fehler.html');
-                    mail("$anmeldungmail", "Fehler bei der Anmeldung", "Die Anmeldung von $k_nachname $k_nachname kam nicht als Mail oder Datenbankeintrag an. <br/> Fehlercode: <br/> $fehler", "Anmeldungsfehler <fehler@lagertest.de>");
+                    header("Location:../index.php?message=3");
+                    mail("$supportmail", "Fehler bei der Anmeldung", "Die Anmeldung von $k_nachname $k_nachname kam nicht als Mail oder Datenbankeintrag an. <br/> Fehlercode: <br/> $fehler", "Anmeldungsfehler <fehler@lagertest.de>");
                 }
                 if($mail_send_user == false){
-                    echo("Beim senden der E-Mail an sie ist ein Fehler aufgetreten. Diese Meldung ist auch bei uns eingegangen. <br/> Senden sie uns bitte eine Mail an $kontaktmail mit dem Vor- und Nachname ihres Kindes. </br>");
-                    mail("$anmeldungmail", "Fehler beim senden der Mail an User", "Die Anmeldung von $k_vorname $k_nachname wurde nicht an die Angegebene Mail weitergeleitet. <br/> Im besten Fall meldet sich der User bei uns, er hat eine Meldung erhalten, wenn nicht müssten wir Kontakt  aufnehmen.", "Anmeldungsfehler <fehler@lagertest.de>");
+                    header("Location:../index.php?message=4");
+                    mail("$supportmail", "Fehler beim senden der Mail an User", "Die Anmeldung von $k_vorname $k_nachname wurde nicht an die Angegebene Mail weitergeleitet. <br/> Im besten Fall meldet sich der User bei uns, er hat eine Meldung erhalten, wenn nicht müssten wir Kontakt  aufnehmen.", "Anmeldungsfehler <fehler@lagertest.de>");
                 }
             }
         ?>
-
-        </div>
-        </div>
-        <?php
-         include '../files/footer.php';
-        ?>
-    </body>
-</html>

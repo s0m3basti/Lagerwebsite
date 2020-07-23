@@ -87,7 +87,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
         <script type="text/javascript" src="http://lagertest.de/files/active.js"></script>
-        
+        <script>
+            const message = <?php if(isset($_GET['message'])){echo $_GET['message'];}else{echo 0;}; ?>
+        </script>
+        <script src="files/messagebox.js" defer></script>
 
 	</head>
     
@@ -98,6 +101,8 @@
         ?>
     <div class="bg">
             <div id="Inhalt">
+                <div class="message" id="messagebox">
+                </div>
                 <h1>Anmeldung</h1><br>
                 <p>
                     Auch in diesem Jahr ist es wieder möglich sich für das DRK Sommercamp vom <?php echo $anfang ?> bis zum <?php echo $ende ?> online und schriftlich an zu melden.

@@ -51,7 +51,7 @@
            <h1>Verbindliche Anmeldung zum DRK Sommercamp 2020</h1><br>
            <p class="sub">Bitte das Formular vollständig ausfüllen.<br> Optionale Angaben sind mit * gekennzeichnet.<br>Verpflichtende Angaben sind rot.</p>
             <br>
-               <form id="anmeldung" method="Post" action="senden.php" >
+               <form id="anmeldung" method="POST" action="files/senden.php" >
                <table id="t_anmeldung" class="zentrierte-tabelle">
                    <input type="hidden" name="id" value="<?php echo $id ?>">
                     <tr>

@@ -1,6 +1,4 @@
 <?php
-    require '../files/datenzugriff.php';
-
     $to = $e_email;
     $betreff = "Bestätigung des Anmeldungseingangs für das DRK Sommercamp $jahr";
     $from = "From: DRK Sommercamp <no-reply@lagertest.de>\n";
