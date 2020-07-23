@@ -291,3 +291,38 @@ input[type=number].bnv{
     padding: 3px;
     text-align: center;
 }
+/*verwalten*/
+table.avw{
+    background-color: white;
+    color: black;
+    border-collapse: collapse;
+    border: solid 3px black;
+}
+td.avw_head{
+    border: solid 1px black;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 5px 3px;
+}
+tr.avw { 
+    cursor: pointer; 
+    border: solid 1px black;
+}
+tr.avw:nth-child(even) {
+    background: #CCC
+}
+tr.avw:nth-child(odd) {
+    background: #FFF
+}
+td.avw:first-of-type{
+
+}
+td.avw{
+    vertical-align: center;
+    border: solid 1px black;
+    white-space: nowrap;
+    padding: 5px 3px;
+}
+td.text{
+    white-space: normal;
+}

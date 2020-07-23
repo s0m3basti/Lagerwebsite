@@ -34,16 +34,29 @@ require '../Datenbank/writer.php';
         <h1>Anmeldungen verwalten</h1>
         <h2>Hier werden alle Anmeldungen komplett dargestellt.</h2>
         <?php
-            switch($urechte){
-                case 1:
-                    require "files/avw1.php";
-                    break;
-                case 2:
-                    require "files/avw2.php";
-                    break;
-                case 3:
-                    require "files/avw3.php";
-                    break;
+            if(!isset($_GET['id'])){
+                switch($urechte){
+                    case 1:
+                        require "files/avw1.php";
+                        break;
+                    case 2:
+                        require "files/avw2.php";
+                        break;
+                    case 3:
+                        require "files/avw3.php";
+                        break;
+                }
+            }
+            else{
+                switch($urechte){
+                    case 1:
+                    case 2:
+                        header("Location:verwalten.php");
+                        break;
+                    case 3:
+                        require "files/avweod.php";
+                        break;
+                }
             }
         ?>
     </div>    
