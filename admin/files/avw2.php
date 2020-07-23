@@ -1,4 +1,4 @@
-<h2>Hier siehst du detailiert alle Anmeldungen.</h2>
+<h2>Hier werden alle Anmeldungen komplett dargestellt.</h2>
 <?php
 
     function leer($var){

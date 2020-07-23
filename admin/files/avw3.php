@@ -1,3 +1,4 @@
+<h2>Hier werden alle Anmeldungen komplett dargestellt.</h2>
 <h2>Um in den Bearbeitungsmodus zu kommen, klicke bitte doppelt auf die zu bearbeitende Zeile.</h2>
 <?php
 
