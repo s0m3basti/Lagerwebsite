@@ -24,7 +24,7 @@
                 $db = null;
             }
 
-            require "files/edit1.php";
+            require "files/avwedit1.php";
             break;
         case 2:
             try{
@@ -56,7 +56,7 @@
                 $db = null;
             }
 
-            require "files/edit2.php";
+            require "files/avwedit2.php";
             break;
         case 3:
             try{
@@ -94,11 +94,11 @@
                 $db = null;
             }
 
-            require "files/edit3.php";
+            require "files/avwedit3.php";
             break;
         case 4: 
             
-            require "files/edit4.php";
+            require "files/avwedit4.php";
             break;
     }
 
