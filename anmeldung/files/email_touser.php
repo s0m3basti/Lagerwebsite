@@ -10,7 +10,7 @@
     <p style=\"font-family: Arial; font-size: 14pt\">Hiermit bestätigen wir ihnen den Erhalt der Anmeldung für das DRK Sommercamp $jahr.
         <br>Sie erhalten von uns zusätzlich eine schriftliche Anmeldebestätigung via Post.
         <br>Hier können sie noch einmal ihre Angaben einsehen. 
-        <br>Sollten sie einen Fehler finden, wenden sie sich bitte an: <a href=\"mailto:kontakt@drk-sommercamp.de\">kontakt@drk-sommercamp.de</a>.
+        <br>Sollten sie einen Fehler finden, wenden sie sich bitte an: <a href=\"mailto:$kontaktmail\">$kontaktmail</a>.
     </p>
     <p style=\"font-family: Arial; font-size: 14pt\">Mit freundlichen Grü&szligen ihr DRK Sommercamp Team
         <br>
