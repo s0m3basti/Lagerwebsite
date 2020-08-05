@@ -8,9 +8,14 @@
                 WHERE TeilnehmerID = "'.$_GET['id'].'";';
         foreach ($db->query($sql) as $row);
 
+
         $nachname = $row['Vorname'];
         $vorname = $row['Nachname'];
         $gebdatum = $row['Geburtstag'];
+
+        $_SESSION['nachname'] = $nachname;
+        $_SESSION['vorname'] = $vorname;
+        $_SESSION['gebdatum'] = $gebdatum;
     }
     catch(PDOException $e){
         $fehler = $e->getMessage();
