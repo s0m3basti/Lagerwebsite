@@ -66,7 +66,7 @@ require '../Datenbank/writer.php';
                         header("Location:verwalten.php");
                         break;
                     case 3:
-                        require "files/avwed.php";
+                        require "files/avwprepare.php";
                         break;
                 }
             }
