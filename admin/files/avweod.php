@@ -12,10 +12,6 @@
         $nachname = $row['Vorname'];
         $vorname = $row['Nachname'];
         $gebdatum = $row['Geburtstag'];
-
-        $_SESSION['nachname'] = $nachname;
-        $_SESSION['vorname'] = $vorname;
-        $_SESSION['gebdatum'] = $gebdatum;
     }
     catch(PDOException $e){
         $fehler = $e->getMessage();
@@ -25,8 +21,8 @@
         $db = null;
     }
 
-    echo "<h2>Die Anmeldung von $vorname $nachname, geboren am $gebdatum, kann hier bearbeitet oder gelöscht werden.</h2>";
-    echo "<p>Sei dir bewusst das alle Änderungen auswirkungen mit sich tragen, wenn eine Anmeldung gelöscht wurde ist sie weg. <br>Alle änderungen werden getraked!</p>"
+    echo '<h2>Die Anmeldung von '.$vorname.' '.$nachname.', geboren am '.date("d.m.Y",strtotime($gebdatum)).', kann hier bearbeitet oder gelöscht werden.</h2>';
+    echo "<p>Sei dir bewusst das alle Änderungen auswirkungen mit sich tragen, wenn eine Anmeldung gelöscht wurde ist sie weg. <br><b>Alle Änderungen werden getraked!</b></p>"
 ?>
 
 <h3>Anmeldung ändern</h3>

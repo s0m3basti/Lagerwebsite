@@ -1,21 +1,19 @@
 <h2> Ändern der Stammdaten <h2>
-<p> Bitte sei dir bewusst das alle Änderungen weitreichende Folgen haben und nicht so leicht zu korrigieren sind <br>
-Änderungen sollte nur durchgeführt werden, wenn die wirklich notwendig sind.</p>
-<p>Bei den Eingaben werden keinerlei hilfen Vorgenommen, bitte achtet also auf eine korrekte Formatierung und Eingabe.</p>
-<br>
-<form method="POST" action="files/avwsenden.php?id=<?php echo $_GET['id'] ?>&type=1">
-    <label>Vorname des Kindes <input type="text" value="<?php echo $vorname ?>"></label><br>
-    <label>Nachname des Kindes <input type="text" value="<?php echo $nachname?>"></label><br>
-    <label>Geschlecht des Kindes 
-        <?php
-        if($geschlecht == "maennlich"){
-           echo' <select><option value="maennlich" selected>Männlich</option><option value="weiblich">Weiblich</option></select>';
-        }
-        else{
-            echo' <select><option value="maennlich">Männlich</option><option selected value="weiblich">Weiblich</option></select>';
-        }
-        ?>
-    </label><br>
-    <label>Geburtstag des Kindes <input type="date" value="<?php echo $gebdatum ?>"></label><br>
-    <input type="submit" value="Änderungen speichern">
-</form>
+<table class="avwe">
+    <form method="POST" action="files/avwsenden.php?id=<?php echo $_GET['id'] ?>&type=1">
+        <tr><td><label>Vorname des Kindes</td><td><input type="text" name="vorname" value="<?php echo $vorname ?>"></label></td></tr>
+        <tr><td><label>Nachname des Kindes</td><td><input type="text" name="nachname" value="<?php echo $nachname?>"></label></td></tr>
+        <tr><td><label>Geschlecht des Kindes</td><td> 
+            <?php
+            if($geschlecht == "maennlich"){
+            echo' <select name="geschlecht"><option value="maennlich" selected>Männlich</option><option value="weiblich">Weiblich</option></select>';
+            }
+            else{
+                echo' <select name="geschlecht"><option value="maennlich">Männlich</option><option selected value="weiblich">Weiblich</option></select>';
+            }
+            ?>
+        </label></td></tr>
+        <tr><td><label>Geburtstag des Kindes</td><td><input type="date" name="gebdatum" value="<?php echo $gebdatum ?>"></label></td></tr>
+        <tr><td colspan="2"><button type="submit" class="avw edit">Änderungen speichern</button><td></tr>
+    </form>
+</table>

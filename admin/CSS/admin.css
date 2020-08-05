@@ -335,3 +335,38 @@ td.avw{
 td.text{
     white-space: normal;
 }
+button.avw{
+    width: 30%;
+    padding: 10px;
+    font-size: 80%;
+    border-radius: 3px;
+    border: solid 1px black;
+    cursor: pointer;
+    color: black;
+}
+button.edit{
+    background-color: #4CAF50;
+}
+button.edit:hover{
+    background-color: #367c39;
+    color: white;
+}
+button.delete{
+    background-color: #f44336;
+}
+button.delete:hover{
+    background-color: #c2160a;
+    color: white;
+}
+button.back{
+    margin-top: 50px;
+    background-color: #ffad33;
+}
+button.back:hover{
+    background-color: #e68a00;
+    color: white;
+}
+table.avwe{
+    margin: auto;
+    width: 50%;
+}

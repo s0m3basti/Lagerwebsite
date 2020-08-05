@@ -1,78 +1,72 @@
 <h2> Ändern der Angaben für den Betreuer <h2>
-<p> Bitte sei dir bewusst das alle Änderungen weitreichende Folgen haben und nicht so leicht zu korrigieren sind <br>
-Änderungen sollte nur durchgeführt wer´den, wenn die wirklich notwendig sind.</p>
-<p>Bei den Eingaben werden keinerlei hilfen Vorgenommen, bitte achtet also auf eine korrekte Formatierung und Eingabe.</p>
-<br>
-<?php
-    echo 'Die Angaben gehören zur Anmeldung von '.$_SESSION['vorname'].' '.$_SESSION['nachname'].' geboren am '.$_SESSION['gebdatum'].'.';
-?>
-<br>
-<form method="POST" action="files/avwsenden.php?id=<?php echo $_GET['id'] ?>&type=3">
-    <?php
-        if($schwimmer ==  "ja"){
-            echo '<label>Schwimmer <select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
-        }
-        else{
-            echo '<label>Schwimmer <select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
-        }
-    ?>
-    <label>Schwimmstufe <input type="text" value="<?php echo $schwimmstufe ?>"></label><br>
-    <?php
-        if($badeerlaubnis == "ja"){
-            echo '<label>Badeerlaubnis<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
-        }
-        else{
-            echo '<label>Badeerlaubnis<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
-        }
-        if($springen == "ja"){
-            echo '<label>Springen<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
-        }
-        else{
-            echo '<label>Springen<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
-        }
-    ?>
-    <label>Ernährung <input type="text" value="<?php echo $ernaehrung ?>"></label><br>
-    <label>Krankheiten <input type="text" value="<?php echo $krankheit ?>"></label><br>
-    <label>Medikamente <input type="text" value="<?php echo $medikamente ?>"></label><br>
-    <?php
-        if($taschengeld == "ja"){
-            echo '<label>Taschengeldverwaltung<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
-        }
-        else{
-            echo '<label>Taschengeldverwaltung<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
-        }
-        if($versicherung_art == "gesetzlich"){
-            echo '<label>Art der KV<select><option selected value="gesetzlich">Gesetzlich</option><option value="privat">Privat</option></select></label><br>';
-        }
-        else{
-            echo '<label>Art der KV<select><option value="gesetzlich">Gesetzlich</option><option selected value="privat">Privat</option></select></label><br>';
-        }
-    ?>
-    <label>Name der Versicherung <input type="text" value="<?php echo $versicherung_name ?>"></label><br>
-    <?php
-       if($kfz == "ja"){
-        echo '<label>KFZ<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
-        }
-        else{
-            echo '<label>KFZ<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
-        }
-        if($ratenzahlung == "ja"){
-            echo '<label>Ratenzahlung<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
-        }
-        else{
-            echo '<label>Ratenzahlung<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
-        } 
-    ?>
-    <label>Ratenanzahl <input type="number" value="<?php echo $raten_anzahl ?>"></label><br>
-    <?php
-        if($shirts == "ja"){
-            echo '<label>Shirts<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
-        }
-        else{
-            echo '<label>Shirts<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
-        }
-    ?>
-    <label>Shirtanzahl <input type="number" value="<?php echo $shirts_anzahl ?>"></label><br>
-    <label>Shirtsgröße <input type="text" value="<?php echo $shirts_groesse ?>"></label><br>
-    <input type="submit" value="Änderungen speichern">
-</form>
+<table class="avwe">
+    <form method="POST" action="files/avwsenden.php?id=<?php echo $_GET['id'] ?>&type=3">
+        <?php
+            if($schwimmer ==  "ja"){
+                echo '<tr><td><label>Schwimmer</td><td><select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label></td></tr>';
+            }
+            else{
+                echo '<tr><td><label>Schwimmer</td><td><select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label></td></tr>';
+            }
+        ?>
+        <tr><td><label>Schwimmstufe</td><td><input type="text" value="<?php echo $schwimmstufe ?>"></label></td></tr>
+        <?php
+            if($badeerlaubnis == "ja"){
+                echo '<tr><td><label>Badeerlaubnis</td><td><select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label></td></tr>';
+            }
+            else{
+                echo '<tr><td><label>Badeerlaubnis</td><td><select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label></td></tr>';
+            }
+            if($springen == "ja"){
+                echo '<tr><td><label>Springen</td><td><select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label></td></tr>';
+            }
+            else{
+                echo '<tr><td><label>Springen</td><td><select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label></td></tr>';
+            }
+        ?>
+        <tr><td><label>Ernährung</td><td><input type="text" value="<?php echo $ernaehrung ?>"></label></td></tr>
+        <tr><td><label>Krankheiten</td><td><input type="text" value="<?php echo $krankheit ?>"></label></td></tr>
+        <tr><td><label>Medikamente</td><td><input type="text" value="<?php echo $medikamente ?>"></label></td></tr>
+        <?php
+            if($taschengeld == "ja"){
+                echo '<tr><td><label>Taschengeldverwaltung</td><td><select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label></td></tr>';
+            }
+            else{
+                echo '<tr><td><label>Taschengeldverwaltung</td><td><select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label></td></tr>';
+            }
+            if($versicherung_art == "gesetzlich"){
+                echo '<tr><td><label>Art der KV</td><td><select><option selected value="gesetzlich">Gesetzlich</option><option value="privat">Privat</option></select></label></td></tr>';
+            }
+            else{
+                echo '<tr><td><label>Art der KV</td><td><select><option value="gesetzlich">Gesetzlich</option><option selected value="privat">Privat</option></select></label></td></tr>';
+            }
+        ?>
+        <tr><td><label>Name der Versicherung</td><td><input type="text" value="<?php echo $versicherung_name ?>"></label></td></tr>
+        <?php
+        if($kfz == "ja"){
+            echo '<tr><td><label>KFZ</td><td><select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label></td></tr>';
+            }
+            else{
+                echo '<tr><td><label>KFZ</td><td><select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label></td></tr>';
+            }
+            if($ratenzahlung == "ja"){
+                echo '<tr><td><label>Ratenzahlung</td><td><select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label></td></tr>';
+            }
+            else{
+                echo '<tr><td><label>Ratenzahlung</td><td><select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label></td></tr>';
+            } 
+        ?>
+        <tr><td><label>Ratenanzahl</td><td><input type="number" value="<?php echo $raten_anzahl ?>"></label></td></tr>
+        <?php
+            if($shirts == "ja"){
+                echo '<tr><td><label>Shirts</td><td><select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label></td></tr>';
+            }
+            else{
+                echo '<tr><td><label>Shirts</td><td><select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label></td></tr>';
+            }
+        ?>
+        <tr><td><label>Shirtanzahl</td><td><input type="number" value="<?php echo $shirts_anzahl ?>"></label></td></tr>
+        <tr><td><label>Shirtsgröße</td><td><input type="text" value="<?php echo $shirts_groesse ?>"></label></td></tr>
+        <tr><td colspan="2"><button type="submit" class="avw edit">Änderungen speichern</button></td></tr>
+    </form>
+</table>
