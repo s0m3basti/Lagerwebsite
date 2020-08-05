@@ -49,11 +49,30 @@
         }
     ?>
     <label>Name der Versicherung <input type="text" value="<?php echo $versicherung_name ?>"></label><br>
-    <label>Vorname des Kindes <input type="text" value="<?php echo $vorname ?>"></label><br>
-    <label>Vorname des Kindes <input type="text" value="<?php echo $vorname ?>"></label><br>
-    <label>Vorname des Kindes <input type="text" value="<?php echo $vorname ?>"></label><br>
-    <label>Vorname des Kindes <input type="text" value="<?php echo $vorname ?>"></label><br>
-    <label>Vorname des Kindes <input type="text" value="<?php echo $vorname ?>"></label><br>
-    <label>Vorname des Kindes <input type="text" value="<?php echo $vorname ?>"></label><br>
+    <?php
+       if($kfz == "ja"){
+        echo '<label>KFZ<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
+        }
+        else{
+            echo '<label>KFZ<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
+        }
+        if($ratenzahlung == "ja"){
+            echo '<label>Ratenzahlung<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
+        }
+        else{
+            echo '<label>Ratenzahlung<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
+        } 
+    ?>
+    <label>Ratenanzahl <input type="number" value="<?php echo $raten_anzahl ?>"></label><br>
+    <?php
+        if($shirts == "ja"){
+            echo '<label>Shirts<select><option selected value="ja">Ja</option><option value="nein">Nein</option></select></label><br>';
+        }
+        else{
+            echo '<label>Shirts<select><option value="ja">Ja</option><option selected value="nein">Nein</option></select></label><br>';
+        }
+    ?>
+    <label>Shirtanzahl <input type="number" value="<?php echo $shirts_anzahl ?>"></label><br>
+    <label>Shirtsgröße <input type="text" value="<?php echo $shirts_groesse ?>"></label><br>
     <input type="submit" value="Änderungen speichern">
 </form>
