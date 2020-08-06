@@ -12,16 +12,16 @@
         <tr><td><label>E-Mail-Adresse</td><td><input type="email" name="email" value="<?php echo $email ?>"></label></td></tr>
         <?php
         if($mitglied == "ja"){
-            echo '<tr><td><label>Mitglied</td><td><input type="checkbox" name="mitglied" value="ja" checked></label></td></tr>';
+            echo '<tr><td><label>Mitglied</td><td><input type="checkbox" name="mitglied" checked></label></td></tr>';
         }
         else{
-            echo '<tr><td><label>Mitglied</td><td><input type="checkbox" name="mitglied" value="nein"></label></td></tr>';
+            echo '<tr><td><label>Mitglied</td><td><input type="checkbox" name="mitglied"></label></td></tr>';
         }
         if($mitarbeiter == "ja"){
-            echo '<tr><td><label>Mitarbeiter</td><td><input type="checkbox" name="mitarbeiter" value="ja" checked></label></td></tr>';
+            echo '<tr><td><label>Mitarbeiter</td><td><input type="checkbox" name="mitarbeiter" checked></label></td></tr>';
         }
         else{
-            echo '<tr><td><label>Mitarbeiter</td><td><input type="checkbox" name="mitarbeiter" value="nein"></label></td></tr>';
+            echo '<tr><td><label>Mitarbeiter</td><td><input type="checkbox" name="mitarbeiter"""></label></td></tr>';
         }
         ?>
         <tr><td colspan="2"><button type="submit" class="avw edit">Änderungen speichern</button</td></tr>
