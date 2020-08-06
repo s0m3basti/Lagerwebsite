@@ -32,3 +32,8 @@ Die Anmeldung von Bastians Schneiders wurde am 2020-08-06 15:38:12 von 15 (Basti
 Die Anmeldung von Bastians Schneiders wurde am 2020-08-06 15:38:12 von 15 (Bastian Schneider) bearbeitet.  nein --> ja.
 Die Anmeldung von Bastians Schneiders wurde am 2020-08-06 15:38:12 von 15 (Bastian Schneider) bearbeitet.   --> 2.
 Die Anmeldung von Bastians Schneiders wurde am 2020-08-06 15:38:12 von 15 (Bastian Schneider) bearbeitet.   --> L.
+Die Anmeldung von Bastians Schneiders wurde am 2020-08-06 15:44:35 von 15 (Bastian Schneider) bearbeitet.  Bastians --> Bastian.
+Die Anmeldung von Bastians Schneiders wurde am 2020-08-06 15:44:35 von 15 (Bastian Schneider) bearbeitet.  Schneiders --> Schneider.
+Die Anmeldung von Bastians Schneiders wurde am 2020-08-06 15:44:35 von 15 (Bastian Schneider) bearbeitet.  2012-07-03 --> 2010-07-03.
+Die Anmeldung von Bastian Schnei wurde am 2020-08-06 15:45:01 von 15 (Bastian Schneider) bearbeitet.  Schnei --> Schneider.
+Die Anmeldung von Bastian Schnei wurde am 2020-08-06 15:45:01 von 15 (Bastian Schneider) bearbeitet.  2010-07-03 --> 2012-07-03.

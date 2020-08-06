@@ -47,12 +47,12 @@
                     $stmt = $db->prepare($sql);
                     $stmt->execute();
 
-                    header("Location:../verwalten.php?id=$id&message=succsess");
+                    header("Location:../verwalten.php?message=succsess");
                 }
                 catch(PDOException $e){
                     $fehler = $e->getMessage();
                     echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
-                    header("Location:../verwalten.php?id=$id&message=fail");
+                    header("Location:../verwalten.php?message=fail");
                 }
                 finally{
                     $db = null;
@@ -106,12 +106,12 @@
                     $stmt = $db->prepare($sql);
                     $stmt->execute();
 
-                    header("Location:../verwalten.php?id=$id&message=succsess");
+                    header("Location:../verwalten.php?message=succsess");
                 }
                 catch(PDOException $e){
                     $fehler = $e->getMessage();
                     echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
-                    header("Location:../verwalten.php?id=$id&message=fail");
+                    header("Location:../verwalten.php?message=fail");
                 }
                 finally{
                     $db = null;
@@ -163,12 +163,12 @@
                     $stmt = $db->prepare($sql);
                     $stmt->execute();
 
-                    header("Location:../verwalten.php?id=$id&message=succsess");
+                    header("Location:../verwalten.php?message=succsess");
                 }
                 catch(PDOException $e){
                     $fehler = $e->getMessage();
                     echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
-                    header("Location:../verwalten.php?id=$id&message=fail");
+                    header("Location:../verwalten.php?message=fail");
                 }
                 finally{
                     $db = null;
