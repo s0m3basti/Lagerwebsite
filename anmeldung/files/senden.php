@@ -108,6 +108,8 @@
 
             $lageralter = $anfang-$k_geburtstag;
 
+            $art = "online";
+
             $datum = date('Y-m-d');
 
             if (! isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -149,8 +151,8 @@
                         $stmt_t->execute();
 
                 //--------------Anmeldedaten eintragen -------------------------
-                        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, Shirts, Shirts_anzahl, Shirts_groesse, Datum, IP_Adresse) 
-                            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :shirts, :shirts_anzahl, :shirts_groesse, :datum, :ip_adresse)";
+                        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, Shirts, Shirts_anzahl, Shirts_groesse, art, Datum, IP_Adresse) 
+                            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :shirts, :shirts_anzahl, :shirts_groesse, :art, :datum, :ip_adresse)";
                         
                         $stmt_t = $db->prepare($sql_anmeldedaten);
                         $stmt_t->bindValue(':id',$id);
@@ -170,6 +172,7 @@
                         $stmt_t->bindValue(':shirts', $shirt);
                         $stmt_t->bindValue(':shirts_anzahl', $shirtanz);
                         $stmt_t->bindValue(':shirts_groesse', $shirtgr);
+                        $stmt_t->bindValue(':art', $art);
                         $stmt_t->bindValue(':datum', $datum);
                         $stmt_t->bindValue(':ip_adresse', $ip_adresse);
 
