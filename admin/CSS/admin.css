@@ -379,13 +379,17 @@ table.neu{
 td.neu{
     padding: 2px;
 }
-input[type=submit]{
+input[type=submit].neu{
         width: 30%;
         padding: 10px;
         font-size: 80%;
         border-radius: 3px;
-        background-color: #148520;
+        background-color: #4CAF50;
         border: solid 1px black;
         cursor: pointer;
         color: black;
+}
+input[type=submit].neu:hover{
+    background-color: #367c39;
+    color: white;
 }

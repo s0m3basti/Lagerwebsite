@@ -22,12 +22,23 @@ require '../Datenbank/writer.php';
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" id="favicon">
     <link rel="stylesheet" href="CSS/admin.css">
+    <script src="files/avwmessagebox.js" defer></script>
 </head>
 <body>
     <?php
         require("files/nav.html");
     ?>
     <div class="content">
+        <?php
+            if(isset($_GET['message'])){
+                if($_GET['message'] == "succsess"){
+                    echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Anmeldung erfolgreich hinzugefügt!"</div>';
+                }
+                else{
+                    echo '<div class="message" id="messagebox" style="background-color: #f44336; margin-left: 0">Fehler bei der Kommunikation mit der Datenbank!</div>';
+                }
+            }
+        ?>
         <h1>Neue Anmeldung hinzufügen</h1>
         <?php
             switch($urechte){

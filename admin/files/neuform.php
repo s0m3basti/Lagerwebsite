@@ -1,7 +1,6 @@
 <h2>Trage hier alle Daten ein die du auf der Anmeldung findest.</h2>
 <p>Bitte verwende dabei exakte Eingaben, dieses Formular wird nicht weiter überprüft.
-    <br> Sollte ein Fehler aufgetreten sein, kannst du die Anmeldung löschen und die Eingaben erneut tätigen.
-    <br> Die Mail an die Eltern wird dann jedoch zwei Mal gesendet.
+<br>Bitte trage alle Benötigten Werte ein. Solltest du dir unsicher sein, trage etwas ein. Die Anmeldung kann später noch geändert werden.
 </p>
 
 <?php
@@ -55,7 +54,7 @@
         </tr>
         <tr class="neu">
             <td class="neu">Telefon (privat)</td>
-            <td class="neu"><input type="text" name="tel_priv" size="30"></td>
+            <td class="neu"><input type="text" name="tel_pri" size="30"></td>
         </tr>
         <tr class="neu">
             <td class="neu">Telefon (Handy)</td>
@@ -63,7 +62,7 @@
         </tr>
         <tr class="neu">
             <td class="neu">Telefon (dienstlich)</td>
-            <td class="neu"><input type="text" name="tel_dienst" size="30"></td>
+            <td class="neu"><input type="text" name="tel_dienstl" size="30"></td>
         </tr>
         <tr class="neu">
             <td class="neu">E-Mail-Adresse</td>
@@ -90,7 +89,7 @@
         </tr> 
         <tr class="neu">
             <td class="neu">Badeerlaubnis</td>
-            <td class="neu"><select name="baden"><option value="ja">Ja</option><option value="nein">Nein</option></select></td>
+            <td class="neu"><select name="badeerlaubnis"><option value="ja">Ja</option><option value="nein">Nein</option></select></td>
         </tr> 
         <tr class="neu">
             <td class="neu">Springen</td>
@@ -126,11 +125,11 @@
         </tr> 
         <tr class="neu">
             <td class="neu">Ratenzahlung</td>
-            <td class="neu"><select name="ratenzahlung"><option value="ja">Ja</option><option value="nein">Nein</option></select></td>
+            <td class="neu"><select name="raten"><option value="ja">Ja</option><option value="nein">Nein</option></select></td>
         </tr> 
         <tr class="neu">
             <td class="neu">Ratenanzahl</td>
-            <td class="neu"><input type="number"    name="raten_anzahl" min="2" max="3"></td>
+            <td class="neu"><input type="number" name="ratenanzahl" min="2" max="3"></td>
         </tr> 
         <tr class="neu">
             <td class="neu">Shirts</td>
