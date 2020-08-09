@@ -16,7 +16,7 @@ require '../files/datenzugriff.php';
 require '../Datenbank/writer.php';
 
 if(!isset($_GET["view"])){
-    $view = 1;
+    header("Location:?view=1");
 }
 else{
     if($_GET["view"] == 1){
@@ -25,6 +25,9 @@ else{
     else{
         $view = 2;
     }
+}
+if(!isset($_POST["type"])){
+    $_POST['type'] = 0;
 }
 ?>
 
@@ -35,14 +38,6 @@ else{
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" id="favicon">
     <link rel="stylesheet" href="CSS/admin.css" !important>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-    <script>
-        /*function myfunction(){
-            var current = location.href;
-            var neu = document.getElementById("picker").value;
-            var adress = current + "type=" + neu;
-            location.assign(adress);
-        }*/
-    </script>
     <script src="files/stats_createChart.js"></script>
 
 </head>
@@ -71,12 +66,19 @@ else{
 
            echo '<p class="picker">Art der Statistik auswählen';
            echo '
-                <select id="picker" class="picker" onchange="myfunction()">
+                <form method="POST">
+                <select id="picker" class="picker" name="type" onchange="this.form.submit()">
+                    <option value="0" default>Statistik auswählen</option>
                     <option value="1">Alter</option>
                     <option value="2">Geschlecht</option>
-                </select
+                </select>
+                </form>
             </p>
             <hr>';
+
+            
+            echo "$view </br>";
+            echo $_POST['type'];
         ?>
         <div class="container">
             <canvas id="myChart" height="auto"></canvas>
@@ -84,6 +86,9 @@ else{
 
         <script>
             <?php
+                
+                //switch anweisung für verschiedene Views (Datenbankabfragen und createChart commands)
+
                 $labels = array('"Männlich"', '"Weiblich"');
                 $data = array(25, 10);
                 $type = "pie";
