@@ -66,7 +66,7 @@ if(!isset($_POST["type"])){
 
            echo '<p class="picker">Art der Statistik auswählen';
            echo '
-                <form method="POST">
+                <form method="POST" style="text-align: left; padding: 10px; padding-top: 0;">
                 <select id="picker" class="picker" name="type" onchange="this.form.submit()">
                     <option value="0" default>Statistik auswählen</option>
                     <option value="1">Alter</option>
@@ -88,6 +88,7 @@ if(!isset($_POST["type"])){
             <?php
                 
                 //switch anweisung für verschiedene Views (Datenbankabfragen und createChart commands)
+                // zu manchen dann eventuell noch Prozentwerte Berechnen
 
                 $labels = array('"Männlich"', '"Weiblich"');
                 $data = array(25, 10);

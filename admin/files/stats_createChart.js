@@ -27,8 +27,8 @@ function createChart(labels, data, type, colors, title){
                 fontFamily: 'Arial'
             },
             legend:{
-                display:false,
-                position:'right',
+                display:true,
+                position:'bottom',
             labels:{
                 fontColor:'#000',
                 fontFamily: 'Arial'
