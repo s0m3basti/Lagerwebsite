@@ -393,3 +393,35 @@ input[type=submit].neu:hover{
     background-color: #367c39;
     color: white;
 }
+
+/* Stats */
+div.auswahl{
+    width: 100%;
+}
+
+button.stats{
+    width: 49%;
+    margin: 0;
+    height: 50px;
+    font-size: 90%;
+}
+button.active{
+    background-color: #367c39;
+}
+button.unactive{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+button.unactive:hover{
+    background-color: #367c39;
+}
+p.picker{
+    padding: 10px;
+    text-align: left;
+}
+select.picker{
+    width: 30%;
+    height: 30px;
+    font-size: 80%;
+    text-align: right;
+}
