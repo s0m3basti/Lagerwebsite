@@ -81,7 +81,7 @@ if(!isset($_POST["type"])){
             echo $_POST['type'];
         ?>
         <div class="container">
-            <canvas id="myChart" height="auto"></canvas>
+            <canvas id="myChart" height="100%" ></canvas>
         </div>
 
         <script>
