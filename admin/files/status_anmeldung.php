@@ -1,7 +1,7 @@
-<h2> Die Anmeldung ist zur zeit aktiviert </h2>
+<br>
 <p> Du kannst die Anmeldung jetzt deaktiviern. </p>
 <p> Wenn du die Anmeldung jetzt deaktivierst werden keine Daten verändert. 
-    <br> Solltest du gleich in die Vornameldung wollen, dann erst deaktivieren und dann die Vornamledung aktivieren.
+    <br> Du kannst die Anmeldung später fortsetzten oder mit dern Voranmeldung beginnen.
     <br>
-    <a href = "status_senden?von=anmeldung&nach=keine_anmeldung"><button>Anmeldung deaktivieren</button></a>
+    <a href = "files/status_senden.php?von=anmeldung&nach=keine_anmeldung"><button>Anmeldung deaktivieren</button></a>
 </p>

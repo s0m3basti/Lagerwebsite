@@ -12,4 +12,6 @@
     $supportmail = fgets($datei);
     $status = fgets($datei);
     fclose($datei);
+
+    /* Sollten mehr Daten dazu kommen, müssen die auch im datenändern.php und status_senden.php hinzugefügte werden. */
 ?>

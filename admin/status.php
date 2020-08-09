@@ -22,7 +22,9 @@ require '../Datenbank/writer.php';
     <title> Status der Anmeldung ändern | Admin | DRK Sommercamp </title>
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" id="favicon">
-    <link rel="stylesheet" href="CSS/admin.css">
+    <link rel="stylesheet" href="CSS/admin.css" !important>
+    <script src="files/avwmessagebox.js" defer></script>
+
 </head>
 <body>
     <?php
@@ -31,19 +33,81 @@ require '../Datenbank/writer.php';
     <div class="content">
         <?php
             if(isset($_GET['message'])){
-                if($_GET['message'] == "succsess"){
-                    echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Die Aktion war erfolgreich!</div>';
-                }
-                else{
-                    echo '<div class="message" id="messagebox" style="background-color: #f44336; margin-left: 0">Die Aktion war nicht erfolgreich!</div>';
+                switch($_GET['message']){
+                    case 1:
+                        echo '<div class="message" id="messagebox" style="background-color: #f44336; margin-left: 0">Es ist ein Fehler aufgetreten. Der Status wurde nicht geändert.</div>';
+                        break;
+                    case 2:
+                        echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Der Status wurde geändert <br> Es wurden '.$_GET["mailcount"].' Mails versendet. <br> Die Datenbank wurde vorbereitet.</div>';
+                        break;
+                    case 3:
+                        echo '<div class="message" id="messagebox" style="background-color: #f44336; margin-left: 0">Es gab ein Problem mit der Datenbank. Der Status wurde dennoch geändert.</div>';
+                        break;
+                    case 4: 
+                        echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Die Anmeldung wurde erfolgreich deaktiviert.</div>';
+                        break;
+                    case 5: 
+                        echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Die Voranmeldung wurde erfolgreich aktiviert.</div>';
+                        break;
+                    case 6: 
+                        echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Die Anmeldung wurde erfolgreich reaktiviert.</div>';
+                        break;
                 }
             }
         ?>
         <h1>Status der Anmeldung ändern</h1>
-        <p> Der übliche Verlauf besteht aus 3 Schritten, der Vornamledung, der Anmeldung und einer deaktivierten Phase. 
-            <br> Die Anmeldung kann zusätzlich in jeder Phase deaktiviert werden, bevor die Anmeldung aktiviert wird, muss es eine Voranmeldung geben.
+        <p> Der Verlauf besteht aus 3 Schritten, der Voranmledung, der Anmeldung und einer deaktivierten Phase. 
         </p>
         <?php
+            switch($status){
+                case "voranmeldung":
+                    echo '
+                        <h2>Der momentane Status lautet: Voranmeldung</h2>
+                        <table style="margin:auto; width:50%; text-align:center;">
+                            <tr><td colspan="3" style="">
+                                <progress id="status" value="33" max="100" style="width:100%; height: 20px; border-radius: 0px; background-color: white;"></progress>
+                            </td></tr>
+                            <tr>
+                                <td style=" width: 33%;">Voranmeldung</td>
+                                <td style=" width: 33%;">Anmeldung</td>
+                                <td style=" width: 33%;">Anmeldung deaktiviert</td>
+                            </tr>
+                        </table>
+                    ';
+                    break;
+                case "anmeldung":
+                    echo '
+                    <h2>Der momentane Status lautet: Anmeldung</h2>
+                    <table style="margin:auto; width:50%; text-align:center;">
+                        <tr><td colspan="3" style="">
+                            <progress id="status" value="66" max="100" style="width:100%; height: 20px; border-radius: 0px; background-color: white;"></progress>
+                        </td></tr>
+                        <tr>
+                            <td style=" width: 33%;">Voranmeldung</td>
+                            <td style=" width: 33%;">Anmeldung</td>
+                            <td style=" width: 33%;">Anmeldung deaktiviert</td>
+                        </tr>
+                    </table>
+                    ';
+                    break;
+                case "keine_anmeldung":
+                    echo '
+                    <h2>Der momentane Status lautet: Anmeldung deaktiviert</h2>
+                    <table style="margin:auto; width:50%; text-align:center;">
+                        <tr><td colspan="3" style="">
+                            <progress id="status" value="100" max="100" style="width:100%; height: 20px; border-radius: 0px; background-color: white;"></progress>
+                        </td></tr>
+                        <tr>
+                            <td style=" width: 33%;">Voranmeldung</td>
+                            <td style=" width: 33%;">Anmeldung</td>
+                            <td style=" width: 33%;">Anmeldung deaktiviert</td>
+                        </tr>
+                    </table>
+                    ';
+                    break;
+            }
+
+
             switch($urechte){
                 case 1:
                 case 2:
