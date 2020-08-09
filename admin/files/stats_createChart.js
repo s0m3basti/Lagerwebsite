@@ -24,6 +24,7 @@ function createChart(labels, data, type, colors, title){
                 display:true,
                 text: title,
                 fontSize:30,
+                fontColor: "white",
                 fontFamily: 'Arial'
             },
             legend:{

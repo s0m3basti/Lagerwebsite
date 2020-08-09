@@ -55,6 +55,17 @@ if(!isset($_POST["type"])){
                         <a href="?view=1"><button type="button" class="stats active">Statistiken des aktuellen Jahren</button></a><a href ="?view=2"><button type="button" class="stats unactive">Statistiken aller Daten</button></a>
                     </div>
                 ';
+                echo '<p class="picker">Art der Statistik auswählen';
+                echo '
+                    <form method="POST" style="text-align: left; padding: 10px; padding-top: 0;">
+                    <select id="picker" class="picker" name="type" onchange="this.form.submit()">
+                        <option value="0" default>Statistik auswählen</option>
+                        <option value="1">Geschlecht</option>
+                        <option value="2">Alter</option>
+                    </select>
+                    </form>
+                    </p>
+                <hr>';
            }
            else{
                echo '
@@ -62,20 +73,18 @@ if(!isset($_POST["type"])){
                     <a href="?view=1"><button type="button" class="stats unactive">Statistiken des aktuellen Jahren</button></a><a href ="?view=2"><button type="button" class="stats active">Statistiken aller Daten</button></a>
                     </div>
                ';
+               echo '<p class="picker" style="text-align: right;">Art der Statistik auswählen';
+               echo '
+                    <form method="POST" style="text-align: right; padding: 10px; padding-top: 0;">
+                    <select id="picker" class="picker" name="type" onchange="this.form.submit()">
+                        <option value="0" default>Statistik auswählen</option>
+                        <option value="1">Geschlecht</option>
+                        <option value="2">Alter</option>
+                    </select>
+                    </form>
+                    </p>
+                <hr>';
            }
-
-           echo '<p class="picker">Art der Statistik auswählen';
-           echo '
-                <form method="POST" style="text-align: left; padding: 10px; padding-top: 0;">
-                <select id="picker" class="picker" name="type" onchange="this.form.submit()">
-                    <option value="0" default>Statistik auswählen</option>
-                    <option value="1">Alter</option>
-                    <option value="2">Geschlecht</option>
-                </select>
-                </form>
-            </p>
-            <hr>';
-
             
             echo "$view </br>";
             echo $_POST['type'];
@@ -86,20 +95,69 @@ if(!isset($_POST["type"])){
 
         <script>
             <?php
-                
+                if($view == 1){
+                    switch($_POST['type']){
+                        case 1:
+                            $data = array();
+                            try{
+                                $db = new PDO("$host; $name" ,$user,$pass);
+                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        
+                                $sql = 'SELECT COUNT(Geschlecht) AS anzahl
+                                            FROM tbl_stammdaten
+                                            WHERE Jahr = '.$jahr.'
+                                            AND Geschlecht = "maennlich"
+                                            GROUP BY Geschlecht';
+                                foreach ($db->query($sql) as $row){
+                                    array_push($data, $row["anzahl"]);
+                                };
+                                $sql = 'SELECT COUNT(Geschlecht) AS anzahl
+                                            FROM tbl_stammdaten
+                                            WHERE Jahr = '.$jahr.'
+                                            AND Geschlecht = "weiblich"
+                                            GROUP BY Geschlecht';
+                                foreach ($db->query($sql) as $row){
+                                    array_push($data, $row["anzahl"]);
+                                };
+                            }
+                            catch(PDOException $e){
+                                $fehler = $e->getMessage();
+                                echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                            }
+                            finally{
+                                $db = null;
+                            }
+
+                            $labels = array('"Männlich"', '"Weiblich"');
+                            $data;
+                            $type= "pie";
+                            $colors = array('"#3498a3"','"#a83273"');
+                            $title = "Geschlechter";
+                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'")';
+                            break;
+                        case 2:
+                            break;
+                    }
+                }
+                else{
+
+                }
+
+
                 //switch anweisung für verschiedene Views (Datenbankabfragen und createChart commands)
                 // zu manchen dann eventuell noch Prozentwerte Berechnen
 
-                $labels = array('"Männlich"', '"Weiblich"');
-                $data = array(25, 10);
-                $type = "pie";
-                $colors = array('"#3498a3"','"#a83273"');
-                $title = "Geschlechter";
+                //$labels = array('"Männlich"', '"Weiblich"');
+                //$data = array(25, 10);
+                //$type = "pie";
+                //$colors = array('"#3498a3"','"#a83273"');
+                //$title = "Geschlechter";
 
-                echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'")';
+                //echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'")';
             ?>      
         </script>
-
+        <br>
+        <p>Sollten mehr oder andere Statistiken gewünscht werden, gerne einfach bescheid geben.</p>
     </div>    
 </body>
 </html>

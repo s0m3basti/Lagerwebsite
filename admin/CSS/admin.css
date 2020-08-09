@@ -7,7 +7,6 @@ html, body{
     width: 100%;
     height: 100%;
     color:white;
-    padding-top: 10px;
 }
 p{
     padding: 0;
@@ -28,6 +27,10 @@ h3{
     font-size: 100%;
     font-weight: normal;
     text-decoration: underline;
+}
+hr{
+    border: solid 4px white;
+    border-radius: 3px;
 }
 /*div.userdaten{
     position: inline;
@@ -67,7 +70,7 @@ nav ul{
     float: left;
     display: block;
     margin-left: 0px;
-    margin-top: 0px;
+    margin-top: 0;
 
 }
 nav li{
@@ -404,6 +407,7 @@ button.stats{
     margin: 0;
     height: 50px;
     font-size: 90%;
+    border: solid 2px black;
 }
 button.active{
     background-color: #367c39;
