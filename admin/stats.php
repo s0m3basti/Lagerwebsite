@@ -99,24 +99,18 @@ if(!isset($_POST["type"])){
                     switch($_POST['type']){
                         case 1:
                             $data = array();
+                            $labels = array();
                             try{
                                 $db = new PDO("$host; $name" ,$user,$pass);
                                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         
-                                $sql = 'SELECT COUNT(Geschlecht) AS anzahl
+                                $sql = 'SELECT Geschlecht AS name, COUNT(Geschlecht) AS anzahl
                                             FROM tbl_stammdaten
                                             WHERE Jahr = '.$jahr.'
-                                            AND Geschlecht = "maennlich"
                                             GROUP BY Geschlecht';
                                 foreach ($db->query($sql) as $row){
-                                    array_push($data, $row["anzahl"]);
-                                };
-                                $sql = 'SELECT COUNT(Geschlecht) AS anzahl
-                                            FROM tbl_stammdaten
-                                            WHERE Jahr = '.$jahr.'
-                                            AND Geschlecht = "weiblich"
-                                            GROUP BY Geschlecht';
-                                foreach ($db->query($sql) as $row){
+                                    $name = '"'.$row["name"].'"';
+                                    array_push($labels, $name);
                                     array_push($data, $row["anzahl"]);
                                 };
                             }
@@ -128,7 +122,7 @@ if(!isset($_POST["type"])){
                                 $db = null;
                             }
 
-                            $labels = array('"Männlich"', '"Weiblich"');
+                            $labels;
                             $data;
                             $type= "pie";
                             $colors = array('"#3498a3"','"#a83273"');
@@ -136,6 +130,37 @@ if(!isset($_POST["type"])){
                             echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'")';
                             break;
                         case 2:
+                            $data = array();
+                            $labels = array();
+                            try{
+                                $db = new PDO("$host; $name" ,$user,$pass);
+                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        
+                                $sql = 'SELECT Geschlecht , LagerAlter AS name, Count(LagerAlter) AS anzahl
+                                        FROM `tbl_stammdaten` 
+                                        WHERE Jahr = 2020
+                                        GROUP BY LagerAlter, Geschlecht
+                                        ORDER BY LagerAlter, Geschlecht;';
+                                foreach ($db->query($sql) as $row){
+                                    $name = '"'.$row["name"].'"';
+                                    array_push($labels, $name);
+                                    array_push($data, $row["anzahl"]);
+                                };
+                            }
+                            catch(PDOException $e){
+                                $fehler = $e->getMessage();
+                                echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                            }
+                            finally{
+                                $db = null;
+                            }
+
+                            $labels;
+                            $data;
+                            $type= "bar";
+                            $colors = array('"#3498a3"','"#a83273"');
+                            $title = "Alter";
+                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'")';
                             break;
                     }
                 }

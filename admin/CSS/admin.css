@@ -51,6 +51,8 @@ nav img{
     width:100%;
 }
 nav{
+    font-size: 100%;
+    word-wrap: break-word;
     height: 99.3%;
     width: 15%;
     display: block;
