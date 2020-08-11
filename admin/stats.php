@@ -60,9 +60,18 @@ if(!isset($_POST["type"])){
                     <form method="POST" style="text-align: left; padding: 10px; padding-top: 0;">
                     <select id="picker" class="picker" name="type" onchange="this.form.submit()">
                         <option value="0" default>Statistik auswählen</option>
+                        <option disabled>---------------------------</option>
                         <option value="1">Geschlechterverteilung</option>
-                        <option value="2">Alter /nach Geschlecht</option>
+                        <option value="10">Alter</option>
+                        <option value="2">Alter (nach Geschlecht)</option>
+                        <option value="5">Schwimmer</option>
+                        <option value="6">Essenswünsche</option>
+                        <option value="7">Taschengeld</option>
+                        <option value="8">Private KFZ</option>
+                        <option value="9">Tshirts</option>
+                        <option disabled>---------------------------</option>
                         <option value="3">Art der Anmeldung</option>
+                        <option value="4">Monat der Anmeldung</option>
                     </select>
                     </form>
                     </p>
@@ -270,6 +279,41 @@ if(!isset($_POST["type"])){
                             $legende = true;
                             echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
                             break;
+
+                            case 4:
+                                $data = array();
+                                $labels = array();
+                                try{
+                                    $db = new PDO("$host; $name" ,$user,$pass);
+                                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            
+                                    $sql = 'SELECT MONTH(Datum) AS name, COUNT(MONTH(Datum)) AS anzahl
+                                                FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                AND Jahr = '.$jahr.'
+                                                GROUP BY MONTH(Datum)';
+                                    foreach ($db->query($sql) as $row){
+                                        $name = '"'.$row["name"].'"';
+                                        array_push($labels, $name);
+                                        array_push($data, $row["anzahl"]);
+                                    };
+                                }
+                                catch(PDOException $e){
+                                    $fehler = $e->getMessage();
+                                    echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                }
+                                finally{
+                                    $db = null;
+                                }
+    
+                                $labels;
+                                $data;
+                                $type= "bar";
+                                $colors = array('"white"','"grey"');
+                                $title = "Monat der Anmeldung";
+                                $legende = false;
+                                echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                break;
                     }
                 }
                 else{
