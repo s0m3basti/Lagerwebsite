@@ -88,8 +88,7 @@ if(!isset($_POST["type"])){
                     <form method="POST" style="text-align: right; padding: 10px; padding-top: 0;">
                     <select id="picker" class="picker" name="type" onchange="this.form.submit()">
                         <option value="0" default>Statistik auswählen</option>
-                        <option value="1">Geschlecht</option>
-                        <option value="2">Alter</option>
+                        <option value="1" disabled>Comming Soon ...</option>
                     </select>
                     </form>
                     </p>
