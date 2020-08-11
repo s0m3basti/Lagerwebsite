@@ -1,4 +1,4 @@
-function createChart(labels, data, type, colors, title){
+function createChart(labels, data, type, colors, title, legend){
     let myChart = document.getElementById('myChart').getContext('2d');
 
     Chart.defaults.global.defaultFontFamily = 'Arail';
@@ -21,6 +21,7 @@ function createChart(labels, data, type, colors, title){
         },
         options:{
             scales: {
+                fontFamily: 'Arial',
                 yAxes: [{
                     ticks: {
                         min: 0,
@@ -43,7 +44,7 @@ function createChart(labels, data, type, colors, title){
                 fontFamily: 'Arial'
             },
             legend:{
-                display:true,
+                display: legend,
                 position:'bottom',
             labels:{
                 fontColor:'#000',

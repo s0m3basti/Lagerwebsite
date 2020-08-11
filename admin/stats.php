@@ -96,7 +96,7 @@ if(!isset($_POST["type"])){
         <div class="container">
             <canvas id="myChart" height="100%" ></canvas>
         </div>
-
+        <p id="legende"></p>
         <script>
             <?php
                 
@@ -132,7 +132,8 @@ if(!isset($_POST["type"])){
                             $type= "pie";
                             $colors = array('"#3498a3"','"#a83273"');
                             $title = "Geschlechter";
-                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'")';
+                            $legende = true;
+                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
                             break;
                         case 2:
 
@@ -224,11 +225,6 @@ if(!isset($_POST["type"])){
                                             }
                                             break;
                                     }
-
-
-                                    //$name = '"'.$row["name"].'"';
-                                    //array_push($labels, $name);
-                                    //array_push($data, $row["anzahl"]);
                                 };
                             }
                             catch(PDOException $e){
@@ -239,14 +235,16 @@ if(!isset($_POST["type"])){
                                 $db = null;
                             }
 
-                            //echo(implode(",",$data));
-
                             $labels;
                             $data;
                             $type= "bar";
                             $colors = array('"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"');
                             $title = "Alter";
-                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'")';
+                            $legende = false;
+                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.');';
+
+                            echo 'document.getElementById("legende").innerHTML = "Männlich = blau , Weiblich = pink"';
+
                             break;
                     }
                 }
@@ -267,6 +265,7 @@ if(!isset($_POST["type"])){
                 //echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'")';
             ?>      
         </script>
+        
         <br>
         <p>Sollten mehr oder andere Statistiken gewünscht werden, gerne einfach bescheid geben.</p>
     </div>    
