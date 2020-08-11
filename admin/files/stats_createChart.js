@@ -20,6 +20,21 @@ function createChart(labels, data, type, colors, title){
             }]
         },
         options:{
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                        stepSize: 1
+                    }
+                }],
+                xAxes:[{
+                    ticks: {
+                        max: 5,
+                        min: 0,
+                        stepSize: 0.5
+                    }
+                }]
+            },
             title:{
                 display:true,
                 text: title,
@@ -45,7 +60,7 @@ function createChart(labels, data, type, colors, title){
             },
             tooltips:{
                 enabled:true,
-                fontFamily: 'Arial',
+                titleFontFamily: 'Arial',
                 fontColor:'black',
             }
         }
