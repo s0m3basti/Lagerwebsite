@@ -60,8 +60,9 @@ if(!isset($_POST["type"])){
                     <form method="POST" style="text-align: left; padding: 10px; padding-top: 0;">
                     <select id="picker" class="picker" name="type" onchange="this.form.submit()">
                         <option value="0" default>Statistik auswählen</option>
-                        <option value="1">Geschlecht</option>
-                        <option value="2">Alter</option>
+                        <option value="1">Geschlechterverteilung</option>
+                        <option value="2">Alter /nach Geschlecht</option>
+                        <option value="3">Art der Anmeldung</option>
                     </select>
                     </form>
                     </p>
@@ -99,7 +100,6 @@ if(!isset($_POST["type"])){
         <p id="legende"></p>
         <script>
             <?php
-                
                 if($view == 1){
                     switch($_POST['type']){
                         case 1:
@@ -131,18 +131,20 @@ if(!isset($_POST["type"])){
                             $data;
                             $type= "pie";
                             $colors = array('"#3498a3"','"#a83273"');
-                            $title = "Geschlechter";
+                            $title = "Geschlechterverteilung";
                             $legende = true;
                             echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
                             break;
+
                         case 2:
+                            $data1 = array();
+                            $data1name = "männlich";
+                            $data2 = array();
+                            $data2name = "weiblich";
+                            $data1 = array_fill(0,8,0);
+                            $data2 = array_fill(0,8,0);
+                            $labels = array(8,9,10,11,12,13,14,15);
 
-                            
-
-                            $data = array();
-                            $data = array_fill(0, 16, 0);
-                            #echo(implode(",",$data));
-                            $labels = array(8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15);
                             try{
                                 $db = new PDO("$host; $name" ,$user,$pass);
                                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -151,78 +153,68 @@ if(!isset($_POST["type"])){
                                 $sql = 'SELECT Geschlecht as geschlecht, LagerAlter AS name, Count(LagerAlter) AS anzahl
                                         FROM `tbl_stammdaten` 
                                         WHERE Jahr = '.$jahr.'
+                                        AND Geschlecht = "maennlich"
                                         GROUP BY LagerAlter, Geschlecht
                                         ORDER BY LagerAlter, Geschlecht;';
                                 foreach ($db->query($sql) as $row){
-
                                     switch($row['name']){
                                         case 8:
-                                            #echo "Ich war bei 8";
-                                            if($row['geschlecht'] == "maennlich"){
-                                                $data[0] = $row['anzahl'];
-                                            }
-                                            else{
-                                                $data[1] = $row['anzahl'];
-                                            }
+                                            $data1[0] = $row['anzahl'];
                                             break;
                                         case 9:
-                                            #echo "Ich war bei 9";
-                                            if($row['geschlecht'] == "maennlich"){
-                                                $data[2] = $row['anzahl'];
-                                            }
-                                            else{
-                                                $data[3] = $row['anzahl'];
-                                            }
+                                            $data1[1] = $row['anzahl'];
                                             break;
                                         case 10:
-                                            #echo "Ich war bei 10";
-                                            if($row['geschlecht'] == "maennlich"){
-                                                $data[4] = $row['anzahl'];
-                                            }
-                                            else{
-                                                $data[5] = $row['anzahl'];
-                                            }
+                                            $data1[2] = $row['anzahl'];
                                             break;
                                         case 11:
-                                            #echo "Ich war bei 11";
-                                            if($row['geschlecht'] == "maennlich"){
-                                                $data[6] = $row['anzahl'];
-                                            }
-                                            else{
-                                                $data[7] = $row['anzahl'];
-                                            }
+                                            $data1[3] = $row['anzahl'];
                                             break;
                                         case 12:
-                                            if($row['geschlecht'] == "maennlich"){
-                                                $data[8] = $row['anzahl'];
-                                            }
-                                            else{
-                                                $data[9] = $row['anzahl'];
-                                            }
+                                            $data1[4] = $row['anzahl'];
                                             break;
                                         case 13:
-                                            if($row['geschlecht'] == "maennlich"){
-                                                $data[10] = $row['anzahl'];
-                                            }
-                                            else{
-                                                $data[11] = $row['anzahl'];
-                                            }
+                                            $data1[5] = $row['anzahl'];
                                             break;
                                         case 14:
-                                            if($row['geschlecht'] == "maennlich"){
-                                                $data[12] = $row['anzahl'];
-                                            }
-                                            else{
-                                                $data[13] = $row['anzahl'];
-                                            }
+                                            $data1[6] = $row['anzahl'];
                                             break;
                                         case 15:
-                                            if($row['geschlecht'] == "maennlich"){
-                                                $data[14] = $row['anzahl'];
-                                            }
-                                            else{
-                                                $data[15] = $row['anzahl'];
-                                            }
+                                            $data1[7] = $row['anzahl'];
+                                            break;
+                                    }
+                                };
+                                $sql = 'SELECT Geschlecht as geschlecht, LagerAlter AS name, Count(LagerAlter) AS anzahl
+                                        FROM `tbl_stammdaten` 
+                                        WHERE Jahr = '.$jahr.'
+                                        AND Geschlecht = "weiblich"
+                                        GROUP BY LagerAlter, Geschlecht
+                                        ORDER BY LagerAlter, Geschlecht;';
+                                foreach ($db->query($sql) as $row){
+                                    switch($row['name']){
+                                        case 8:
+                                            $data2[0] = $row['anzahl'];
+                                            break;
+                                        case 9:
+                                            $data2[1] = $row['anzahl'];
+                                            break;
+                                        case 10:
+                                            $data2[2] = $row['anzahl'];
+                                            break;
+                                        case 11:
+                                            $data2[3] = $row['anzahl'];
+                                            break;
+                                        case 12:
+                                            $data2[4] = $row['anzahl'];
+                                            break;
+                                        case 13:
+                                            $data2[5] = $row['anzahl'];
+                                            break;
+                                        case 14:
+                                            $data2[6] = $row['anzahl'];
+                                            break;
+                                        case 15:
+                                            $data2[7] = $row['anzahl'];
                                             break;
                                     }
                                 };
@@ -238,13 +230,45 @@ if(!isset($_POST["type"])){
                             $labels;
                             $data;
                             $type= "bar";
-                            $colors = array('"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"','"#3498a3"','"#a83273"');
-                            $title = "Alter";
-                            $legende = false;
-                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.');';
+                            $title = "Alter nach Geschlecht";
+                            $legende = true;
+                            echo 'createChartVgl(['.implode(",",$labels) .'] ,"'.$data1name.'", ['. implode(",",$data1).'],"'.$data2name.'",['. implode(",",$data2).'],"'. $type.'","'. $title.'", '.$legende.');';
 
-                            echo 'document.getElementById("legende").innerHTML = "Männlich = blau , Weiblich = pink"';
+                            break;
+                        
+                        case 3:
+                            $data = array();
+                            $labels = array();
+                            try{
+                                $db = new PDO("$host; $name" ,$user,$pass);
+                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        
+                                $sql = 'SELECT Art AS name, COUNT(Art) AS anzahl
+                                            FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                            WHERE s.TeilnehmerID = a.TeilnehmerID
+                                            AND Jahr = '.$jahr.'
+                                            GROUP BY Art';
+                                foreach ($db->query($sql) as $row){
+                                    $name = '"'.$row["name"].'"';
+                                    array_push($labels, $name);
+                                    array_push($data, $row["anzahl"]);
+                                };
+                            }
+                            catch(PDOException $e){
+                                $fehler = $e->getMessage();
+                                echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                            }
+                            finally{
+                                $db = null;
+                            }
 
+                            $labels;
+                            $data;
+                            $type= "pie";
+                            $colors = array('"white"','"grey"');
+                            $title = "Art der Anmeldung";
+                            $legende = true;
+                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
                             break;
                     }
                 }
