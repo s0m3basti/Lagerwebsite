@@ -14,7 +14,7 @@ function createChart(labels, data, type, colors, title){
             data: data,
             backgroundColor: colors,
             borderWidth:1,
-            borderColor:'#777',
+            borderColor:'white',
             hoverBorderWidth:3,
             hoverBorderColor:'#000'
             }]
@@ -61,6 +61,7 @@ function createChart(labels, data, type, colors, title){
             tooltips:{
                 enabled:true,
                 titleFontFamily: 'Arial',
+                fontFamily: 'Arial',
                 fontColor:'black',
             }
         }
