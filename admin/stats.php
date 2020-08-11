@@ -62,13 +62,14 @@ if(!isset($_POST["type"])){
                         <option value="0" default>Statistik auswählen</option>
                         <option disabled>---------------------------</option>
                         <option value="1">Geschlechterverteilung</option>
-                        <option value="10">Alter</option>
                         <option value="2">Alter (nach Geschlecht)</option>
-                        <option value="5">Schwimmer</option>
-                        <option value="6">Essenswünsche</option>
-                        <option value="7">Taschengeld</option>
-                        <option value="8">Private KFZ</option>
-                        <option value="9">Tshirts</option>
+                        <option value="5">Schwimmer / Nichtschwimmer</option>
+                        <option value="6">Essenswünsche?</option>
+                        <option value="7">Taschengeldverwaltung?</option>
+                        <option value="8">Privates KFZ?</option>
+                        <option value="9">T-Shirts?</option>
+                        <option value="10">Anzahl an T-Shirts</option>
+                        <option value="11">T-Shirt-Größen</option>
                         <option disabled>---------------------------</option>
                         <option value="3">Art der Anmeldung</option>
                         <option value="4">Monat der Anmeldung</option>
@@ -110,7 +111,7 @@ if(!isset($_POST["type"])){
             <?php
                 if($view == 1){
                     switch($_POST['type']){
-                        case 1:
+                        case 1: // Geschlechtervergleich
                             $data = array();
                             $labels = array();
                             try{
@@ -138,17 +139,20 @@ if(!isset($_POST["type"])){
                             $labels;
                             $data;
                             $type= "pie";
-                            $colors = array('"#3498a3"','"#a83273"');
+                            $colors = array('"blue"','"pink"');
                             $title = "Geschlechterverteilung";
                             $legende = true;
-                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                            echo 'createPieChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
                             break;
 
-                        case 2:
+                        case 2: //Altersvergleich diff
+                            $data = array();
+                            $dataname = "Gesamt";
                             $data1 = array();
                             $data1name = "männlich";
                             $data2 = array();
                             $data2name = "weiblich";
+                            $data = array_fill(0,8,0);
                             $data1 = array_fill(0,8,0);
                             $data2 = array_fill(0,8,0);
                             $labels = array(8,9,10,11,12,13,14,15);
@@ -225,6 +229,41 @@ if(!isset($_POST["type"])){
                                             $data2[7] = $row['anzahl'];
                                             break;
                                     }
+                                    
+                                };
+                                $sql = 'SELECT  LagerAlter AS name, Count(LagerAlter) AS anzahl
+                                        FROM `tbl_stammdaten` 
+                                        WHERE Jahr = '.$jahr.'
+                                        GROUP BY LagerAlter
+                                        ORDER BY LagerAlter;';
+                                foreach ($db->query($sql) as $row){
+                                    switch($row['name']){
+                                        case 8:
+                                            $data[0] = $row['anzahl'];
+                                            break;
+                                        case 9:
+                                            $data[1] = $row['anzahl'];
+                                            break;
+                                        case 10:
+                                            $data[2] = $row['anzahl'];
+                                            break;
+                                        case 11:
+                                            $data[3] = $row['anzahl'];
+                                            break;
+                                        case 12:
+                                            $data[4] = $row['anzahl'];
+                                            break;
+                                        case 13:
+                                            $data[5] = $row['anzahl'];
+                                            break;
+                                        case 14:
+                                            $data[6] = $row['anzahl'];
+                                            break;
+                                        case 15:
+                                            $data[7] = $row['anzahl'];
+                                            break;
+                                    }
+                                    
                                 };
                             }
                             catch(PDOException $e){
@@ -240,11 +279,11 @@ if(!isset($_POST["type"])){
                             $type= "bar";
                             $title = "Alter nach Geschlecht";
                             $legende = true;
-                            echo 'createChartVgl(['.implode(",",$labels) .'] ,"'.$data1name.'", ['. implode(",",$data1).'],"'.$data2name.'",['. implode(",",$data2).'],"'. $type.'","'. $title.'", '.$legende.');';
+                            echo 'createChartVgl(['.implode(",",$labels) .'] ,"'.$dataname.'", ['. implode(",",$data).'] ,"'.$data1name.'", ['. implode(",",$data1).'],"'.$data2name.'",['. implode(",",$data2).'],"'. $type.'","'. $title.'", '.$legende.');';
 
                             break;
                         
-                        case 3:
+                        case 3: // Art der Anmeldung
                             $data = array();
                             $labels = array();
                             try{
@@ -272,14 +311,14 @@ if(!isset($_POST["type"])){
 
                             $labels;
                             $data;
-                            $type= "pie";
+                            $type= "bar";
                             $colors = array('"white"','"grey"');
                             $title = "Art der Anmeldung";
-                            $legende = true;
+                            $legende = false;
                             echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
                             break;
 
-                            case 4:
+                            case 4: //Monat der Anmeldung
                                 $data = array();
                                 $labels = array();
                                 try{
@@ -313,6 +352,261 @@ if(!isset($_POST["type"])){
                                 $legende = false;
                                 echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
                                 break;
+
+                                case 5: //Schwimmer
+                                    $data = array();
+                                    $labels = array();
+                                    try{
+                                        $db = new PDO("$host; $name" ,$user,$pass);
+                                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                
+                                        $sql = 'SELECT Schwimmer AS name, COUNT(Schwimmer) AS anzahl
+                                                    FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                    WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                    AND Jahr = '.$jahr.'
+                                                    GROUP BY Schwimmer';
+                                        foreach ($db->query($sql) as $row){
+                                            $name = '"'.$row["name"].'"';
+                                            array_push($labels, $name);
+                                            array_push($data, $row["anzahl"]);
+                                        };
+                                    }
+                                    catch(PDOException $e){
+                                        $fehler = $e->getMessage();
+                                        echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                    }
+                                    finally{
+                                        $db = null;
+                                    }
+        
+                                    $labels;
+                                    $data;
+                                    $type= "pie";
+                                    $colors = array('"green"','"red"');
+                                    $title = "Schwimmer";
+                                    $legende = true;
+                                    echo 'createPieChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                    break;
+
+                                    case 6: //Ernnährungswünsche
+                                        $data = array();
+                                        $labels = array();
+                                        try{
+                                            $db = new PDO("$host; $name" ,$user,$pass);
+                                            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                    
+                                            $sql = 'SELECT ernaehrung AS name, COUNT(ernaehrung) AS anzahl
+                                                        FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                        WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                        AND Jahr = '.$jahr.'
+                                                        AND ernaehrung = ""';
+                                            foreach ($db->query($sql) as $row){
+                                                array_push($labels, '"Keine"');
+                                                array_push($data, $row["anzahl"]);
+                                            };
+                                            $sql = 'SELECT ernaehrung AS name, COUNT(ernaehrung) AS anzahl
+                                                        FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                        WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                        AND Jahr = '.$jahr.'
+                                                        AND ernaehrung != ""';
+                                            foreach ($db->query($sql) as $row){
+                                                array_push($labels, '"Anmerkungen"');
+                                                array_push($data, $row["anzahl"]);
+                                            };
+                                        }
+                                        catch(PDOException $e){
+                                            $fehler = $e->getMessage();
+                                            echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                        }
+                                        finally{
+                                            $db = null;
+                                        }
+            
+                                        $labels;
+                                        $data;
+                                        $type= "bar";
+                                        $colors = array('"white"','"black"');
+                                        $title = "Anmerkung bei der Ernährung";
+                                        $legende = false;
+                                        echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                        break;
+
+                                        case 7: //Taschengeld
+                                            $data = array();
+                                            $labels = array();
+                                            try{
+                                                $db = new PDO("$host; $name" ,$user,$pass);
+                                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                        
+                                                $sql = 'SELECT Taschengeld AS name, COUNT(Taschengeld) AS anzahl
+                                                            FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                            WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                            AND Jahr = '.$jahr.'
+                                                            GROUP BY Taschengeld';
+                                                foreach ($db->query($sql) as $row){
+                                                    $name = '"'.$row["name"].'"';
+                                                    array_push($labels, $name);
+                                                    array_push($data, $row["anzahl"]);
+                                                };
+                                            }
+                                            catch(PDOException $e){
+                                                $fehler = $e->getMessage();
+                                                echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                            }
+                                            finally{
+                                                $db = null;
+                                            }
+                
+                                            $labels;
+                                            $data;
+                                            $type= "bar";
+                                            $colors = array('"green"','"red"');
+                                            $title = "Taschengeldverwaltung?";
+                                            $legende = false;
+                                            echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                            break;
+
+                                            case 8: //KFZ
+                                                $data = array();
+                                                $labels = array();
+                                                try{
+                                                    $db = new PDO("$host; $name" ,$user,$pass);
+                                                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                            
+                                                    $sql = 'SELECT KFZ AS name, COUNT(KFZ) AS anzahl
+                                                                FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                                WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                                AND Jahr = '.$jahr.'
+                                                                GROUP BY KFZ';
+                                                    foreach ($db->query($sql) as $row){
+                                                        $name = '"'.$row["name"].'"';
+                                                        array_push($labels, $name);
+                                                        array_push($data, $row["anzahl"]);
+                                                    };
+                                                }
+                                                catch(PDOException $e){
+                                                    $fehler = $e->getMessage();
+                                                    echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                                }
+                                                finally{
+                                                    $db = null;
+                                                }
+                    
+                                                $labels;
+                                                $data;
+                                                $type= "bar";
+                                                $colors = array('"green"','"red"');
+                                                $title = "Beförderung in privat KFZ?";
+                                                $legende = false;
+                                                echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                                break;
+
+                                                case 9: //Shirts
+                                                    $data = array();
+                                                    $labels = array();
+                                                    try{
+                                                        $db = new PDO("$host; $name" ,$user,$pass);
+                                                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                                
+                                                        $sql = 'SELECT shirts AS name, COUNT(shirts) AS anzahl
+                                                                    FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                                    WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                                    AND Jahr = '.$jahr.'
+                                                                    GROUP BY shirts';
+                                                        foreach ($db->query($sql) as $row){
+                                                            $name = '"'.$row["name"].'"';
+                                                            array_push($labels, $name);
+                                                            array_push($data, $row["anzahl"]);
+                                                        };
+                                                    }
+                                                    catch(PDOException $e){
+                                                        $fehler = $e->getMessage();
+                                                        echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                                    }
+                                                    finally{
+                                                        $db = null;
+                                                    }
+                        
+                                                    $labels;
+                                                    $data;
+                                                    $type= "bar";
+                                                    $colors = array('"green"','"red"');
+                                                    $title = "Shirts?";
+                                                    $legende = false;
+                                                    echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                                    break;
+
+                                                    case 10: //Anzahl an Shirts
+                                                        $data = array();
+                                                        $labels = array();
+                                                        try{
+                                                            $db = new PDO("$host; $name" ,$user,$pass);
+                                                            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                                    
+                                                            $sql = 'SELECT Shirts_anzahl AS name, COUNT(Shirts_anzahl) AS anzahl
+                                                                        FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                                        WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                                        AND Jahr = '.$jahr.'
+                                                                        AND Shirts_anzahl != ""
+                                                                        GROUP BY Shirts_anzahl';
+                                                            foreach ($db->query($sql) as $row){
+                                                                $name = '"'.$row["name"].'"';
+                                                                array_push($labels, $name);
+                                                                array_push($data, $row["anzahl"]);
+                                                            };
+                                                        }
+                                                        catch(PDOException $e){
+                                                            $fehler = $e->getMessage();
+                                                            echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                                        }
+                                                        finally{
+                                                            $db = null;
+                                                        }
+                            
+                                                        $labels;
+                                                        $data;
+                                                        $type= "bar";
+                                                        $colors = array('"black"','"black"','"black"','"black"','"black"');
+                                                        $title = "Anzahl an Shirts pro Kind";
+                                                        $legende = false;
+                                                        echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                                        break;
+
+                                                        case 11: //Größen der Shirts
+                                                            $data = array();
+                                                            $labels = array();
+                                                            try{
+                                                                $db = new PDO("$host; $name" ,$user,$pass);
+                                                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                                        
+                                                                $sql = 'SELECT Shirts_groesse AS name, COUNT(Shirts_groesse) AS anzahl
+                                                                            FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                                            WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                                            AND Jahr = '.$jahr.'
+                                                                            AND Shirts_groesse != ""
+                                                                            GROUP BY Shirts_groesse';
+                                                                foreach ($db->query($sql) as $row){
+                                                                    $name = '"'.$row["name"].'"';
+                                                                    array_push($labels, $name);
+                                                                    array_push($data, $row["anzahl"]);
+                                                                };
+                                                            }
+                                                            catch(PDOException $e){
+                                                                $fehler = $e->getMessage();
+                                                                echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                                            }
+                                                            finally{
+                                                                $db = null;
+                                                            }
+                                
+                                                            $labels;
+                                                            $data;
+                                                            $type= "pie";
+                                                            $colors = array('"red"','"blue"','"lightblue"','"orange"','"pink"','"purple"','"grey"','"yellow"','"lightred"','"lightgrey"');
+                                                            $title = "Größe von Shirts";
+                                                            $legende = true;
+                                                            echo 'createPieChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                                            break;
                     }
                 }
                 else{
