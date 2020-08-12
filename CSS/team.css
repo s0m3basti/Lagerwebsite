@@ -1,17 +1,59 @@
 h1{
     font-size: 150%;
+    text-align: center;
     font-weight: bold;
     text-decoration: underline black;
-    text-align: center;
 }
-img.team{
-    width:90%;
+p{
+    text-align-last: center;
+}
+img.work{
+    height: 440px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 20px;
-    border: 2px solid #007C86;
+    padding-top: 15px;
 }
-#beschreibung{
+hr.steckbrief{
+    border: dashed 1px black;
+    margin: 15px 0px;
+}
+div.all{
+    overflow: hidden;
+}
+div.steckbrief{
+    float:left;
+    width: 50%;
+}
+div.img{
+    margin-left: 50%;
+}
+table.steckbrief{
+    margin-left: 25%;
+    border-collapse: collapse;
+    height: auto;
+}
+tr.steckbrief{
     text-align: center;
 }
+td.steckbrief{
+    padding: 5px;
+}
+td.links{
+    width: 200px;
+    word-wrap: break-word;
+    text-align: right;
+    padding-right: 20px;
+}
+td.rechts{
+    text-align: left;
+}
+img.steckbrief{
+    display: block;
+    margin: auto;
+    height: 250px;
+    width: auto;
+    border: 2px solid #007C86;
+    border-radius: 5px;
+}
+
