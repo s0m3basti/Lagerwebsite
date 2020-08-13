@@ -116,6 +116,7 @@
     $pdf->writeHTML($html, true, false, true, false, '');
     
     $pdf->Output(dirname(__FILE__)."/doc/übersicht.pdf", 'F');
-  
+    $pdf->Close();
+
     header("Location:../ausgabe.php?task=1&download=1");
 ?>
