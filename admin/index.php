@@ -160,7 +160,7 @@ switch($status){
                                 foreach ($db->query($sql) as $row){
 
                                     $i = $i + 1;
-                                    echo "<tr class='index'><td class='index'>".$i."</td><td class='index'>".$row['Nachname']."</td><td class='index'>".$row['Vorname']."</td><td class='index'>".$row['Geschlecht']."</td><td class='index'>".date('d.m.Y',strtotime($row['Geburtstag']))."</td><td class='index'>".$row['LagerAlter']."</td></tr>";
+                                    echo "<tr class='index'><td class='index'>".$i."</td><td class='index'>".$row['Vorname']."</td><td class='index'>".$row['Nachname']."</td><td class='index'>".$row['Geschlecht']."</td><td class='index'>".date('d.m.Y',strtotime($row['Geburtstag']))."</td><td class='index'>".$row['LagerAlter']."</td></tr>";
                                 };
                                 echo "</table>";
                             }

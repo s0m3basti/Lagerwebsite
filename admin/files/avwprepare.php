@@ -13,8 +13,8 @@
 
         foreach ($db->query($sql) as $row);
 
-        $nachname = $row['Vorname'];
-        $vorname = $row['Nachname'];
+        $vorname = $row['Vorname'];
+        $nachname = $row['Nachname'];
         $geschlecht = $row['Geschlecht'];
         $gebdatum = $row['Geburtstag'];
         $e_nachname = $row['e_Nachname'];

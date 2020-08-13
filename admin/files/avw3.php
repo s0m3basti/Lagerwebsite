@@ -48,8 +48,8 @@
             echo 
             '<tr class="avw" ondblclick="window.location=\'verwalten.php?id='.$row['TeilnehmerID'].'\'">
                 <td class="avw">'.$i.'</td>
-                <td class="avw">'.$row['Nachname'].'</td>
                 <td class="avw">'.$row['Vorname'].'</td>
+                <td class="avw">'.$row['Nachname'].'</td>
                 <td class="avw">'.$row['Geschlecht'].'</td>
                 <td class="avw">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
                 <td class="avw">'.$row['LagerAlter'].'</td>

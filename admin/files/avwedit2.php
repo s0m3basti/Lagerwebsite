@@ -1,8 +1,8 @@
 <h2> Ändern der Angaben zum Sorgeberechtigten <h2>
 <table class="avwe">
     <form method="POST" action="files/avwsenden.php?id=<?php echo $_GET['id'] ?>&type=2">
-        <tr><td><label>Vorname des Sorgeberechtigten</td><td><input type="text" name="e_nachname" value="<?php echo $e_nachname ?>"></label></td></tr>
-        <tr><td><label>Nachname des Sorgeberechtigten</td><td><input type="text" name="e_vorname" value="<?php echo $e_vorname ?>"></label></td></tr>
+        <tr><td><label>Vorname des Sorgeberechtigten</td><td><input type="text" name="e_vorname" value="<?php echo $e_vorname ?>"></label></td></tr>
+        <tr><td><label>Nachname des Sorgeberechtigten</td><td><input type="text" name="e_nachname" value="<?php echo $e_nachname ?>"></label></td></tr>
         <tr><td><label>Straße</td><td><input type="text" name="strasse" value="<?php echo $strasse ?>"></label></td></tr>
         <tr><td><label>Postleitzahl</td><td><input type="text" name="plz" value="<?php echo $plz ?>"></label></td></tr>
         <tr><td><label>Ort</td><td><input type="text" name="ort" value="<?php echo $ort ?>"></label></td></tr>

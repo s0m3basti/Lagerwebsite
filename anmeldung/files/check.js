@@ -1,6 +1,6 @@
     const form = document.getElementById('anmeldung');
-    const kind_name = document.getElementById('kind_name');
-    const kind_nachname = document.getElementById('kind_nachname');
+    const kind_name = document.getElementById('kind_nachname');
+    const kind_nachname = document.getElementById('kind_vorname');
     const kind_geschlecht_female = document.getElementById('kind_geschlecht_female');
     const kind_geschlecht_male = document.getElementById('kind_geschlecht_male');
     const kind_geb = document.getElementById('kind_geb');
@@ -52,17 +52,17 @@
     kind_name.onblur = function(){
         let nachricht = document.getElementById('er_kind_name');
         if(kind_name.value.length > 50){
-            nachricht.innerHTML = 'Bitte geben sie einen richtigen Vornamen ein!';
+            nachricht.innerHTML = 'Bitte geben sie einen richtigen Nachname ein!';
             kind_name.style.border = '2px solid red';
         }
         else{
             if(kind_name.value.length < 2){
-                nachricht.innerHTML = 'Bitte geben sie einen richtigen Vornamen ein!';
+                nachricht.innerHTML = 'Bitte geben sie einen richtigen Nachname ein!';
                 kind_name.style.border = '2px solid red';
             }
             else{
                 if(kind_name.value.match(regExBuchst).index != 0){
-                    nachricht.innerHTML = 'Bitte geben sie einen richtigen Vornamen ein!';
+                    nachricht.innerHTML = 'Bitte geben sie einen richtigen Nachname ein!';
                     kind_name.style.border = '2px solid red';
                 }
                 else{
@@ -75,17 +75,17 @@
     kind_nachname.onblur = function(){
         let nachricht = document.getElementById('er_kind_nachname');
         if(kind_nachname.value.length > 50){
-            nachricht.innerHTML = 'Bitte geben sie einen richtigen Nachnamen ein!';
+            nachricht.innerHTML = 'Bitte geben sie einen richtigen Vorname ein!';
             kind_nachname.style.border = '2px solid red';
         }
             else{
                 if(kind_nachname.value.length < 2){
-                    nachricht.innerHTML = 'Bitte geben sie einen richtigen Nachnamen ein!';
+                    nachricht.innerHTML = 'Bitte geben sie einen richtigen Vornamen ein!';
                     kind_nachname.style.border = '2px solid red';
                 }
                 else{
                     if(kind_nachname.value.match(regExBuchst).index != 0){
-                        nachricht.innerHTML = 'Bitte geben sie einen richtigen Nachnamen ein!';
+                        nachricht.innerHTML = 'Bitte geben sie einen richtigen Vornamen ein!';
                         kind_nachname.style.border = '2px solid red';
                     }
                     else{

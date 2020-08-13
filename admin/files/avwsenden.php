@@ -42,7 +42,7 @@
                     $db = new PDO("$host; $name" ,$user,$pass);
                     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-                    $sql = 'UPDATE tbl_stammdaten SET Nachname = "'.$_POST["vorname"].'", Vorname = "'.$_POST["nachname"].'", Geschlecht = "'.$_POST["geschlecht"].'", Geburtstag = "'.$_POST["gebdatum"].'", LagerAlter = "'.$lageralter.'" WHERE TeilnehmerID = "'.$id.'";';
+                    $sql = 'UPDATE tbl_stammdaten SET Nachname = "'.$_POST["nachname"].'", Vorname = "'.$_POST["vorname"].'", Geschlecht = "'.$_POST["geschlecht"].'", Geburtstag = "'.$_POST["gebdatum"].'", LagerAlter = "'.$lageralter.'" WHERE TeilnehmerID = "'.$id.'";';
                                     
                     $stmt = $db->prepare($sql);
                     $stmt->execute();
