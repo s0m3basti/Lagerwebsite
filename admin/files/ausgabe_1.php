@@ -34,8 +34,6 @@
         }
     }
 
-    header("Location:../ausgabe.php?task=1&download=1");
-
     $header = '
         <h1 style="font-size: 14pt; text-decoration: underline; text-align: center;">
             Teilnehmerübersicht - '.$jahr.'
@@ -119,5 +117,5 @@
     
     $pdf->Output(dirname(__FILE__)."/doc/übersicht.pdf", 'F');
   
-
+    header("Location:../ausgabe.php?task=1&download=1");
 ?>
