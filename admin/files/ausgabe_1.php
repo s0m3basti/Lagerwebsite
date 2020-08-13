@@ -54,7 +54,7 @@
     ';
 
     $html = nl2br(trim($header)).'
-            <table style="width: 100%; font-size: 10pt; border: solid 1px black; padding: 2px; margin-top: 500px;">
+            <table style="width: 100%; font-size: 10pt; border: solid 1px black; padding: 2px;">
             <tr style="border: solid 1px black; text-align: center; background-color: lightgrey;">
                 <td style="border: solid 1px black;"></td>
                 <td style="border: solid 1px black;">Vorname</td>
@@ -171,6 +171,6 @@ $pdf->Output(dirname(__FILE__)."/doc/übersicht.pdf", 'F');
     // $pdf->Output("übersicht.pdf","I");
     // // $pdf->Output("doc/übersicht.pdf", 'F');
 
-    header("Location:../ausgabe.php?task=1");
+    header("Location:../ausgabe.php?task=1&download=1");
 
 ?>

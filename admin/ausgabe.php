@@ -57,11 +57,19 @@ require '../Datenbank/writer.php';
                                         Hiermit kann eine Tabelle mit allen Teilnehmern erstellt und heruntergeladen werden.
                                     </h2>
                                 ';
-                                echo '
-                                    <form action="files/ausgabe_1.php" method="POST">
-                                        <input type="submit" class="ausgabe" value="Übersicht jetzt ausgeben">
-                                    </form>
-                                ';
+                                if(!isset($_GET['download'])){
+                                    echo '
+                                        <form action="files/ausgabe_1.php" method="POST">
+                                            <input type="submit" class="ausgabe" value="Übersicht jetzt ausgeben">
+                                        </form>
+                                    ';
+                                }
+                                else{
+                                    echo'
+                                        <a href="files/doc/übersicht.pdf" download><button>Herunterladen</button></a>
+                                    ';
+
+                                }
                                 break;
                             case 2: // Spezielle Anmeldung
                                 echo '
