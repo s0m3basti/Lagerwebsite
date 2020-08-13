@@ -34,6 +34,8 @@
         }
     }
 
+    header("Location:../ausgabe.php?task=1&download=1");
+
     $header = '
         <h1 style="font-size: 14pt; text-decoration: underline; text-align: center;">
             Teilnehmerübersicht - '.$jahr.'
@@ -98,24 +100,24 @@
         '.$footer;
 
 
-$pdf = new MYPDF("L", "mm", "A4", true, 'UTF-8', false);
- 
-$pdf->SetCreator("DRK Sommercamp");
-$pdf->SetAuthor("DRK Sommercamp");
-$pdf->SetTitle('Teilnehmerübersicht');
-$pdf->SetSubject('Teilnehmerübersicht');
- 
-$pdf->SetAutoPageBreak(TRUE);
-$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
- 
-$pdf->SetFont('dejavusans', '', 12);
-$pdf->SetMargins(5, 0, 5, true);
+    $pdf = new MYPDF("L", "mm", "A4", true, 'UTF-8', false);
+    
+    $pdf->SetCreator("DRK Sommercamp");
+    $pdf->SetAuthor("DRK Sommercamp");
+    $pdf->SetTitle('Teilnehmerübersicht');
+    $pdf->SetSubject('Teilnehmerübersicht');
+    
+    $pdf->SetAutoPageBreak(TRUE);
+    $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+    
+    $pdf->SetFont('dejavusans', '', 12);
+    $pdf->SetMargins(5, 0, 5, true);
 
-$pdf->AddPage();
- 
-$pdf->writeHTML($html, true, false, true, false, '');
- 
-$pdf->Output(dirname(__FILE__)."/doc/übersicht.pdf", 'F');
+    $pdf->AddPage();
+    
+    $pdf->writeHTML($html, true, false, true, false, '');
+    
+    $pdf->Output(dirname(__FILE__)."/doc/übersicht.pdf", 'F');
   
-header("Location:../ausgabe.php?task=1&download=1");
+
 ?>
