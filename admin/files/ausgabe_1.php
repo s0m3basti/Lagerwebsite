@@ -76,8 +76,8 @@
                     $i++;
                     $html.= '<tr style="border: solid 1px black;">
                         <td style="border: solid 1px black; text-align:right;">'.$i.'</td>
-                        <td style="border: solid 1px black; text-align:right;">'.$row['Nachname'].'</td>
                         <td style="border: solid 1px black; text-align:right;">'.$row['Vorname'].'</td>
+                        <td style="border: solid 1px black; text-align:right;">'.$row['Nachname'].'</td>
                         <td style="border: solid 1px black; text-align:right;">'.$row['Geschlecht'].'</td>
                         <td style="border: solid 1px black; text-align:right;">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
                         <td style="border: solid 1px black; text-align:right;">'.$row['LagerAlter'].'</td>
