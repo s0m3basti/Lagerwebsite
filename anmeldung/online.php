@@ -58,10 +58,10 @@
                         <td scope="colgroup" colspan="4"><h2>Mein Kind:</h2></td>
                     </tr>    
                     <tr>
-                       <td>Name des Kindes:&nbsp</td>
-                       <td> <input type="text" name="kind_name" id="kind_name" size="30"><br><p class="fehler" id="er_kind_name"></p></td>
+                       <td>Nachname des Kindes:&nbsp</td>
+                       <td> <input type="text" name="kind_nachname" id="kind_nachname" size="30"><br><p class="fehler" id="er_kind_name"></p></td>
                        <td>Vorname des Kindes:&nbsp</td>
-                       <td> <input type="text" name="kind_nachname" id="kind_nachname" size="30"><br><p class="fehler" id="er_kind_nachname"></p></td>
+                       <td> <input type="text" name="kind_vorname" id="kind_vorname" size="30"><br><p class="fehler" id="er_kind_nachname"></p></td>
                    </tr>
                    <tr>
                        <td><label><input type="radio" name="kind_geschlecht" id="kind_geschlecht_female" value="female"> weiblich</label><br></td>

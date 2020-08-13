@@ -7,7 +7,7 @@
     }
             $id = $_POST['id'];
             $k_nachname = $_POST['kind_nachname'];
-            $k_vorname = $_POST['kind_name'];
+            $k_vorname = $_POST['kind_vorname'];
             $k_geschlecht = $_POST['kind_geschlecht'];
             $k_geburtstag = $_POST['kind_geb'];
             $e_nachname = $_POST['eltern_name'];
