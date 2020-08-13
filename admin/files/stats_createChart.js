@@ -117,10 +117,10 @@ function createPieChart(labels, data, type, colors, title, legend){
 function createChartVgl(labels,dataname, data, dataname1, data1, dataname2, data2, type, title, legend){
     let myChart = document.getElementById('myChart').getContext('2d');
 
-    Chart.defaults.global.defaultFontFamily = 'Arail';
+    Chart.defaults.global.defaultFontFamily = 'Arial';
     Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
-
+    Chart.defaults.global.defaultFontColor = 'white';
+    
     let chart = new Chart(myChart, {
         type: type, // bar, horizontalBar, pie, line, doughnut, radar, polarArea
         data:{
