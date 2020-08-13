@@ -83,7 +83,6 @@
                         <td style="border: solid 1px black; text-align:right;">'.$row['LagerAlter'].'</td>
                     </tr>';
                 };
-                echo "</table>";
             }
             catch(PDOException $e){
                 $fehler = $e->getMessage();
@@ -117,6 +116,5 @@
     
     $pdf->Output(dirname(__FILE__)."/doc/übersicht.pdf", 'F');
     $pdf->Close();
-    echo "Kann er hier noch was machen?";
     header("Location:../ausgabe.php?task=1&download=1");
 ?>
