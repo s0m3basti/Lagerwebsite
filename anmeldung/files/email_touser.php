@@ -2,7 +2,7 @@
     $to = $e_email;
     $betreff = "Bestätigung des Anmeldungseingangs für das DRK Sommercamp $jahr";
     $from = "From: DRK Sommercamp <no-reply@drksommercamp.de>\n";
-    $from .= "Reply-To: $anmeldungmail\n";
+    $from .= "Reply-To: anmeldung@lagertest.de\n";
     $from .= "Content-Type: text/html\n";
     $text = "
     <img src=\"http://www.lagertest.de/img/logo.png\" style=\"float: right; margin-top: 1%; margin-right: 5%; width: 15%;\";>
