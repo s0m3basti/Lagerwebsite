@@ -81,7 +81,6 @@ nav li{
     background-color: grey;
     border-bottom: 2px solid black;
     display: block;
-    transition: all .5s ease-in;
 }
 nav a{
     text-decoration: none;
@@ -89,7 +88,6 @@ nav a{
     font-weight:bold;
     color: white;
     padding: 15px;
-    transition: all .5s ease-in;
 }
 nav li[aria-current] a {
 	background-color: white; 
@@ -403,7 +401,6 @@ input[type=submit].neu:hover{
 div.auswahl{
     width: 100%;
 }
-
 button.stats{
     width: 49%;
     margin: 0;
@@ -430,4 +427,29 @@ select.picker{
     height: 30px;
     font-size: 80%;
     text-align: right;
+}
+/*Ausgabe*/
+button.auswahl{
+    width: 33%;
+    margin: 0;
+    height: 50px;
+    font-size: 90%;
+    border: solid 2px black;
+}
+table.ausgabe_auswahl{
+    margin: auto;
+}
+input[type=submit].ausgabe{
+    width: auto;
+    padding: 10px;
+    font-size: 80%;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    border: solid 1px black;
+    cursor: pointer;
+    color: black;
+}
+input[type=submit].ausgabe:hover{
+background-color: #367c39;
+color: white;
 }
