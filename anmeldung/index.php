@@ -1,7 +1,7 @@
 <?php
     include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
-    require '../files/cookie.php';
+    
 
     if($_GET['mail'] == 1){
         require("../Datenbank/writer.php");
@@ -99,6 +99,7 @@
         <!-- Header einfügen-->
         <?php
             include '../files/head.php';
+            require '../files/cookie.php';
         ?>
     <div class="bg">
             <div id="Inhalt">

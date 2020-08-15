@@ -4,7 +4,7 @@
         <?php
             include 'files/linkmaker.php';
             include 'files/datenzugriff.php';
-            require 'files/cookie.php';
+            
         ?>
 		<title> Kontakt | DRK Sommercamp </title>
         <meta charset="UTF-8">
@@ -19,6 +19,7 @@
        <!-- Header einfügen-->
         <?php
             include 'files/head.php';
+            require 'files/cookie.php';
         ?>
         <div class="bg">
         <div id="Inhalt">

@@ -1,7 +1,7 @@
 <?php
     include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
-    require '../files/cookie.php';
+    
 
     if($status != "anmeldung"){
         header("Location: index.php");
@@ -27,6 +27,7 @@
     <body>
         <?php
             include '../files/head.php';
+            require '../files/cookie.php';
             
             //Berechnung des Maximalen und Minimalen alters
             //für änderungen die Zahlen ändern (8/15)
