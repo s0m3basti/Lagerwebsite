@@ -6,8 +6,9 @@
         <br> Sie werden informiert sobald die Anmeldung für das DRK-Sommercamp freigeschalten wurde.
         <br>
         <form name="mail_abfrage" method="POST" action="?mail=1">
-            <input type="email" placeholder="E-Mail-Adresse" name="email"> 
-            <p class="subhead">Die E-Mail-Adressen werden gleich nach dem Versenden gelöscht und unter Beachtung unserer <a class="link" href="../datenschutz.php">Datenschutzerklärung </a>behandelt.</p> 
+            <input type="email" placeholder="E-Mail-Adresse" name="email">
+            <label><input type="checkbox" required> <p class="subhead">Ich akzeptiere hiermit die <a class="link" href="../datenschutz.php">Datenschutzerklärung </a> </p></label> 
+            <label><input type="checkbox" required> <p class="subhead">Ich bestätige hiermit das sie mich mit meiner angegebenen Mail-Adresse Kontaktieren dürfen.<br> Die Mail-Adresse wird sofort nach Versenden gelöscht. </a> </p></label> 
             <input type="submit" class="button_submit" value="Informationen erhalten"> 
         </form>
         <p id="message"><?php echo $message ?></p>
