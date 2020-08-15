@@ -95,6 +95,46 @@ img.size{
 	text-decoration: none;
 	font-size: 10pt;
 }
+
+/*Cookie*/
+
+.cookie{
+	background: #333333;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 20;
+}
+.cookie-container{
+	margin: 0 auto;
+	width: 90%;
+	color: blue;
+	padding: 15px;
+}
+.cookie-container a{
+	text-decoration: underline;
+	color: lightgrey;
+	font-size: 100%;
+} 
+.cookie-container p{
+	color: #f3f3f3;
+	font-size: 70%;
+} 
+.cookie-container b{
+	color: #f3f3f3;
+	font-size: 100%;
+} 
+.cookie-container button{
+	padding: 5px;
+	background-color: grey;
+	margin: 4px;
+	font-size: 100%;
+	cursor: pointer;
+	border-radius: 5px;
+	border: solid 1px black;
+} 
+
 /*Inhalt*/
 body{
 	width: 100%;

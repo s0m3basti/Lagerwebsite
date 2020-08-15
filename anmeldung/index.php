@@ -1,6 +1,7 @@
 <?php
     include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
+    require '../files/cookie.php';
 
     if($_GET['mail'] == 1){
         require("../Datenbank/writer.php");

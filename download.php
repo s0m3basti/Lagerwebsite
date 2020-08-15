@@ -3,6 +3,7 @@
     <head>
         <?php
             include 'files/linkmaker.php';
+            require 'files/cookie.php';
         ?>
 		<title> Dokumente | DRK Sommercamp </title>
         <meta charset="UTF-8">

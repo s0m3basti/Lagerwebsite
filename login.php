@@ -53,6 +53,7 @@
     <head>
         <?php
             include 'files/linkmaker.php';
+            require 'files/cookie.php';
         ?>
 		<title> Admin-Login | DRK Sommercamp </title>
 		<meta charset="UTF-8">

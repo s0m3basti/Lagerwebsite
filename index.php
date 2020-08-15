@@ -4,6 +4,8 @@
         <?php
             include 'files/linkmaker.php';
             include 'files/datenzugriff.php';
+            require 'files/cookie.php';
+            
         ?>
 		<title> Startseite | DRK Sommercamp </title>
 		<meta charset="UTF-8">
@@ -19,6 +21,7 @@
           <?php
                 include 'files/head.php';
             ?>
+        
         <div class="bg">
             <div id="Inhalt">
                 <a href="<?php echo(linkmaker("/anmeldung/index.php"))?>"> <img src="<?php echo(linkmaker("/img/Header.png"))?>" alt="Banner für das Sommercamp 2020" title="Zur Anmeldung klicken" id="test"></a>

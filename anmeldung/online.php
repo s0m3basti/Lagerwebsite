@@ -1,6 +1,7 @@
 <?php
     include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
+    require '../files/cookie.php';
 
     if($status != "anmeldung"){
         header("Location: index.php");
