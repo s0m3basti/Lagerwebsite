@@ -1,6 +1,13 @@
 <?php
     include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
+
+
+    if(isset($_GET['cookie'])){
+        setcookie('BesterKeksderWelt', 'true', time() + 2628000 );
+        header("Location: /.");
+    }
+
     
 
     if($_GET['mail'] == 1){
