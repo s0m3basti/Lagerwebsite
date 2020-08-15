@@ -1,7 +1,6 @@
 <?php
 if(isset($_GET['cookie'])){
     setcookie('cookie', 'true', time() + 2628000 );
-    header('Location: ./');
 }
 if(!isset($_COOKIE['cookie'])){
     echo '
