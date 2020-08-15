@@ -10,7 +10,7 @@
     <p style=\"font-family: Arial; font-size: 14pt\">
         Hiermit teilen wir ihnen mit, dass die Anmeldung für das nächjährige Sommercamp so eben freigeschalten wurde.
         <br> Sie können die Anmeldung jetzt auf unserer Webseite ausfüllen.
-        <br> Den Link dazu finden sie hier: <a href=\"http://www.lagertest.de/anmeldung\">UnWebseitesere  </a>
+        <br> Den Link dazu finden sie hier: <a href=\"http://www.lagertest.de/anmeldung\">Unsere Webseite  </a>
         <br>
         <br>Sie erhalten diese E-Mail, da sie sich eine Benachrichtigung gewünscht haben. 
         <br>Ihre Daten wurde sofort nach senden dieser Mail gelöscht.
