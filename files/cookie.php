@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET['cookie'])){
     setcookie('BesterKeksderWelt', 'true', time() + 2628000 );
-    echo "Cookie setzten";
+    echo "Besten Keks der Welt setzten setzten";
     //header("Location: /.");
 }
 if(!isset($_COOKIE['BesterKeksderWelt'])){
