@@ -1,9 +1,10 @@
 <?php
 if(isset($_GET['cookie'])){
-    setcookie('cookie', 'true', time() + 2628000 );
-    header("Location: /.");
+    setcookie('BesterKeksderWelt', 'true', time() + 2628000 );
+    echo "Cookie setzten";
+    //header("Location: /.");
 }
-if(!isset($_COOKIE['cookie'])){
+if(!isset($_COOKIE['BesterKeksderWelt'])){
     echo '
         <div class="cookie">
             <div class="cookie-container">
