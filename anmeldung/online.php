@@ -65,10 +65,10 @@
                         <td scope="colgroup" colspan="4"><h2>Mein Kind:</h2></td>
                     </tr>    
                     <tr>
-                       <td>Nachname des Kindes:&nbsp</td>
-                       <td> <input type="text" name="kind_nachname" id="kind_nachname" size="30"><br><p class="fehler" id="er_kind_name"></p></td>
                        <td>Vorname des Kindes:&nbsp</td>
                        <td> <input type="text" name="kind_vorname" id="kind_vorname" size="30"><br><p class="fehler" id="er_kind_nachname"></p></td>
+                       <td>Nachname des Kindes:&nbsp</td>
+                       <td> <input type="text" name="kind_nachname" id="kind_nachname" size="30"><br><p class="fehler" id="er_kind_name"></p></td>
                    </tr>
                    <tr>
                        <td><label><input type="radio" name="kind_geschlecht" id="kind_geschlecht_female" value="female"> weiblich</label><br></td>
@@ -83,10 +83,10 @@
                         <td scope="colgroup" colspan="4"><h2>Angaben zu den Sorgeberechtigten:</h2></td>
                     </tr>
                     <tr>    
-                        <td>Name:&nbsp</td>
-                        <td> <input type="text" name="eltern_name" id="eltern_name"size="30" > <br><p class="fehler" id="er_eltern_name"></p> </td>
                         <td>Vorname:&nbsp</td>
                         <td> <input type="text" name="eltern_vorname" id="eltern_vorname" size="30" ><br><p class="fehler" id="er_eltern_vorname"></p></td>
+                        <td>Nachname:&nbsp</td>
+                        <td> <input type="text" name="eltern_name" id="eltern_name"size="30" > <br><p class="fehler" id="er_eltern_name"></p> </td>
                     </tr>
                     <tr>    
                         <td>Straße & Hausnummer:&nbsp</td>
@@ -220,6 +220,30 @@
                     </tr>
                     <tr>
                         <td scope="colgroup" colspan="2"><label><input type="radio" name="shirt" id="shirt_nein" value="nein" checked>Keine T-Shirts gewünscht.</label><br><p class="fehler" id="er_shirtgroesse"></p></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td scope="colgroup" colspan="4"><h2>Umfrage:</h2></td>
+                    </tr>
+                    <tr>
+                        <td scope="colgroup" colspan="2">Wie haben sie von DRK Sommercamp erfahren? <br> (Diese Angabe ist nicht verpflichtend)</td>
+                        <td scope="colgroup" colspan="2">
+                            <select name="umfrage" id="umfrage">
+                                <option value="keine_angaben" default>keine Angaben</option>
+                                <option value="kontakte">Persönliche Kontakte</option>
+                                <option value="teilnehmer">Teilnehmer</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="webseite">Webseite</option>
+                                <option value="flyer">Flyer</option>
+                                <option value="presse">Presse</option>
+                                <option value="fernsehen">Fernsehen</option>
+                                <option value="kreisverband">Kreisverband</option>
+                                <option value="veranstaltungen">Veranstaltungen</option>
+                                <option value="andere_werbung">Andere Werbemaßnahmen</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td></td>

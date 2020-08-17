@@ -37,6 +37,7 @@
             $shirt = $_POST['shirt'];
             $shirtanz = $_POST['shirtanzahl'];
             $shirtgr = $_POST['shirtgroesse'];
+            $umfrage = $_POST['umfrage'];
 
             //----------------------------------------------
             //----Funktionen zum überprüfen der Eingaben----
@@ -151,8 +152,8 @@
                         $stmt_t->execute();
 
                 //--------------Anmeldedaten eintragen -------------------------
-                        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, Shirts, Shirts_anzahl, Shirts_groesse, art, Datum, IP_Adresse) 
-                            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :shirts, :shirts_anzahl, :shirts_groesse, :art, :datum, :ip_adresse)";
+                        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, Shirts, Shirts_anzahl, Shirts_groesse, umfrage, art, Datum, IP_Adresse) 
+                            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :shirts, :shirts_anzahl, :shirts_groesse, :umfrage, :art, :datum, :ip_adresse)";
                         
                         $stmt_t = $db->prepare($sql_anmeldedaten);
                         $stmt_t->bindValue(':id',$id);
@@ -173,14 +174,15 @@
                         $stmt_t->bindValue(':shirts_anzahl', $shirtanz);
                         $stmt_t->bindValue(':shirts_groesse', $shirtgr);
                         $stmt_t->bindValue(':art', $art);
+                        $stmt_t->bindValue(':umfrage', $umfrage);
                         $stmt_t->bindValue(':datum', $datum);
                         $stmt_t->bindValue(':ip_adresse', $ip_adresse);
 
                         $stmt_t->execute();
 
                 //--------------Eltern eintragen -------------------------
-                        $sql_eltern = "INSERT INTO tbl_srgb (TeilnehmerID, e_Nachname, e_Vorname, Strasse, PLZ, Ort, Tel_pri, Tel_handy, Tel_dienstl, email, mitglied, mitarbeiter, Datum, IP_Adresse)
-                            VALUES(:id, :nachname, :vorname, :strasse, :plz, :ort, :tel_p, :tel_h, :tel_d, :email, :mitglied, :mitarbeiter, :datum, :ip_adresse);";
+                        $sql_eltern = "INSERT INTO tbl_srgb (TeilnehmerID, e_Nachname, e_Vorname, Strasse, PLZ, Ort, Tel_pri, Tel_handy, Tel_dienstl, email, mitglied, mitarbeiter)
+                            VALUES(:id, :nachname, :vorname, :strasse, :plz, :ort, :tel_p, :tel_h, :tel_d, :email, :mitglied, :mitarbeiter);";
 
                         $stmt_e = $db->prepare($sql_eltern);
                         $stmt_e->bindValue(':id', $id);
@@ -195,8 +197,6 @@
                         $stmt_e->bindValue(':email', $e_email);
                         $stmt_e->bindValue(':mitglied', $mitglied);
                         $stmt_e->bindValue(':mitarbeiter', $mitarbeiter);
-                        $stmt_e->bindValue(':datum', $datum);
-                        $stmt_e->bindValue(':ip_adresse', $ip_adresse);
 
                         $stmt_e->execute();
 
