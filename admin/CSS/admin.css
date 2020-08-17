@@ -328,11 +328,11 @@ tr.avw:nth-child(odd) {
     background: #FFF
 }
 td.avw:first-of-type,
-td.avw_id:first-of-type{
+td.avw_id{
  position: sticky;
  left: 15%;
  background-color: white;
- border: solid 3px  black;
+ border: solid 3px black;
 }
 td.avw{
     vertical-align: center;
