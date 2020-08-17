@@ -30,6 +30,13 @@
         $prozess = "kamzanm"; 
     }
 
+    $logtext = 'Der Status der Anmeldung wurde am '.date("Y-m-d H:i:s").' von '.$_SESSION['userid'].' ('.$_SESSION['vorname'].' '.$_SESSION['nachname'].') von '.$_GET['von'].' nach '.$_GET['nach'].' geändert.';
+    $logtext = utf8_decode($logtext);
+    $log = "../../changelogs/status.txt";
+    $logdata = fopen("$log", "a");
+    fwrite($logdata, $logtext."\n");
+    fclose($logdata);
+
     switch($prozess){
         case null:
             header("Location:../status.php?message=1");
