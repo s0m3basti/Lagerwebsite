@@ -39,4 +39,9 @@ switch(message){
         document.getElementById("messagebox").style.display = "block";
         document.getElementById("messagebox").style.backgroundColor = "#f44336";
         break;
+    case 9:
+        document.getElementById("messagebox").innerHTML = "Du kannst deinen eigenen Benutzer nicht löschen!";
+        document.getElementById("messagebox").style.display = "block";
+        document.getElementById("messagebox").style.backgroundColor = "#f44336";
+        break;
 }
