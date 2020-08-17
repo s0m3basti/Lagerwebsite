@@ -99,7 +99,7 @@ h2{
     color: black;
 }
 
-input{
+input[type=email]{
     margin: 20px auto;
     display: block;
     width: 50%;
@@ -117,6 +117,7 @@ input{
     transition: 0.4s;
     display: inline-block;
     width: auto;
+    cursor: pointer;
 }
 .button_submit:hover{
     background-color: white;
@@ -129,10 +130,21 @@ input{
     color: grey;
     margin-top: -15px;
     margin-bottom: 15px;
+
 }
 
 .link{
     font-size: 100%;
     text-decoration: underline;
     color: blue;
+}
+label{
+    padding: 10px 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#message{
+    color: #E60005;
+    padding-top: 10px;
 }

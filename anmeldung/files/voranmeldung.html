@@ -1,14 +1,14 @@
 <h1 style="display: inline;"> Die Anmeldung ist <h1 style="color: #E60005; display: inline;">zurzeit</h1><h1 style="display: inline;"> noch nicht verfügbar </h1>
     <br><br>
-    <p> Im Moment ist die Anmeldung <!--für das Jahr <?php $jahr+1 ?> -->noch nicht freigeschalten, da noch einige Faktoren nicht geklärt sind.
+    <p> Im Moment ist die Anmeldung noch nicht freigeschalten, da noch einige Faktoren nicht geklärt sind.
         <br> Wollen sie über den aktuellen Stand und den Begin der Anmeldung informiert werden, 
         <br> tragen sie ihre E-Mail-Adresse unten ein.
         <br> Sie werden informiert sobald die Anmeldung für das DRK-Sommercamp freigeschalten wurde.
         <br>
         <form name="mail_abfrage" method="POST" action="?mail=1">
             <input type="email" placeholder="E-Mail-Adresse" name="email">
-            <label><input type="checkbox" required> <p class="subhead">Ich akzeptiere hiermit die <a class="link" href="../datenschutz.php">Datenschutzerklärung </a> </p></label> 
-            <label><input type="checkbox" required> <p class="subhead">Ich bestätige hiermit das sie mich mit meiner angegebenen Mail-Adresse Kontaktieren dürfen.<br> Die Mail-Adresse wird sofort nach Versenden gelöscht. </a> </p></label> 
+            <label><p class="subhead"><input type="checkbox" required>Ich akzeptiere hiermit die <a class="link" href="../datenschutz.php">Datenschutzerklärung</a>. </p></label> 
+            <label><p class="subhead"><input type="checkbox" required>Ich bestätige hiermit das sie mich mit meiner angegebenen Mail-Adresse Kontaktieren dürfen.<br> Die Mail-Adresse wird sofort nach Versenden gelöscht. </a> </p></label> 
             <input type="submit" class="button_submit" value="Informationen erhalten"> 
         </form>
         <p id="message"><?php echo $message ?></p>
