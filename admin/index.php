@@ -47,9 +47,6 @@ switch($status){
         require("files/nav.html");
     ?>
     <div class="content">
-        <!--<div class="userdaten">
-            <p>Hallo <?php echo ($uvorname." ".$unachname) ?></p>
-        </div>-->
         <h1>Übersicht</h1>
         <h2>Hier siehst du den Momentanen stand der Anmeldung.</h2>
         <div class="status" id="div_status">
@@ -199,6 +196,21 @@ switch($status){
                             }
                         break;
                 }
+
+                switch($urechte){
+                    case 1:
+                    case 2:
+                        break;
+                    case 3:
+                        echo '
+                            <h3>Logdateien anzeigen</h3>
+                            <div class="auswahl">
+                                <a href="../changelogs/anmeldung.txt" target="_blank"><button type="button" class="auswahl unactive">Anmeldungen bearbeiten</button></a><a href ="../changelogs/status.txt" target="_blank"><button type="button" class="auswahl unactive">Status der Anmeldung</button></a><a href ="../changelogs/ausgabe.txt" target="_blank"><button type="button" class="auswahl unactive">Ausgabe der Anmeldungen</button></a>
+                            </div>
+                        ';
+                        break;
+                }
+
             ?>
         </div>
     </div>
