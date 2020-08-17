@@ -45,6 +45,7 @@
         $shirts_anzahl = $row['Shirts_anzahl'];
         $shirts_groesse = $row['Shirts_groesse'];
 
+        $_SESSION['id'] = $id;
         $_SESSION['k_nachname'] = $nachname;
         $_SESSION['k_vorname'] = $vorname;
         $_SESSION['geschlecht'] = $geschlecht;

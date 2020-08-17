@@ -15,7 +15,7 @@
         }
         else{
 
-            $logtext = 'Die Anmeldung von '.$_SESSION['k_vorname'].' '.$_SESSION['k_nachname'].' wurde am '.date("Y-m-d H:i:s").' von '.$_SESSION['userid'].' ('.$_SESSION['vorname'].' '.$_SESSION['nachname'].') bearbeitet.  '.$old.' --> '.$new.'.';
+            $logtext = 'Die Anmeldung von '.$_SESSION['id'].' ('.$_SESSION['k_vorname'].' '.$_SESSION['k_nachname'].') wurde am '.date("Y-m-d H:i:s").' von '.$_SESSION['userid'].' ('.$_SESSION['vorname'].' '.$_SESSION['nachname'].') bearbeitet.  '.$old.' --> '.$new.'.';
 
             $log = "../../changelogs/anmeldung.txt";
             $logdata = fopen("$log", "a");
