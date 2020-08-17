@@ -151,9 +151,23 @@ switch($status){
                         
                                 $i = 0;
                                 echo "<table class='index'>";
-                                echo "<tr class='index_head'><td></td><td>Vorname</td><td>Nachname</td><td>Geschlecht</td><td>Geburtstag</td><td>Alter im Lager</td></tr>";
+                                echo "<tr class='index_head'>
+                                            <td><a href='?sort=Geschlecht,LagerAlter,Nachname,Vorname' class='index_head'><img src='img/back-arrow.png' height='20'></a></td>
+                                            <td><a href='?sort=Vorname' class='index_head' title='Sortieren'>Vorname</a></td>
+                                            <td><a href='?sort=Nachname' class='index_head' title='Sortieren'>Nachname</a></td>
+                                            <td><a href='?sort=Geschlecht' class='index_head' title='Sortieren'>Geschlecht</a></td>
+                                            <td><a href='?sort=Geburtstag' class='index_head' title='Sortieren'>Geburtstag</a></td>
+                                            <td><a href='?sort=LagerAlter' class='index_head' title='Sortieren'>Alter im Lager</a></td>
+                                            </tr>";
                         
-                                $sql = "SELECT * FROM tbl_stammdaten WHERE Jahr = $jahr ORDER BY geschlecht, nachname, vorname DESC;";
+                                if(!isset($_GET['sort'])){
+                                    $sort = "Geschlecht,LagerAlter,Nachname,Vorname";
+                                }
+                                else{
+                                    $sort = $_GET['sort'];
+                                }    
+                                
+                                $sql = "SELECT * FROM tbl_stammdaten WHERE Jahr = $jahr ORDER BY $sort;";
                                 foreach ($db->query($sql) as $row){
 
                                     $i = $i + 1;

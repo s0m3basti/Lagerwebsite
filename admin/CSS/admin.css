@@ -147,6 +147,11 @@ td.index{
     border: solid 1px black;
     padding: 5px;
 }
+a.index_head{
+    color: black;
+    text-decoration: none;
+    cursor: zoom-in;
+}
 /*Daten bearbeiten */
 div.daten{
     margin-left: 16%;
