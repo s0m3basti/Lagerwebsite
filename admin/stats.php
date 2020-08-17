@@ -73,6 +73,7 @@ if(!isset($_POST["type"])){
                         <option disabled>---------------------------</option>
                         <option value="3">Art der Anmeldung</option>
                         <option value="4">Monat der Anmeldung</option>
+                        <option value="12">Umfrageergebnis</option>
                     </select>
                     </form>
                     </p>
@@ -607,6 +608,41 @@ if(!isset($_POST["type"])){
                                                             $legende = true;
                                                             echo 'createPieChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
                                                             break;
+
+                                                            case 12: //Größen der Shirts
+                                                                $data = array();
+                                                                $labels = array();
+                                                                try{
+                                                                    $db = new PDO("$host; $name" ,$user,$pass);
+                                                                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                                            
+                                                                    $sql = 'SELECT umfrage AS name, COUNT(umfrage) AS anzahl
+                                                                                FROM tbl_stammdaten s, tbl_anmeldedaten a
+                                                                                WHERE s.TeilnehmerID = a.TeilnehmerID
+                                                                                AND Jahr = '.$jahr.'
+                                                                                GROUP BY umfrage';
+                                                                    foreach ($db->query($sql) as $row){
+                                                                        $name = '"'.$row["name"].'"';
+                                                                        array_push($labels, $name);
+                                                                        array_push($data, $row["anzahl"]);
+                                                                    };
+                                                                }
+                                                                catch(PDOException $e){
+                                                                    $fehler = $e->getMessage();
+                                                                    echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                                                }
+                                                                finally{
+                                                                    $db = null;
+                                                                }
+                                    
+                                                                $labels;
+                                                                $data;
+                                                                $type= "bar";
+                                                                $colors = array('"red"','"blue"','"lightblue"','"orange"','"pink"','"purple"','"grey"','"yellow"','"lightred"','"lightgrey"');
+                                                                $title = "Wie haben sie von uns Erfahren?";
+                                                                $legende = false;
+                                                                echo 'createChart(['.implode(",",$labels) ."] ,[". implode(",",$data).'],"'. $type.'",['. implode(",",$colors).'],"'. $title.'", '.$legende.')';
+                                                                break;
                     }
                 }
                 else{
