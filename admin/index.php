@@ -110,17 +110,17 @@ switch($status){
                                 $db = new PDO("$host; $name" ,$user,$pass);
                                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     
-                                $sql = "SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = $jahr;";
+                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = '.intval($jahr).';';
                                 foreach ($db->query($sql) as $row);
 
                                 $anzahl = $row['anzahl'];
 
-                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = "'.$jahr.'" AND Geschlecht = "maennlich";';
+                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = "'.intval($jahr).'" AND Geschlecht = "maennlich";';
                                 foreach ($db->query($sql) as $row);
 
                                 $anzahlm = $row['anzahl'];
 
-                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = "'.$jahr.'" AND Geschlecht = "weiblich";';
+                                $sql = 'SELECT COUNT(*) AS anzahl FROM tbl_stammdaten WHERE Jahr = "'.intval($jahr).'" AND Geschlecht = "weiblich";';
                                 foreach ($db->query($sql) as $row);
 
                                 $anzahlw = $row['anzahl'];
