@@ -91,6 +91,10 @@
                 $stmt = $db->prepare("DELETE FROM tbl_anmeldedaten");
                 $stmt->execute();
 
+            /* Leert den changelog der Anmeldungsänderung */
+                $fp = fopen("../../chagelogs/anmeldung.txt", "w");
+                close($fp);
+
             /* message mit Mailanzahl zurückgeben */
 
                 header("Location:../status.php?message=2&mailcount=$mail_count");
