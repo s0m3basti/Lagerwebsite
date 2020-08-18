@@ -32,78 +32,65 @@ hr{
     border: solid 4px white;
     border-radius: 3px;
 }
-/*div.userdaten{
-    position: inline;
-    width: 15%;
-    padding: 25px 15px 25px;
-    margin: 2px;
-    text-align: center;
-    background-color: whitesmoke;
-    color: black;
-    border-color: solid 1px black;
-    border-radius: 10px;
-    float: right;
-}*/
 /*Navigation*/
-nav img{
-    display: block;
-    background-color: rgba(255,255,255, 0.6);
-    width:100%;
-}
-nav{
-    font-size: 100%;
-    word-wrap: break-word;
-    height: 99.3%;
-    width: 15%;
-    display: block;
-    float: left;
-    position: fixed;
-    top: 0;
-}
-nav ul{
-    list-style: none;
-    padding: 0px;
+.nav{
     height: 100%;
-    width: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: grey;
+    overflow-x: hidden;
     border: 2px solid black;
     border-top: 3px solid black;
     border-bottom: 3px solid black;
-    background-color: grey;
-    float: left;
-    display: block;
-    margin-left: 0px;
-    margin-top: 0;
-
 }
-nav li{
-    padding: 0px;
-    width: 100%;
-    background-color: grey;
-    border-bottom: 2px solid black;
-    display: block;
-}
-nav a{
+.nav a, .dropdown-button{
+    padding: 10px 8px 10px 16px;
     text-decoration: none;
-    display: block;
-    font-weight:bold;
+    font-size: 100%;
     color: white;
-    padding: 15px;
+    display: block;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid black;
+    font-weight:bold;
 }
-nav li[aria-current] a {
-	background-color: white; 
-    color: black;
-  }
-nav li:focus,
-nav li:hover,
-nav a:focus,
-nav a:hover {    
+.dropdown-active{
     background-color: white;
     color: black;
+}
+.nav a:hover, .dropdown-button:hover{
+    background-color: white; 
+    color: black;
+}
+
+.dropdown-container{
+    display: none;
+    background-color: darkgrey;
+    color: white;
+    padding-left: 10px;
+}
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+
+.nav img{
+    display: block;
+    background-color: rgba(255,255,255, 0.6);
+    width:100%;
+    border-bottom: 2px solid black;
 }
 #logout{
     position: fixed;
     bottom: 2px;
-    left: 2.5px;
+    left: 2px;
     width: 15%;
     border: solid 2px black;
     background-color: rgba(255,255,255, 0.6);
@@ -111,6 +98,7 @@ nav a:hover {
     font-size: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
+    z-index: 2;
 }
 /*Startseite*/
 div.content{

@@ -1,14 +1,40 @@
-<nav>
-    <ul>
-        <li><img src="img/header-admin.png"></li>
-        <li><a href="index.php">Übersicht</a></li>
-        <li><a href="verwalten.php">Anmeldungen verwalten </a></li>
-        <li><a href="neu.php">Neue Anmeldung hinzufügen </a></li>
-        <li><a href="ausgabe.php">Anmeldungen ausgeben</a></li>
-        <li><a href="stats.php">Statistiken</a></li>
-        <li><a href="status.php">Anmeldungsstatus ändern</a></li>
-        <li><a href="daten.php">Daten verwalten</a></li>
-        <li><a href="benutzerverwaltung.php"> Benutzerverwaltung</a></li>
-    </ul>
-    <a href="../login.php?logout=1"><button type="button" id="logout">Logout</button></a>
-</nav>
+<div class="nav">
+        <img src="img/header-admin.png">
+        <a href="index.php">Übersicht</a>
+        <button class="dropdown-button">
+            Anmeldungen
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="verwalten.php">Anmeldungen verwalten </a>
+            <a href="neu.php">Neue Anmeldung hinzufügen </a>
+            <a href="ausgabe.php">Anmeldungen ausgeben</a>
+        </div>
+        <a href="status.php">Anmeldungsstatus ändern</a>
+        <a href="stats.php">Statistiken</a>
+        <button class="dropdown-button">
+            Verwalten
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="daten.php">Daten verwalten</a>
+            <a href="benutzerverwaltung.php"> Benutzerverwaltung</a>
+        </div>
+</div>
+<a href="../login.php?logout=1"><button type="button" id="logout">Logout</button></a>
+<script>
+    var dropdown = document.getElementsByClassName("dropdown-button");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("dropdown-active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+        } else {
+        dropdownContent.style.display = "block";
+        }
+    });
+    }
+</script>

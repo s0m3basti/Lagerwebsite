@@ -31,6 +31,7 @@ $shirtpreis=intval($shirtpreis);
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" id="favicon">
     <link rel="stylesheet" href="CSS/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
         const urechte = <?php echo($urechte); ?>;
         const state = <?php if(isset($_GET['erfolg'])){echo($_GET['erfolg']);}else{echo(0);}?>;
