@@ -61,13 +61,17 @@ require '../Datenbank/writer.php';
                                 if(!isset($_GET['download'])){
                                     echo '
                                         <form action="files/ausgabe_1.php" method="POST">
-                                            <input type="submit" class="ausgabe" value="Übersicht jetzt ausgeben">
+                                            <input type="submit" class="ausgabe" value="PDF-Übersicht ausgeben">
+                                        </form>
+                                        <br>
+                                        <form method="post" action="files/ausgabe_1_excl.php">
+                                            <input type="submit" name="export" class="ausgabe" value="Excel-Übersicht ausgeben (Experimental)" />
                                         </form>
                                     ';
                                 }
                                 else{
                                     echo'
-                                        <a href="files/doc/übersicht.pdf" download><button>Herunterladen</button></a>
+                                        <a href="files/doc/übersicht.pdf" download><button class="download">Herunterladen</button></a>
                                     ';
 
                                 }

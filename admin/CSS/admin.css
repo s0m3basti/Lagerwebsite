@@ -432,7 +432,8 @@ button.auswahl{
 table.ausgabe_auswahl{
     margin: auto;
 }
-input[type=submit].ausgabe{
+input[type=submit].ausgabe,
+button.download{
     width: auto;
     padding: 10px;
     font-size: 80%;
@@ -442,7 +443,9 @@ input[type=submit].ausgabe{
     cursor: pointer;
     color: black;
 }
-input[type=submit].ausgabe:hover{
+input[type=submit].ausgabe:hover,
+button.download:hover{
 background-color: #367c39;
 color: white;
 }
+
