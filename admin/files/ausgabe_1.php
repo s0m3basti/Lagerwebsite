@@ -159,6 +159,14 @@
     
     $pdf->Output(dirname(__FILE__)."/doc/übersicht.pdf", 'F');
     $pdf->Close();
+
+    $logtext = 'Das Dokument: Anmeldungsübersicht wurde am '.date("Y-m-d H:i:s").' von '.$_SESSION['userid'].' ('.$_SESSION['vorname'].' '.$_SESSION['nachname'].') erstellt und heruntergeladen.';
+    $logtext = utf8_decode($logtext);
+    $log = "../../changelogs/ausgabe.txt";
+    $logdata = fopen("$log", "a");
+    fwrite($logdata, $logtext."\n");
+    fclose($logdata);
+
     header("Location:../ausgabe.php?task=1&download=1");
     // header("Location:../ausgabe.php?task=1");
 ?>
