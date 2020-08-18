@@ -80,6 +80,16 @@
                     require "status_mail.php";
                     $mail_count = $mail_count + 1;
                 }
+            /* Mails an alle bisherigen Teilnehmer senden */
+            // Kann später aktiviert werden
+                // $sql = "SELECT e.email 
+                //         FROM tbl_stammdaten s, tbl_srgb e
+                //         WHERE Jahr = $new_jahr-1 
+                //         AND s.TeilnehmerID = e.TeilnehmerID;";
+                // foreach ($db->query($sql) as $row){
+                //         require "status_mail.php";
+                //         $mail_count++;
+                // }
 
             /* Löschen der Voranmelder, der Elterndaten und der Anmeldedaten des letzten Jahres. */
                 $stmt = $db->prepare("DELETE FROM voranmeldung");
@@ -92,8 +102,8 @@
                 $stmt->execute();
 
             /* Leert den changelog der Anmeldungsänderung */
-                $fp = fopen("../../chagelogs/anmeldung.txt", "w");
-                close($fp);
+                $fp = fopen("../../changelogs/anmeldung.txt", "w");
+                fclose($fp);
 
             /* message mit Mailanzahl zurückgeben */
 
