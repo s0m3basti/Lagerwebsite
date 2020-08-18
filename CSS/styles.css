@@ -175,9 +175,30 @@ body{
 	color: white;
 	font-size: 20px;
 }
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	top: -1px;
+	left: 105%;
+	position: absolute;
+	z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+  }
 .facebook {
 	background: #3B5998;
-	color: white;
+}
+.donate{
+	background-color: green;
+}
+.member{
+	background-color: #60B2C8;
 }
  /*Verschiedenes*/
 .old-link{
