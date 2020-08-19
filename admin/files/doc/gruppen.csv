@@ -1,7 +1,6 @@
-m1,8,9,1,Ich,SG30
-m2,10,13,2,Du,SG30
-m3,14,15,6,Er,SG30
-w1,8,9,3,Er,SG30
-w2,10,11,4,Sie,SG30
-w3,12,13,5,,
-w4,14,15,,,
+m1,8,8,1,Basti,SG20
+m2,9,9,2,Sven,"SG30 alt"
+m3,10,15,3,Peter,"SG30 rot"
+w1,8,9,4,Bianka,SG500
+w2,10,11,5,Tine,SAR
+w3,11,15,6,Jutta,SAR
