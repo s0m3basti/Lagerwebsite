@@ -101,7 +101,6 @@
                         AND LagerAlter >= '.$csv[$i][1].'
                         AND LagerAlter <= '.$csv[$i][2].'
                         ORDER BY Vorname, Nachname;';
-                echo $sql. "<br>";
                 foreach ($db->query($sql) as $row){
                     ${"html$i"}.= '<p style="text-align: center; font-size: 25pt;">'.$row['Vorname'].' '.$row['Nachname'].'</p><br>';
                 }
