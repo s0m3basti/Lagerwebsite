@@ -14,12 +14,12 @@
             <td scope="colgroup" colspan="2"><h2>Stammdaten des Kindes:</h2></td>
         </tr>    
         <tr class="neu">
-            <td class="neu">Nachname des Kindes:</td>
-            <td class="neu"> <input type="text" name="k_nachname" size="30"></td>
-        </tr>
-        <tr class="neu">
             <td class="neu">Vorname des Kindes:</td>
             <td class="neu"> <input type="text" name="k_vorname" size="30"></td>
+        </tr>
+        <tr class="neu">
+            <td class="neu">Nachname des Kindes:</td>
+            <td class="neu"> <input type="text" name="k_nachname" size="30"></td>
         </tr>
         <tr class="neu">
             <td class="neu">Geschlecht des Kindes:</td>
@@ -31,14 +31,14 @@
         </tr>
         <tr class="neu">
             <td scope="colgroup" colspan="2"><h2>Angaben zu den Sorgeberechtigten:</h2></td>
-        </tr>               
-        <tr class="neu">
-            <td class="neu">Nachname des Sorgeberechtigten:</td>
-            <td class="neu"><input type="text" name="e_nachname" size="30" ></td>
         </tr>
         <tr class="neu">
             <td class="neu">Vorname des Sorgeberechtigten:</td>
             <td class="neu"><input type="text" name="e_vorname" size="30" ></td>
+        </tr>               
+        <tr class="neu">
+            <td class="neu">Nachname des Sorgeberechtigten:</td>
+            <td class="neu"><input type="text" name="e_nachname" size="30" ></td>
         </tr>
         <tr class="neu">
             <td class="neu">Straße:</td>
