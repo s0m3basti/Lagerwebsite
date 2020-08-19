@@ -167,6 +167,6 @@
     fwrite($logdata, $logtext."\n");
     fclose($logdata);
 
-    header("Location:../ausgabe.php?task=1&download=1");
+    header("Location:ausgabe_download.php?output=übersicht");
     // header("Location:../ausgabe.php?task=1");
 ?>

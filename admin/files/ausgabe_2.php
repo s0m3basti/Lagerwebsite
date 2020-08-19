@@ -34,6 +34,7 @@ session_start();
         $nachname = $row['Nachname'];
         $geschlecht = $row['Geschlecht'];
         $gebdatum = $row['Geburtstag'];
+        $lageralter = $row['LagerAlter'];
         $e_nachname = $row['e_Nachname'];
         $e_vorname = $row['e_Vorname'];
         $strasse = $row['Strasse'];
@@ -62,6 +63,8 @@ session_start();
         $shirts_anzahl = $row['Shirts_anzahl'];
         $shirts_groesse = $row['Shirts_groesse'];
         $art = $row['art'];
+        $datum = $row['Datum'];
+        $ip = $row['IP_Adresse'];
     }
     catch(PDOException $e){
         $fehler = $e->getMessage();
@@ -88,7 +91,7 @@ session_start();
             $unachname = $_SESSION['nachname'];
             require '../../files/datenzugriff.php';
 
-            $this->SetY(-15);
+            $this->SetY(-20);
             $this->SetFont('helvetica', 'I', 10);
             $html = '
                 <hr> <br>
@@ -104,7 +107,140 @@ session_start();
         }
     }
 
-    $html = "Test";
+    $html = '<br><br><br>
+        <h1 style="font-size: 14pt; font-weight: bold; text-align: center;">
+            Anmeldung von '.$vorname.' '.$nachname.' ('.$art.')
+        </h1>
+    <table style="width: 100%; font-size: 10pt; border: solid 1px black; padding: 2px;">
+        <tr style="border: solid 1px black; text-align: left;">
+            <td colspan="2" style="border: solid 1px black; text-align: left; font-size: 12pt; font-weight: bold;">Angaben zum Teilnehmer:</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Vorname</td>
+            <td style="border: none; width: 65%;">'.$vorname.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Nachname</td>
+            <td style="border: none; width: 65%;">'.$nachname.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">geschlecht</td>
+            <td style="border: none; width: 65%;">'.$geschlecht.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Geburtstag</td>
+            <td style="border: none; width: 65%;">'.date("d.m.Y", strtotime($gebdatum)).' ('.$lageralter.')</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td colspan="2" style="border: solid 1px black; text-align: left; font-size: 12pt; font-weight: bold;">Angaben zum Sorgeberechtigten:</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Vorname</td>
+            <td style="border: none; width: 65%;">'.$e_vorname.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Nachname</td>
+            <td style="border: none; width: 65%;">'.$e_nachname.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Straße</td>
+            <td style="border: none; width: 65%;">'.$strasse.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Postleitzahl</td>
+            <td style="border: none; width: 65%;">'.$plz.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Ort</td>
+            <td style="border: none; width: 65%;">'.$ort.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Telefonnummer (Privat)</td>
+            <td style="border: none; width: 65%;">'.$tel_pri.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Telefonnummer (Handy)</td>
+            <td style="border: none; width: 65%;">'.$tel_handy.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Telefonnumer (Dienstlich)</td>
+            <td style="border: none; width: 65%;">'.$tel_dienstl.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">E-Mail-Adresse</td>
+            <td style="border: none; width: 65%;">'.$email.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Mitlied / Mitarbeiter</td>
+            <td style="border: none; width: 65%;">'.$mitglied.'/'.$mitarbeiter.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td colspan="2" style="border: solid 1px black; text-align: left; font-size: 12pt; font-weight: bold;">Angaben für den Betreuer:</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Schwimmer (mit Stufe)</td>
+            <td style="border: none; width: 65%;">'.$schwimmer.' ('.$schwimmstufe.')</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Badeerlaubnis</td>
+            <td style="border: none; width: 65%;">'.$badeerlaubnis.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Springen ins Wasser</td>
+            <td style="border: none; width: 65%;">'.$springen.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Ernährung</td>
+            <td style="border: none; width: 65%;">'.$ernaehrung.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Krankheiten</td>
+            <td style="border: none; width: 65%;">'.$krankheit.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Medikamente</td>
+            <td style="border: none; width: 65%;">'.$medikamente.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Taschengeldverwaltung</td>
+            <td style="border: none; width: 65%;">'.$taschengeld.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Art und Name der KV</td>
+            <td style="border: none; width: 65%;">'.$versicherung_name.' ('.$versicherung_art.')</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Private KFZ</td>
+            <td style="border: none; width: 65%;">'.$kfz.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Ratenzahlung (mit Anzahl)</td>
+            <td style="border: none; width: 65%;">'.$ratenzahlung.' ('.$raten_anzahl.')</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Shirts (mit Größe und Anzahl)</td>
+            <td style="border: none; width: 65%;">'.$shirts.' ('.$shirts_groesse.' - '.$shirts_anzahl.')</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td colspan="2" style="border: solid 1px black; text-align: left; font-size: 12pt; font-weight: bold;">Metadaten:</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Art der Anmeldung</td>
+            <td style="border: none; width: 65%;">'.$art.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Datum der Anmeldung</td>
+            <td style="border: none; width: 65%;">'.$datum.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">IP / bearbeiter der Anmeldung</td>
+            <td style="border: none; width: 65%;">'.$ip.'</td>
+        </tr>
+    </table>
+    <br>
+    <h2 style="font-size: 10pt; font-weight: normal; text-align: center;">
+        Dieses Schreiben wurde maschinell erstellt und ist deshalb ohne Unterschrift gültig. 
+    </h2>';
 
     $pdf = new MYPDF("H", "mm", "A4", true, 'UTF-8', false);
     
@@ -127,12 +263,12 @@ session_start();
     $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
     
     $pdf->SetFont('dejavusans', '', 12);
-    $pdf->SetMargins(5, 0, 5, true);
+    $pdf->SetMargins(10, 0, 10, true);
 
     $pdf->AddPage();
     $pdf->writeHTML($html, true, false, true, false, '');
     
-    $pdf->Output(dirname(__FILE__)."/doc/anmeldung#".$id.".pdf", 'F');
+    $pdf->Output(dirname(__FILE__)."/doc/".$id.".pdf", 'F');
     $pdf->Close();
 
     $logtext = 'Das Dokument: Anmeldung (von '.$id.': '.$vorname.' '.$nachname.') wurde am '.date("Y-m-d H:i:s").' von '.$_SESSION['userid'].' ('.$_SESSION['vorname'].' '.$_SESSION['nachname'].') erstellt und heruntergeladen.';
@@ -143,6 +279,6 @@ session_start();
     fclose($logdata);
 
     //header("Location:../ausgabe.php?task=2&download=1");
-    header("Location:../ausgabe.php?task=2");
+    header("Location:ausgabe_download.php?output=".$id);
 
 ?>
