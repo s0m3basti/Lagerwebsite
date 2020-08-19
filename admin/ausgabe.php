@@ -94,9 +94,6 @@ require '../Datenbank/writer.php';
                                             <input type="submit" value="Suchen ..." class="ausgabe">
                                         </form>
                                         <br>
-                                        <p>
-                                            Sollte der Name eindeutig sein, wird direkt die PDF erstellt.
-                                        </p>
                                         <hr>
                                     ';
                                     echo '
