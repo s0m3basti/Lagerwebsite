@@ -218,65 +218,17 @@ require '../Datenbank/writer.php';
                                 ';
                                 echo '
                                     <h2>
-                                        Gib bestimmte Parameter ein um die Gruppen festzulegen und lass dir dann alle Anmeldungen sortiert ausgeben.
+                                        Die Parameter nach denen der Ordner zusammengestellt wird wurden im Bereich <a href="gruppen.php">"Gruppen erstellen"</a> gesetzt.
                                     </h2>
                                 ';
-                                echo '
-                                    <form action="?task=3&menge=true method="GET">
-                                        <input type="text" name="task" value="3" hidden> 
-                                        <table class="ausgabe_auswahl">
-                                            <tr>
-                                                <td>Anzahl an männlichen Gruppen</td>
-                                                <td><input type="number" min="2" max="5" value="3" name="mgr" required></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Anzahl an weiblichen Gruppen</td>
-                                                <td><input type="number" min="2" max="5" value="3" name="wgr" required></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2"><input type="submit" class="ausgabe" value="Bestätigen"></td>
-                                            </tr>
-                                        </table>
+                                echo'
+                                    <form action="files/ausgabe_3.php" method="POST">
+                                        <input type="submit" value="Dokument erstellen" class="ausgabe">
                                     </form>
                                 ';
-                                if(isset($_GET["mgr"])){
-                                    $count_m = $_GET["mgr"];
-                                    $count_w = $_GET["wgr"];
-
-                                    echo'
-                                        <form action="files/ausgabe_3.php" method="POST">
-                                            <input type="text" name="mgr" value="'.$_GET["mgr"].'" hidden>
-                                            <input type="text" name="wgr" value="'.$_GET["wgr"].'" hidden>
-                                            <table class="ausgabe_auswahl">
-                                    ';
-                                        for($i = 1 ; $i <= $count_m; $i++){
-                                            echo '
-                                                <tr>
-                                                    <td>Männlich '.$i.': (von, bis)</td>
-                                                    <td><input type="number" min="7" max="16" name="m_min_'.$i.'" required></td>
-                                                    <td><input type="number" min="7" max="16" name="m_max_'.$i.'" required></td>
-                                                </tr>
-                                            ';
-                                        }
-                                        for($i = 1 ; $i <= $count_w; $i++){
-                                            echo '
-                                                <tr>
-                                                    <td>Weiblich '.$i.': (von, bis)</td>
-                                                    <td><input type="number" min="7" max="16" name="w_min_'.$i.'" required></td>
-                                                    <td><input type="number" min="7" max="16" name="w_max_'.$i.'" required></td>
-                                                </tr>
-                                            ';
-                                        }
-                                    echo '
-                                                <tr>
-                                                    <td colspan="3"><input type="submit" value="Dokument erstellen" class="ausgabe"></td>
-                                                </tr>
-                                            </table>
-                                        </form>
-                                    ';
-                                }
                                 break;
-                        }
+                    
+                            }
                     }
                     break;
 
