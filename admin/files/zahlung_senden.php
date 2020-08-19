@@ -27,11 +27,11 @@
                     WHERE TeilnehmerID = "'.$id.'";';            
             $stmt_t = $db->prepare($sql);  
             $stmt_t->execute();
-            header("Location=../zahlung.php?message=1");
+            header("Location:../zahlung.php?message=1");
         }
         catch(PDOException $e){
             $fehler = $e->getMessage();
-            header("Location=../zahlung.php?message=2");
+            header("Location:../zahlung.php?message=2");
         }
         finally{
             $db = null;
@@ -52,7 +52,6 @@
                 if($neu == 0){
                     $neu = "null";
                 }
-
             $sql = "UPDATE tbl_anmeldedaten
                     SET zahlungsdaten = ".$neu."
                     WHERE TeilnehmerID = '".$id."';";
@@ -60,11 +59,11 @@
             $stmt_t = $db->prepare($sql);  
             $stmt_t->execute();
 
-            header("Location=../zahlung.php?message=3");
+            header("Location:../zahlung.php?message=3");
         }
         catch(PDOException $e){
             $fehler = $e->getMessage();
-            header("Location=../zahlung.php?message=2");
+            header("Location:../zahlung.php?message=2");
         }
         finally{
             $db = null;

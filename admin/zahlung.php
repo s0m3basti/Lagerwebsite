@@ -23,16 +23,28 @@ require "../files/datenzugriff.php";
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" id="favicon">
     <link rel="stylesheet" href="CSS/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script>
-        const status = <?php echo $status ?>
-    </script>
-    <script src="files/indexstatus.js" defer></script>
+    <script src="files/avwmessagebox.js" defer></script>
 </head>
 <body>
     <?php
         require("files/nav.html");
     ?>
     <div class="content">
+        <?php
+            if(isset($_GET['message'])){
+                switch($_GET['message']){
+                    case "1":
+                        echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Teilnehmer wurde ausgebucht.</div>';
+                        break;
+                    case "2": 
+                        echo '<div class="message" id="messagebox" style="background-color: #f44336; margin-left: 0">Es gab ein Problem mit der Datenbank, versuch es später erneut.</div>';
+                        break;
+                    case "3":
+                        echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Der Betrag wurde abgezogen und aktualisiert!</div>';
+                        break;
+                }
+            }
+        ?>
         <h1>Zahlungsportal</h1>
         <h2>Hier siehst du alle noch offenen Zahlungen.</h2>
         <?php
@@ -90,10 +102,10 @@ require "../files/datenzugriff.php";
                                     <td class='index'>".$row['e_Nachname']."</td>
                                     <td class='index'>".$row['Ratenzahlung']."</td>
                                     <td class='index'>".$row['Raten_anzahl']."</td>
-                                    <td class='index'>".$row['zahlungsdaten']."</td>
+                                    <td class='index'>".$row['zahlungsdaten']." €</td>
                                     <td class='index'>
                                         <form action='files/zahlung_senden.php' method='POST'>
-                                            <input type='number' name='betrag' placeholder='Betrag eingeben' min='0' max='500' required>
+                                            <input type='number' name='betrag' placeholder='Betrag eingeben' min='0' max='500' required>€
                                             <input type='text' name='id' value='".$row['TeilnehmerID']."' hidden>
                                             <input type='text' name='type' value='teil' hidden>
                                             <input type='submit' value='Abbuchen'>
@@ -117,6 +129,12 @@ require "../files/datenzugriff.php";
                     finally{
                         $db = null;
                     }
+
+                    echo '
+                        <hr>
+                            <h2>Liste mit offenen Zahlungen ausgeben</h2>
+                                <a href=files/zahlung_ausgabe1.php><button class="ausgabe">Liste Ausgeben</button></a>
+                    ';
 
                     break;
             }
