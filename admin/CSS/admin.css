@@ -433,7 +433,8 @@ table.ausgabe_auswahl{
     margin: auto;
 }
 input[type=submit].ausgabe,
-button.download{
+button.download,
+button.ausgabe{
     width: auto;
     padding: 10px;
     font-size: 80%;
@@ -444,8 +445,15 @@ button.download{
     color: black;
 }
 input[type=submit].ausgabe:hover,
-button.download:hover{
+button.download:hover,
+button.ausgabe:hover{
 background-color: #367c39;
 color: white;
+}
+button.gelb{
+    background-color: #ffad33;
+}
+button.gelb:hover{
+    background-color: #e68a00;
 }
 

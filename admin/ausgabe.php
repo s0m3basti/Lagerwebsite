@@ -82,41 +82,136 @@ require '../Datenbank/writer.php';
                                         <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl active">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Alle Anmeldungen ausgeben</button></a>
                                     </div>
                                 ';
-                                echo '
-                                    <h2>
-                                        Wähle aus der List der Teilnehmer*innen die Anmeldung aus, welche du ausgeben möchtest. (Doppelklick)
-                                    </h2>
-                                ';
-                                try{
-                                    $db = new PDO("$host; $name" ,$user,$pass);
-                                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            
-                                    $i = 0;
-                                    echo "<table class='index'>";
-                                    echo "<tr class='index_head'><td></td><td>Vorname</td><td>Nachname</td><td>Geschlecht</td><td>Geburtstag</td><td>Alter im Lager</td></tr>";
-                            
-                                    $sql = "SELECT * FROM tbl_stammdaten WHERE Jahr = $jahr ORDER BY Geschlecht, LagerAlter, Nachname, Vorname  DESC;";
-                                    foreach ($db->query($sql) as $row){
-                                        $i++;
-                                        echo '<tr class="index" ondblclick="window.location=\'files/ausgabe_2.php?id='.$row['TeilnehmerID'].'\'">
-                                                <td class="index">'.$i.'</td>
-                                                <td class="index">'.$row['Nachname'].'</td>
-                                                <td class="index">'.$row['Vorname'].'</td>
-                                                <td class="index">'.$row['Geschlecht'].'</td>
-                                                <td class="index">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
-                                                <td class="index">'.$row['LagerAlter'].'</td>
-                                            </tr>';
-                                    };
-                                    echo "</table>";
+                                if(!isset($_GET['vorname']) || !isset($_GET['nachname'])){
+                                    echo'
+                                        <h2>
+                                            Such nach Teilnehmer*in:
+                                        </h2>
+                                        <form method="GET" action="ausgabe.php">
+                                            <input type="text" name="task" value="2" hidden> 
+                                            <input type="text" name="vorname" placeholder="Vorname eingeben"> und / oder
+                                            <input type="text" name="nachname" placeholder="Nachname eingeben"><br>
+                                            <input type="submit" value="Suchen ..." class="ausgabe">
+                                        </form>
+                                        <br>
+                                        <p>
+                                            Sollte der Name eindeutig sein, wird direkt die PDF erstellt.
+                                        </p>
+                                        <hr>
+                                    ';
+                                    echo '
+                                        <h2>
+                                            Oder wähle aus der List der Teilnehmer*innen die Anmeldung aus, welche du ausgeben möchtest. (Doppelklick)
+                                        </h2>
+                                    ';
+                                    try{
+                                        $db = new PDO("$host; $name" ,$user,$pass);
+                                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                
+                                        $i = 0;
+                                        echo "<table class='index'>";
+                                        echo "<tr class='index_head'><td></td><td>Vorname</td><td>Nachname</td><td>Geschlecht</td><td>Geburtstag</td><td>Alter im Lager</td></tr>";
+                                
+                                        $sql = "SELECT * FROM tbl_stammdaten WHERE Jahr = $jahr ORDER BY Geschlecht, LagerAlter, Nachname, Vorname  DESC;";
+                                        foreach ($db->query($sql) as $row){
+                                            $i++;
+                                            echo '<tr class="index" ondblclick="window.location=\'files/ausgabe_2.php?id='.$row['TeilnehmerID'].'\'">
+                                                    <td class="index">'.$i.'</td>
+                                                    <td class="index">'.$row['Vorname'].'</td>
+                                                    <td class="index">'.$row['Nachname'].'</td>
+                                                    <td class="index">'.$row['Geschlecht'].'</td>
+                                                    <td class="index">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
+                                                    <td class="index">'.$row['LagerAlter'].'</td>
+                                                </tr>';
+                                        };
+                                        echo "</table>";
+                                    }
+                                    catch(PDOException $e){
+                                        $fehler = $e->getMessage();
+                                        echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                    }
+                                    finally{
+                                        $db = null;
+                                    }
                                 }
-                                catch(PDOException $e){
-                                    $fehler = $e->getMessage();
-                                    echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
-                                }
-                                finally{
-                                    $db = null;
-                                }
+                                else{
+                                    $vorname = $_GET['vorname'];
+                                    $nachname = $_GET['nachname'];
+                                    echo'
+                                        <h2>
+                                            Such nach Teilnehmer*in:
+                                        </h2>
+                                        <form method="GET" action="ausgabe.php">
+                                            <input type="text" name="task" value="2" hidden> 
+                                            <input type="text" name="vorname" value="'.$vorname.'" placeholder="Vorname eingeben"> und / oder
+                                            <input type="text" name="nachname" value="'.$nachname.'"placeholder="Nachname eingeben"><br>
+                                            <input type="submit" value="Suchen ..." class="ausgabe">
+                                        </form>
+                                        <a href="?task=2"><button class="ausgabe gelb">Zurücksetzen</button></a>
+                                    ';
+                                    echo '
+                                        <h2>
+                                            Wähle einen der Vorschläge via Doppelklick aus oder suche erneut.
+                                        </h2>
+                                    ';
+                                    try{
+                                        $db = new PDO("$host; $name" ,$user,$pass);
+                                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                
+                                        $i = 0;
+                                        echo "<table class='index'>";
+                                        echo "<tr class='index_head'><td></td><td>Vorname</td><td>Nachname</td><td>Geschlecht</td><td>Geburtstag</td><td>Alter im Lager</td></tr>";
+                                
+                                        if($vorname != ""){
+                                            $where = "AND Vorname LIKE '%$vorname%' ";
+                                        }
+                                        if($nachname != ""){
+                                            $where = "AND Nachname LIKE '%$nachname%' ";
+                                        }
+                                        if($nachname != "" && $vorname != ""){
+                                            $where = "AND Nachname LIKE '%$nachname%'
+                                                        AND Vorname LIKE '%$vorname%'";
+                                        }
 
+                                        $sql = "SELECT COUNT(*) as anzahl, TeilnehmerID
+                                                FROM tbl_stammdaten 
+                                                WHERE Jahr = $jahr"
+                                                .$where. 
+                                                "ORDER BY Geschlecht, LagerAlter, Nachname, Vorname;";
+
+                                        foreach ($db->query($sql) as $row){
+                                            if($row['anzahl'] == 1 ){
+                                                header("Location:files/ausgabe_2.php?id=".$row['TeilnehmerID']);
+                                            }
+                                        }
+
+                                        $sql = "SELECT * 
+                                                FROM tbl_stammdaten 
+                                                WHERE Jahr = $jahr"
+                                                .$where. 
+                                                "ORDER BY Geschlecht, LagerAlter, Nachname, Vorname;";
+
+                                        foreach ($db->query($sql) as $row){
+                                            $i++;
+                                            echo '<tr class="index" ondblclick="window.location=\'files/ausgabe_2.php?id='.$row['TeilnehmerID'].'\'">
+                                                    <td class="index">'.$i.'</td>
+                                                    <td class="index">'.$row['Vorname'].'</td>
+                                                    <td class="index">'.$row['Nachname'].'</td>
+                                                    <td class="index">'.$row['Geschlecht'].'</td>
+                                                    <td class="index">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
+                                                    <td class="index">'.$row['LagerAlter'].'</td>
+                                                </tr>';
+                                        };
+                                        echo "</table>";
+                                    }
+                                    catch(PDOException $e){
+                                        $fehler = $e->getMessage();
+                                        echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                                    }
+                                    finally{
+                                        $db = null;
+                                    }
+                                }
                                 break;
                             case 3: // Alle Anmeldungen
                                 echo '
