@@ -132,6 +132,10 @@
             <td class="neu"><input type="number" name="ratenanzahl" min="2" max="3"></td>
         </tr> 
         <tr class="neu">
+            <td class="neu">Basispreis</td>
+            <td class="neu"><input type="number" name="preis" value="<?php echo intval($preis) ?>">€</td>
+        </tr> 
+        <tr class="neu">
             <td class="neu">Shirts</td>
             <td class="neu"><select name="shirts"><option value="ja">Ja</option><option value="nein">Nein</option></select></td>
         </tr> 

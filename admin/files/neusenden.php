@@ -45,6 +45,7 @@
     $kfz=$_POST['kfz'];
     $raten=$_POST['raten'];
     $ratenanzahl=$_POST['ratenanzahl'];
+    $zahlungsinfo=$_POST['preis'];
     $shirts=$_POST['shirts'];
     $shirts_anzahl=$_POST['shirts_anzahl'];
     $shirts_groesse=$_POST['shirts_groesse'];
@@ -69,6 +70,10 @@
     $anfang = strtotime($anfang);
     $anfang = date("Y-m-d", $anfang);
     $lageralter = $anfang-$gebdatum;
+
+    $zahlungsinfo = $zahlungsinfo + ($shirts_anzahl * $shirtpreis);
+
+    $umfrage = "analog";
 
     $art = "analog";
 
@@ -98,8 +103,8 @@
         $stmt_t->execute();
 
     //--------------Anmeldedaten eintragen -------------------------
-        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, Shirts, Shirts_anzahl, Shirts_groesse, art, Datum, IP_Adresse) 
-            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :shirts, :shirts_anzahl, :shirts_groesse, :art, :datum, :ip_adresse)";
+        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, zahlungsdaten, Shirts, Shirts_anzahl, Shirts_groesse, umfrage, art, Datum, IP_Adresse) 
+            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl,:zahlungsinfo, :shirts, :shirts_anzahl, :shirts_groesse, :umfrage, :art, :datum, :ip_adresse)";
         
         $stmt_t = $db->prepare($sql_anmeldedaten);
         $stmt_t->bindValue(':id',$id);
@@ -116,9 +121,11 @@
         $stmt_t->bindValue(':kfz', $kfz);
         $stmt_t->bindValue(':ratenzahlung', $raten);
         $stmt_t->bindValue(':raten_anzahl', $ratenanzahl);
+        $stmt_t->bindValue(':zahlungsinfo', $zahlungsinfo);
         $stmt_t->bindValue(':shirts', $shirts);
         $stmt_t->bindValue(':shirts_anzahl', $shirts_anzahl);
         $stmt_t->bindValue(':shirts_groesse', $shirts_groesse);
+        $stmt_t->bindValue(':umfrage', $umfrage);
         $stmt_t->bindValue(':art', $art);
         $stmt_t->bindValue(':datum', $datum);
         $stmt_t->bindValue(':ip_adresse', $ip_adresse);
@@ -126,8 +133,8 @@
         $stmt_t->execute();
 
     //--------------Eltern eintragen -------------------------
-        $sql_eltern = "INSERT INTO tbl_srgb (TeilnehmerID, e_Nachname, e_Vorname, Strasse, PLZ, Ort, Tel_pri, Tel_handy, Tel_dienstl, email, mitglied, mitarbeiter, Datum, IP_Adresse)
-            VALUES(:id, :nachname, :vorname, :strasse, :plz, :ort, :tel_p, :tel_h, :tel_d, :email, :mitglied, :mitarbeiter, :datum, :ip_adresse);";
+        $sql_eltern = "INSERT INTO tbl_srgb (TeilnehmerID, e_Nachname, e_Vorname, Strasse, PLZ, Ort, Tel_pri, Tel_handy, Tel_dienstl, email, mitglied, mitarbeiter)
+            VALUES(:id, :nachname, :vorname, :strasse, :plz, :ort, :tel_p, :tel_h, :tel_d, :email, :mitglied, :mitarbeiter);";
 
         $stmt_e = $db->prepare($sql_eltern);
         $stmt_e->bindValue(':id', $id);
@@ -142,8 +149,6 @@
         $stmt_e->bindValue(':email', $email);
         $stmt_e->bindValue(':mitglied', $mitglied);
         $stmt_e->bindValue(':mitarbeiter', $mitarbeiter);
-        $stmt_e->bindValue(':datum', $datum);
-        $stmt_e->bindValue(':ip_adresse', $ip_adresse);
 
         $stmt_e->execute();
 
@@ -152,7 +157,7 @@
     }
     catch(PDOException $e){
         $fehler = $e->getMessage();
-        header("Location:../neu.php?message=fail");
+        header("Location:../neu.php?message=fail&fehler=$fehler");
     }
     finally{
         $db = null;
