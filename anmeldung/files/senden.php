@@ -109,6 +109,8 @@
 
             $lageralter = $anfang-$k_geburtstag;
 
+            $zahlungsinfo = $preis + ($shirtpreis * $shirtanz); 
+
             $art = "online";
 
             $datum = date('Y-m-d');
@@ -152,8 +154,8 @@
                         $stmt_t->execute();
 
                 //--------------Anmeldedaten eintragen -------------------------
-                        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, Shirts, Shirts_anzahl, Shirts_groesse, umfrage, art, Datum, IP_Adresse) 
-                            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :shirts, :shirts_anzahl, :shirts_groesse, :umfrage, :art, :datum, :ip_adresse)";
+                        $sql_anmeldedaten = "INSERT INTO tbl_anmeldedaten (TeilnehmerID,  Schwimmer, Schwimmstufe, Badeerlaubnis, Springen, Ernaehrung, Krankheit, Medikamente, Taschengeld, Versicherung_art, Versicherung_name, KFZ, Ratenzahlung, Raten_anzahl, zahlungsdaten, Shirts, Shirts_anzahl, Shirts_groesse, umfrage, art, Datum, IP_Adresse) 
+                            VALUES (:id, :schwimmer, :schwimmstufe, :badeerlaubnis, :springen, :ernaerung, :krankheit, :medikamente, :taschengeld, :versicherung_art, :versicherung_name, :kfz, :ratenzahlung, :raten_anzahl, :zahlungsinfo, :shirts, :shirts_anzahl, :shirts_groesse, :umfrage, :art, :datum, :ip_adresse)";
                         
                         $stmt_t = $db->prepare($sql_anmeldedaten);
                         $stmt_t->bindValue(':id',$id);
@@ -170,6 +172,7 @@
                         $stmt_t->bindValue(':kfz', $kfz);
                         $stmt_t->bindValue(':ratenzahlung', $raten);
                         $stmt_t->bindValue(':raten_anzahl', $raten_anzahl);
+                        $stmt_t->bindValue(':zahlungsinfo', $zahlungsinfo);
                         $stmt_t->bindValue(':shirts', $shirt);
                         $stmt_t->bindValue(':shirts_anzahl', $shirtanz);
                         $stmt_t->bindValue(':shirts_groesse', $shirtgr);
