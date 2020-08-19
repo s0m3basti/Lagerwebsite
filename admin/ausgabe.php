@@ -239,8 +239,9 @@ require '../Datenbank/writer.php';
                     //      Anmeldungsübersicht ausgeben
                     //          nichts eingeben
                     //      "Ordner ausgeben"
-                    //          eingeben, wieviel Gruppen (nach Geschlecht)
-                    //          altersgrenzen für die Gruppen
+                    //          Deckblatt für Ordner
+                                // Deckblatt für Gruppen
+                                // Alle Anmeldungen
             }
         ?>
     </div>    
