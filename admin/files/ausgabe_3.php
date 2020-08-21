@@ -52,23 +52,32 @@
             <table style="width: 100%; font-size: 10pt; border: solid 1px black; padding: 2px;">
             <tr style="border: solid 1px black; text-align: center; background-color: lightgrey;">
                 <td style="border: solid 1px black; width: 2%;"></td>
-                <td style="border: solid 1px black;width: 10%;">Vorname</td>
-                <td style="border: solid 1px black;width: 10%;">Nachname</td>
-                <td style="border: solid 1px black;width: 10%;">Geschlecht</td>
-                <td style="border: solid 1px black;width: 10%;">Alter im Lager</td>
-                <td style="border: solid 1px black;width: 5%;">Schwimmer(Schwimmstufe)</td>
-                <td style="border: solid 1px black;width: 10%;">Badeerlaubnis</td>
-                <td style="border: solid 1px black;width: 10%;">Springen</td>
-                <td style="border: solid 1px black;width: 10%;">Ernährung</td>
-                <td style="border: solid 1px black;width: 10%;">Krankheit</td>
-                <td style="border: solid 1px black;width: 10%;">Medikamente</td>
-                <td style="border: solid 1px black;width: 10%;">Taschengeld</td>
-                <td style="border: solid 1px black;width: 10%;">KFZ</td>
+                <td style="border: solid 1px black;width: 12%;">Vorname</td>
+                <td style="border: solid 1px black;width: 12%;">Nachname</td>
+                <td style="border: solid 1px black;width: 3%;">Gs.</td>
+                <td style="border: solid 1px black;width: 5%;">Alter im Lager</td>
+                <td style="border: solid 1px black;width: 11%;">Schwimmer <br> (Schwimmstufe)</td>
+                <td style="border: solid 1px black;width: 4%;">Badeerlaubnis</td>
+                <td style="border: solid 1px black;width: 4%;">Springen</td>
+                <td style="border: solid 1px black;width: 13%;">Ernährung</td>
+                <td style="border: solid 1px black;width: 13%;">Krankheit</td>
+                <td style="border: solid 1px black;width: 13%;">Medikamente</td>
+                <td style="border: solid 1px black;width: 4%;">Taschengeld</td>
+                <td style="border: solid 1px black;width: 4%;">KFZ</td>
             </tr>';
             try{
                 $db = new PDO("$host; $name" ,$user,$pass);
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
+                function geschlecht($var){
+                    if($var == "maennlich"){
+                        return "m";
+                    }    
+                    else{
+                        return "w";
+                    }
+                }
+
                 $i = 0;
                 $sql = "SELECT * 
                         FROM tbl_stammdaten s , tbl_anmeldedaten e
@@ -80,36 +89,36 @@
 
                     if($row['Geschlecht'] == "maennlich"){
                         $html.= '<tr style="border: solid 1px black;">
-                            <td style="border: solid 1px black; text-align:left; background-color: #80c1ff;">'.$i.'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.$row['Vorname'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.$row['Nachname'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.$row['Geschlecht'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.$row['LagerAlter'].'</td>
-                            <td style="border: solid 1px black; text-align:right;  background-color: #80c1ff;">'.$row['Schwimmer'].' ('.$row['Schwimmstufe'].')</td>
-                            <td style="border: solid 1px black; text-align:right;  background-color: #80c1ff;">'.$row['Badeerlaubnis'].'</td>
-                            <td style="border: solid 1px black; text-align:right;  background-color: #80c1ff;">'.$row['Springen'].'</td>
-                            <td style="border: solid 1px black; text-align:right;  background-color: #80c1ff;">'.$row['Ernaehrung'].'</td>
-                            <td style="border: solid 1px black; text-align:right;  background-color: #80c1ff;">'.$row['Krankheit'].'</td>
-                            <td style="border: solid 1px black; text-align:right;  background-color: #80c1ff;">'.$row['Medikamente'].'</td>
-                            <td style="border: solid 1px black; text-align:right;  background-color: #80c1ff;">'.$row['Taschengeld'].'</td>
-                            <td style="border: solid 1px black; text-align:right;  background-color: #80c1ff;">'.$row['KFZ'].'</td>
+                            <td style="border: solid 1px black; text-align:center; background-color: #80c1ff;">'.$i.'</td>
+                            <td style="border: solid 1px black; text-align:left; background-color: #80c1ff;">'.$row['Vorname'].'</td>
+                            <td style="border: solid 1px black; text-align:left; background-color: #80c1ff;">'.$row['Nachname'].'</td>
+                            <td style="border: solid 1px black; text-align:center; background-color: #80c1ff;">'.geschlecht($row['Geschlecht']).'</td>
+                            <td style="border: solid 1px black; text-align:center; background-color: #80c1ff;">'.$row['LagerAlter'].'</td>
+                            <td style="border: solid 1px black; text-align:left;  background-color: #80c1ff;">'.$row['Schwimmer'].' ('.$row['Schwimmstufe'].')</td>
+                            <td style="border: solid 1px black; text-align:center;  background-color: #80c1ff;">'.$row['Badeerlaubnis'].'</td>
+                            <td style="border: solid 1px black; text-align:center;  background-color: #80c1ff;">'.$row['Springen'].'</td>
+                            <td style="border: solid 1px black; text-align:left;  background-color: #80c1ff; font-size: 6pt;">'.$row['Ernaehrung'].'</td>
+                            <td style="border: solid 1px black; text-align:left;  background-color: #80c1ff; font-size: 6pt;">'.$row['Krankheit'].'</td>
+                            <td style="border: solid 1px black; text-align:left;  background-color: #80c1ff; font-size: 6pt;">'.$row['Medikamente'].'</td>
+                            <td style="border: solid 1px black; text-align:center;  background-color: #80c1ff;">'.$row['Taschengeld'].'</td>
+                            <td style="border: solid 1px black; text-align:center;  background-color: #80c1ff;">'.$row['KFZ'].'</td>
                             </tr>';
                     }
                     else{
                         $html.= '<tr style="border: solid 1px black;">
-                        <td style="border: solid 1px black; text-align:left; background-color: #ffc266;">'.$i.'</td>
-                        <td style="border: solid 1px black; text-align:right; background-color: #ffc266 ;">'.$row['Vorname'].'</td>
-                        <td style="border: solid 1px black; text-align:right; background-color: #ffc266 ;">'.$row['Nachname'].'</td>
-                        <td style="border: solid 1px black; text-align:right; background-color: #ffc266 ;">'.$row['Geschlecht'].'</td>
-                        <td style="border: solid 1px black; text-align:right; background-color: #ffc266 ;">'.$row['LagerAlter'].'</td>
-                        <td style="border: solid 1px black; text-align:right;  background-color: #ffc266 ;">'.$row['Schwimmer'].' ('.$row['Schwimmstufe'].')</td>
-                        <td style="border: solid 1px black; text-align:right;  background-color: #ffc266 ;">'.$row['Badeerlaubnis'].'</td>
-                        <td style="border: solid 1px black; text-align:right;  background-color: #ffc266 ;">'.$row['Springen'].'</td>
-                        <td style="border: solid 1px black; text-align:right;  background-color: #ffc266 ;">'.$row['Ernaehrung'].'</td>
-                        <td style="border: solid 1px black; text-align:right;  background-color: #ffc266 ;">'.$row['Krankheit'].'</td>
-                        <td style="border: solid 1px black; text-align:right;  background-color: #ffc266 ;">'.$row['Medikamente'].'</td>
-                        <td style="border: solid 1px black; text-align:right;  background-color: #ffc266 ;">'.$row['Taschengeld'].'</td>
-                        <td style="border: solid 1px black; text-align:right;  background-color: #ffc266 ;">'.$row['KFZ'].'</td>
+                        <td style="border: solid 1px black; text-align:center; background-color: #ffc266;">'.$i.'</td>
+                        <td style="border: solid 1px black; text-align:left; background-color: #ffc266 ;">'.$row['Vorname'].'</td>
+                        <td style="border: solid 1px black; text-align:left; background-color: #ffc266 ;">'.$row['Nachname'].'</td>
+                        <td style="border: solid 1px black; text-align:center; background-color: #ffc266 ;">'.geschlecht($row['Geschlecht']).'</td>
+                        <td style="border: solid 1px black; text-align:center; background-color: #ffc266 ;">'.$row['LagerAlter'].'</td>
+                        <td style="border: solid 1px black; text-align:left;  background-color: #ffc266 ;">'.$row['Schwimmer'].' ('.$row['Schwimmstufe'].')</td>
+                        <td style="border: solid 1px black; text-align:center;  background-color: #ffc266 ;">'.$row['Badeerlaubnis'].'</td>
+                        <td style="border: solid 1px black; text-align:center;  background-color: #ffc266 ;">'.$row['Springen'].'</td>
+                        <td style="border: solid 1px black; text-align:left;  background-color: #ffc266 ; font-size: 6pt;">'.$row['Ernaehrung'].'</td>
+                        <td style="border: solid 1px black; text-align:left;  background-color: #ffc266 ; font-size: 6pt;">'.$row['Krankheit'].'</td>
+                        <td style="border: solid 1px black; text-align:left;  background-color: #ffc266 ; font-size: 6pt;">'.$row['Medikamente'].'</td>
+                        <td style="border: solid 1px black; text-align:center;  background-color: #ffc266 ;">'.$row['Taschengeld'].'</td>
+                        <td style="border: solid 1px black; text-align:center;  background-color: #ffc266 ;">'.$row['KFZ'].'</td>
                         </tr>';
                     }                    
                 };
@@ -162,6 +171,6 @@
     fwrite($logdata, $logtext."\n");
     fclose($logdata);
 
-    //header("Location:ausgabe_download.php?output=angaben_fuer_Betreuer");
-    header("Location:../ausgabe.php?task=3");
+    header("Location:ausgabe_download.php?output=angaben_fuer_Betreuer");
+    //header("Location:../ausgabe.php?task=3");
 ?>
