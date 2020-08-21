@@ -21,7 +21,6 @@
         public function Header() {
             require '../../files/datenzugriff.php';
 
-            $this->Image('../img/header-admin.png', 5, 5, 45, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
             $this->SetFont('helvetica', 'BU', 20);  
             $this->Ln(5);     
             $this->Cell(0, 15, 'Teilnehmerliste - '.$jahr, 0, false, 'C', 0, '', 0, false, 'M', 'M');
@@ -77,43 +76,43 @@
 
                     if($row['Geschlecht'] == "maennlich"){
                         $html.= '<tr style="border: solid 1px black;">
-                            <td style="border: solid 1px black; text-align:left; background-color: #ccf5ff;">'.$i.'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ccf5ff;">'.$row['Vorname'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ccf5ff;">'.$row['Nachname'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ccf5ff;">'.$row['Geschlecht'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ccf5ff;">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ccf5ff;">'.$row['LagerAlter'].'</td>
-                            <td style="border-right: solid 1px black; background-color: #ccf5ff;"></td>
-                            <td style="border-right: solid 1px black; background-color: #ccf5ff;"></td>
-                            <td style="border-right: solid 1px black; background-color: #ccf5ff;"></td>
+                            <td style="border: solid 1px black; text-align:left; background-color: #80c1ff;">'.$i.'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.$row['Vorname'].'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.$row['Nachname'].'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.$row['Geschlecht'].'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #80c1ff;">'.$row['LagerAlter'].'</td>
+                            <td style="border-right: solid 1px black; background-color: #80c1ff;"></td>
+                            <td style="border-right: solid 1px black; background-color: #80c1ff;"></td>
+                            <td style="border-right: solid 1px black; background-color: #80c1ff;"></td>
                             </tr>';
                     }
                     else{
                         if($g == 0){
                             $g++;
                             $html.= '<tr style="border: solid 1px black;">
-                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:left; background-color: #ffc299;">'.$i.'</td>
-                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc299;">'.$row['Vorname'].'</td>
-                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc299;">'.$row['Nachname'].'</td>
-                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc299;">'.$row['Geschlecht'].'</td>
-                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc299;">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
-                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc299;">'.$row['LagerAlter'].'</td>
-                            <td style="border-right: solid 1px black; border-top: solid 2px black; background-color: #ffc299;"></td>
-                            <td style="border-right: solid 1px black; border-top: solid 2px black; background-color: #ffc299;"></td>
-                            <td style="border-right: solid 1px black; border-top: solid 2px black; background-color: #ffc299;"></td>
+                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:left; background-color: #ffc266;">'.$i.'</td>
+                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc266;">'.$row['Vorname'].'</td>
+                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc266;">'.$row['Nachname'].'</td>
+                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc266;">'.$row['Geschlecht'].'</td>
+                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc266;">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
+                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; background-color: #ffc266;">'.$row['LagerAlter'].'</td>
+                            <td style="border-right: solid 1px black; border-top: solid 2px black; background-color: #ffc266;"></td>
+                            <td style="border-right: solid 1px black; border-top: solid 2px black; background-color: #ffc266;"></td>
+                            <td style="border-right: solid 1px black; border-top: solid 2px black; background-color: #ffc266;"></td>
                             </tr>';
                         }   
                         else{
                             $html.= '<tr style="border: solid 1px black;">
-                            <td style="border: solid 1px black; text-align:left; background-color: #ffc299;">'.$i.'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ffc299;">'.$row['Vorname'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ffc299;">'.$row['Nachname'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ffc299;">'.$row['Geschlecht'].'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ffc299;">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
-                            <td style="border: solid 1px black; text-align:right; background-color: #ffc299;">'.$row['LagerAlter'].'</td>
-                            <td style="border-right: solid 1px black; background-color: #ffc299;"></td>
-                            <td style="border-right: solid 1px black; background-color: #ffc299;"></td>
-                            <td style="border-right: solid 1px black; background-color: #ffc299;"></td>
+                            <td style="border: solid 1px black; text-align:left; background-color: #ffc266;">'.$i.'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #ffc266;">'.$row['Vorname'].'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #ffc266;">'.$row['Nachname'].'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #ffc266;">'.$row['Geschlecht'].'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #ffc266;">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
+                            <td style="border: solid 1px black; text-align:right; background-color: #ffc266;">'.$row['LagerAlter'].'</td>
+                            <td style="border-right: solid 1px black; background-color: #ffc266;"></td>
+                            <td style="border-right: solid 1px black; background-color: #ffc266;"></td>
+                            <td style="border-right: solid 1px black; background-color: #ffc266;"></td>
                             </tr>';
                         }
                     }                    

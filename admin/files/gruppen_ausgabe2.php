@@ -21,7 +21,6 @@
         public function Header() {
             require '../../files/datenzugriff.php';
 
-            $this->Image('../img/header-admin.png', 80, 5, 45, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
             $this->SetFont('helvetica', 'BU', 20);  
             $this->Ln(5);     
             $this->Cell(0, 15, '', 0, false, 'C', 0, '', 0, false, 'M', 'M');
