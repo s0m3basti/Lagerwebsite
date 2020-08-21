@@ -166,7 +166,7 @@ require '../Datenbank/writer.php';
                             echo'<a href="gruppen.php"><button class="ausgabe gelb">Bearbeiten zuklappen</button></a><br><hr>';                          
                             echo '
                                 <p> Du kannst die Anzahl der Gruppen und die Angaben ändern.
-                                    <br> Beim hinzufügen von Gruppen werden die Angaben automatisch kopiert, denk daran diese zu anzupassen.
+                                    <br> Solltest du auch die Anzahl der Gruppen ändern, werden die eingetragenen Daten nicht übernommen!
                                     <br> <b> Alter dürfen sich nicht überschneiden! </b>
                                 </p><br>
                                 <form action="gruppen.php" method="GET">
@@ -207,7 +207,34 @@ require '../Datenbank/writer.php';
                                             <td>Zelt</td>
                                         </tr>
                             ';
-                            for($i = 1 ; $i <= $_GET['mgr']; $i++){
+                            if($_GET['edit'] == 1){
+                                for($i = 1 ; $i <= $_GET['mgr']; $i++){
+                                    echo '
+                                        <tr>
+                                            <td>Männlich '.$i.':</td>
+                                            <td><input type="number" min="7" max="16" name="m_min_'.$i.'" value="" required></td>
+                                            <td><input type="number" min="7" max="16" name="m_max_'.$i.'" value="" required></td>
+                                            <td><input type="text" name="m_name_'.$i.'" value=""></td>
+                                            <td><input type="text" name="m_betreuer_'.$i.'" value=""></td>
+                                            <td><input type="text" name="m_zelt_'.$i.'" value=""></td>
+                                        </tr>
+                                    ';
+                            }
+                            for($i = 1 ; $i <= $_GET['wgr']; $i++){
+                                echo '
+                                    <tr>
+                                        <td>Weiblich '.$i.':</td>
+                                        <td><input type="number" min="7" max="16" name="w_min_'.$i.'" value="" required></td>
+                                        <td><input type="number" min="7" max="16" name="w_max_'.$i.'" value="" required></td>
+                                        <td><input type="text" name="w_name_'.$i.'" value=""></td>
+                                        <td><input type="text" name="w_betreuer_'.$i.'" value=""></td>
+                                        <td><input type="text" name="w_zelt_'.$i.'" value=""></td>
+                                    </tr>
+                                ';
+                            }
+                            }
+                            else{
+                                for($i = 1 ; $i <= $_GET['mgr']; $i++){
                                     echo '
                                         <tr>
                                             <td>Männlich '.$i.':</td>
@@ -231,12 +258,15 @@ require '../Datenbank/writer.php';
                                     </tr>
                                 ';
                             }
+                            }
+                            
                             echo '
                                 <tr>
-                                    <td colspan="6"><input type="submit" value="Gruppen erstellen" class="ausgabe"></td>
+                                    <td colspan="6"><input type="submit" value="Gruppen bearbeiten" class="ausgabe"></td>
                                 </tr>
                                 </table>
-                            </form>';
+                            </form>
+                            <h2>Solltest du die Änderungen verwerfen wollen, klicke auf "Bearbeiten zuklappen". Die Änderungen werden dann nicht gespeichert.</h2>';
                         }
                         echo'
                             <hr>
