@@ -40,6 +40,8 @@
 
                 $stmt_t->execute();
 
+                require 'bnv_mail.php';
+
                 header("Location:../benutzerverwaltung.php?message=3");
             }
             catch(PDOException $e){
