@@ -105,17 +105,17 @@
                 // }
 
             /* Löschen der Voranmelder, der Elterndaten und der Anmeldedaten des letzten Jahres. */
-                // $stmt = $db->prepare("DELETE FROM voranmeldung");
-                // $stmt->execute();
+                $stmt = $db->prepare("DELETE FROM voranmeldung");
+                $stmt->execute();
 
-                // $stmt = $db->prepare("DELETE FROM tbl_stammdaten");
-                // $stmt->execute();
+                $stmt = $db->prepare("DELETE FROM tbl_stammdaten");
+                $stmt->execute();
 
-                // $stmt = $db->prepare("DELETE FROM tbl_srgb");
-                // $stmt->execute();
+                $stmt = $db->prepare("DELETE FROM tbl_srgb");
+                $stmt->execute();
 
-                // $stmt = $db->prepare("DELETE FROM tbl_anmeldedaten");
-                // $stmt->execute();
+                $stmt = $db->prepare("DELETE FROM tbl_anmeldedaten");
+                $stmt->execute();
 
             /* Leert den changelog der Anmeldungsänderung */
                 $fp = fopen("../../changelogs/anmeldung.txt", "w");
