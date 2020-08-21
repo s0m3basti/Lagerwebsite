@@ -217,6 +217,7 @@ require '../Datenbank/writer.php';
                                     </div>
                                 ';
                                 echo'
+                                    <h2>Tabelle der Teilnehmer mit Angaben für den Betreuer ausgeben</h2>
                                     <form action="files/ausgabe_3.php" method="POST">
                                         <input type="submit" value="Dokument erstellen" class="ausgabe">
                                     </form>
