@@ -106,7 +106,7 @@ session_start();
         }
     }
 
-    $html = '<br><br><br>
+    $html = '
         <h1 style="font-size: 14pt; font-weight: bold; text-align: center;">
             Anmeldung von '.$vorname.' '.$nachname.' ('.$art.')
         </h1>
@@ -262,7 +262,7 @@ session_start();
     $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
     
     $pdf->SetFont('dejavusans', '', 12);
-    $pdf->SetMargins(10, 0, 10, true);
+    $pdf->SetMargins(10, 20, 10, true);
 
     $pdf->AddPage();
     $pdf->writeHTML($html, true, false, true, false, '');

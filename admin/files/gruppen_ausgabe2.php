@@ -69,7 +69,7 @@
     $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
     
     $pdf->SetFont('dejavusans', '', 12);
-    $pdf->SetMargins(5, 0, 5, true);
+    $pdf->SetMargins(5, 20, 5, true);
 
     $csv = array_map('str_getcsv', file('doc/gruppen.csv'));
 
@@ -89,7 +89,7 @@
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
             for($i = 0; $i<count($csv); $i++){
-                ${"html$i"} = '<br><br><br><br><br><br>';
+                ${"html$i"} = ' ';
                 ${"html$i"} .= '
                     <h1 style="text-align: center; font-size: 60pt;"> Gruppe '.$csv[$i][3].' </h1>
                 ';

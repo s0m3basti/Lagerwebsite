@@ -48,7 +48,7 @@
         }
     }
 
-    $html = '<br><br><br><br><br>
+    $html = '
             <table style="width: 100%; font-size: 10pt; border: solid 1px black; padding: 2px;">
             <tr style="border: solid 1px black; text-align: center; background-color: lightgrey;">
                 <td style="border: solid 1px black; width: 3%;"></td>
@@ -151,7 +151,7 @@
     $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
     
     $pdf->SetFont('dejavusans', '', 12);
-    $pdf->SetMargins(5, 0, 5, true);
+    $pdf->SetMargins(5, 20, 5, true);
 
     $pdf->AddPage();
     $pdf->writeHTML($html, true, false, true, false, '');
