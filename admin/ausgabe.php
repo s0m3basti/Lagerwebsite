@@ -41,7 +41,7 @@ require '../Datenbank/writer.php';
                     if(!isset($_GET['task'])){
                         echo '
                         <div class="auswahl">
-                            <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl unactive">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Alle Anmeldungen ausgeben</button></a>
+                            <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl unactive">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Angaben für den Betreuer</button></a>
                         </div>
                         ';
                     }
@@ -50,7 +50,7 @@ require '../Datenbank/writer.php';
                             case 1: // Anmeldungsübersicht
                                 echo '
                                     <div class="auswahl">
-                                        <a href="?task=1"><button type="button" class="auswahl active">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl unactive">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Alle Anmeldungen ausgeben</button></a>
+                                        <a href="?task=1"><button type="button" class="auswahl active">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl unactive">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Angaben für den Betreuer</button></a>
                                     </div>
                                 ';
                                 echo '
@@ -79,7 +79,7 @@ require '../Datenbank/writer.php';
                             case 2: // Spezielle Anmeldung
                                 echo '
                                     <div class="auswahl">
-                                        <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl active">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Alle Anmeldungen ausgeben</button></a>
+                                        <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl active">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Angaben für den Betreuer</button></a>
                                     </div>
                                 ';
                                 if(!isset($_GET['vorname']) || !isset($_GET['nachname'])){
@@ -213,13 +213,8 @@ require '../Datenbank/writer.php';
                             case 3: // Alle Anmeldungen
                                 echo '
                                     <div class="auswahl">
-                                        <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl unactive">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl active">Alle Anmeldungen ausgeben</button></a>
+                                        <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl unactive">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl active">Angaben für den Betreuer</button></a>
                                     </div>
-                                ';
-                                echo '
-                                    <h2>
-                                        Die Parameter nach denen der Ordner zusammengestellt wird wurden im Bereich <a href="gruppen.php">"Gruppen erstellen"</a> gesetzt.
-                                    </h2>
                                 ';
                                 echo'
                                     <form action="files/ausgabe_3.php" method="POST">

@@ -241,8 +241,11 @@ require '../Datenbank/writer.php';
                         echo'
                             <hr>
                             <h2>Dokumente ausgeben</h2>
-                            <a href=files/gruppen_ausgabe1.php><button class="ausgabe">Anmeldungsübersicht ausgeben</button></a>
-                            <a href=files/gruppen_ausgabe2.php><button class="ausgabe">Zeltlisten ausgeben</button></a>
+                            <div class="auswahl">
+                                <a href ="files/gruppen_ausgabe1.php"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a>
+                                <a href ="files/gruppen_ausgabe2.php"><button type="button" class="auswahl unactive">Zeltlisten ausgeben</button></a>
+                                <a href ="files/gruppen_ausgabe3.php"><button type="button" class="auswahl unactive">Alle Anmeldungen ausgeben</button></a>
+                            </div>
                         ';
                     }
 
