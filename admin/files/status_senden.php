@@ -72,6 +72,19 @@
                 $db = new PDO("$host; $name" ,$user,$pass);
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+            /* wichtige Daten aus Arbeitstabelle kopieren */
+                $sql = '
+                    INSERT INTO tbl_historie (id, jahr, vorname, nachname, geschlecht, lageralter, schwimmer, badeerlaubnis, springen, 
+                                                ernaehrung, taschengeld, kfz, ratenzahlung, shirts, shirts_anzahl, shirts_groesse, umfrage, art, datum)
+                    SELECT s.TeilnehmerID, s.Jahr, s.Vorname, s.Nachname, s.Geschlecht, s.LagerAlter, a.Schwimmer, a.Badeerlaubnis, a.Springen,
+                            a.Ernaehrung, a.Taschengeld, a.KFZ, a.Ratenzahlung, a.Shirts, a.Shirts_anzahl, a.Shirts_groesse, a.umfrage, a.art, a.Datum
+                    FROM tbl_stammdaten s , tbl_anmeldedaten a
+                    WHERE s.TeilnehmerID = a.TeilnehmerID
+                    AND s.Jahr != 0;
+                ';
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+
             /* Mails an alle Voranmelder versenden */
                 $mail_count = 0;
 
@@ -92,14 +105,17 @@
                 // }
 
             /* Löschen der Voranmelder, der Elterndaten und der Anmeldedaten des letzten Jahres. */
-                $stmt = $db->prepare("DELETE FROM voranmeldung");
-                $stmt->execute();
+                // $stmt = $db->prepare("DELETE FROM voranmeldung");
+                // $stmt->execute();
 
-                $stmt = $db->prepare("DELETE FROM tbl_srgb");
-                $stmt->execute();
+                // $stmt = $db->prepare("DELETE FROM tbl_stammdaten");
+                // $stmt->execute();
 
-                $stmt = $db->prepare("DELETE FROM tbl_anmeldedaten");
-                $stmt->execute();
+                // $stmt = $db->prepare("DELETE FROM tbl_srgb");
+                // $stmt->execute();
+
+                // $stmt = $db->prepare("DELETE FROM tbl_anmeldedaten");
+                // $stmt->execute();
 
             /* Leert den changelog der Anmeldungsänderung */
                 $fp = fopen("../../changelogs/anmeldung.txt", "w");
