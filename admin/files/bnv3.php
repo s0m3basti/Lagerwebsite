@@ -10,17 +10,11 @@
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         echo "<table class='tbl_user'>";
-        echo "<tr class='tr_user_head'><td>Username</td><td>Vorname</td><td>Nachname</td><td>E-Mail-Adresse</td><td>Rechte</td><td>Passwort</td><td> </td><td> </td></tr>";
+        echo "<tr class='tr_user_head'><td>Username</td><td>Vorname</td><td>Nachname</td><td>E-Mail-Adresse</td><td>Rechte</td><td> </td><td> </td></tr>";
 
         $sql = "SELECT * FROM login ORDER BY rights DESC;";
         foreach ($db->query($sql) as $row){
             echo "<tr class='tr_user'><td class='td_user'>".$row['user_name']."</td><td class='td_user'>".$row['firstname']."</td><td class='td_user'>".$row['surname']."</td><td class='td_user'>".$row['email']."</td><td class='td_user'>".$row['rights']."</td>";
-            if($row['password'] == "" || $row['password'] == null){
-                echo "<td class='td_user'>is not set</td>";
-            }
-            else{
-                echo "<td class='td_user'>is set</td>";
-            }
             echo "<td class='td_user'><a href='benutzerverwaltung.php?new=2&id=".$row['id']."'><img src='img/edit.png' class='img_edit'></a></td><td class='td_user'><a href='files/bnvdelete.php?id=".$row['id']."'><img src='img/delete.png' class='img_edit'></a></td></tr>";
         };
 

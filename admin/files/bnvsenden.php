@@ -16,6 +16,7 @@
         $rechte = $_POST['rights'];
         $passwort1= $_POST['password1'];
         $passwort2= $_POST['password2'];
+        $pwset = false;
 
         if($passwort1 != $passwort2){
             header("Location:../benutzerverwaltung.php?new=1&message=8");
@@ -28,12 +29,13 @@
                 $passwort = $passwort1;
                 $passwort = password_hash($passwort, PASSWORD_DEFAULT);
 
-                $sql_einfügen = "INSERT INTO login (id, user_name, password, firstname, surname, email, rights) 
-                                    VALUES ('', :username, :passwort, :vorname, :nachname, :email, :rechte)";
+                $sql_einfügen = "INSERT INTO login (id, user_name, password, pwset, firstname, surname, email, rights) 
+                                    VALUES ('', :username, :passwort,:pwset, :vorname, :nachname, :email, :rechte)";
                                 
                 $stmt_t = $db->prepare($sql_einfügen);
                 $stmt_t->bindValue(':username', $username);
                 $stmt_t->bindValue(':passwort', $passwort);
+                $stmt_t->bindValue(':pwset', $pwset);
                 $stmt_t->bindValue(':vorname', $vorname);
                 $stmt_t->bindValue(':nachname', $nachname);
                 $stmt_t->bindValue(':email', $email);
