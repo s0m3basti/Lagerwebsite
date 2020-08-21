@@ -41,7 +41,13 @@
             $_SESSION['nachname'] = $row['surname'];
             $_SESSION['mail'] = $row['email'];
             $_SESSION['rechte'] = $row['rights'];
-            header("Location: admin/index.php");
+
+            if($row['pwset'] == true){
+                header("Location: admin/index.php");
+            }
+            else{
+                header("Location: admin/pwset.php");
+            }
             $errorMessage = "angemeldet";
         }
         else{

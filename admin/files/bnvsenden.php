@@ -4,9 +4,6 @@
     if(!isset($_SESSION['userid'])) {
         header("Location: ../../login.php?er=1");
     }
-    if($_SESSION['rechte'] != 3){
-        header("Location:../benutzerverwaltung.php");
-    }
 
     if($_GET['new'] == 1){
         $username = $_POST['username'];
@@ -112,8 +109,48 @@
             
         }
         else{
-            header("Location:../benutzerverwaltung.php?message=7");
-        }
+            if($_GET['new'] == 3){
+
+                $id = $_SESSION['userid'];
+                $passwort1= $_POST['password1'];
+                $passwort2= $_POST['password2'];
+
+                if($passwort1 != $passwort2){
+                    header("Location:../pwset.php?message=1");
+                }
+                else{
+                    try{
+                        $db = new PDO("$host; $name" ,$user,$pass);
+                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+                        $passwort = $passwort1;
+                        $pwset = true;
+                        $passwort = password_hash($passwort, PASSWORD_DEFAULT);
+        
+                        $sql = 'UPDATE login
+                                SET password = "'.$passwort.'", pwset = "'.$pwset.'"
+                                WHERE id = "'.$id.'" ';
+                                        
+                        $stmt = $db->prepare($sql);
+                        $stmt->bindValue(':passwort', $passwort);
+                        $stmt->bindValue(':pwset', $pwset);
+                        $stmt->execute();
+        
+                        header("Location:../index.php");
+                    }
+                    catch(PDOException $e){
+                        $fehler = $e->getMessage();
+                        header("Location:../pwset.php?message=2error=$fehler");
+                    }
+                    finally{
+                        $db = null;
+                    }
+                }
+            }
+            else{
+                header("Location:../benutzerverwaltung.php?message=7");
+            }
+        }   
 
     }
 ?>
