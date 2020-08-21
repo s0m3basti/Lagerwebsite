@@ -21,6 +21,7 @@
         public function Header() {
             require '../../files/datenzugriff.php';
 
+            $this->SetFont('helvetica', 'BU', 20);  
             $this->Ln(5);     
             $this->Cell(0, 15, 'Offene Zahlungen - '.$jahr, 0, false, 'C', 0, '', 0, false, 'M', 'M');
             $this->Ln(20);
