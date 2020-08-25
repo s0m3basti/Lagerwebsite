@@ -5,7 +5,7 @@
     $from .= "Reply-To: anmeldung@drksommercamp.de\n";
     $from .= "Content-Type: text/html\n";
     $text = "
-    <img src=\"http://www.lagertest.de/img/logo.png\" style=\"float: right; margin-top: 1%; margin-right: 5%; width: 15%;\";>
+    <img src=\"".linkmaker("/img/logo.png")."\" style=\"float: right; margin-top: 1%; margin-right: 5%; width: 15%;\";>
     <h1 style=\"font-family: Arial; font-size: 18pt; text-decoration: underline; font-weight: bold;\">Dein Admin-Account wurde angelegt</h1>
     <p style=\"font-family: Arial; font-size: 14pt\">
         Hallo $vorname,

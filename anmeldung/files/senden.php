@@ -233,19 +233,19 @@
                 }
                 if($mail_send_us == true && $db_send == false){
                     header("Location:../index.php?message=2");
-                    mail("$supportmail","Mail angekommen, aber nicht in Datenbank","Die Anmeldung von $k_vorname $k_nachname, mit der ID $id, ist nur als Mail eingegangen. <br/> Bei der Verarbeitung der Datenbank gab es einen Fehler <br/> Fehlercode: <br/> $fehler","Anmeldungsfehler <fehler@lagertest.de>");
+                    mail("$supportmail","Mail angekommen, aber nicht in Datenbank","Die Anmeldung von $k_vorname $k_nachname, mit der ID $id, ist nur als Mail eingegangen. <br/> Bei der Verarbeitung der Datenbank gab es einen Fehler <br/> Fehlercode: <br/> $fehler","Anmeldungsfehler <$supportmail>");
                 }
                 if($mail_send_us == false && $db_send == true){
                     header("Location:../index.php?message=2");
-                    mail("$supportmail", "Anmeldung in Datenbank, aber nicht als Mail", "Die Anmeldung von $k_vorname $k_nachname, mit der $id, ist nur in der Datenbank vorhanden und nicht als separate Mail.", "Anmeldungsfehler <fehler@lagertest.de>" );
+                    mail("$supportmail", "Anmeldung in Datenbank, aber nicht als Mail", "Die Anmeldung von $k_vorname $k_nachname, mit der $id, ist nur in der Datenbank vorhanden und nicht als separate Mail.", "Anmeldungsfehler <$supportmail>" );
                 }
                 if($mail_send_us == false && $db_send == false){
                     header("Location:../index.php?message=3");
-                    mail("$supportmail", "Fehler bei der Anmeldung", "Die Anmeldung von $k_nachname $k_nachname kam nicht als Mail oder Datenbankeintrag an. <br/> Fehlercode: <br/> $fehler", "Anmeldungsfehler <fehler@lagertest.de>");
+                    mail("$supportmail", "Fehler bei der Anmeldung", "Die Anmeldung von $k_nachname $k_nachname kam nicht als Mail oder Datenbankeintrag an. <br/> Fehlercode: <br/> $fehler", "Anmeldungsfehler <$supportmail>");
                 }
                 if($mail_send_user == false){
                     header("Location:../index.php?message=4");
-                    mail("$supportmail", "Fehler beim senden der Mail an User", "Die Anmeldung von $k_vorname $k_nachname wurde nicht an die Angegebene Mail weitergeleitet. <br/> Im besten Fall meldet sich der User bei uns, er hat eine Meldung erhalten, wenn nicht müssten wir Kontakt  aufnehmen.", "Anmeldungsfehler <fehler@lagertest.de>");
+                    mail("$supportmail", "Fehler beim senden der Mail an User", "Die Anmeldung von $k_vorname $k_nachname wurde nicht an die Angegebene Mail weitergeleitet. <br/> Im besten Fall meldet sich der User bei uns, er hat eine Meldung erhalten, wenn nicht müssten wir Kontakt  aufnehmen.", "Anmeldungsfehler <$supportmail>");
                 }
             }
         ?>
