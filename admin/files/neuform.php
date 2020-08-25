@@ -5,6 +5,14 @@
 
 <?php
     $id=uniqid();
+
+    if(date('Y-m-d')<=date('Y-m-d', strtotime($frühbis))){
+        $mompreis = $frühbucher;
+    }
+    else{
+        $mompreis = $preis;
+    }
+
 ?>
 
 <form method="POST" action="files/neusenden.php" >
@@ -133,7 +141,7 @@
         </tr> 
         <tr class="neu">
             <td class="neu">Basispreis</td>
-            <td class="neu"><input type="number" name="preis" value="<?php echo intval($preis) ?>">€</td>
+            <td class="neu"><input type="number" name="preis" value="<?php echo intval($mompreis) ?>">€</td>
         </tr> 
         <tr class="neu">
             <td class="neu">Shirts</td>

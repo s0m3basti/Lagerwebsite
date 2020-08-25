@@ -109,7 +109,14 @@
 
             $lageralter = $anfang-$k_geburtstag;
 
-            $zahlungsinfo = $preis + ($shirtpreis * $shirtanz); 
+            if(date('Y-m-d')<=date('Y-m-d', strtotime($frühbis))){
+                $mompreis = $frühbucher;
+            }
+            else{
+                $mompreis = $preis;
+            }
+
+            $zahlungsinfo = $mompreis + ($shirtpreis * $shirtanz); 
 
             $art = "online";
 

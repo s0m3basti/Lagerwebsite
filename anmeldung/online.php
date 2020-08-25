@@ -20,7 +20,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
         <script>
-            const basis = <?php echo $preis?>;
+            <?php 
+                if(date('Y-m-d')<=date('Y-m-d', strtotime($frühbis))){
+                    echo 'const basis = '.$frühbucher.';';
+                    $mompreis = $frühbucher;
+                }
+                else{
+                    echo 'const basis = '.$preis.';';
+                    $mompreis = $preis;
+                }
+            ?>
             const shirt = <?php echo $shirtpreis?>;
         </script>
         <script defer src="files/check.js"></script>
@@ -265,7 +274,7 @@
                                 <li>Mein Kind ist zum Zeitpunkt des Campbeginns frei von ansteckenden Krankheiten, Läusen oder Nissen. Ist das Kind vor dem Sommercamp erkrankt oder besteht der Verdacht auf Lausbefall ist eine ärztliche Bestätigung (Ferienlagertauglichkeit) bei der Anreise vorzulegen.</li>
                                 <li>Ich bin damit einverstanden, dass Foto-, Film- und Audioaufnahmen, die von meinem Kind während des Sommercamps gemacht werden für Soziale Medien, Veröffentlichungen und Marketingzwecke des DRK-OV- Königs Wusterhausen verwendet werden dürfen.</li>
                             </ul>
-                            <br> Der Teilnahmebeitrag beträgt für den Gesamtzeitraum <p id="preis" style="display:inline;">325</p>,- €. Abweichende Preise bei kürzerer Teilnahme oder Anmeldung mehrerer eigener Kinder bitte vorab per Mail erfragen <?php echo($kontaktmail) ?> erfragen.
+                            <br> Der Teilnahmebeitrag beträgt für den Gesamtzeitraum <p id="preis" style="display:inline;"><?php echo trim($mompreis)?></p>,- €. Abweichende Preise bei kürzerer Teilnahme oder Anmeldung mehrerer eigener Kinder bitte vorab per Mail erfragen <?php echo($kontaktmail) ?> erfragen.
                         </td>
                     </tr>
                     <tr>
