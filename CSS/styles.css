@@ -175,22 +175,31 @@ body{
 	color: white;
 	font-size: 20px;
 }
-.tooltip .tooltiptext {
-	visibility: hidden;
-	width: 120px;
-	background-color: black;
-	color: #fff;
-	text-align: center;
-	padding: 5px 0;
-	border-radius: 6px;
-	top: -1px;
-	left: 105%;
-	position: absolute;
-	z-index: 1;
+.tooltip{
+	position: relative;
+	z-index: 20;
 }
-.tooltip:hover .tooltiptext {
-	visibility: visible;
-  }
+.tooltip span{
+	display:none;
+}
+.tooltip:hover{
+	z-index: 21;
+}
+.tooltip:hover span{
+	display:block;
+	width: max-content;
+	max-width: 200%;
+	padding: 8px;
+	color: #FFF;
+	background-color: #333;
+	font-size: 75%;
+	text-decoration: none;
+	position: absolute;
+	border-radius: 6px;
+	top: 50%;
+	left: 110%;
+	transform: translateY(-50%);
+}
 .facebook {
 	background: #3B5998;
 }

@@ -1,16 +1,10 @@
         <div class="icon-bar">
-            <div class="tooltip">
-                <a href="https://www.facebook.com/DRK.Sommercamp/" target=_blank class="facebook"><i class="fa fa-facebook"></i></a>
-                <span class="tooltiptext">Direkt zu Facebook</span>
-            </div>
-            <div class="tooltip">
-                <a href="#" target="blank" class="donate"><i class="fa fa-eur"></i></a>
-                <span class="tooltiptext">Spenden für den DRK-OV-KW</span>
-            </div>
-            <div class="tooltip">
-                <a href="#" target="blank" class="member"><i class="fa fa-users"></i></a> 
-                <span class="tooltiptext">Jetzt Mitglied werden!</span>
-            </div>
+            <a href="https://www.facebook.com/DRK.Sommercamp/" target=_blank class="facebook tooltip"><i class="fa fa-facebook"></i>
+            <span>Direkt zu Facebook</span></a>
+            <a href="#" target="blank" class="donate tooltip"><i class="fa fa-eur"></i>
+            <span>Hier Spenden</span></a>
+            <a href="#" target="blank" class="member tooltip"><i class="fa fa-users"></i>
+            <span>Jetzt Mitglied werden</span></a> 
         </div>
         <header>
             <div id="Headline">
