@@ -1,10 +1,30 @@
 <?php
-     $to = "anmeldung@lagertest.de";
-    $betreff = "Neue Anmeldung für $k_nachname $k_vorname";
-    $from = "From: DRK Sommercamp <no-reply@lagertest.de>\n";
-    $from .= "Reply-To: anmeldung@lagertest.de\n";
-    $from .= "Content-Type: text/html\n";
-    $text = "
+    // Import PHPMailer classes into the global namespace
+    // These must be at the top of your script, not inside a function
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    // Load Composer's autoloader
+    require '../../files/phpmailer/vendor/autoload.php';
+
+    // Instantiation and passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    try {
+        
+        require "../Datenbank/mail.php";
+
+        //Recipients
+        $mail->setFrom('no-replay@drk-sommercamp.de', 'DRK Sommercamp');
+        $mail->addAddress($anmeldungmail);                          // Add a recipient
+        $mail->addReplyTo($anmeldungmail, 'Anmeldung @ DRK Sommercamp');
+
+        // Content
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';                                  
+        $mail->Subject = 'Neu Anmeldung für '.$k_vorname.' '.$k_nachname.'!';
+        $mail->Body    = "
         <h1 style=\"font-family: Arial; font-size: 18pt; text-decoration: underline; font-weight: bold;\">Neue Anmeldung eingegangen </h1>
         <table style=\"width: 50%; font-family: Arial; font-size: 14pt;\">
             <tr><td colspan=\"2\"><h2 style=\"font-size: 16pt; text-decoration: underline; font-weight: bold;\">Angaben zum Kind</h2></td></tr>
@@ -48,11 +68,12 @@
             <tr style=\"font-size: 12pt;\"><td>IP-Adresse</td><td>$ip_adresse</td></tr>
             <tr style=\"font-size: 12pt;\"><td>Datum</td><td>$datum</td></tr>
         </table>
-    ";
-    if(mail($to,$betreff,$text,$from)){
-        $mail_send_us = true;
-    }
-    else{
-        $mail_send_us = false;
+        ";
+    $mail->send();
+    //echo 'Message has been sent';
+    $mail_send_us = true;
+    } catch (Exception $e) {
+    //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    $mail_send_us = false;
     }
 ?>
