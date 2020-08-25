@@ -6,7 +6,9 @@
     $ende = $_POST['ende']; 
     $jahr = $_POST['jahr']; 
     $preis = $_POST['preis']; 
-    $shirtpreis = $_POST['shirtpreis']; 
+    $shirtpreis = $_POST['shirtpreis'];
+    $frühbucher = $_POST['frühbucher'];
+    $frühbis = $_POST['frühbis']; 
     $kontaktmail = $_POST['kontaktmail']; 
     $anmedlungmail = $_POST['anmeldungmail']; 
     $supportmail = $_POST['supportmail'];
@@ -15,6 +17,7 @@
     $anfang = date('d.m.Y',$anfang);
     $ende = strtotime($ende);
     $ende= date('d.m.Y', $ende);
+    $frühbis = date('d.m.Y', strtotime($frühbis));
 
     $handle = fopen("../../files/daten.txt", "w");
     fwrite($handle, $anfang."\n");
@@ -22,6 +25,8 @@
     fwrite($handle, $jahr."\n");
     fwrite($handle, $preis."\n");
     fwrite($handle, $shirtpreis."\n");
+    fwrite($handle, $frühbucher."\n");
+    fwrite($handle, $frühbis."\n");
     fwrite($handle, $kontaktmail."\n");
     fwrite($handle, $anmeldungmail);
     fwrite($handle, $supportmail."\n");

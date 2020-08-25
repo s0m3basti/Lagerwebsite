@@ -21,6 +21,8 @@ $ende=date('Y-m-d',$ende);
 $jahr=intval($jahr);
 $preis=intval($preis);
 $shirtpreis=intval($shirtpreis);
+$frühbucher=intval($frühbucher);
+$frühbis=date('Y-m-d', strtotime($frühbis));
 //beim checken müssen die Daten wieder in Strings gewandelt werden, bzw. in richtiges Format gebracht
 //beim checken überprüfen ob die auch x Tage außeinander sind
 ?>
@@ -81,7 +83,7 @@ $shirtpreis=intval($shirtpreis);
                 <td class="daten">yyyy</td>
             </tr>
             <tr class="daten">
-                <td class="daten">Grundpreis den momentanen Zeitraums</td>
+                <td class="daten">Grundpreis</td>
                 <td class="daten"><input type="number" class="daten" id="preis" name="preis" value="<?php echo($preis)?>" min="250" max="1000"> </td>
                 <td class="daten">xxx</td>
             </tr>
@@ -89,6 +91,16 @@ $shirtpreis=intval($shirtpreis);
                 <td class="daten">Tshirtpreis</td>
                 <td class="daten"><input type="number" class="daten" id="shirtpreis" name="shirtpreis" value="<?php echo($shirtpreis)?>" min="0" max="50"></td>
                 <td class="daten">xx</td>
+            </tr>
+            <tr class="daten">
+                <td class="daten">Frühbucherpreis</td>
+                <td class="daten"><input type="number" class="daten" id="frühbucher" name="frühbucher" value="<?php echo($frühbucher)?>" min="200" max="1000"></td>
+                <td class="daten">xxx</td>
+            </tr>
+            <tr class="daten">
+                <td class="daten">Datum für Frühbucherpreis (bis einschließlich)</td>
+                <td class="daten"><input type="date" class="daten" id="frühbis" name="frühbis" value="<?php echo($frühbis)?>"></td>
+                <td class="daten">dd.mm.yyyy</td>
             </tr>
             <tr class="daten">
                 <td class="daten">Kontakt-Email-Adresse</td>

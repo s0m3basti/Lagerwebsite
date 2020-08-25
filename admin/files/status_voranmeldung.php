@@ -19,6 +19,10 @@
                     <tr> <td>Jahr des nächsten Lagers</td><td><input type="number" name="jahr" value='.intval($jahr).'></td></tr>
                     <tr> <td>Anfang des nächsten Lagers</td><td><input type="date" name="anfang" value='.date('Y-m-d',strtotime($anfang)).'></td></tr>
                     <tr> <td>Ende des nächsten Lagers</td><td><input type="date" name="ende" value='.date('Y-m-d',strtotime($ende)).'></td></tr>
+                    <tr> <td>Preis des nächsten Lagers</td><td><input type="number" name="preis" value='.intval($preis).'></td></tr>
+                    <tr> <td>Frühbucherpreis des nächsten Lagers</td><td><input type="number" name="frühbucher" value='.intval($frühbucher).'></td></tr>
+                    <tr> <td>Frühbucher bis einschließlich</td><td><input type="date" name="frühbis" value='.date('Y-m-d',strtotime($frühbis)).'></td></tr>
+                    <tr> <td>Shirtpreis des nächsten Lagers</td><td><input type="number" name="shirtpreis" value='.intval($shirtpreis).'></td></tr>
                     <tr> <td colspan="2">Wenn die Daten nun stimmen klicke auf bestätigen.</td></tr>
                     <tr> <td colspan="2"><input type="submit" value="Bestätigen"></td></tr>
                 </table>

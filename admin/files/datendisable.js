@@ -5,6 +5,8 @@ if(urechte < 3){
     document.getElementById("jahr").disabled = true;
     document.getElementById("preis").disabled = true;
     document.getElementById("shirtpreis").disabled = true;
+    document.getElementById("frühbucher").disabled = true;
+    document.getElementById("frühbis").disabled = true;
     document.getElementById("kontaktmail").disabled = true;
     document.getElementById("anmeldungmail").disabled = true;
     document.getElementById("supportmail").disabled = true;

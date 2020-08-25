@@ -7,6 +7,8 @@
     $jahr = fgets($datei);
     $preis = fgets($datei);
     $shirtpreis = fgets($datei);
+    $frühbucher = fgets($datei);
+    $frühbis = fgets($datei);
     $kontaktmail = fgets($datei);
     $anmeldungmail = fgets($datei);
     $supportmail = fgets($datei);

@@ -46,6 +46,10 @@
             $new_anfang = $_POST['anfang'];
             $new_ende = $_POST['ende'];
             $new_jahr = $_POST['jahr'];
+            $new_preis = $_POST['preis'];
+            $new_frühbucher = $_POST['frühbucher'];
+            $new_frühbis = $_POST['frühbis'];
+            $new_shirtpreis = $_POST['shirtpreis'];
             $new_status = "anmeldung";
 
             /*neu Daten umformatieren*/
@@ -53,14 +57,17 @@
             $new_anfang = date('d.m.Y',$new_anfang);
             $new_ende = strtotime($new_ende);
             $new_ende= date('d.m.Y', $new_ende);
+            $new_frühbis = date('d.m.Y', strtotime($new_frühbis));
 
             /* neu Daten speichern */
             $handle = fopen("../../files/daten.txt", "w");
             fwrite($handle, $new_anfang."\n");
             fwrite($handle, $new_ende."\n");
             fwrite($handle, $new_jahr."\n");
-            fwrite($handle, $preis);
-            fwrite($handle, $shirtpreis);
+            fwrite($handle, $new_preis."\n");
+            fwrite($handle, $new_shirtpreis."\n");
+            fwrite($handle, $new_frühbucher."\n");
+            fwrite($handle, $new_frühbis."\n");
             fwrite($handle, $kontaktmail);
             fwrite($handle, $anmeldungmail);
             fwrite($handle, $supportmail);
@@ -145,6 +152,8 @@
             fwrite($handle, $jahr);
             fwrite($handle, $preis);
             fwrite($handle, $shirtpreis);
+            fwrite($handle, $frühbucher);
+            fwrite($handle, $frühbis);
             fwrite($handle, $kontaktmail);
             fwrite($handle, $anmeldungmail);
             fwrite($handle, $supportmail);
@@ -167,6 +176,8 @@
             fwrite($handle, $jahr);
             fwrite($handle, $preis);
             fwrite($handle, $shirtpreis);
+            fwrite($handle, $frühbucher);
+            fwrite($handle, $frühbis);
             fwrite($handle, $kontaktmail);
             fwrite($handle, $anmeldungmail);
             fwrite($handle, $supportmail);
@@ -188,6 +199,8 @@
             fwrite($handle, $jahr);
             fwrite($handle, $preis);
             fwrite($handle, $shirtpreis);
+            fwrite($handle, $frühbucher);
+            fwrite($handle, $frühbis);
             fwrite($handle, $kontaktmail);
             fwrite($handle, $anmeldungmail);
             fwrite($handle, $supportmail);
