@@ -132,7 +132,7 @@
             //--------------------------------------------------
 
             if($test_injection == true || $test_length == true){
-                mail("$supportmail", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <fehler@lagertest.de>");
+                mail("$supportmail", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <$supportmail>");
                 header("Location:../index.php?message=5");
             }
             else{
