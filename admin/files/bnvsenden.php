@@ -1,5 +1,8 @@
 <?php
     require "../../Datenbank/writer.php";
+    require '../../files/linkmaker.php';
+    require '../../files/datenzugriff.php';
+
     session_start();
     if(!isset($_SESSION['userid'])) {
         header("Location: ../../login.php?er=1");
