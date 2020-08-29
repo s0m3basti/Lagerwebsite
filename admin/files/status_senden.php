@@ -128,6 +128,11 @@
                 $fp = fopen("../../changelogs/anmeldung.txt", "w");
                 fclose($fp);
 
+            /* Gruppen .csv löschen*/
+
+            $csv = "doc/gruppen.csv";
+            unlink($csv);
+
             /* message mit Mailanzahl zurückgeben */
 
                 header("Location:../status.php?message=2&mailcount=$mail_count");
