@@ -9,8 +9,8 @@
         foreach ($db->query($sql) as $row);
 
 
-        $nachname = $row['Vorname'];
-        $vorname = $row['Nachname'];
+        $nachname = $row['Nachname'];
+        $vorname = $row['Vorname'];
         $gebdatum = $row['Geburtstag'];
     }
     catch(PDOException $e){
