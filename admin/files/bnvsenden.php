@@ -67,14 +67,13 @@
             $rechte = $_POST['rights'];
             $passwort= $_POST['passwort'];
 
-            if($passwort != ""){
+            if($passwort == "on"){
+                $pwset = false; 
                 try{
                     $db = new PDO("$host; $name" ,$user,$pass);
                     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    $passwort = password_hash($passwort, PASSWORD_DEFAULT);
-
-                    $sql = $sql = 'UPDATE login SET user_name = "'.$username.'", firstname = "'.$vorname.'", surname = "'.$nachname.'", email = "'.$email.'", rights = "'.$rechte.'", password = "'.$passwort.'" WHERE id = "'.$id.'";';
+                    $sql = $sql = 'UPDATE login SET user_name = "'.$username.'", firstname = "'.$vorname.'", surname = "'.$nachname.'", email = "'.$email.'", rights = "'.$rechte.'", pwset = "'.$pwset.'" WHERE id = "'.$id.'";';
                                     
                     $stmt = $db->prepare($sql);
                     $stmt->execute();

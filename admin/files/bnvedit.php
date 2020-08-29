@@ -32,10 +32,11 @@
                 <tr><td><label>Rechte:</label></td><td><input type="number" min="1" max="3" name="rights" class="bnv"  value="<?php echo intval($row['rights']) ?>" required></td></tr>
             </table>
             <h2>
-                Solltest du das Kennwort ändern wollen, gib es bitte hier ein, bleibt das Feld unberührt, bleibt auch dein bisheriges Kennwort bestehen.
+                Soll das Kennwort geändert aktiviere den Hacken, der User kann beim nächsten mal das Passwort neu setzten.
+                <br>Fürs erste bleibt das bisherige Passwort bestehen.
             </h2>
             <table class="bnv">
-                <tr><td><label>Neues Passwort:</label></td><td><input type="text" name="passwort" class="bnv"></td></tr>
+                <tr><td><label>Neues Passwort?</label></td><td><input type="checkbox" name="passwort" class="bnv"></td></tr>
             </table>   
             <input type="submit" value="Benutzer bearbeiten" class="bnv">
         </form>
