@@ -67,14 +67,20 @@
                <form id="anmeldung" method="POST" action="files/senden.php" >
                <table id="t_anmeldung" class="zentrierte-tabelle">
                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                   <tr style="height: 1px;">
+                       <td style="width: 20%;"></td>
+                       <td style="width: 30%;"></td>
+                       <td style="width: 20%;"></td>
+                       <td style="width: 30%;"></td>
+                   </tr>
                     <tr>
                         <td scope="colgroup" colspan="4"><h2>Mein Kind:</h2></td>
                     </tr>    
                     <tr>
                        <td>Vorname des Kindes:&nbsp</td>
-                       <td> <input type="text" name="kind_vorname" id="kind_vorname" size="30"><br><p class="fehler" id="er_kind_nachname"></p></td>
+                       <td> <input type="text" name="kind_vorname" id="kind_vorname" class="normal"><br><p class="fehler" id="er_kind_nachname"></p></td>
                        <td>Nachname des Kindes:&nbsp</td>
-                       <td> <input type="text" name="kind_nachname" id="kind_nachname" size="30"><br><p class="fehler" id="er_kind_name"></p></td>
+                       <td> <input type="text" name="kind_nachname" id="kind_nachname" class="normal"><br><p class="fehler" id="er_kind_name"></p></td>
                    </tr>
                    <tr>
                        <td><label><input type="radio" name="kind_geschlecht" id="kind_geschlecht_female" value="female"> weiblich</label><br></td>
@@ -90,35 +96,35 @@
                     </tr>
                     <tr>    
                         <td>Vorname:&nbsp</td>
-                        <td> <input type="text" name="eltern_vorname" id="eltern_vorname" size="30" ><br><p class="fehler" id="er_eltern_vorname"></p></td>
+                        <td> <input type="text" name="eltern_vorname" id="eltern_vorname" class="normal" ><br><p class="fehler" id="er_eltern_vorname"></p></td>
                         <td>Nachname:&nbsp</td>
-                        <td> <input type="text" name="eltern_name" id="eltern_name"size="30" > <br><p class="fehler" id="er_eltern_name"></p> </td>
+                        <td> <input type="text" name="eltern_name" id="eltern_name"class="normal" > <br><p class="fehler" id="er_eltern_name"></p> </td>
                     </tr>
                     <tr>    
                         <td>Straße & Hausnummer:&nbsp</td>
-                        <td scope="colgroup" colspan="3"><input type="text" name="strasse" id="strasse" size="85" ><br><p class="fehler" id="er_strasse"></p></td>
+                        <td scope="colgroup" colspan="3"><input type="text" name="strasse" id="strasse" class="wide" ><br><p class="fehler" id="er_strasse"></p></td>
                     </tr>
                     <tr>    
                         <td>Postleitzahl:&nbsp</td>
-                        <td> <input type="text" name="plz" id="plz" size="6"><br><p class="fehler" id="er_plz" ></p> </td>
+                        <td> <input type="text" name="plz" id="plz" class="short"><br><p class="fehler" id="er_plz" ></p> </td>
                         <td>Ort:&nbsp</td>
-                        <td> <input type="text" name="ort" id="ort" size="30"> <br><p class="fehler" id="er_ort" ></p></td>
+                        <td> <input type="text" name="ort" id="ort" class="normal"> <br><p class="fehler" id="er_ort" ></p></td>
                     </tr>
                     <tr>    
                         <td>Tel.(privat)*:&nbsp</td>
-                        <td> <input type="text" name="tel_priv" id="tel_priv" size="30"> <br><p class="fehler" id="er_tel_priv"></p></td>
+                        <td> <input type="text" name="tel_priv" id="tel_priv" class="normal"> <br><p class="fehler" id="er_tel_priv"></p></td>
                         <td>Tel.(mobil)*:&nbsp</td>
-                        <td> <input type="text" name="tel_handy" id="tel_handy" size="30"><br><p class="fehler" id="er_tel_handy"></p></td>
+                        <td> <input type="text" name="tel_handy" id="tel_handy" class="normal"><br><p class="fehler" id="er_tel_handy"></p></td>
                     </tr>
                     <tr>    
                         <td>Tel.(dienstlich)*:&nbsp</td>
-                        <td> <input type="text" name="tel_dienst" id="tel_dienst" size="30"> <br><p class="fehler" id="er_tel_dienst"></p></td>
+                        <td> <input type="text" name="tel_dienst" id="tel_dienst" class="normal"> <br><p class="fehler" id="er_tel_dienst"></p></td>
                         <td>
                         <td>
                     </tr>
                     <tr>    
                         <td><b>E-Mail-Adresse:&nbsp</b></td>
-                        <td scope="colgroup" colspan="3"><input type="email" name="email" id="email" size="85" ><br><p class="fehler" id="er_email"></p></td>
+                        <td scope="colgroup" colspan="3"><input type="email" name="email" id="email" class="wide" ><br><p class="fehler" id="er_email"></p></td>
                     </tr>
                     <tr>
                         <td scope="colgroup" colspan="4">Ich bin <label><input type="checkbox" name="mitglied" id="mitglied"> aktives Mitglied </label> <label><input type="checkbox" name="mitarbeiter" id="mitarbeiter"> Mitarbeiter </label> im DRK Kreisverband Fläming-Spreewald e.V.</td>
@@ -131,9 +137,9 @@
                     </tr>
                     <tr>    
                         <td>Mein Kind ist:&nbsp</td>
-                        <td> <label><input type="radio" name="schwimmer" id="schwimmer_ja" value="ja" checked > Schwimmer </label> </td>
-                        <td> Stufe:* <input type="text" name="schwimmstufe" id="schwimmstufe" size="10"><br><p class="fehler" id="er_schwimmstufe"></p></td>
+                        <td> <label><input type="radio" name="schwimmer" id="schwimmer_ja" value="ja" checked > Schwimmer </label> &nbsp&nbsp&nbsp(Stufe:* <input type="text" name="schwimmstufe" id="schwimmstufe" class="short">)<br><p class="fehler" id="er_schwimmstufe"></p></td>
                         <td> <label><input type="radio" name="schwimmer" id="schwimmer_nein" value="nein"> Nichtschwimmer</label></td>
+
                     </tr>
                     <tr>    
                         <td>Badeerlaubnis erteilt*:&nbsp</td>
@@ -151,19 +157,19 @@
                         <td scope="colgroup" colspan="4">Spezielle Ernährung/Vegetarisch&nbsp</td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4"><input type="text" name="ernaehrung" id="ernaehrung" size="90"><br><p class="fehler" id="er_ernaehrung"></p></td>
+                        <td scope="colgroup" colspan="4"><input type="text" name="ernaehrung" id="ernaehrung" class="wide"><br><p class="fehler" id="er_ernaehrung"></p></td>
                     </tr>
                     <tr>
                         <td scope="colgroup" colspan="4">Liegen akute oder chronische Krankheiten vor? Wenn ja, welche?&nbsp</td>
                     </tr>
                     <tr>
-                            <td scope="colgroup" colspan="4"><input type="text" name="krankheit" id="krankheit" size="90"><br><p class="fehler" id="er_krankheit"></p></td>
+                            <td scope="colgroup" colspan="4"><input type="text" name="krankheit" id="krankheit" class="wide"><br><p class="fehler" id="er_krankheit"></p></td>
                     </tr>
                     <tr>
                         <td scope="colgroup" colspan="4">Müssen regelmäßig Medikamente genommen werden? Wenn ja, welche?&nbsp</td>
                     </tr>
                     <tr>
-                            <td scope="colgroup" colspan="4"><input type="text" name="medizin" id="medizin" size="90"><br><p class="fehler" id="er_medizin"></p></td>
+                            <td scope="colgroup" colspan="4"><input type="text" name="medizin" id="medizin" class="wide"><br><p class="fehler" id="er_medizin"></p></td>
                     </tr>
                     <tr>
                         <td scope="colgroup" colspan="2">Taschengeldverwaltung durch den Betreuer erwünscht? (empfohlen)</td>
@@ -177,7 +183,7 @@
                         <td scope ="colgroup" colspan ="4"><p class="fehler" id="er_kvart"></p></td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4"><input type="text" name="versicherung" id="versicherung" size="90" disabled="true" ><br><p class="fehler" id="er_versicherung"></p></td>
+                        <td scope="colgroup" colspan="4"><input type="text" name="versicherung" id="versicherung" class="wide" disabled="true" ><br><p class="fehler" id="er_versicherung"></p></td>
                     </tr>
                     <tr>
                         <td scope="colgroup" colspan="2">Mein Kind darf im Rahmen des Sommercamps mit privaten KFZ befördert werden?</td>
@@ -192,8 +198,9 @@
                     </tr>
                     <tr>
                         <td>Ratenzahlung:</td>
-                        <td scope="colgroup" colspan="2" style="text-align:center"><label><input type="radio" name="raten" id="raten_ja" value="ja"> Ja </label>&nbsp&nbsp&nbsp Raten:&nbsp <input type="number" name="anzahl" id="anzahl" min="2" max="3" disabled="true">&nbsp(max. 3)<br><p class="fehler" id="er_anzahl"></td>
+                        <td><label><input type="radio" name="raten" id="raten_ja" value="ja"> Ja </label>&nbsp&nbsp&nbsp Raten:&nbsp <input type="number" name="anzahl" id="anzahl" min="2" max="3" disabled="true">&nbsp(max. 3)<br><p class="fehler" id="er_anzahl"></td>
                         <td><label><input type="radio" name="raten" id="raten_nein" value="nein"  checked> Nein</label></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -206,7 +213,7 @@
                     </tr>
                     <tr>
                         <td><label><input type="radio" name="shirt" id="shirt_ja" value="ja">Ich bestelle &nbsp</label></td>
-                        <td scope="colgroup" colspan="3" style="text-align:center"><input type="number" name="shirtanzahl" id="shirtanzahl" min="1" max="5" disabled="true">
+                        <td scope="colgroup" colspan="3"><input type="number" name="shirtanzahl" id="shirtanzahl" min="1" max="5" disabled="true">
                             &nbsp;T-Shirts in der Größe&nbsp;
                             <select name="shirtgroesse" id="shirtgroesse" disabled="true">
                                 <option value="default"> Größe auswählen </option>
@@ -278,18 +285,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4"><label><input type="checkbox" name="final" required><b> Mit Absenden dieses Formulars erkläre ich mich mit den o.g. Bedingungen einverstanden und melde mein Kind verbindlich zum Sommercamp 2020 an.</label></td></li>   
+                        <td scope="colgroup" colspan="4"><label class="list"><input type="checkbox" name="final" class="list" required><span class="list"><b> Mit Absenden dieses Formulars erkläre ich mich mit den o.g. Bedingungen einverstanden und melde mein Kind verbindlich zum Sommercamp 2020 an.</span></label></td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4"><label><input type="checkbox" name="datenschutz" required> Ich habe die Erklärungen zur Speicherung und Nutzung personenbezogener Daten unter <a href="../datenschutz.php" class="old-link" target="_blank">Datenschutzerklärung</a> gelesen und erkläre mich damit einverstanden.</label></td>
+                        <td scope="colgroup" colspan="4"><label class="list"><input type="checkbox" name="datenschutz" class="list" required> <span class="list">Ich habe die Erklärungen zur Speicherung und Nutzung personenbezogener Daten unter <a href="../datenschutz.php" class="old-link" target="_blank">Datenschutzerklärung</a> gelesen und erkläre mich damit einverstanden.</span></label></td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4">Die Daten werden per Mail übertragen. Sie erhalten im Anschluß eine Bestätigungsmail. Sollten Sie keine Bestätigungsmail erhalten, kontaktieren Sie uns bitte über o.g. Mailadresse.</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td scope="colgroup" colspan="4" style="text-align:center"><input name="Submit" id="submit" type="submit" class="submit_button" value="Kostenpflichtig bestellen" size="45"><br><p class="fehler" id="er_submit"></p></td>
-                        <td></td>
+                        <td scope="colgroup" colspan="4" style="text-align:center"><input name="Submit" id="submit" type="submit" class="submit_button" value="Kostenpflichtig bestellen"><br><p class="fehler" id="er_submit"></p></td>
                     </tr>
                </table>
            </form>
