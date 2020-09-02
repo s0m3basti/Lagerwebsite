@@ -235,11 +235,22 @@ session_start();
             <td style="border: none; width: 35%;">IP / bearbeiter der Anmeldung</td>
             <td style="border: none; width: 65%;">'.$ip.'</td>
         </tr>
-    </table>
-    <br>
-    <h2 style="font-size: 10pt; font-weight: normal; text-align: center;">
-        Dieses Schreiben wurde maschinell erstellt und ist deshalb ohne Unterschrift gültig. 
-    </h2>';
+    </table>';
+
+    if($art == "analog"){
+        $html .= '
+        <br>
+        <h2 style="font-size: 10pt; font-weight: normal; text-align: center;">
+            Die Unterschrift zu dieser Anmeldung befindet sich auf dem erhaltenen Anmeldedokument. 
+        </h2>';
+    }
+    else{
+        $html .= '
+        <br>
+        <h2 style="font-size: 10pt; font-weight: normal; text-align: center;">
+            Unterschrift des Sorgeberechtigten: ____________________________________ 
+        </h2>';
+    }
 
     $pdf = new MYPDF("H", "mm", "A4", true, 'UTF-8', false);
     

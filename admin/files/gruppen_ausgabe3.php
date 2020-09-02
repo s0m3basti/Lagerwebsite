@@ -309,6 +309,22 @@
                         </tr>
                     </table>
                 ';
+
+                if($row['art'] == "analog"){
+                    $html .= '
+                    <br>
+                    <h2 style="font-size: 10pt; font-weight: normal; text-align: center;">
+                        Die Unterschrift zu dieser Anmeldung befindet sich auf dem erhaltenen Anmeldedokument. 
+                    </h2>';
+                }
+                else{
+                    $html .= '
+                    <br>
+                    <h2 style="font-size: 10pt; font-weight: normal; text-align: center;">
+                        Unterschrift des Sorgeberechtigten: ____________________________________ 
+                    </h2>';
+                }
+
             $pdf->AddPage('H');
             $pdf->writeHTML($html, true, false, true, false, '');
 
