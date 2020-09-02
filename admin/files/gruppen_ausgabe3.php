@@ -61,7 +61,6 @@
 
     $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
     $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
     $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
@@ -69,7 +68,7 @@
     $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
     
     $pdf->SetFont('dejavusans', '', 12);
-    $pdf->SetMargins(10, 10, 10, true);
+    $pdf->SetMargins(20, 20, 15, true);
 
     $csv = array_map('str_getcsv', file('doc/gruppen.csv'));
 
