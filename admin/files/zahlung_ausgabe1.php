@@ -52,17 +52,17 @@
     $html = '
             <table style="width: 100%; font-size: 10pt; border: solid 1px black; padding: 2px;">
             <tr style="border: solid 1px black; text-align: center; background-color: lightgrey;">
-                <td style="border: solid 1px black; width: 3%;"></td>
-                <td style="border: solid 1px black;width: 14%;">Vorname des Kindes</td>
-                <td style="border: solid 1px black;width: 14%;">Nachname des Kindes</td>
+                <td style="border: solid 1px black; width: 2%;"></td>
+                <td style="border: solid 1px black;width: 13%;">Vorname des Kindes</td>
+                <td style="border: solid 1px black;width: 13%;">Nachname des Kindes</td>
                 <td style="border: solid 1px black;width: 10%;">Geschlecht des Kindes</td>
                 <td style="border: solid 1px black;width: 10%;">Geburtstag</td>
-                <td style="border: solid 1px black;width: 14%;">Vorname der Eltern</td>
-                <td style="border: solid 1px black;width: 14%;">Nachname der Eltern</td>
+                <td style="border: solid 1px black;width: 13%;">Vorname der Eltern</td>
+                <td style="border: solid 1px black;width: 13%;">Nachname der Eltern</td>
                 <td style="border: solid 1px black;width: 5%;">Ratenzahlung</td>
                 <td style="border: solid 1px black;width: 5%;">Ratenanzahl</td>
                 <td style="border: solid 1px black;width: 6%;">Betrag</td>
-                <td style="border: solid 1px black;width: 5%;"></td>
+                <td style="border: solid 1px black;width: 10%;">Bezahlt?</td>
             </tr>';
             try{
                 $db = new PDO("$host; $name" ,$user,$pass);
@@ -116,7 +116,6 @@
 
     $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
     $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
     $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
