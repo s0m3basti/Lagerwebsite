@@ -45,7 +45,7 @@
 
             //wenn keins enthalten, dann false
             function injection($input){
-                if(preg_match("/;/",$eingabe) == 0){ 
+                if(preg_match("/;/",$input) == 0){ 
                     return false;
                 }
                 else{
@@ -116,8 +116,12 @@
                 $mompreis = $preis;
             }
 
-            $zahlungsinfo = $mompreis + ($shirtpreis * $shirtanz); 
-
+            if($mitarbeiter == "ja" || $mitglied == "ja"){
+                $zahlungsinfo = $frühbucher + ($shirtpreis * $shirtanz);
+            }
+            else{
+                $zahlungsinfo = $mompreis + ($shirtpreis * $shirtanz);
+            }
             $art = "online";
 
             $datum = date('Y-m-d');
