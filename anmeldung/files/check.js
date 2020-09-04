@@ -1,3 +1,12 @@
+    //läd alle Variablen
+    //Überprüft beim verlassen des Inputs 
+    //Überprüft beim absenden des Forms ob alle Werte i.O.
+    //wenn nicht ist absenden gesperrt
+    //Errormessage am Element 
+    //Errormessage unterm Absenden-Button
+
+    //RegEx zum Überprüfen der einzelnen Angaben
+    
     const form = document.getElementById('anmeldung');
     const kind_name = document.getElementById('kind_nachname');
     const kind_nachname = document.getElementById('kind_vorname');

@@ -1,3 +1,5 @@
+//messagebox for index with reply from senden.php
+
 const box = document.getElementById("messagebox")
 
 switch(message){

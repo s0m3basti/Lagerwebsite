@@ -1,6 +1,8 @@
 //die Felder aus dem Formular sind in check.js mit Konstanten Belegt
 const preis = document.getElementById('preis');
 
+//beim clicken auf die jeweiligen Felder die was mit dem preis zu tun haben
+//neuen preis berechenn und ausgeben
 shirt_nein.addEventListener("click", function(){
     console.log("click auf nein erkannt");
     preis.innerHTML = basis;

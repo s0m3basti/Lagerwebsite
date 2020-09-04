@@ -1,10 +1,12 @@
 <?php
+    // cookie für Cookieabfrage setzten
     require "../files/cookie_set.php";
 
+    // alle benötigten files laden
     include '../files/linkmaker.php';
     include '../files/datenzugriff.php';
     
-
+    //wenn keine Anmeldung dann auf Seite mit PopUp verweisen
     if($status != "anmeldung"){
         header("Location: index.php");
     }
@@ -21,6 +23,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
         <script>
             <?php 
+                // Preise ans JS übergebene
                 if(date('Y-m-d')<=date('Y-m-d', strtotime($frühbis))){
                     echo 'const basis = '.$frühbucher.';';
                     $mompreis = $frühbucher;
@@ -37,6 +40,7 @@
 	</head>
     <body>
         <?php
+            //// Header + Cookieabfrage einfügen
             include '../files/head.php';
             require '../files/cookie.php';
             
@@ -56,7 +60,7 @@
             $min = $minyear.$date_a;
             $max = $maxyear.$date_e;
 
-
+            // ID für die Anmeldung setzten
             $id=uniqid();
         ?>
         <div class="bg">
@@ -298,7 +302,8 @@
         </div>
         </div>
         <?php
-         include '../files/footer.php';
+            // Footer einfügen 
+            include '../files/footer.php';
         ?>
     </body>
 </html>

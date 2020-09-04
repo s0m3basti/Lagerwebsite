@@ -12,23 +12,23 @@ require '../../files/phpmailer/vendor/autoload.php';
 $mail = new PHPMailer(true);
 
 try {
-    $mail->SMTPDebug = SMTP::DEBUG_OFF;                         // Enable verbose debug output
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;                         // Disable Debug
     $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = $mail_host;                       // Set the SMTP server to send through
+    $mail->Host       = $mail_host;                             // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = $mail_u;                  // SMTP username
-    $mail->Password   = $mail_pw;                          // SMTP password
+    $mail->Username   = $mail_u;                                // SMTP username
+    $mail->Password   = $mail_pw;                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-    $mail->Port       = $mail_port;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+    $mail->Port       = $mail_port;                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients
-    $mail->setFrom('no-replay@drk-sommercamp.de', 'DRK Sommercamp');
-    $mail->addAddress($e_email);                          // Add a recipient
-    $mail->addReplyTo($kontaktmail, 'Kontakt @ DRK Sommercamp');
+    $mail->setFrom('no-replay@drk-sommercamp.de', 'DRK Sommercamp');    // Add a from-Adresse
+    $mail->addAddress($e_email);                                        // Add a recipient
+    $mail->addReplyTo($kontaktmail, 'Kontakt @ DRK Sommercamp');        // Add a reply-Adress
 
     // Content
-    $mail->isHTML(true);
-    $mail->CharSet = 'UTF-8';                                  
+    $mail->isHTML(true);                                                // set HTML
+    $mail->CharSet = 'UTF-8';                                           // set UTF8
     $mail->Subject = 'Bestätigung des Anmeldungseingangs für das DRK Sommercamp '.$jahr;
     $mail->Body    = "
             <img src=\"".linkmaker("/img/logo.png")."\" style=\"float: right; margin-top: 1%; margin-right: 5%; width: 15%;\";>

@@ -13,24 +13,24 @@
 
     try {
 
-        $mail->SMTPDebug = SMTP::DEBUG_OFF;                         // Enable verbose debug output
+        $mail->SMTPDebug = SMTP::DEBUG_OFF;                         // Disable Debugg
         $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = $mail_host;                       // Set the SMTP server to send through
+        $mail->Host       = $mail_host;                             // Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = $mail_u;                  // SMTP username
-        $mail->Password   = $mail_pw;                          // SMTP password
+        $mail->Username   = $mail_u;                                // SMTP username
+        $mail->Password   = $mail_pw;                               // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = $mail_port;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $mail->Port       = $mail_port;                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
         //Recipients
-        $mail->setFrom('no-replay@drk-sommercamp.de', 'DRK Sommercamp');
-        $mail->addAddress($anmeldungmail);                          // Add a recipient
-        $mail->addReplyTo($anmeldungmail, 'Anmeldung @ DRK Sommercamp');
+        $mail->setFrom('no-replay@drk-sommercamp.de', 'DRK Sommercamp');        // Add a from-Adresse 
+        $mail->addAddress($anmeldungmail);                                      // Add a recipient
+        $mail->addReplyTo($anmeldungmail, 'Anmeldung @ DRK Sommercamp');        // Add a reply-Adress
 
         // Content
-        $mail->isHTML(true);
-        $mail->CharSet = 'UTF-8';                                  
-        $mail->Subject = 'Neu Anmeldung für '.$k_vorname.' '.$k_nachname.'!';
+        $mail->isHTML(true);                                                    // set HTML
+        $mail->CharSet = 'UTF-8';                                               // set UTF8  
+        $mail->Subject = 'Neu Anmeldung für '.$k_vorname.' '.$k_nachname.'!';   // set subject
         $mail->Body    = "
         <h1 style=\"font-family: Arial; font-size: 18pt; text-decoration: underline; font-weight: bold;\">Neue Anmeldung eingegangen </h1>
         <table style=\"width: 50%; font-family: Arial; font-size: 14pt;\">

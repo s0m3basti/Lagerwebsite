@@ -1,10 +1,13 @@
 <?php
+    // alle benötigten files laden
     include '../../files/linkmaker.php';
     include '../../files/datenzugriff.php';
 
+    //wenn keine Anmeldung ist dann auf index verweisen
     if($status != "anmeldung"){
         header("Location: index.php");
     }
+        // alle Daten aus dem Form laden
             $id = $_POST['id'];
             $k_nachname = $_POST['kind_nachname'];
             $k_vorname = $_POST['kind_vorname'];
@@ -82,6 +85,7 @@
 
             //-------------------------
 
+            //Werte umwandeln
             if($k_geschlecht === "female"){
                 $k_geschlecht = "weiblich";
             }
@@ -104,11 +108,13 @@
                 $mitarbeiter = "nein";
             }
 
+            //lageralter zu Beginn des Lagers berechnen
             $anfang = strtotime($anfang);
             $anfang = date("Y-m-d", $anfang);
 
             $lageralter = $anfang-$k_geburtstag;
 
+            //Preis fürs Lager berechenen
             if(date('Y-m-d')<=date('Y-m-d', strtotime($frühbis))){
                 $mompreis = $frühbucher;
             }
@@ -122,10 +128,13 @@
             else{
                 $zahlungsinfo = $mompreis + ($shirtpreis * $shirtanz);
             }
+            //Art der Anmeldung setzten
             $art = "online";
 
+            //Datum der Anmeldung setzten
             $datum = date('Y-m-d');
 
+            //IP-Adresse auslesen
             if (! isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
                 $ip_adresse = $_SERVER['REMOTE_ADDR'];
             }
@@ -135,11 +144,13 @@
 
             //--------------------------------------------------
 
+            // wenn hier was chief geht idR JS ausgeschalten
             if($test_injection == true || $test_length == true){
                 mail("$supportmail", "Beim Check ist ein Fehler aufgetreten", "Bei der Anmeldung von $k_vorname $k_nachname durch $e_email wurde ein Fehler gefunden,", "Anmeldungsfehler <$supportmail>");
                 header("Location:../index.php?message=5");
             }
             else{
+                // alle Daten in die Datebank schreiben
                 require("../../Datenbank/writer.php");
                     try{
                         $db = new PDO("$host; $name" ,$user,$pass);
@@ -220,11 +231,13 @@
                     finally{
                         $db = null;
                     }
+                //Mail an die Eltern und an uns
                 require "../../Datenbank/mail.php";
                 require '../files/email_touser.php';
                 require '../files/email_tous.php';
                 
 
+                //Redirect auf index
                 // beides angekommen = 1
                 // eins von beidem angekomme = 2
                 // gar nichts angekommen = 3
