@@ -1,16 +1,18 @@
 <?php
+// Session für Anmeldung starten, wenn nicht gesetzt redirect
 session_start();
 if(!isset($_SESSION['userid'])) {
     header("Location: ../login.php?er=1");
 }
  
-//Abfrage der Nutzer ID vom Login
+// Userdaten einlesen
 $userid = $_SESSION['userid'];
 $uvorname = $_SESSION['vorname'];
 $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+// alle benötigten files laden
 require '../files/linkmaker.php';
 require '../files/datenzugriff.php';
 require '../Datenbank/writer.php';
@@ -27,17 +29,22 @@ require '../Datenbank/writer.php';
 </head>
 <body>
     <?php
+        // Nav einfügen
         require("files/nav.html");
     ?>
     <div class="content">
         <h1>Anmeldungen ausgeben</h1>
         <?php
+            // Ausgabe anhand der Userrechte
             switch($urechte){
+                // Nur Sufe 3 User können Anmeldungen ausgeben
                 case 1:
                 case 2:
                     echo "Du kannst leider keine Anmeldungen ausgeben. <br> Solltest du es können, wende dich bitte an $supportmail";
                     break;
                 case 3:
+                    // wenn keine Task gesetzt ist
+                    //standart nav anzeigen
                     if(!isset($_GET['task'])){
                         echo '
                         <div class="auswahl">
@@ -46,8 +53,9 @@ require '../Datenbank/writer.php';
                         ';
                     }
                     else{
+                        // nach Tasks aufgeschlüsselt
                         switch($_GET['task']){
-                            case 1: // Anmeldungsübersicht
+                            case 1: // Anmeldungsübersicht ausgeben
                                 echo '
                                     <div class="auswahl">
                                         <a href="?task=1"><button type="button" class="auswahl active">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl unactive">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Angaben für den Betreuer</button></a>
@@ -58,6 +66,8 @@ require '../Datenbank/writer.php';
                                         Hiermit kann eine Tabelle mit allen Teilnehmern erstellt und heruntergeladen werden.
                                     </h2>
                                 ';
+                                // download buttom
+                                // eigentlich unnötig, wird direkt heruntergeladen
                                 if(!isset($_GET['download'])){
                                     echo '
                                         <form action="files/ausgabe_1.php" method="POST">
@@ -82,6 +92,9 @@ require '../Datenbank/writer.php';
                                         <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl active">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl unactive">Angaben für den Betreuer</button></a>
                                     </div>
                                 ';
+                                // wenn kein Vor oder Nachname gegeben
+                                // Standarttabelle ausgeben
+                                // function dblclick für weiterleitung
                                 if(!isset($_GET['vorname']) || !isset($_GET['nachname'])){
                                     echo'
                                         <h2>
@@ -132,6 +145,9 @@ require '../Datenbank/writer.php';
                                     }
                                 }
                                 else{
+                                    // wenn vor oder nachname gegeben
+                                    // dann mit LIKE Operator in DB gesucht
+                                    // Tabelle mit Ergebnisse ausgegeben
                                     $vorname = $_GET['vorname'];
                                     $nachname = $_GET['nachname'];
                                     echo'
@@ -211,6 +227,7 @@ require '../Datenbank/writer.php';
                                 }
                                 break;
                             case 3: // Alle Anmeldungen
+                                // downloadbutton für die Übersicht
                                 echo '
                                     <div class="auswahl">
                                         <a href="?task=1"><button type="button" class="auswahl unactive">Anmeldungsübersicht ausgeben</button></a><a href ="?task=2"><button type="button" class="auswahl unactive">Spezielle Anmeldung ausgeben</button></a><a href ="?task=3"><button type="button" class="auswahl active">Angaben für den Betreuer</button></a>
@@ -227,17 +244,6 @@ require '../Datenbank/writer.php';
                             }
                     }
                     break;
-
-
-                    // 3 tasks
-                    //      einzele Anmeldung Ausgeben
-                    //          nur eingeben, welche Anmeldung ausgegeben werden soll
-                    //      Anmeldungsübersicht ausgeben
-                    //          nichts eingeben
-                    //      "Ordner ausgeben"
-                    //          Deckblatt für Ordner
-                                // Deckblatt für Gruppen
-                                // Alle Anmeldungen
             }
         ?>
     </div>    

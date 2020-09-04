@@ -1,20 +1,24 @@
 <?php
+// Session für Anmeldung starten, wenn nicht gesetzt redirect
 session_start();
 if(!isset($_SESSION['userid'])) {
     header("Location: ../login.php?er=1");
 }
  
-//Abfrage der Nutzer ID vom Login
+// Userdaten einlesen
 $userid = $_SESSION['userid'];
 $uvorname = $_SESSION['vorname'];
 $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+// alle benötigten files laden
 require '../files/linkmaker.php';
 require '../files/datenzugriff.php';
 require '../Datenbank/writer.php';
 
+// Maske zum eingeben eines neuen Passworts
+// redirect auf Benutzerverwaltung senden
 ?>
 
 <!DOCTYPE HTML>

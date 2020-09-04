@@ -1,15 +1,17 @@
 <?php
+// Session für Anmeldung starten, wenn nicht gesetzt redirect
 session_start();
 if(!isset($_SESSION['userid'])) {
     header("Location: ../login.php?er=1");
 }
-//Abfrage der Nutzer ID vom Login
+// Userdaten einlesen
 $userid = $_SESSION['userid'];
 $uvorname = $_SESSION['vorname'];
 $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+// alle benötigten files laden
 require '../files/linkmaker.php';
 require '../files/datenzugriff.php';
 require '../Datenbank/writer.php';
@@ -27,10 +29,12 @@ require '../Datenbank/writer.php';
 </head>
 <body>
     <?php
+        // Nav einfügen
         require("files/nav.html");
     ?>
     <div class="content">
         <?php
+            // Messagebox
             if(isset($_GET['message'])){
                 if($_GET['message'] == "succsess"){
                     echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Anmeldung erfolgreich hinzugefügt!"</div>';
@@ -48,6 +52,7 @@ require '../Datenbank/writer.php';
                     break;
                 case 2:
                 case 3:
+                    // form für das einfügen von Anmeldungen
                     require "files/neuform.php";
                     break;
                 

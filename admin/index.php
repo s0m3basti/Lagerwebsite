@@ -1,20 +1,23 @@
 <?php
+// Session für Anmeldung starten, wenn nicht gesetzt redirect
 session_start();
 if(!isset($_SESSION['userid'])) {
     header("Location: ../login.php?er=1");
 }
  
-//Abfrage der Nutzer ID vom Login
+// Userdaten einlesen
 $userid = $_SESSION['userid'];
 $uvorname = $_SESSION['vorname'];
 $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+// alle benötigten files laden
 require "../Datenbank/writer.php";
 require "../files/linkmaker.php";
 require "../files/datenzugriff.php";
 
+//status an eine ID binden
 switch($status){
     case "anmeldung":
         $status = 1;
@@ -45,6 +48,7 @@ switch($status){
 </head>
 <body>
     <?php
+        // Nav einfügen
         require("files/nav.html");
     ?>
     <div class="content">
@@ -52,9 +56,12 @@ switch($status){
         <h2>Hier siehst du den Momentanen stand der Anmeldung.</h2>
         <div class="status" id="div_status">
             <?php
+                // Inhalt nach Status
                 switch($status){
                     case 1:
+                        // Wenn die Anmeldung aktiviert ist
                         echo "Die Anmeldung ist derzeitig aktiviert.</br>";
+                            // Kennzahlen aus der Datenbank auslesen und ausgeben
                             try{
                                 $db = new PDO("$host; $name" ,$user,$pass);
                                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -86,7 +93,9 @@ switch($status){
                         echo "Wir haben Momentan bereits $anzahl Anmeldungen gesammelt. </br> Davon sind $anzahlm Männlich und $anzahlw Weiblich. ";
                         break;
                     case 2:
+                        // Wenn die Voranmeldung aktiviert ist
                         echo "Die Vornamledung ist derzeitig aktiviert. </br>";
+                            // Zahl aller Voranmeldungen auslesen
                             try{
                                 $db = new PDO("$host; $name" ,$user,$pass);
                                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -106,7 +115,9 @@ switch($status){
                         echo "Wir haben Momentan bereits $anzahl Voranmeldungen gesammelt.";
                         break;
                     case 3:
+                        // wenn Anmeldung deaktiviert ist
                         echo "Die Anmeldung ist zur Zeit deaktiviert. </br> Niemand kann sich anmelden oder voranmelden.</br>";
+                            // Kennzahlen auslesen und ausgeben
                             try{
                                 $db = new PDO("$host; $name" ,$user,$pass);
                                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -145,7 +156,10 @@ switch($status){
                 switch($status){
                     case 1:
                     case 3:
+                        // wenn deaktiverit oder Anmeldung
                         echo "<h2>Übersicht aller Anmeldungen</h2>";
+                            // Tabelle mit allen Anmeldungen ausgeben
+                            // Name, Alter, Geschlecht
                             try{
                                 $db = new PDO("$host; $name" ,$user,$pass);
                                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -185,7 +199,10 @@ switch($status){
                             }
                         break;
                     case 2:
+                        //wenn Voranmeldung
                         echo "<h2>Übersicht aller Voranmeldungen</h2>";
+                            //Tabelle der Voranmeldungen ausgeben
+                            // email, Datum
                             try{
                                 $db = new PDO("$host; $name" ,$user,$pass);
                                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -213,10 +230,12 @@ switch($status){
                 }
 
                 switch($urechte){
+                    // wenn userechte der Stufe drei
                     case 1:
                     case 2:
                         break;
                     case 3:
+                        // link zu den drei Logdateien
                         echo '
                             <h3>Logdateien anzeigen</h3>
                             <div class="auswahl">

@@ -1,19 +1,22 @@
 <?php
+// Session für Anmeldung starten, wenn nicht gesetzt redirect
 session_start();
 if(!isset($_SESSION['userid'])) {
     header("Location: ../login.php?er=1");
 }
  
-//Abfrage der Nutzer ID vom Login
+// Userdaten einlesen
 $userid = $_SESSION['userid'];
 $uvorname = $_SESSION['vorname'];
 $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+// alle benötigten files laden
 require '../files/linkmaker.php';
 require '../files/datenzugriff.php';
 
+//Daten umwandeln damit das HTML sie interpretieren kann
 $anfang=strtotime($anfang);
 $anfang=date('Y-m-d',$anfang);
 $ende=strtotime($ende);
@@ -23,8 +26,6 @@ $preis=intval($preis);
 $shirtpreis=intval($shirtpreis);
 $frühbucher=intval($frühbucher);
 $frühbis=date('Y-m-d', strtotime($frühbis));
-//beim checken müssen die Daten wieder in Strings gewandelt werden, bzw. in richtiges Format gebracht
-//beim checken überprüfen ob die auch x Tage außeinander sind
 ?>
 
 <!DOCTYPE HTML>
@@ -42,15 +43,12 @@ $frühbis=date('Y-m-d', strtotime($frühbis));
 </head>
 <body>
     <?php
+        // Nav einfügen
         require("files/nav.html");
     ?>
-    <!--
-    <div class="userdaten">
-        <p>Hallo <?php echo ($uvorname." ".$unachname) ?></p>
-    </div>
-    -->
     <div class="erfolg" id="erfolg">
         <?php
+            // Messagebox
             if($_GET['erfolg'] == 1){
                 echo("Daten erfolgreich geändert!");
             }
@@ -120,6 +118,7 @@ $frühbis=date('Y-m-d', strtotime($frühbis));
         </table>
         <?php
             if($urechte >= 3){
+                // Daten änderbar
                 echo("
                     <div class=\"apply\">
                         Du darfst die Daten ändern, aber tu das mit bedacht. Es hat Webseitenumfassende auswirkungen. </br> 
@@ -132,6 +131,7 @@ $frühbis=date('Y-m-d', strtotime($frühbis));
                 ");
             }
             else{
+                // Daten nicht änderbar
                 echo("
                     <div class=\"apply\"> 
                         Du bist leider nicht in der Lage die Daten zu ändern. </br>

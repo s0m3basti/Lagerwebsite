@@ -1,16 +1,18 @@
 <?php
+// Session für Anmeldung starten, wenn nicht gesetzt redirect
 session_start();
 if(!isset($_SESSION['userid'])) {
     header("Location: ../login.php?er=1");
 }
  
-//Abfrage der Nutzer ID vom Login
+// Userdaten einlesen
 $userid = $_SESSION['userid'];
 $uvorname = $_SESSION['vorname'];
 $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+// alle benötigten files laden
 require '../files/linkmaker.php';
 require '../files/datenzugriff.php';
 require '../Datenbank/writer.php';
@@ -27,12 +29,14 @@ require '../Datenbank/writer.php';
 </head>
 <body>
     <?php
+        // Nav einfügen 
         require("files/nav.html");
     ?>
     <div class="content">
         <h1>Gruppen erstellen</h1>
         <?php
             switch($urechte){
+                // keine Gruppen erstellbar
                 case 1:
                 case 2:
                     echo '
@@ -41,9 +45,11 @@ require '../Datenbank/writer.php';
                     ';
                     break;
                 case 3:
-                    
+                    // wenn file noch nicht existiert
+                    // erstmalige erstellung
                     if(!file_exists("files/doc/gruppen.csv")){
                         if(!isset($_GET['create'])){
+                            // wenn noch keine Anzahl angegeben ist diese eingeben
                             echo '
                                 <h2> Es existiert noch keine Gruppeneinteilung </h2>
                                 <p> Du kannst jetzt erstmals Gruppen bilden, du kannst alle Eingaben später ändern.
@@ -70,6 +76,8 @@ require '../Datenbank/writer.php';
                         if(isset($_GET['create'])){
                             $count_m = $_GET["mgr"];
                             $count_w = $_GET["wgr"];
+                            // anhand der Anzahl Tabelle erstellen
+                            // Anzahl immernoch änderbar
                             echo '
                                 <h2> Es existiert noch keine Gruppeneinteilung </h2>
                                 <p> Du kannst jetzt erstmals Gruppen bilden, du kannst alle Eingaben später ändern.</p><br>
@@ -143,9 +151,12 @@ require '../Datenbank/writer.php';
                             </form>';
                         }
                     }
+                    // wenn dabei schon existiert
                     else{
+                        // csv datei in array packen
                         $csv = array_map('str_getcsv', file('files/doc/gruppen.csv'));
 
+                        // array durchlaufen um den start der weiblichen gruppen zu ermitteln
                         for($i = 0; $i<count($csv); $i++){
                             if($csv[$i][0] == "w1"){
                                 $wstart = $i;
@@ -154,6 +165,7 @@ require '../Datenbank/writer.php';
                         $mgr = $wstart;
                         $wgr = count($csv) - $wstart;
 
+
                         echo'
                             <h2>Es wurden bereits Gruppen erstellt</h2>
                             <p> Du kannst die Einteilung nochmal ändern oder dir Dokumente ausgeben lassen </p>
@@ -161,6 +173,7 @@ require '../Datenbank/writer.php';
                         if(!isset($_GET['edit'])){
                             echo '<a href="?edit&mgr='.$mgr.'&wgr='.$wgr.'"><button class="ausgabe">Jetzt bearbeiten</button></a><br>';
                         }
+                        // tabellen mit Daten eingeben
                         if(isset($_GET['edit'])){
 
                             echo'<a href="gruppen.php"><button class="ausgabe gelb">Bearbeiten zuklappen</button></a><br><hr>';                          

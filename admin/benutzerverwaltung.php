@@ -1,16 +1,18 @@
 <?php
+// Session für Anmeldung starten, wenn nicht gesetzt redirect
 session_start();
 if(!isset($_SESSION['userid'])) {
     header("Location: ../login.php?er=1");
 }
  
-//Abfrage der Nutzer ID vom Login
+// Userdaten einlesen
 $userid = $_SESSION['userid'];
 $uvorname = $_SESSION['vorname'];
 $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+// alle benötigten files laden
 require '../files/linkmaker.php';
 require '../files/datenzugriff.php';
 
@@ -31,16 +33,13 @@ require '../Datenbank/writer.php';
 </head>
 <body>
     <?php
+        // Nav einfügen
         require("files/nav.html");
     ?>
-    <!--
-    <div class="userdaten">
-        <p>Hallo <?php echo ($uvorname." ".$unachname) ?></p>
-    </div>
-    -->
     <?php
-
+        // hier noch seperate Ansichten in einzelnen Dokumenten
         if(!isset($_GET['new'])){
+            // wenn noch keine Art gesetzt wurde dann Tabelle anzeigen
             switch($urechte){
                 case 1:
                     include 'files/bnv1.php';
@@ -54,6 +53,7 @@ require '../Datenbank/writer.php';
             }
         }
         else{
+            // übergeben werte an die speziellen funktionen
             if(isset($_GET['new']) && isset($_GET['id'])){
                 include 'files/bnvedit.php';
             }

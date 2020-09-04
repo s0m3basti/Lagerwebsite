@@ -1,23 +1,27 @@
 <?php
+// Session für Anmeldung starten, wenn nicht gesetzt redirect
 session_start();
 if(!isset($_SESSION['userid'])) {
     header("Location: ../login.php?er=1");
 }
  
-//Abfrage der Nutzer ID vom Login
+// Userdaten einlesen
 $userid = $_SESSION['userid'];
 $uvorname = $_SESSION['vorname'];
 $unachname = $_SESSION['nachname'];
 $umail = $_SESSION['mail'];
 $urechte = $_SESSION['rechte'];
 
+// alle benötigten files laden
 require '../files/linkmaker.php';
 require '../files/datenzugriff.php';
 require '../Datenbank/writer.php';
 
+//Standart view ist 1
 if(!isset($_GET["view"])){
     header("Location:?view=1");
 }
+// ansonsetn view aus get auslesen
 else{
     if($_GET["view"] == 1){
         $view = 1;
@@ -26,6 +30,7 @@ else{
         $view = 2;
     }
 }
+// Standart Type festlegen
 if(!isset($_POST["type"])){
     $_POST['type'] = 0;
 }
@@ -44,12 +49,15 @@ if(!isset($_POST["type"])){
 </head>
 <body>
     <?php
+        // Nav einfügen
         require("files/nav.html");
     ?>
     <div class="content">
         <h1>Teilnehmerstatistiken zum DRK-Sommercamp</h1>
         <?php
-
+            // Navigation für Statistiken
+            // Nach view (Zeiteinheit)
+            // UND Value (welche statistik)
            if($view == 1){
                 echo '
                     <div class="auswahl">
@@ -111,6 +119,9 @@ if(!isset($_POST["type"])){
         <p id="legende"></p>
         <script>
             <?php
+                // Erheben der Daten für die jeweiligen Statistiken
+                // Einfügen der JS funktion
+                // funktionen aus der JS datei auslesen
                 if($view == 1){
                     switch($_POST['type']){
                         case 1: // Geschlechtervergleich
