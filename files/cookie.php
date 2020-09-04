@@ -1,4 +1,5 @@
 <?php
+//wenn der Cookie nich gestezt wurde, dann einblenden bei bestätigen cookie setzen
 if(!isset($_COOKIE['BesterKeksderWelt'])){
     echo '
         <div class="cookie">

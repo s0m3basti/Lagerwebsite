@@ -1,7 +1,10 @@
+//wird auf jeder Seite geladen
 window.onload = function(){
 
+    //liest den Momentanen Pfad aus
     const pfad = window.location.pathname;
 
+    // je nachdem welcher Pfad wird das jeweilige Nav-Item eingefärbt
     switch(pfad){
         case "/":
             document.getElementById('index').style.backgroundColor = '#E60005';

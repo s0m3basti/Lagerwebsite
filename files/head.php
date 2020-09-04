@@ -1,9 +1,9 @@
         <div class="icon-bar">
             <a href="https://www.facebook.com/DRK.Sommercamp/" target=_blank class="facebook tooltip"><i class="fa fa-facebook"></i>
             <span>Direkt zu Facebook</span></a>
-            <a href="#" target="blank" class="donate tooltip"><i class="fa fa-eur"></i>
+            <a href="https://www.drk-flaeming-spreewald.de/spenden-projekte.html" target="blank" class="donate tooltip"><i class="fa fa-eur"></i>
             <span>Hier Spenden</span></a>
-            <a href="#" target="blank" class="member tooltip"><i class="fa fa-users"></i>
+            <a href="https://www.drk-flaeming-spreewald.de/mitmachen/mitglied-werden.html?no_cache=1" target="blank" class="member tooltip"><i class="fa fa-users"></i>
             <span>Jetzt Mitglied werden</span></a> 
         </div>
         <header>

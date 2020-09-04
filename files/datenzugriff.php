@@ -16,4 +16,5 @@
     fclose($datei);
 
     /* Sollten mehr Daten dazu kommen, müssen die auch im datenändern.php und status_senden.php hinzugefügte werden. */
+    //liest alle Daten aus daten.txt ein und macht sie im Dokument verwendbar
 ?>
