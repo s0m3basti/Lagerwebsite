@@ -1,13 +1,14 @@
 <?php
+    // cookie für Cookieabfrage setzten
     require "files/cookie_set.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <?php
+            // alle benötigten files laden
             include 'files/linkmaker.php';
-            include 'files/datenzugriff.php';
-            
+            include 'files/datenzugriff.php';  
         ?>
 		<title> Startseite | DRK Sommercamp </title>
 		<meta charset="UTF-8">
@@ -19,11 +20,11 @@
 	</head>
     
     <body>
-         <!-- Header einfügen-->
-          <?php
-                include 'files/head.php';
-                require 'files/cookie.php';
-            ?>
+        <?php
+            // Header + Cookieabfrage einfügen
+            include 'files/head.php';
+            require 'files/cookie.php';
+        ?>
         
         <div class="bg">
             <div id="Inhalt">
@@ -47,9 +48,8 @@
                     Wir freuen uns auf ein volles Sommercamp. Und sagen ab <?php echo $anfang ?> wieder: „Auf die Zelte, fertig, los.“
                 </p><br>
             </div>
-        
-            <!-- Footer einfügen -->
             <?php
+                // Footer einfügen 
                 include 'files/footer.php';
             ?>
         </div>

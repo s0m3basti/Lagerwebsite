@@ -1,10 +1,12 @@
 <?php
+    // cookie für Cookieabfrage setzten
     require "files/cookie_set.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <?php
+            // alle benötigten files laden
             include 'files/linkmaker.php';
             include 'files/datenzugriff.php';
             
@@ -19,8 +21,8 @@
 	</head>
     
     <body>
-       <!-- Header einfügen-->
         <?php
+            // Header + Cookieabfrage einfügen
             include 'files/head.php';
             require 'files/cookie.php';
         ?>
@@ -56,6 +58,7 @@
                     </tr>
                     <tr>
                         <?php
+                            // wenn abgesendet, dann mail an kontaktmail mit eingegebenen Daten
                             if(isset($_POST['submit'])){
                                 mail("$kontaktmail","Kontaktanfrage auf Sommercamp.de","Eine Anfrage von ".$_POST['vorname']." ".$_POST['nachname']." mit dem Inhalt: \n\n ".$_POST['nachricht'].".","From: Server<".$_POST['email'].">");
                             echo "E-Mail wurde gesendet";
@@ -71,8 +74,8 @@
             </p>
         </div>
         </div> 
-         <!-- Footer einfügen -->
          <?php
+            // Footer einfügen 
             include 'files/footer.php';
          ?>
     </body>

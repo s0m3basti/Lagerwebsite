@@ -1,10 +1,12 @@
 <?php
+    // cookie für Cookieabfrage setzten
     require "files/cookie_set.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <?php
+            // alle benötigten files laden
             include 'files/linkmaker.php';
         ?>
 		<title> News | DRK Sommercamp </title>
@@ -19,13 +21,13 @@
     <body>
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v6.0"></script>
-        <!-- Header einfügen-->
             <?php
+                // Header + Cookieabfrage einfügen
                 include 'files/head.php';
                 require 'files/cookie.php';
             ?>
         <!--
-           <p><img src="img/Header.png" alt="Informationen zum Sommercamp"  height="200px"></p></div>
+                <div class="news"><p><img class="news" src="img/Header.png" alt="Informationen zum Sommercamp"  height="200px"></p></div>
                 <h2>Beispiel Überschrift</h2>
                 <p class="date">31.31.31</p>
                 <br>
@@ -42,13 +44,6 @@
                 <table>
                     <tr valign="top">
                         <td id="left">
-                            <div class="news"><img src="img/Header.png" alt="Informationen zum Sommercamp"  height="200px"></p></div>
-                            <h2>Beispiel Überschrift</h2>
-                            <p class="date">31.31.31</p>
-                            <br>
-                            <p>Beispieltext
-                            </p>
-                            <hr>
                             <h2>Beitrag über das Sommercamp 2018 vom Teltowkanal</h2>
                             <p class="date">07.10.2018</p>
                             <br>
@@ -81,8 +76,8 @@
                 </table>
             </div>
         </div>
-         <!-- Footer einfügen -->
         <?php
+            // Footer einfügen 
             include 'files/footer.php';
         ?>
     </body>

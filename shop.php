@@ -1,12 +1,13 @@
 <?php
+    // cookie für Cookieabfrage setzten
     require "files/cookie_set.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <?php
+            // alle benötigten files laden
             include 'files/linkmaker.php';
-            
         ?>
 		<title> Shop | DRK Sommercamp </title>
 		<meta charset="UTF-8">
@@ -17,11 +18,11 @@
 	</head>
     
     <body>
-         <!-- Header einfügen-->
-          <?php
-                include 'files/head.php';
-                require 'files/cookie.php';
-            ?>
+        <?php
+            // Header + Cookieabfrage einfügen
+            include 'files/head.php';
+            require 'files/cookie.php';
+        ?>
         <div class="bg">
             <div id="Inhalt">
                     <p>Shop wird geladen ...</p>
@@ -38,9 +39,9 @@
                 </script>
             </div>
         </div>
-            <!-- Footer einfügen -->
-            <?php
-                include 'files/footer.php';
-            ?>
+        <?php
+            // Footer einfügen 
+            include 'files/footer.php';
+        ?>
     </body>
 </html>

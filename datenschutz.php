@@ -1,10 +1,12 @@
 <?php
+    // cookie für Cookieabfrage setzten
     require "files/cookie_set.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <?php
+            // alle benötigten files laden
             include 'files/linkmaker.php';
 
         ?>
@@ -18,8 +20,8 @@
 	</head>
     
     <body>
-        <!-- Header einfügen-->
         <?php
+            // Header + Cookieabfrage einfügen
             include 'files/head.php';
             require 'files/cookie.php';
         ?>
@@ -201,8 +203,8 @@
                     </p> 
             </div>
         </div>
-         <!-- Footer einfügen -->
         <?php
+            // Footer einfügen 
             include 'files/footer.php';
         ?>
 

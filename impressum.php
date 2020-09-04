@@ -1,10 +1,12 @@
 <?php
+    // cookie für Cookieabfrage setzten
     require "files/cookie_set.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <?php
+            // alle benötigten files laden
             include 'files/linkmaker.php';
         ?>
 		<title> Impressum | DRK Sommercamp </title>
@@ -17,14 +19,14 @@
 	</head>
     
     <body>
-        <!-- Header einfügen-->
         <?php
+            // Header + Cookieabfrage einfügen
             include 'files/head.php';
             require 'files/cookie.php';
         ?>
         <div class="bg">   
         <div id="Inhalt">
-            <!--<h1>Impressum</h1> <br>
+            <h1>Impressum</h1> <br>
             <h2>Betreiber dieser Website ist:</h2>
             <br>
             <p class="adresse">Deutsches Rotes Kreuz, Ortsverband Königs Wusterhausen<br>
@@ -42,7 +44,7 @@
             Finanzen: Peter Spindler<br>
             Mitgliederbetreuung: Nadin Lips<br><br><br>
             </p>
-            -->
+           
             <h1>Haftungsausschluss</h1><br>
             <ol>
                 <li>
@@ -69,8 +71,8 @@
             </ol> 
         </div>
     </div>
-        <!-- Footer einfügen -->
         <?php
+            // Footer einfügen 
             include 'files/footer.php';
         ?>
     </body>

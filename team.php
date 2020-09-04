@@ -1,12 +1,13 @@
 <?php
+    // cookie für Cookieabfrage setzten
     require "files/cookie_set.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <?php
+            // alle benötigten files laden
             include 'files/linkmaker.php';
-            
         ?>
 		<title> Das Team | DRK Sommercamp </title>
         <meta charset="UTF-8">
@@ -18,18 +19,13 @@
 	</head>
     
     <body>
-        <!-- Header einfügen-->
         <?php
+            // Header + Cookieabfrage einfügen
             include 'files/head.php';
             require 'files/cookie.php';
         ?>
         <div class="bg">       
             <div id="Inhalt">
-                <!-- <p>
-                    Work in Progress
-                </p>
-                <img src="img/work-in-progress.png" alt="Baustellenschild'Work in Progress'" title="Work in Progress" class="work"> -->
-
                 <h1>Steckbriefer der Teammitglieder</h1>
                 <br>
                 <p class="vorwort">
@@ -40,11 +36,14 @@
                 <?php
                     error_reporting(0);
 
+                    // Nummer der Steckbriefdateien im Ordner zählen
                     $folder = "files/team/";
                     $files = glob($folder."*.txt");
                     $number = count($files);
 
+                    //Für jede Steckbriefdatei
                     for($i = 0; $i <  $number; $i++){
+                        //den file öffnen und auslesen
                         $text = fopen("$files[$i]","r");
                         $name = fgets($text);
                         $gebdatum = fgets($text);
@@ -56,6 +55,7 @@
                         $img = fgets($text);
                         fclose($text);
 
+                        //manche Daten umwandeln
                         $gebdatum = strtotime($gebdatum);
                         $gebdatum = date("Y-m-d", $gebdatum);
                         $heute = date("Y-m-d");
@@ -63,13 +63,14 @@
                         if($alter == 0 ){
                             $alter = "encrypted";
                         }
-
                     
+                        //Überprüfen ob es ein Bild gibt
                         $img = "files/team/img/$img";
                         if(!file_exists($img)){
                             $img = "files/team/img/standart.png";
                         }
 
+                        //Anmeldung mit allen Daten ausgeben
                         echo '
                             <div class="all">
                             <div class = "steckbrief">
@@ -114,8 +115,8 @@
                 ?>
             </div>
         </div>
-         <!-- Footer einfügen -->
         <?php
+            // Footer einfügen
             include 'files/footer.php';
         ?>
     </body>
