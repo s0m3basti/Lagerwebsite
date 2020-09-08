@@ -12,10 +12,10 @@
 		<title> Impressum | DRK Sommercamp </title>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="CSS/styles.css">
-        <link rel="stylesheet" href="CSS/Impressum.css">
+        <link rel="stylesheet" href="../CSS/styles.css">
+        <link rel="stylesheet" href="../CSS/Impressum.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
 	</head>
     
     <body>
