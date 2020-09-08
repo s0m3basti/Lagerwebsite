@@ -126,10 +126,6 @@
                     <a href="../dokumente/Anmeldung_2020.pdf" target="_blank"><button style="width:50%" id="offline">Anmeldung hier herunterladen <br> und per Brief an uns senden</button></a>
                     <a href="online.php"><button style="width:50%" id="online">Anmeldung hier online ausfüllen</button></a>
                 </div> 
-
-            <p class="source"><br> <br>
-                (Bildquellen: v.l.n.r &copy; spd-rlp.de (URL:https://www.spd-rlp.de/wp-content/uploads/2016/01/Briefkasten_Gelb-940x534.jpg| &copy;usvisaservice.de (URL:https://www.usvisaservice.de/assets/Visum-USA/ds-160-formular-passfoto.jpg) ))
-            </p> 
             </div>
 
             <div class="popup" id="popup">

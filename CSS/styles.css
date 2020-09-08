@@ -8,7 +8,7 @@
 }
 /*HEADLINE*/
 #Headline div{
-    height: 200px;
+    height: 175px;
 	width: 100%;
 }
 img.size{
@@ -16,13 +16,13 @@ img.size{
 	display: block;
     margin-left: auto;
 	margin-right: auto;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	/* padding-top: 10px;
+	padding-bottom: 10px; */
 }
 
-#Headline{
+/* #Headline{
 	background: linear-gradient(90deg, #E9F7F8, #60B2C8, #E9F7F8)
-}
+} */
 /*NAVBAR*/
 #Navbar{
 	position: sticky;
