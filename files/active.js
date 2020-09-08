@@ -7,37 +7,37 @@ window.onload = function(){
     // je nachdem welcher Pfad wird das jeweilige Nav-Item eingefärbt
     switch(pfad){
         case "/":
-            document.getElementById('index').element.classList.add("active");
+            document.getElementById('index').style.backgroundColor = '#E60005';
             break;
         case "/index.php":
-            document.getElementById('index').element.classList.add("active");
+            document.getElementById('index').style.backgroundColor = '#E60005';
             break;
         case "/news.php":
-            document.getElementById('news').element.classList.add("active");
+            document.getElementById('news').style.backgroundColor = '#E60005';
             break;
         case "/team.php":
-            document.getElementById('team').element.classList.add("active");
+            document.getElementById('team').style.backgroundColor = '#E60005';
             break;
         case "/shop.php":
-            document.getElementById('shop').element.classList.add("active");
+            document.getElementById('shop').style.backgroundColor = '#E60005';
             break;
         case "/download.php":
-            document.getElementById('download').element.classList.add("active");
+            document.getElementById('download').style.backgroundColor = '#E60005';
             break;
         case "/anmeldung/":
-            document.getElementById('anmeldung').element.classList.add("active");
+            document.getElementById('anmeldung').style.backgroundColor = '#E60005';
             break;
         case "/anmeldung/index.php":
-            document.getElementById('anmeldung').element.classList.add("active");
+            document.getElementById('anmeldung').style.backgroundColor = '#E60005';
             break;
         case "/anmeldung/online.php":
-            document.getElementById('anmeldung').element.classList.add("active");
+            document.getElementById('anmeldung').style.backgroundColor = '#E60005';
             break;
         case "/anmeldung/senden.php":
-            document.getElementById('anmeldung').element.classList.add("active");
+            document.getElementById('anmeldung').style.backgroundColor = '#E60005';
             break;
         case "/galerie/start.php":
-            document.getElementById('galerie').element.classList.add("active");
+            document.getElementById('galerie').style.backgroundColor = '#E60005';
             break;
         default:
             break;
