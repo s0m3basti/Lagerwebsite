@@ -59,7 +59,7 @@ img.size{
 	background-color: #E60005;
   }
   .hervorheben{
-	  background-color: #FFD100;
+	  background-color: #FFD100 !important;
 	  border-left: 2px solid #909090;	
   }
 
