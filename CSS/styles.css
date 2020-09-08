@@ -42,10 +42,7 @@ img.size{
 }
 #Navbar  li {
 	float: left;
-	border-left: 2px solid #909090;
-}
-#Navbar li:first-child{
-	border-left:none;
+	border-right: 2px solid #909090;
 }
 #Navbar  a {
 	display: block;
@@ -54,7 +51,7 @@ img.size{
 	padding: 10px 20px;
 	text-decoration: none;
 }
-#Navbar li a:hover:not(.active) {
+#Navbar li a:hover{
 	background-color: #E60005;
   }
   
@@ -62,7 +59,8 @@ img.size{
 	background-color: #E60005;
   }
   .hervorheben{
-	  background-color: #FFD100;	
+	  background-color: #FFD100;
+	  border-left: 2px solid #909090;	
   }
 
 /*FOOTER*/
