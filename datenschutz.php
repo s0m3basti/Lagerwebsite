@@ -8,7 +8,6 @@
         <?php
             // alle benötigten files laden
             include 'files/linkmaker.php';
-
         ?>
 		<title> Datenschutz | DRK Sommercamp </title>
         <meta charset="UTF-8">
