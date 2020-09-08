@@ -56,10 +56,10 @@ img.size{
   }
   
   .active {
-	background-color: #E60005;
+	background-color: #E60005 !important;
   }
   .hervorheben{
-	  background-color: #FFD100 !important;
+	  background-color: #FFD100 ;
 	  border-left: 2px solid #909090;	
   }
 
@@ -81,9 +81,6 @@ img.size{
 #footer li{
 	float:left;
 	border-right: 1px solid white;
-}
-#Navbar li:first-child{
-	border-right: none;
 }
 #footer a {
 	display:block;
