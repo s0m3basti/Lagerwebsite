@@ -59,7 +59,7 @@
                                             <li>und einer verbesserten Anmeldung</li>
                                         </ul><br>
                                     Zudem wurden auch interne Prozesse umgestellt. <br>
-                                    Sollte es Fragen geben, wenden sie sich gerne an <a href="mailto:<?php echo $kontaktmail ?>" class="old-link"><?php echo $kontaktmail?></a>.
+                                    Sollte es Fragen geben, wenden sie sich gerne an <a href="mailto:<?php echo $kontaktmail ?>" class="old-link"><?php echo $kontaktmailgi?></a>.
                                 </p>
                                 <hr> 
                             <div class="news"><p></p></div>
