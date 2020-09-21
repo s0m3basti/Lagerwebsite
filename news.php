@@ -8,6 +8,7 @@
         <?php
             // alle benötigten files laden
             include 'files/linkmaker.php';
+            require 'files/datenzugriff.php';
         ?>
 		<title> News | DRK Sommercamp </title>
         <meta charset="UTF-8">
@@ -44,6 +45,38 @@
                 <table>
                     <tr valign="top">
                         <td id="left">
+                            <div class="news"><p></p></div>
+                                <h2>Launch der neuen Sommercamp-Webseite</h2>
+                                <p class="date">01.10.2020</p>
+                                <br>
+                                <p>
+                                    Ab heute ist die neue Webseite des DRK-Sommercamps öffentlich.<br>
+                                    Die Webseite bietet neben einem neuen Design auch einige neue Funktionen, wie zum Beispiel
+                                        <ul>
+                                            <li>diesem Newsfeed</li>
+                                            <li>einem Teamabschnitt</li>
+                                            <li>Dokumente zum Herunterladen</li>
+                                            <li>und einer verbesserten Anmeldung</li>
+                                        </ul><br>
+                                    Zudem wurden auch interne Prozesse umgestellt. <br>
+                                    Sollte es Fragen geben, wenden sie sich gerne an <a href="mailto:<?php echo $kontaktmail ?>" class="old-link"><?php echo $kontaktmail?></a>.
+                                </p>
+                                <hr> 
+                            <div class="news"><p></p></div>
+                                <h2>Sommercamp 2020 fällt aus</h2>
+                                <p class="date">18.05.2020</p>
+                                <br>
+                                <p>
+                                Liebe Kinder,<br>
+                                liebe Eltern,<br><br>
+                                niemand konnte vorhersehen, wie sich die Situation entwickelt. Leider müssen wir jetzt mitteilen, dass das Sommerlager 2020 nicht stattfinden wird 🙁. Das Camp ist auf Gemeinschaft und Spaß ausgelegt. Wir werden trotz größter Anstrengungen die Vorgaben gemäß Eindämmungsverordnung in der Form nicht realisieren können, so dass wir uns schweren Herzens gemeinsam mit dem Kreisverband dazu entschlossen haben, das diesjährige Sommercamp abzusagen.<br>
+                                Wir hoffen nun, dass sich die Lage zum nächsten Jahr beruhigt und wir 2021 wieder ein Sommercamp durchführen können. Informieren Sie sich dazu gern regelmäßig auf unserer Webseite (https://www.drk-ov-kw.de ) oder hier auf Facebook
+                                .<br>
+                                Wir wünschen Ihnen und Ihren Kindern, dass sie gesund durch diese außergewöhnliche Zeit kommen und freuen uns auf ein Wiedersehen 2021.<br>
+                                Wir würden sie gern über das Sommerlager 2021 informieren und Ihnen Informationen direkt zusenden. Wenn Sie dies wünschen, informieren sie uns bitte per eMail.<br><br>
+                                Viele Grüße vom gesamten Team des Sommerlagers<br>
+                                </p>
+                                <hr> 
                             <h2>Beitrag über das Sommercamp 2018 vom Teltowkanal</h2>
                             <p class="date">07.10.2018</p>
                             <br>

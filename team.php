@@ -26,10 +26,11 @@
         ?>
         <div class="bg">       
             <div id="Inhalt">
-                <h1>Steckbriefer der Teammitglieder</h1>
+                <h1>Steckbriefe der Teammitglieder</h1>
                 <br>
                 <p class="vorwort">
-                    Hier einen Text einfügen
+                    Hier wird einmal das gesamte Team des DRK-Sommercamps vorgestellt. <br>
+                    Wir alle investieren einen großen Teil unserer Freizeit in dieses Projekt und sind alle mit vollem Herzen dabei, natürlich alles Ehrenamtlich.
                 </p>
                 <hr class ="steckbrief">
 

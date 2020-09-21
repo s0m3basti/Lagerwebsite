@@ -27,7 +27,7 @@
         <div id="Inhalt">
             <h1>Bilderarchiv</h1><br>
             <p>
-                Dieser Teil der Webseite ist leider noch in arbeit, später soll es hier jedoch möglich sein Fotos ihrer Kinder wärhrend und auch nach dem Sommercamp zu sehen.<br>
+                Dieser Teil der Webseite ist noch in arbeit, später soll es hier jedoch möglich sein Fotos ihrer Kinder wärhrend und auch nach dem Sommercamp zu sehen.<br>
                 Im Moment ist das nur über unsere Facebook-Seite möglich.<br>
                 Für Fotos klicken sie bitte hier: <a href="https://www.facebook.com/pg/DRK.Sommercamp/photos/?tab=albums" class="old-link" target="_blank">zu Facebook</a>
             </p>

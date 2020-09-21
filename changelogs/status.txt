@@ -68,3 +68,5 @@ Der Status der Anmeldung wurde am 2020-08-26 14:42:00 von 15 (Bastian Schneider)
 Der Status der Anmeldung wurde am 2020-08-26 14:42:47 von 15 (Bastian Schneider) von anmeldung nach keine_anmeldung geändert.
 Der Status der Anmeldung wurde am 2020-08-26 14:42:48 von 15 (Bastian Schneider) von keine_anmeldung nach voranmeldung geändert.
 Der Status der Anmeldung wurde am 2020-08-26 14:43:46 von 15 (Bastian Schneider) von voranmeldung nach anmeldung geändert.
+Der Status der Anmeldung wurde am 2020-09-21 19:30:24 von 15 (Bastian Schneider) von anmeldung nach keine_anmeldung geändert.
+Der Status der Anmeldung wurde am 2020-09-21 19:30:31 von 15 (Bastian Schneider) von keine_anmeldung nach voranmeldung geändert.
