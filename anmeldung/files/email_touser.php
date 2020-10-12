@@ -22,7 +22,7 @@ try {
     $mail->Port       = $mail_port;                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients
-    $mail->setFrom('no-replay@drk-sommercamp.de', 'DRK Sommercamp');    // Add a from-Adresse
+    $mail->setFrom('no-reply@drk-sommercamp.de', 'DRK Sommercamp');    // Add a from-Adresse
     $mail->addAddress($e_email);                                        // Add a recipient
     $mail->addReplyTo($kontaktmail, 'Kontakt @ DRK Sommercamp');        // Add a reply-Adress
 
