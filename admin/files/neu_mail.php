@@ -26,7 +26,8 @@
         //Recipients
         $mail->setFrom('no-replay@drk-sommercamp.de', 'DRK Sommercamp');
         $mail->addAddress($email);                          // Add a recipient
-        $mail->addReplyTo($anmeldungmail, 'Anmeldung @ DRK Sommercamp');
+        $mail->addReplyTo($kontaktmail, 'Anmeldung @ DRK Sommercamp');
+        $mail->addBCC($anmeldungmail);
 
         // Content
         $mail->isHTML(true);
