@@ -60,7 +60,7 @@
                 <td class='avw_head'><a href='?sort=Taschengeld' class='index_head'>Taschengeld</a></td>
                 <td class='avw_head'><a href='?sort=Versicherung_art' class='index_head'>Art der Versciherung</a></td>
                 <td class='avw_head'><a href='?sort=Versicherung_name' class='index_head'>Name der Versicherung</a></td>
-                <td class='avw_head'><a href='?sort=KFZ' class='index_head'>Ptivate KFZ</a></td>
+                <td class='avw_head'><a href='?sort=KFZ' class='index_head'>Private KFZ</a></td>
                 <td class='avw_head'><a href='?sort=Ratenzahlung' class='index_head'>Ratenzahlung</a></td>
                 <td class='avw_head'><a href='?sort=Shirts' class='index_head'>Tshirts</a></td>
                 <td class='avw_head'><a href='?sort=umfrage' class='index_head'>Umfrage</a></td>
