@@ -205,6 +205,9 @@ body{
 .member{
 	background-color: #60B2C8;
 }
+.ov{
+	background-color: #E60005;
+}
  /*Verschiedenes*/
 .old-link{
     text-decoration: underline;
