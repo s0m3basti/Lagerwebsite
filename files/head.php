@@ -1,5 +1,5 @@
         <div class="icon-bar">
-            <a href ="https://www.drk-ov-kw.de/" traget="blank" class="ov tooltip"><i class="fa fa-plus" aria-hidden="true"></i>
+            <a href ="https://www.drk-ov-kw.de/" target="blank" class="ov tooltip"><i class="fa fa-plus" aria-hidden="true"></i>
             <span>Zur OV KW Webseite</span></a>
             <a href="https://www.facebook.com/DRK.Sommercamp/" target=_blank class="facebook tooltip"><i class="fa fa-facebook"></i>
             <span>Direkt zu Facebook</span></a>
