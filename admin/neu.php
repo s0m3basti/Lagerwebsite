@@ -37,7 +37,7 @@ require '../Datenbank/writer.php';
             // Messagebox
             if(isset($_GET['message'])){
                 if($_GET['message'] == "succsess"){
-                    echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Anmeldung erfolgreich hinzugefügt!"</div>';
+                    echo '<div class="message" id="messagebox" style="background-color: #4CAF50; margin-left: 0">Anmeldung erfolgreich hinzugefügt!</div>';
                 }
                 else{
                     echo '<div class="message" id="messagebox" style="background-color: #f44336; margin-left: 0">Fehler bei der Kommunikation mit der Datenbank!</div>';
