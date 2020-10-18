@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-		<title> Online-Anmeldung 2020 | DRK Sommercamp </title>
+		<title> Online-Anmeldung <?php echo $jahr ?> | DRK Sommercamp </title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../CSS/styles.css">
         <link rel="stylesheet" href="../CSS/online.css">
@@ -52,7 +52,7 @@
             $ende = date("Y-m-d", $endex);
 
             $minyear = $anfang - 8;
-            $maxyear = $anfang - 15;
+            $maxyear = $anfang - 16;
 
             $date_a = date("-m-d",$anfangx);
             $date_e = date("-m-d",$endex);
@@ -65,7 +65,7 @@
         ?>
         <div class="bg">
         <div id="Inhalt">
-           <h1>Verbindliche Anmeldung zum DRK Sommercamp 2020</h1><br>
+           <h1>Verbindliche Anmeldung zum DRK Sommercamp <?php echo $jahr ?></h1><br>
            <p class="sub">Bitte das Formular vollständig ausfüllen.<br> Optionale Angaben sind mit * gekennzeichnet.</p>
             <br>
                <form id="anmeldung" method="POST" action="files/senden.php" >

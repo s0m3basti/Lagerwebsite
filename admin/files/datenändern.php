@@ -10,7 +10,7 @@
     $frühbucher = $_POST['frühbucher'];
     $frühbis = $_POST['frühbis']; 
     $kontaktmail = $_POST['kontaktmail']; 
-    $anmedlungmail = $_POST['anmeldungmail']; 
+    $anmeldungmail = $_POST['anmeldungmail']; 
     $supportmail = $_POST['supportmail'];
 
     $anfang = strtotime($anfang);
@@ -28,7 +28,7 @@
     fwrite($handle, $frühbucher."\n");
     fwrite($handle, $frühbis."\n");
     fwrite($handle, $kontaktmail."\n");
-    fwrite($handle, $anmeldungmail);
+    fwrite($handle, $anmeldungmail."\n");
     fwrite($handle, $supportmail."\n");
     fwrite($handle, $status);
     fclose($handle);

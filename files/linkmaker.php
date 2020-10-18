@@ -4,7 +4,7 @@
                 $link = 'http://'.$_SERVER['HTTP_HOST'].'/Lagerwebsite'.$dest;
             }
             else{
-                $link = 'http://'.$_SERVER['HTTP_HOST'].$dest;
+                $link = 'https://'.$_SERVER['HTTP_HOST'].$dest;
             }
         return $link;
     }
