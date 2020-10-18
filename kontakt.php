@@ -30,7 +30,7 @@
         <div id="Inhalt">
             <h1>Kontaktformular</h1><br>
             <p id="title">
-                Sie können jederzeit mit uns Kontakt aufnehmenm, dies ist über das untenstehende Kontaktformular möglich.<br>
+                Sie können jederzeit mit uns Kontakt aufnehmen, dies ist über das untenstehende Kontaktformular möglich.<br>
                 Sie können uns jedoch auch über <a href="https://www.facebook.com/DRK.Sommercamp/" target="_blank" class="old-link">Facebook</a> erreichen, dort ist eine Antwort in der Regel früher zu erwarten.
             </p> <br> <br>
                 <form method="post" action="kontakt.php">
@@ -70,7 +70,7 @@
             </form>
             <br><br>
             <p class="disclaimer">
-                Während des Lager ist eine Kontaktaufnahme via Telefon selbstverständlich möglich. Jedoch können wir leider keine ganzjährigen Auskünfte via Telefon ermöglichen. Wir bitten um ihr Verständnis.   
+                Während des Lagers ist eine Kontaktaufnahme via Telefon selbstverständlich möglich. Jedoch können wir leider keine ganzjährigen Auskünfte via Telefon ermöglichen. Wir bitten um ihr Verständnis.   
             </p>
         </div>
         </div> 

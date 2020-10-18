@@ -690,7 +690,7 @@
                     if(ernaehrung.value.length > 1000 || ernaehrung.value.match(regExtext).index != 0){
                         console.log("Ich war bei ernaehrung");
                         ernaehrung.focus();
-                        messages.push("Geben sie eine gülige beschreibung der Ernährung ein!");
+                        messages.push("Geben sie eine gülige Beschreibung der Ernährung ein!");
                     }
                 }
 
@@ -698,7 +698,7 @@
                     if(krankheit.value.length > 1000 || krankheit.value.match(regExtext).index != 0){
                         console.log("Ich war bei krankheit");
                         krankheit.focus();
-                        messages.push("Geben sie eine gülige beschreibung der Erkrankung ein!");
+                        messages.push("Geben sie eine gülige Beschreibung der Erkrankung ein!");
                     }
                 }
 
@@ -706,7 +706,7 @@
                     if(medizin.value.length > 1000 || medizin.value.match(regExtext).index != 0){
                         console.log("Ich war bei medizin");
                         medizin.focus();
-                        messages.push("Geben sie eine gülige beschreibung der Medikamente ein!");
+                        messages.push("Geben sie eine gülige Beschreibung der Medikamente ein!");
                     }
                 }
 

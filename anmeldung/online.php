@@ -66,7 +66,7 @@
         <div class="bg">
         <div id="Inhalt">
            <h1>Verbindliche Anmeldung zum DRK Sommercamp 2020</h1><br>
-           <p class="sub">Bitte das Formular vollständig ausfüllen.<br> Optionale Angaben sind mit * gekennzeichnet.<br>Verpflichtende Angaben sind rot.</p>
+           <p class="sub">Bitte das Formular vollständig ausfüllen.<br> Optionale Angaben sind mit * gekennzeichnet.</p>
             <br>
                <form id="anmeldung" method="POST" action="files/senden.php" >
                <table id="t_anmeldung" class="zentrierte-tabelle">
@@ -89,7 +89,7 @@
                    <tr>
                        <td><label><input type="radio" name="kind_geschlecht" id="kind_geschlecht_female" value="female"> weiblich</label><br></td>
                        <td><label><input type="radio" name="kind_geschlecht" id="kind_geschlecht_male" value="male"> männlich</label><p class="fehler" id="er_kind_geschlecht"></p></td>
-                       <td>Geburtstdatum:&nbsp</td>
+                       <td>Geburtsdatum:&nbsp</td>
                        <td><input type="date" name="kind_geb" id="kind_geb" min="<?php echo $max ?>" max="<?php echo $min ?>"><br><p class="fehler" id="er_kind_geb"></p></td> 
                     </tr>
                     <tr>
@@ -158,7 +158,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4">Spezielle Ernährung/Vegetarisch&nbsp</td>
+                        <td scope="colgroup" colspan="4">Spezielle Ernährung/ Vegetarisch&nbsp</td>
                     </tr>
                     <tr>
                         <td scope="colgroup" colspan="4"><input type="text" name="ernaehrung" id="ernaehrung" class="wide"><br><p class="fehler" id="er_ernaehrung"></p></td>
@@ -269,7 +269,7 @@
                         <td scope="colgroup" colspan="4"><h2>Wichtige Informationen zum Anmeldeverfahren:&nbsp</h2></td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4">Nach Eingang der Anmeldung erhalten sie eine Anmeldebestätigung. Bei Reiserücktritt später als 14 Tage vor Beginn der Maßnahme stellt der DRK-OV Königs Wusterhausen Ihnen die anfallenden Kosten in voller Höhe in Rechnung. Bei plötzlicher Erkrankung reichen Sie uns bitte die Kopie des Krankenscheins ein.
+                        <td scope="colgroup" colspan="4">Nach Eingang der Anmeldung erhalten sie eine Anmeldebestätigung. Bei Reiserücktritt später als 14 Tage vor Beginn der Maßnahme stellt der DRK-OV-Königs Wusterhausen Ihnen die anfallenden Kosten in voller Höhe in Rechnung. Bei plötzlicher Erkrankung reichen Sie uns bitte die Kopie des Krankenscheins ein.
                                 Eine Erstattung für bestellte T-Shirts ist nicht möglich.</td>
                     </tr>
                     <tr>
@@ -278,12 +278,12 @@
                     <tr>
                         <td scope="colgroup" colspan="4">
                             <ul>
-                                <li>Für die Dauer des Sommercamp übertrage ich die Ausübung der Personensorge über mein Kind dem DRK-OV Königs Wusterhausen. Ich bin damit einverstanden, dass die Ausübung im erforderlichen Ausmaß weiter übertragen wird. Dabei ist mir bewusst, dass die Aufsicht über mein Kind von den verantwortlichen GruppenleiterInnen nur in einem Umfang wahrgenommen werden kann, der zumutbar ist. Dies gilt insbesondere zu Zeiten der Nachtruhe oder während anderer, unaufschiebbarer Verrichtungen.</li>
+                                <li>Für die Dauer des Sommercamps übertrage ich die Ausübung der Personensorge über mein Kind dem DRK-OV Königs Wusterhausen. Ich bin damit einverstanden, dass die Ausübung im erforderlichen Ausmaß weiter übertragen wird. Dabei ist mir bewusst, dass die Aufsicht über mein Kind von den verantwortlichen GruppenleiterInnen nur in einem Umfang wahrgenommen werden kann, der zumutbar ist. Dies gilt insbesondere zu Zeiten der Nachtruhe oder während anderer, unaufschiebbarer Verrichtungen.</li>
                                 <li>Den Weisungen der Aufsichtspersonen hat mein Kind nachzukommen. Mir ist bewusst, dass ein schuldhaftes Verhalten meines Kindes eine Haftung des DRK-OV Königs Wusterhausen ausschließen kann. Ich bin damit einverstanden, dass mein Kind bei schwerwiegenden Verstößen gegen die Freizeitordnung sowie aus pädagogischen Gründen (z. B. nicht mehr vertretbares Heimweh) die Maßnahmen vorzeitig auf eigene Kosten abbrechen muss. Aufenthaltskosten für den Rest der Freizeit werden nicht zurückerstattet. Mir ist bekannt, dass ich sicherzustellen habe, dass entweder ich selbst oder eine von mir beauftragte Person für diese Zeit mein Kind aufnimmt. Diese beauftragte Person muss ebenfalls das Recht haben zu entscheiden, auf welche Weise das Kind befördert wird.</li>
                                 <li>Ich verpflichte mich, vor Campbeginn dem DRK-OV Königs Wusterhausen Auskunft über den Gesundheitszustand meines Kindes zu erteilen. Kurzfristige Veränderungen teile ich dem DRK-OV Königs Wusterhausen mit. Auch andere Umstände, welche einer besonderen Fürsorge für das Kind bedürfen (z.B.: das Kind ist Asthmatiker, Bettnässer, muss medikamentös versorgt werden, usw.), teile ich dem DRK-OV Königs Wusterhausen mit.</li>
                                 <li>Ich bin damit einverstanden, dass erforderliche, vom Arzt für dringend erachtete Schutzimpfungen sowie sonstige ärztliche Maßnahmen, einschließlich dringend erforderlicher Operationen, veranlasst werden, wenn aufgrund besonderer Umstände mein Einverständnis nicht mehr rechtzeitig eingeholt werden kann.</li>
                                 <li>Mein Kind ist zum Zeitpunkt des Campbeginns frei von ansteckenden Krankheiten, Läusen oder Nissen. Ist das Kind vor dem Sommercamp erkrankt oder besteht der Verdacht auf Lausbefall ist eine ärztliche Bestätigung (Ferienlagertauglichkeit) bei der Anreise vorzulegen.</li>
-                                <li>Ich bin damit einverstanden, dass Foto-, Film- und Audioaufnahmen, die von meinem Kind während des Sommercamps gemacht werden für Soziale Medien, Veröffentlichungen und Marketingzwecke des DRK-OV- Königs Wusterhausen verwendet werden dürfen.</li>
+                                <li>Ich bin damit einverstanden, dass Foto-, Film- und Audioaufnahmen, die von meinem Kind während des Sommercamps gemacht werden für soziale Medien, Veröffentlichungen und Marketingzwecke des DRK-OV- Königs Wusterhausen verwendet werden dürfen.</li>
                             </ul>
                             <br> Der Teilnahmebeitrag beträgt für den Gesamtzeitraum <p id="preis" style="display:inline;"><?php echo trim($mompreis)?></p>,- €. Abweichende Preise bei kürzerer Teilnahme oder Anmeldung mehrerer eigener Kinder bitte vorab per Mail erfragen <?php echo($kontaktmail) ?> erfragen.
                         </td>
