@@ -112,8 +112,16 @@
             $anfang = strtotime($anfang);
             $anfang = date("Y-m-d", $anfang);
 
-            $lageralter = $anfang-$k_geburtstag;
+            $lageralter = intval(date("Y",strtotime($anfang))) - intval(date("Y", strtotime($k_geburtstag)));
 
+            if(intval(date("m",strtotime($k_geburtstag))) > intval(date("m", strtotime($anfang)))){
+                $lageralter--;
+            }
+            else
+                if(intval(date("m",strtotime($k_geburtstag))) == intval(date("m", strtotime($anfang))) && intval(date("d", strtotime($k_geburtstag))) > intval(date("d", strtotime($anfang)))){
+                    $lageralter--;
+                }
+        
             //Preis fürs Lager berechenen
             if(date('Y-m-d')<=date('Y-m-d', strtotime($frühbis))){
                 $mompreis = $frühbucher;

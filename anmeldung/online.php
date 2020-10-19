@@ -289,7 +289,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4"><label class="list"><input type="checkbox" name="final" class="list" required><span class="list"><b> Mit Absenden dieses Formulars erkläre ich mich mit den o.g. Bedingungen einverstanden und melde mein Kind verbindlich zum Sommercamp 2020 an.</span></label></td>
+                        <td scope="colgroup" colspan="4"><label class="list"><input type="checkbox" name="final" class="list" required><span class="list"><b> Mit Absenden dieses Formulars erkläre ich mich mit den o.g. Bedingungen einverstanden und melde mein Kind verbindlich zum Sommercamp <?php echo $jahr ?> an.</span></label></td>
                     </tr>
                     <tr>
                         <td scope="colgroup" colspan="4"><label class="list"><input type="checkbox" name="datenschutz" class="list" required> <span class="list">Ich habe die Erklärungen zur Speicherung und Nutzung personenbezogener Daten unter <a href="../datenschutz.php" class="old-link" target="_blank">Datenschutzerklärung</a> gelesen und erkläre mich damit einverstanden.</span></label></td>
