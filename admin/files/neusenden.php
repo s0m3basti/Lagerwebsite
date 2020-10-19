@@ -69,7 +69,15 @@
 
     $anfang = strtotime($anfang);
     $anfang = date("Y-m-d", $anfang);
-    $lageralter = $anfang-$gebdatum;
+    $lageralter = intval(date("Y",strtotime($anfang))) - intval(date("Y", strtotime($gebdatum)));
+
+        if(intval(date("m",strtotime($gebdatum))) > intval(date("m", strtotime($anfang)))){
+            $lageralter--;
+        }
+        else
+            if(intval(date("m",strtotime($gebdatum))) == intval(date("m", strtotime($anfang))) && intval(date("d", strtotime($gebdatum))) > intval(date("d", strtotime($anfang)))){
+                $lageralter--;
+            }
 
     $zahlungsinfo = $zahlungsinfo + ($shirts_anzahl * $shirtpreis);
 
