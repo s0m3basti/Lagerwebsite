@@ -60,7 +60,16 @@
                         $gebdatum = strtotime($gebdatum);
                         $gebdatum = date("Y-m-d", $gebdatum);
                         $heute = date("Y-m-d");
-                        $alter = $heute - $gebdatum;
+
+                        $alter = date("Y", strtotime($heute)) - date("Y", strtotime($gebdatum));
+                        if( date("m", strtotime($heute)) < date("m", strtotime($gebdatum))){
+                            $alter--;
+                        }
+                        else{
+                            if(date("m", strtotime($heute)) == date("m", strtotime($gebdatum)) && date("d", strtotime($heute)) < date("d", strtotime($gebdatum))){
+                                $alter--;
+                            }
+                        }
                         if($alter == 0 ){
                             $alter = "encrypted";
                         }
@@ -68,8 +77,14 @@
                         //Überprüfen ob es ein Bild gibt
                         $img = "files/team/img/$img";
                         if(!file_exists($img)){
-                            $img = "files/team/img/standart.png";
+                            $img = 0;
                         }
+                        if($img == "0"){
+                            $zeile = ""; 
+                         }
+                         else{
+                             $zeile = '<img src='.$img.' alt="Bild des Teammitglieds" class="steckbrief">';
+                         }
 
                         //Anmeldung mit allen Daten ausgeben
                         echo '
@@ -77,8 +92,8 @@
                             <div class = "steckbrief">
                                 <table class = "steckbrief">
                                     <tr class = "steckbrief">
-                                        <td class ="steckbrief links">Name:</td>
-                                        <td class ="steckbrief rechts">'.$name.'</td>
+                                        <td class ="steckbrief links name">Name:</td>
+                                        <td class ="steckbrief rechts name">'.$name.'</td>
                                     </tr>
                                     <tr class = "steckbrief">
                                         <td class ="steckbrief links">Alter:</td>
@@ -107,11 +122,11 @@
                                 </table>
                                 </div>
                                 <div class="img">
-                                    <img src='.$img.' alt="Bild des Teammitglieds" class="steckbrief">
+                                    '.$zeile.'
                                 </div>
                                 </div>
                                 <hr class ="steckbrief">
-                        ';
+                        ';    
                     }
                 ?>
             </div>

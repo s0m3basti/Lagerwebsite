@@ -35,8 +35,16 @@
     
                 $anfang = strtotime($anfang);
                 $anfang = date("Y-m-d", $anfang);
+                $gebdatum = $_POST["gebdatum"];
     
-                $lageralter = $anfang-$_POST["gebdatum"];
+                $lageralter = intval(date("Y",strtotime($anfang))) - intval(date("Y", strtotime($gebdatum)));
+                if(intval(date("m",strtotime($gebdatum))) > intval(date("m", strtotime($anfang)))){
+                    $lageralter--;
+                }
+                else
+                    if(intval(date("m",strtotime($gebdatum))) == intval(date("m", strtotime($anfang))) && intval(date("d", strtotime($gebdatum))) > intval(date("d", strtotime($anfang)))){
+                        $lageralter--;
+                    }
                 
                 try{
                     $db = new PDO("$host; $name" ,$user,$pass);
