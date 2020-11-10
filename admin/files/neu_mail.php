@@ -38,7 +38,6 @@
             <h1 style=\"font-family: Arial; font-size: 18pt; text-decoration: underline; font-weight: bold;\">Anmeldung zum DRK Sommercamp $jahr </h1>
             <p style=\"font-family: Arial; font-size: 14pt\">Hiermit bestätigen wir ihnen den Erhalt der Anmeldung für das DRK Sommercamp $jahr.
                 <br>Die Anmeldung ist jetzt in unserem System hinterlegt.
-                <br>Sie erhalten von uns zusätzlich eine schriftliche Anmeldebestätigung via Post.
                 <br>Hier können sie noch einmal ihre Angaben einsehen. 
                 <br>Sollten sie einen Fehler finden, wenden sie sich bitte an: <a href=\"mailto:$kontaktmail\">$kontaktmail</a>.
             </p>

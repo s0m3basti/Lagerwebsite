@@ -58,13 +58,13 @@
             <tr><td><b>Schwimmstufe:</b></td><td>$stufe</td</tr>
             <tr><td><b>Badeerlaubnis:</b></td><td>$baden</td></tr>
             <tr><td><b>Springen ins Wasser:</b></td><td>$springen</td></tr>
-            <tr><td><b>Spezielle Er&aumlhrung:</b></td><td>$ernaehrung</td></tr>
+            <tr><td><b>Spezielle Ernährung:</b></td><td>$ernaehrung</td></tr>
             <tr><td><b>Krankheiten:</b></td><td>$krankheit</td></tr>
             <tr><td><b>Medikamente:</b></td><td>$medikamente</td></tr>
             <tr><td><b>Taschengeldbetreuung:</b></td><td>$taschengeld</td></tr>
             <tr><td><b>Krankenversicherung (Art):</b></td><td>$kv_art</td></tr>
             <tr><td><b>Krankenversicherung:</b></td><td>$versicherung</td></tr>
-            <tr><td><b>Bef&oumlrderung in privatem KFZ:</b></td><td>$kfz</td></tr>
+            <tr><td><b>Beförderung in privatem KFZ:</b></td><td>$kfz</td></tr>
             <tr><td><b>Ratenzahlung:</b></td><td>$raten</td></tr>
             <tr><td><b>Ratenanzahl:</b></td><td>$raten_anzahl</td></tr>
             <tr><td><b>Tshirts:</b></td><td>$shirt</td></tr>

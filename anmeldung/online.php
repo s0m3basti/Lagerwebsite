@@ -295,7 +295,7 @@
                         <td scope="colgroup" colspan="4"><label class="list"><input type="checkbox" name="datenschutz" class="list" required> <span class="list">Ich habe die Erklärungen zur Speicherung und Nutzung personenbezogener Daten unter <a href="../datenschutz.php" class="old-link" target="_blank">Datenschutzerklärung</a> gelesen und erkläre mich damit einverstanden.</span></label></td>
                     </tr>
                     <tr>
-                        <td scope="colgroup" colspan="4" style="text-align:center"><input name="Submit" id="submit" type="submit" class="submit_button" value="Kostenpflichtig bestellen"><br><p class="fehler" id="er_submit"></p></td>
+                        <td scope="colgroup" colspan="4" style="text-align:center"><input name="Submit" id="submit" type="submit" class="submit_button" value="Kostenpflichtig anmelden"><br><p class="fehler" id="er_submit"></p></td>
                     </tr>
                </table>
            </form>

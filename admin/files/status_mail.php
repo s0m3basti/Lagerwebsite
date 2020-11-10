@@ -43,7 +43,7 @@
                 <br>Sie erhalten diese E-Mail, da sie sich eine Benachrichtigung gewünscht haben. 
                 <br>Ihre Daten wurde sofort nach Senden dieser Mail gelöscht.
             </p>
-            <p style=\"font-family: Arial; font-size: 14pt\">Mit freundlichen Grü&szligen ihr DRK Sommercamp Team
+            <p style=\"font-family: Arial; font-size: 14pt\">Mit freundlichen Grüßen ihr DRK Sommercamp Team
                 <br>
             </p>
             </html> 
