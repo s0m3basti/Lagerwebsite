@@ -43,8 +43,10 @@
                 <br>Passwort: $passwort1
                 <br>
                 <br>Bei deiner ersten Anmeldung wirst du aufgefordert das Passwort zu ändern.
+                <br>Bitte verwende ein sicheres Passwort mit mindestens 8 Zeichen!
+                <br>Zahlen und Sonderzeichen erwünscht.
             </p>
-            <p style=\"font-family: Arial; font-size: 14pt\">Mit freundlichen Grü&szligen 
+            <p style=\"font-family: Arial; font-size: 14pt\">Mit freundlichen Grüßen 
                 <br>Dein DRK Sommercamp Team
                 <br>
             </p>
