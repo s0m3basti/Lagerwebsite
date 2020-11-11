@@ -48,7 +48,7 @@
                 <tr class="doku">
                     <td class="doku_name">Packliste</td>
                     <td class="doku_besch">Nicht nur für sie ist es gut zu wissen was ihr Kind alles mit ins Abenteuer nehmen sollte. Auch für uns ist es von Vorteil, wenn wir wissen welche Sachen ihr Kind mitgebracht hat. Einfach ausdrucken und mit in den Koffer legen. Simpel wie genial.</td>
-                    <td class="doku_link"><a href="Link" target="_blank">Link</a></td>
+                    <td class="doku_link"><a href="dokumente/koffercheckliste_2021.pdf" target="_blank">Link</a></td>
                 </tr> 
             </table>
             <p class="doku">Um ein Dokument zu speichern gehen sie auf den Link zum Dokument. In dieser Ansicht könne sie es dann speichern oder direkt ausdrucken.</p>
