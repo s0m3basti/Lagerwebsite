@@ -30,7 +30,7 @@
         <!--
                 <div class="news"><p><img class="news" src="img/Header.png" alt="Informationen zum Sommercamp"  height="200px"></p></div>
                 <h2>Beispiel Überschrift</h2>
-                <p class="date">31.31.31</p>
+                <p class="date">31.31.2031</p>
                 <br>
                 <p>Beispieltext
                 </p>
@@ -46,6 +46,18 @@
                     <tr valign="top">
                         <td id="left">
                             <div class="news"><p></p></div>
+                                <h2>Sommercamp 2021 findet statt</h2>
+                                <p class="date">24.05.2021</p>
+                                <br>
+                                <p>
+                                Die Freude ist Groß. So wie die derzeitige Situation aussieht findet das Sommercamp statt. <br><br>
+                                Kinder, Betreuer & Helfer dürfen am Sommercamp nur teilnehmen, wenn sie von einer Corona-Erkrankung nachweislich genesen oder mind. 14 Tage vor der Anreise vollständig geimpft worden sind. 
+                                Trifft beides nicht zu, kann zur Anreise ein negatives Testergebnis vorgelegt werden welches nicht älter als 24 Stunden ist oder wir testen vor Ort mittels Schnelltest. <br><br>
+                                Wir werden im Verlauf des Lagers mind. eine weitere (Selbst)Testung vornehmen. Hierfür ist die Einverständniserklärung der Sorgeberechtigten zwingend erforderlich. Eine Teilnahme ohne diese Erklärung ist nicht möglich.
+                                Die Einverständniserklärung muss bei der Anreise unterschrieben werden. <br><br>
+                                Im Speisesaal besteht die Verpflichtung zum Tragen eines Mund-Nase-Schutzes, wenn man nicht am Platz sitzt. Aus diesem Grund geben Sie ihrem Kind bitte ausreichend Masken mit.
+                                </p>
+                                <hr> 
                                 <h2>Launch der neuen Sommercamp-Webseite</h2>
                                 <p class="date">18.10.2020</p>
                                 <br>

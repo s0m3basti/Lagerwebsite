@@ -28,7 +28,7 @@
         
         <div class="bg">
             <div id="Inhalt">
-                <a href="<?php echo(linkmaker("/anmeldung/index.php"))?>"> <img src="<?php echo(linkmaker("/img/Header.png"))?>" alt="Banner für das Sommercamp" title="Zur Anmeldung klicken" id="test"></a>
+                <a href="<?php echo(linkmaker("/anmeldung/index.php"))?>"> <img src="<?php echo(linkmaker("/img/Header.png"))?>" alt="Banner für das Sommercamp 2020" title="Zur Anmeldung klicken" id="test"></a>
                 <h1>Spaß und Action im DRK-Sommercamp <?php echo $jahr ?></h1><br>
                 <img src="<?php echo(linkmaker("/img/volleyball.png"))?>" alt="Kinder beim Volleyball spielen" id="vb">
                 <p>

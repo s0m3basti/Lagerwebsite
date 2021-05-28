@@ -85,7 +85,7 @@
                          else{
                              $zeile = '<img src='.$img.' alt="Bild des Teammitglieds" class="steckbrief">';
                          }
-
+                        
                         //Anmeldung mit allen Daten ausgeben
                         echo '
                             <div class="all">
