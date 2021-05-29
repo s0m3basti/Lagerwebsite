@@ -3,7 +3,7 @@
     if(!isset($_SESSION['userid'])) {
         header("Location: ../login.php?er=1");
     }
-+
+
     require "../../files/linkmaker.php";
     require "../../files/datenzugriff.php";
     require "../../Datenbank/writer.php";
@@ -203,6 +203,36 @@
                 $stmt->execute();
 
                 header("Location:../verwalten.php?message=succsess");
+            }
+            catch(PDOException $e){
+                $fehler = $e->getMessage();
+                echo "Es ist ein Fehler bei der Kommunikation mit der Datenbank aufgetreten. </br> $fehler";
+                header("Location:../verwalten.php?message=fail");
+            }
+            finally{
+                $db = null;
+            }
+            break;
+        case 5:
+            $logtext = 'Die Notizen von '.$_SESSION['k_vorname'].' '.$_SESSION['k_nachname'].' wurde am '.date("Y-m-d H:i:s").' von '.$_SESSION['userid'].' ('.$_SESSION['vorname'].' '.$_SESSION['nachname'].') geändert.';
+
+            $log = "../../changelogs/anmeldung.txt";
+            $logdata = fopen("$log", "a");
+            fwrite($logdata, $logtext."\n");
+            fclose($logdata);
+
+            try{
+                $db = new PDO("$host; $name" ,$user,$pass);
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+                $sql = 'UPDATE tbl_stammdaten 
+                SET Notizen = "'.$_POST["notizen"].'"
+                WHERE TeilnehmerID = "'.$_POST["id"].'";';
+                                
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+
+                header("Location:../verwalten.php?id=".$_POST["id"]);
             }
             catch(PDOException $e){
                 $fehler = $e->getMessage();

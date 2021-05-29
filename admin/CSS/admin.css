@@ -221,6 +221,10 @@ button.datenbutton{
 #nsubmit{
     background-color: #f44336;
 }
+#notizen{
+    width: 40%;
+    height: 30px;
+}
 /*Benutzerverwaltung*/
 div.bnv{
     margin-left: 16%;

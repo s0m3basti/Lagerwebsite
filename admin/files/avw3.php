@@ -26,6 +26,14 @@
             return $var." : ".$anzahl." : ".$gr;
         }
     }
+    function notizen($var){
+        if($var == null || $var == ""){
+            return "n";
+        }
+        else{
+            return "y";
+        }
+    }
 
     try{
         $db = new PDO("$host; $name" ,$user,$pass);
@@ -66,6 +74,7 @@
                 <td class='avw_head'><a href='?sort=umfrage' class='index_head'>Umfrage</a></td>
                 <td class='avw_head'><a href='?sort=art' class='index_head'>Art</a></td>
                 <td class='avw_head'><a href='?sort=datum' class='index_head'>Datum der Anmeldung</a></td>
+                <td class='avw_head'><a href='?sort=Notizen' class='index_head'>Notizen</a></td>
                 <td class='avw_head'><a href='?sort=IP_Adresse' class='index_head'>IP-Adresse der Anmeldung</a></td>
             </tr>";
 
@@ -121,6 +130,7 @@
                 <td class="avw">'.$row['umfrage'].'</td>
                 <td class="avw">'.$row['art'].'</td>
                 <td class="avw">'.$row['Datum'].'</td>
+                <td class="avw">'.notizen($row['Notizen']).'</td>
                 <td class="avw">'.$row['IP_Adresse'].'</td>
             </tr>';
         };

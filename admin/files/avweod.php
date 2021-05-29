@@ -12,6 +12,7 @@
         $nachname = $row['Nachname'];
         $vorname = $row['Vorname'];
         $gebdatum = $row['Geburtstag'];
+        $notizen = $row['Notizen'];
     }
     catch(PDOException $e){
         $fehler = $e->getMessage();
@@ -31,3 +32,9 @@
 <a href="?id=<?php echo $_GET['id']?>&type=3"><button class="avw edit" type="button">Angaben für den Betreuer ändern</button></a><br>
 <h3>Anmeldung löschen</h3>
 <a href="?id=<?php echo $_GET['id']?>&type=4"><button class="avw delete" type="button">Anmeldung unwiederruflich löschen</button></a><br>
+<h3>Notiz hinzufügen</h3>
+<form action="files/avwsenden.php?id=<?php echo $_GET['id']?>&type=5" method="POST">
+    <input type="hidden" value=<?php echo $_GET['id']?> name="id">
+    <input type="text" value="<?php echo $notizen ?>" name="notizen" id="notizen">
+    <input type="submit" value="Notiz speichern">
+</form>

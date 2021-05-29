@@ -306,6 +306,10 @@
                             <td style="border: none; width: 35%;">IP / bearbeiter der Anmeldung</td>
                             <td style="border: none; width: 65%;"> '.$row['IP_Adresse'].'</td>
                         </tr>
+                        <tr style="border: solid 1px black; text-align: left;">
+                            <td style="border: none; width: 35%;">Notizen</td>
+                            <td style="border: none; width: 65%;"> '.$row['Notizen'].'</td>
+                        </tr>
                     </table>
                 ';
 

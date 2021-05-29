@@ -65,6 +65,7 @@ session_start();
         $art = $row['art'];
         $datum = $row['Datum'];
         $ip = $row['IP_Adresse'];
+        $notizen = $row['Notizen'];
     }
     catch(PDOException $e){
         $fehler = $e->getMessage();
@@ -234,6 +235,10 @@ session_start();
         <tr style="border: solid 1px black; text-align: left;">
             <td style="border: none; width: 35%;">IP / bearbeiter der Anmeldung</td>
             <td style="border: none; width: 65%;">'.$ip.'</td>
+        </tr>
+        <tr style="border: solid 1px black; text-align: left;">
+            <td style="border: none; width: 35%;">Notizen</td>
+            <td style="border: none; width: 65%;">'.$notizen.'</td>
         </tr>
     </table>';
 
