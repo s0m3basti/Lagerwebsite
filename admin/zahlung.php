@@ -105,7 +105,7 @@ require "../files/datenzugriff.php";
                                     <td class='index'>".$row['zahlungsdaten']." €</td>
                                     <td class='index'>
                                         <form action='files/zahlung_senden.php' method='POST'>
-                                            <input type='number' name='betrag' placeholder='Betrag eingeben' min='-200' max='500' required>€
+                                            <input type='number' name='betrag' placeholder='Betrag eingeben' min='-200' max='500' step='.01' required>€
                                             <input type='text' name='id' value='".$row['TeilnehmerID']."' hidden>
                                             <input type='text' name='type' value='teil' hidden>
                                             <input type='submit' value='Abbuchen'>

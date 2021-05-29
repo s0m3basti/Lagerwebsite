@@ -53,12 +53,13 @@
             <table style="width: 100%; font-size: 10pt; border: solid 1px black; padding: 2px;">
             <tr style="border: solid 1px black; text-align: center; background-color: lightgrey;">
                 <td style="border: solid 1px black; width: 2%;"></td>
-                <td style="border: solid 1px black;width: 13%;">Vorname des Kindes</td>
-                <td style="border: solid 1px black;width: 13%;">Nachname des Kindes</td>
+                <td style="border: solid 1px black;width: 11%;">Vorname des Kindes</td>
+                <td style="border: solid 1px black;width: 11%;">Nachname des Kindes</td>
                 <td style="border: solid 1px black;width: 10%;">Geschlecht des Kindes</td>
                 <td style="border: solid 1px black;width: 10%;">Geburtstag</td>
-                <td style="border: solid 1px black;width: 13%;">Vorname der Eltern</td>
-                <td style="border: solid 1px black;width: 13%;">Nachname der Eltern</td>
+                <td style="border: solid 1px black;width: 10%;">Vorname der Eltern</td>
+                <td style="border: solid 1px black;width: 10%;">Nachname der Eltern</td>
+                <td style="border: solid 1px black;width: 10%;">Kontaktdaten</td>
                 <td style="border: solid 1px black;width: 5%;">Ratenzahlung</td>
                 <td style="border: solid 1px black;width: 5%;">Ratenanzahl</td>
                 <td style="border: solid 1px black;width: 6%;">Betrag</td>
@@ -85,6 +86,7 @@
                             <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; ">'.date('d.m.Y',strtotime($row['Geburtstag'])).'</td>
                             <td style="border: solid 1px black; border-top: solid 2px black; text-align:right; ">'.$row['e_Vorname'].'</td>
                             <td style="border: solid 1px black; border-top: solid 2px black; text-align:right;">'.$row['e_Nachname'].'</td>
+                            <td style="border: solid 1px black; border-top: solid 2px black; text-align:right;">'.$row['Tel_pri'].'<br>'.$row['Tel_handy'].'<br>'.$row['Tel_dienstl'].'</td>
                             <td style="border: solid 1px black; border-top: solid 2px black; text-align:right;">'.$row['Ratenzahlung'].'</td>
                             <td style="border: solid 1px black; border-top: solid 2px black; text-align:right;">'.$row['Raten_anzahl'].'</td>
                             <td style="border: solid 1px black; border-top: solid 2px black; text-align:right;">'.$row['zahlungsdaten'].' €</td>
