@@ -30,7 +30,7 @@
         $data = [];
         
         array_push($data,
-            "Nr.,Nachname_Kind,Vorname_Kind,Geschlecht,Geburtsdatum,Lager_Alter,Shirt_Anzahl,Preis,Raten,Nachname_Eltern,Vorname_Eltern,E-Mail,Telephon_(privat),Telephon_(Handy),Telephon_(dienst)");
+            "Nr.,Nachname_Kind,Vorname_Kind,Nachname_Eltern,Vorname_Eltern,Strasse,PLZ,Ort,E-Mail,Kommentar,Preis,Raten,T-Shirt,Groesse");
         $i = 0;
         foreach ($db->query($sql) as $row){
             $i++;
@@ -38,18 +38,17 @@
                 $i.','.
                 $row['Nachname'].','.
                 $row['Vorname'].','.
-                $row['Geschlecht'].','.
-                $row['Geburtstag'].','.
-                $row['LagerAlter'].','.
-                $row['Shirts_anzahl'].','.
-                $row['zahlungsdaten'].','.
-                $row['Raten_anzahl'].','.
                 $row['e_Nachname'].','.
                 $row['e_Vorname'].','.
-                $row['email'].',"'.
-                $row['Tel_pri'].'","'.
-                $row['Tel_handy'].'","'.
-                $row['Tel_dienstl'].'",'
+                $row['Strasse'].','.
+                $row['PLZ'].','.
+                $row['Ort'].','.
+                $row['email'].','.
+                $row['Notizen'].','.
+                $row['zahlungsdaten'].','.
+                $row['Raten_anzahl'].','.
+                $row['Shirts_anzahl'].','.
+                $row['Shirts_groesse']
             );
         }
     }
