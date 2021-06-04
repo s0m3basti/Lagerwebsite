@@ -209,7 +209,7 @@
                     <tr>
                         <td></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td scope="colgroup" colspan="4"><h2>Zusatzbestellung Sommercamp Shirt:&nbsp</h2></td>
                     </tr>
                     <tr>
@@ -240,7 +240,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td scope="colgroup" colspan="4"><h2>Umfrage:</h2></td>
                     </tr>
