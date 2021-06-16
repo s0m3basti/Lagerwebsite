@@ -65,6 +65,9 @@
                 <td style="border: solid 1px black;width: 6%;">Betrag</td>
                 <td style="border: solid 1px black;width: 10%;">Bezahlt?</td>
             </tr>';
+
+            $null = 0;
+
             try{
                 $db = new PDO("$host; $name" ,$user,$pass);
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -74,7 +77,7 @@
                                 WHERE s.TeilnehmerID = a.TeilnehmerID
                                 AND s.TeilnehmerID = e.TeilnehmerID
                                 AND Jahr = $jahr
-                                AND zahlungsdaten IS NOT null
+                                AND zahlungsdaten != ".$null."
                                 ORDER BY Nachname, Vorname;";
                     foreach ($db->query($sql) as $row){
                         $zähler++;

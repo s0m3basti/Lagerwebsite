@@ -15,7 +15,7 @@
     require "../../Datenbank/writer.php";
 
     $id = $_POST['id'];
-    $null = "null";
+    $null = 0;
 
     if($_POST['type'] == "ganz"){
         try{

@@ -87,7 +87,6 @@ require "../files/datenzugriff.php";
                                 WHERE s.TeilnehmerID = a.TeilnehmerID
                                 AND s.TeilnehmerID = e.TeilnehmerID
                                 AND Jahr = $jahr
-                                AND zahlungsdaten IS NOT null
                                 ORDER BY $sort;";
                         foreach ($db->query($sql) as $row){
 
