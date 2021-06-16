@@ -123,8 +123,8 @@ require '../Datenbank/writer.php';
                                 echo '
                                     <tr>
                                         <td>Männlich '.$i.':</td>
-                                        <td><input type="number" min="7" max="16" name="m_min_'.$i.'" required></td>
-                                        <td><input type="number" min="7" max="16" name="m_max_'.$i.'" required></td>
+                                        <td><input type="number" min="6" max="16" name="m_min_'.$i.'" required></td>
+                                        <td><input type="number" min="6" max="16" name="m_max_'.$i.'" required></td>
                                         <td><input type="text" name="m_name_'.$i.'"></td>
                                         <td><input type="text" name="m_betreuer_'.$i.'"></td>
                                         <td><input type="text" name="m_zelt_'.$i.'"></td>
@@ -135,8 +135,8 @@ require '../Datenbank/writer.php';
                                 echo '
                                     <tr>
                                         <td>Weiblich '.$i.':</td>
-                                        <td><input type="number" min="7" max="16" name="w_min_'.$i.'" required></td>
-                                        <td><input type="number" min="7" max="16" name="w_max_'.$i.'" required></td>
+                                        <td><input type="number" min="6" max="16" name="w_min_'.$i.'" required></td>
+                                        <td><input type="number" min="6" max="16" name="w_max_'.$i.'" required></td>
                                         <td><input type="text" name="w_name_'.$i.'"></td>
                                         <td><input type="text" name="w_betreuer_'.$i.'"></td>
                                         <td><input type="text" name="w_zelt_'.$i.'"></td>
@@ -225,8 +225,8 @@ require '../Datenbank/writer.php';
                                     echo '
                                         <tr>
                                             <td>Männlich '.$i.':</td>
-                                            <td><input type="number" min="7" max="16" name="m_min_'.$i.'" value="" required></td>
-                                            <td><input type="number" min="7" max="16" name="m_max_'.$i.'" value="" required></td>
+                                            <td><input type="number" min="6" max="16" name="m_min_'.$i.'" value="" required></td>
+                                            <td><input type="number" min="6" max="16" name="m_max_'.$i.'" value="" required></td>
                                             <td><input type="text" name="m_name_'.$i.'" value=""></td>
                                             <td><input type="text" name="m_betreuer_'.$i.'" value=""></td>
                                             <td><input type="text" name="m_zelt_'.$i.'" value=""></td>
@@ -237,8 +237,8 @@ require '../Datenbank/writer.php';
                                 echo '
                                     <tr>
                                         <td>Weiblich '.$i.':</td>
-                                        <td><input type="number" min="7" max="16" name="w_min_'.$i.'" value="" required></td>
-                                        <td><input type="number" min="7" max="16" name="w_max_'.$i.'" value="" required></td>
+                                        <td><input type="number" min="6" max="16" name="w_min_'.$i.'" value="" required></td>
+                                        <td><input type="number" min="6" max="16" name="w_max_'.$i.'" value="" required></td>
                                         <td><input type="text" name="w_name_'.$i.'" value=""></td>
                                         <td><input type="text" name="w_betreuer_'.$i.'" value=""></td>
                                         <td><input type="text" name="w_zelt_'.$i.'" value=""></td>
@@ -251,8 +251,8 @@ require '../Datenbank/writer.php';
                                     echo '
                                         <tr>
                                             <td>Männlich '.$i.':</td>
-                                            <td><input type="number" min="7" max="16" name="m_min_'.$i.'" value="'.$csv[$i-1][1].'" required></td>
-                                            <td><input type="number" min="7" max="16" name="m_max_'.$i.'" value="'.$csv[$i-1][2].'" required></td>
+                                            <td><input type="number" min="6" max="16" name="m_min_'.$i.'" value="'.$csv[$i-1][1].'" required></td>
+                                            <td><input type="number" min="6" max="16" name="m_max_'.$i.'" value="'.$csv[$i-1][2].'" required></td>
                                             <td><input type="text" name="m_name_'.$i.'" value="'.$csv[$i-1][3].'"></td>
                                             <td><input type="text" name="m_betreuer_'.$i.'" value="'.$csv[$i-1][4].'"></td>
                                             <td><input type="text" name="m_zelt_'.$i.'" value="'.$csv[$i-1][5].'"></td>
@@ -263,8 +263,8 @@ require '../Datenbank/writer.php';
                                 echo '
                                     <tr>
                                         <td>Weiblich '.$i.':</td>
-                                        <td><input type="number" min="7" max="16" name="w_min_'.$i.'" value="'.$csv[$i+$wstart-1][1].'" required></td>
-                                        <td><input type="number" min="7" max="16" name="w_max_'.$i.'" value="'.$csv[$i+$wstart-1][2].'" required></td>
+                                        <td><input type="number" min="6" max="16" name="w_min_'.$i.'" value="'.$csv[$i+$wstart-1][1].'" required></td>
+                                        <td><input type="number" min="6" max="16" name="w_max_'.$i.'" value="'.$csv[$i+$wstart-1][2].'" required></td>
                                         <td><input type="text" name="w_name_'.$i.'" value="'.$csv[$i+$wstart-1][3].'"></td>
                                         <td><input type="text" name="w_betreuer_'.$i.'" value="'.$csv[$i+$wstart-1][4].'"></td>
                                         <td><input type="text" name="w_zelt_'.$i.'" value="'.$csv[$i+$wstart-1][5].'"></td>
