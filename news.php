@@ -45,6 +45,16 @@
                 <table>
                     <tr valign="top">
                         <td id="left">
+                            <div class="news"><p><img class="news" src="img/news_2021.jpeg" alt="2021"  height="350px"></p></div>
+                                <h2>Das Sommercamp 2021 steht in den Startlöchern</h2>
+                                <p class="date">15.07.2021</p>
+                                <br>
+                                <p>Die finalen Vorbereitungen für das diesjährige Camp laufen aufhochtouren. Die Zelte sind bereits aufgebaut (Vielen Dank an alle fleißigen Helfer!). Ab Freitagabend ist das Team bereits in voller Stärke im Camp Vorort. <br><br>
+                                    Am Sonntag, den 18.07.2021, ist Anreise. Bitte beachten Sie die Zeitslots die ihnen via Mail gesendet wurden, achten sie auf einen aktuellen Corona-Test für die Teilnehmer und geben sie ausreichend Masken für 13 spannende Tage mit. Nur so können wir einen reibungslosen Ablauf in Pandemiezeiten gewährleisten. <br><br>
+                                    Der Countdown zum offizielle Start des DRK Sommercamps läuft.<br>
+                                    Die Vorfreude ist riesig!
+                                </p>
+                                <hr> 
                             <div class="news"><p></p></div>
                                 <h2>Sommercamp 2021 findet statt</h2>
                                 <p class="date">24.05.2021</p>
